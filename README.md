@@ -1,2 +1,2 @@
 # WinXI
-Windows Experience Index tool, formerly known as Xiret.
+Coming soon, please bare with me.
