@@ -21,13 +21,13 @@ _Key features:-_
 ---
 **Where did you go? Why WinXI?**
 -
-I took a long hiatus from software development. I will get this out of the way now, I'm no longer actively writing software, and solely focus on my repair business. I won't be releasing any more major versions of this application, only bug fixing. The only reason this is here is for those who keep asking after it, I'm happy you appreciate this software.
+I took a long hiatus from software development. I will get this out of the way now, I'm no longer actively writing software, and solely focus on my repair business. I won't be releasing any more major versions of this application, only bugfixing. The only reason this is here is for those who keep asking after it, I'm happy you appreciate this software.
 
 For clarification, WSA, NVReform, and other tools have been scrapped. If someone would like the source code, I'll be happy to send it, however they will not be on Git.
 
 This will be the home of WinXI, and all versioning files, etc, that were on my server will be here.
 
-As for a release deadline, there isn't one, just keep checking in, or watch this repo. Currently, I'm reverting partially applied code and systems I was getting ready for the next version, and catching up with Windows 11 fixes, etc.
+As for a release deadline, there isn't one, just keep checking in, or watch this repo. Currently, I'm reverting partially applied code and systems I was getting ready for the next version, and catching up with Windows 11 bugfixing, etc.
 
 ---
 
