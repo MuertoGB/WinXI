@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<data>
+	<Xiret>
+		<Channel>Release</Channel>
+		<Build>1JA12</Build>
+		<ReleaseDate>7th March 2021</ReleaseDate>
+		<SHA256>6c3bf1d2dc12f5505866c47c12b01ff93e81b414096ac62b6186715f7243cfe1</SHA256>
+		<SHA512>35f910633496023067af344f3805bb212bc8b0b2c668f50e280218a1e21f237577508e0c8a213ac492eae7c2abacd3fc19cfb2ee2a9718cb2014b73e4520cf28</SHA512>
+		<Maj>2</Maj>
+		<Min>1</Min>
+		<Rev>0</Rev>
+	</Xiret>
+</data>
