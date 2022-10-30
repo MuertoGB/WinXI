@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-	<Xiret>
+	<WinXI>
 		<Channel>Release</Channel>
 		<Build>1JA12</Build>
 		<ReleaseDate>7th March 2021</ReleaseDate>
@@ -9,5 +9,5 @@
 		<Maj>2</Maj>
 		<Min>1</Min>
 		<Rev>0</Rev>
-	</Xiret>
+	</WinXI>
 </data>
