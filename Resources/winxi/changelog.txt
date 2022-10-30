@@ -1,0 +1,259 @@
+﻿ - Version 2.1.0 (1JA12) 7th March, 2021
+
+New:
+ · Added new assessment code with many enhancements
+ · Added one new theme color
+ · Added new graphic to form title bars
+ · Bump WinSAT Reader to v5
+    >> Decimal separator is now read from the system
+    >> Fetch WinSAT exit code
+    >> Enumerate string from exit code
+ · Added Help > Donate
+    >> Removed Donate link (About)
+
+Enhancements:
+ · Major user interface and scaling improvements
+ · Moved version label is now clickable (Main form)
+ · Renamed Tools > 'Cleanup' to 'Reset'
+ · Renamed explorer menu item 'Reset Application' to 'Restart Application'
+ · Enabled deletion of WinSAT and Xiret data simultaneously (Tools > Reset)
+ · Concatenate 'What is Rated?' text when hardware mode is enabled
+ · Font Installer updated to utilize new font
+    >> Added Segoe MDL2 assets font as a resource
+ · Removed deprecated files
+    >> Launch diagnostics (prelaunch. *)
+    >> Updater settings (paths. *)
+ · Modified settings load order
+ · Changed how WinSAT executes (Add -v command)
+ · Switched back to SHA256 for crypto
+ · Stability and speed improvements
+   >> Also removed the garbage collector
+
+Bugs:
+ · Fixed an issue where the font installer could prevent application startup
+ · Fixed an issue where the progress bar would not redraw (Assessment)
+ · Fixed radio buttons not matching their corresponding theme color (Settings)
+ · Fixed UI framework font bugs
+ · Fixed UI framework progress bar background transparency
+ · Fixed missing text when a section has no data (Metrics)
+ · Fixed a scenario where the UI could be crashed (Metrics)
+ · Fixed graphical issues on win build 9200
+ · Fixed UI element text out of bounds
+ · Fixed settings file not deleting when stored in the local path (Tools > Reset > Configuration)
+ · Fixed graphical glitches when a theme color is applied to form borders
+ · Fixed Win32 Exceptions when opening specific files (MS changed something)
+ · Other various fixes that aren’t noteworthy
+
+ Misc:
+ · Troubleshooting file updated
+ · Update copyrights to 2021
+
+ - Version 2.0.2 (1HL20) 22nd Oct, 2019
+
+ New:
+ · Added acknowledgements (Help > Acknowledgements)
+   - Some information was moved from the 'About' section
+ · Added the option to save some resources to disk (Options > Save Resources to Disk)
+ · Concatenate version label text when an update is available (Main Form)
+
+Enhancements:
+ · User Interface improvements
+ · The notification system has been redesigned
+ · Improvements have been made to the hotfix installer
+   - Install exit codes are now determined and a reboot is avoided in most cases
+   - Exit codes are shown after install in case an error occurs 
+   - Added a wait animation
+ · Did some sorcery with threading that should vastly improve stability
+ · Changelog keyboard shortcut has been switched from ALT+O to ALT+L
+
+Bugs:
+ · Fixed the hotfix installer failing to patch the system
+
+Misc:
+ · Hotfixes have been added as resources and are no longer downloaded
+
+ - Version 2.0.1 (1HK20) 16th Oct, 2016
+
+New:
+ · Added thanks and a link to Majorgeeks (About)
+ · Added thanks to MyDigitalLife (About)
+
+Enhancements:
+ · Transferred the entirety of Core.dll and Gambol.dll back into the executable
+ · Removed library checking as it's no longer necessary
+ · UI improvements throughout the application
+ · Removed large resources from the project
+   - Missing hotfixes are now downloaded instead
+   - Reduced the application file size by approx. 1.2 megabytes
+ · Detection of missing fonts has been improved
+   - Checking is no longer limited to Windows Vista
+   - All fonts used by the application are now checked and installed if missing
+ · Removed duplicate application channel from assessment logging
+ · Reduced ram consumption by 10-15%
+ · Various stability improvements
+
+Bugs
+ · Fixed double-click repositioning not working after the user invokes an aero snap shortcut
+ · Fixed explorer context menu being bound to an incorrect control
+ · Fixed one form that was scaling via font and not DPI (Score Metrics)
+ · Fixed a rare situation where the hotfix installer would enter an unstable state
+   - This was caused by a task being blocked that would eventually crash the installer thread
+
+Misc:
+ · The troubleshooting file has been updated
+
+ - Version 2.0.0 (1HJ19) 8th Oct, 2019
+
+New:
+ - User interface has been redesigned from the ground up
+ - In-depth assessment mode added which can be set as default in settings
+ - Added the ability to show system hardware
+ - Users can now view key assessment information (Score Metrics)
+ - WinSAT or Xiret can be reset automatically (Tools > Cleanup)
+ - Some handy system information can now be viewed (Tools > View System Details)
+ - Full changelog has been made accessible (Help > Changelog)
+ - System scores can now be refreshed from the menu (Options > Refresh Scores)
+ - Added new settings system (Options > Settings)
+ - Added assessment logging (Options > View Xiret Log)
+ - Pre-launch diagnostics are now stored each time the application is started
+ - Recreated the explorer shortcut menu (Right click the main form icon)
+ - The application now saves Imgur upload links (Options > View Imgur Links)
+
+Enhancements:
+- Any forms position can be reset by double clicking the top left icon
+- Application screenshots now include operating system details
+- Improved uncaught exception handling
+- Application shortcuts have been added
+- Improved application support system
+- JPEG options added for screenshots
+- Full Windows Vista compatibility
+- Full DPI scaling has been added
+- Added WSR4
+
+Misc:
+- Application specific files can be found in ‘%Appdata%\Xiret’
+
+This version is a full rewrite, therefore some details or incipient features may not be listed.
+
+ - Version 1.22.1020
+
+New:
+1. Applied WSRv3
+
+Enhancements:
+1. UI ClassStyle and general UI improvements
+2. Improved UI thread handling
+3. Checksum generation changed to SHA256
+4. Better handling of threads
+5. Improved operating system version checking
+
+Bugs:
+1. Application version checking issue fixed
+2. XML serializing issue fixed
+
+Misc:
+1. The application now requires Windows 7 or higher
+
+ - Version 1.21.1016
+
+New:
+1. UI improvements
+2. Updated XML parsing method added
+3. Auto removal of corrupted scores feature added
+
+Enhancements:
+1. Memory management system removed
+2. WinSAT execution method changes
+3. Multiple instance messagebox removed
+4. Messagebox changes to follow the UI
+5. Core reconstruction applied
+6. The escape key can now be used to exit dialogs
+
+Bugs:
+1. Path formatting issue fixed
+2. Missing file issue fixed
+3. Score files force read in descending order to eliminate loading incorrect formal assessments
+
+Misc:
+1. CLR changed to .net framework 3.5
+
+ - Version 1.3.3
+
+Bugs:
+1. Fixed a typo in the main window
+
+ - Version 1.3.1
+
+New:
+1. User interface improved
+2. Auto-update system added
+3. Troubleshooting information added
+4. Operating system name, architecture and version information added to the main UI
+
+Enhancements:
+1. Print-screen manager removed
+2. The screenshot option now only captures scores and information
+3. WinSAT execution commands changed
+4. Core edits to further prevent WinSAT from exiting spontaneously
+
+Bugs:
+1. Stopped the application reading incorrect WinSAT score files
+
+ - Version 1.2.6
+
+New:
+1. Notification system added
+2. Donate link added to the 'about' section 
+
+Enhancements:
+1. Handed a new WinSAT error code
+2. UI tweaks
+3. Removed redundant code
+4. Removed unused resources
+
+ - Version 1.1.5
+
+Bugs:
+1. Fixed a print-screen bounds issue with UI scaling over 100%
+2. Fixed a typo and applied grammatical corrections
+
+ - Version 1.1.4
+
+New:
+1. Advanced error reporter added
+
+Enhancements:
+1.  WinSAT execution method changes
+2. Users with 'KN/K' versions of Windows are now prompted to download necessary additions
+
+ - Version 1.0.3
+
+New:
+1. Added information regarding experience index scoring
+
+Enhancements:
+1.  UI tweaks and colour balancing
+2. Control changes
+
+Bugs:
+1. Fixed a typo
+2. Removed ability to print-screen unrated systems
+
+ - Version 1.0.2
+
+New:
+1. Useful links added to the 'about' section
+
+Enhancements:
+1.  Screenshot manager UI tweaks
+2. Application scaling is now set via DPI
+
+ - Version 1.0.1
+
+Enhancements:
+1.  Automatic capture of error codes generated by WinSAT added
+2. Screenshot manager added
+
+ - Version 1.0.0
+
+Unreleased private build
