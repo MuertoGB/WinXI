@@ -29,7 +29,7 @@ This will be the home of WinXI, and all versioning files, etc, that were on my s
 
 As for a release deadline, there isn't one, just keep checking in, or watch this repo. Currently, I'm reverting partially applied code and systems I was getting ready for the next version, and catching up with Windows 11 fixes, etc.
 
-And as for the new name, let's face it, Xiret was a shit name form the start.
+And as for the new name, let's face it, Xiret was a shit name from the start.
 
 ---
 
