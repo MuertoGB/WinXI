@@ -13,9 +13,10 @@ _Key features:-_
 - Automatic power adapter detection
 - High DPI support
 - In-Depth assessment mode
-- Portable with easily managed settings
-- Self monitoring for missing resources like fonts and patches
 - Option to reset Winsat with one click
+- Portable with easily managed settings
+- Uncaught exception handling with log generation
+- Self monitoring for missing resources like fonts and patches
 - The 'Show Hardware' toggle instantly shows you which hardware was rated
 
 ---
