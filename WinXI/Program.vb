@@ -8,11 +8,13 @@
 ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
 
 '   01.11.2022 - DR - Impliment elevation changes, omit windows server changes, add capability check for WinSAT
+'   01.11.2022 - DR - Move RestartElevated() to Elevation.vb, update variable
 
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports System.Runtime.CompilerServices
 
 Imports WinXI.Main.Support
+Imports WinXI.Core
 Imports WinXI.Core.Common
 Imports WinXI.Core.System
 
@@ -21,7 +23,7 @@ Friend Class Program
 
     ' // FILL BEFORE RELEASE
     Friend Shared ReadOnly X_Version As String = Application.ProductVersion
-    Friend Const X_Build As String = "221011.220.034"
+    Friend Const X_Build As String = "221011.220.041"
     Friend Const X_Channel As String = "Alpha"
     Friend Const X_ReleaseDate As String = "Not set"
 
@@ -43,17 +45,18 @@ Friend Class Program
             CheckFonts() 'Moved here on 23.10.2019 (Before text rendering is set)
         End If
 
-        If Not WinSystem.IsWinSATCapable Then
-            Booleans.bIncapableOfWinsat = True
-        End If
+        'Perform WinSAT capability check
+        Booleans.bIsWinsatCapable = CBool(IIf(WinSystem.IsWinSATCapable, True, False))
+
+        'Perform elevaation check
+        Booleans.bIsElevated = CBool(IIf(Elevation.IsElevated, True, False))
 
         'Framework
         Application.EnableVisualStyles()
         Application.SetCompatibleTextRenderingDefault(False)
 
-        Booleans.bIsElevated = CBool(IIf(Core.Elevation.IsElevated, True, False))
-
-        Dim Startup As New ApplicationSupport(FormMain, Args)
+        'Run applicatioin instance
+        Dim RunNew As New ApplicationSupport(FormMain, Args)
 
     End Sub
 
@@ -117,9 +120,6 @@ Namespace Main.Support
     Friend Class ApplicationSupport
         Inherits WindowsFormsApplicationBase
 
-        Friend Shared StartInfo As ProcessStartInfo
-        Friend Shared RunElevated As Process
-
         Friend Sub New(MainForm As Form, Args() As String)
 
             MyBase.MainForm = MainForm
@@ -140,7 +140,7 @@ Namespace Main.Support
                 FEnvironment.ShowDialog()
             End If
 
-            If Booleans.bIncapableOfWinsat Then
+            If Not Booleans.bIsWinsatCapable Then
                 FEnvironment.ShowDialog()
             End If
 
@@ -186,30 +186,6 @@ Namespace Main.Support
             End With
 
             e.ExitApplication = False
-
-        End Sub
-
-#End Region
-#Region "Elevation"
-
-        Friend Shared Sub RestartElevated()
-
-            'Sometimes previous instance hangs around for a moment, need to figure why.
-            If Not Booleans.bIsElevated Then
-                Try
-                    StartInfo = New ProcessStartInfo() With {
-                        .UseShellExecute = True,
-                        .WorkingDirectory = FileOps.GetApplicationPath(),
-                        .FileName = FileOps.GetApplicationImage(),
-                        .Verb = "runas"}
-
-                    RunElevated = New Process() With {.StartInfo = StartInfo}
-                    RunElevated.Start()
-                    Environment.Exit(-101)
-                Catch ex As Exception
-                    MessageBox.Show("Could not perform elevated restart." & vbCrLf & ex.ToString, "ApplicationSupport.RestartElevated()", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
-            End If
 
         End Sub
 

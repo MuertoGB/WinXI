@@ -9,6 +9,6 @@ Friend Class Booleans
     Friend Shared bAssessmentVerbose As Boolean = False
     Friend Shared bShowLicense As Boolean = False
     Friend Shared bIsElevated As Boolean = False
-    Friend Shared bIncapableOfWinsat As Boolean = False
+    Friend Shared bIsWinsatCapable As Boolean = False
 
 End Class

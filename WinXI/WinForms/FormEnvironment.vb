@@ -53,6 +53,16 @@ Public Class FormEnvironment
     End Sub
 #End Region
 
+    Private Sub FormEnvironment_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+        If Not Booleans.bIsWinsatCapable Then
+            lblMessage.Text = "This Operating is missing vital WinSAT files. The application will now exit."
+        Else
+            lblMessage.Text = "This program requires Windows Vista or later. The application will now exit."
+        End If
+
+    End Sub
+
 #Region "Button Event Handlers"
 
     Private Sub CmdOkay_Click(sender As Object, e As EventArgs) Handles CmdOkay.Click
@@ -74,16 +84,6 @@ Public Class FormEnvironment
             WindowState = FormWindowState.Normal
         End If
         CenterToScreen()
-    End Sub
-
-    Private Sub FormEnvironment_Load(sender As Object, e As EventArgs) Handles Me.Load
-
-        If Booleans.bIncapableOfWinsat Then
-            lblMessage.Text = "This Operating is missing vital WinSAT files. The application will now exit."
-        Else
-            lblMessage.Text = "This program requires Windows Vista or later. The application will now exit."
-        End If
-
     End Sub
 
 #End Region

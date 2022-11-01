@@ -17,7 +17,6 @@ Imports WinXI.Core.System
 Imports WinXI.Gambol.Controls
 Imports WinXI.Gambol.UI
 Imports WinXI.Winsat
-Imports WinXI.Main.Support
 Imports WinXI.Core
 
 Public Class FormMain
@@ -1021,7 +1020,7 @@ Public Class FormMain
     End Sub
 
     Private Sub RestartElevatedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestartElevatedToolStripMenuItem.Click
-        ApplicationSupport.RestartElevated()
+        Elevation.RestartElevated()
     End Sub
 
     Private Sub CloseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseToolStripMenuItem.Click
