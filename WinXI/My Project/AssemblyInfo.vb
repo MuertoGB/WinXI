@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("WinXI 2")>
-<Assembly: AssemblyDescription("UI for the Windows Experience Index. Compatible with Vista+.")>
+<Assembly: AssemblyTitle("WinXI")>
+<Assembly: AssemblyDescription("Tool for the Windows Experience Index. Compatible with Vista+.")>
 <Assembly: AssemblyCompany("N/A")>
-<Assembly: AssemblyProduct("WinXI (Experience Index Returns)")>
+<Assembly: AssemblyProduct("WinXI (Experience Index Tool)")>
 <Assembly: AssemblyCopyright("Copyright © 2016-2022 David R.")>
 <Assembly: AssemblyTrademark("")>
 

@@ -29,25 +29,25 @@ Partial Class FormReset
         Me.LabHead = New System.Windows.Forms.Label()
         Me.CmdClose = New System.Windows.Forms.Button()
         Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
-        Me.PbxHead = New System.Windows.Forms.PictureBox()
+        Me.icnMain = New System.Windows.Forms.PictureBox()
         Me.TlpMain = New System.Windows.Forms.TableLayoutPanel()
         Me.PanPurge = New System.Windows.Forms.Panel()
         Me.lblApplicationInf = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.cbAgreeApplication = New WinXI.Gambol.Controls.GambolCheckbox()
         Me.lblApplication = New System.Windows.Forms.Label()
         Me.PanReset = New System.Windows.Forms.Panel()
         Me.lblWinsatInf = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.cbAgreeWinsat = New WinXI.Gambol.Controls.GambolCheckbox()
         Me.lblWinSAT = New System.Windows.Forms.Label()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.LabNotRecover = New System.Windows.Forms.Label()
         Me.CmdDelete = New System.Windows.Forms.Button()
         Me.PanSplit = New System.Windows.Forms.Panel()
-        Me.cbAgreeApplication = New WinXI.Gambol.Controls.GambolCheckbox()
-        Me.cbAgreeWinsat = New WinXI.Gambol.Controls.GambolCheckbox()
         Me.PanHead.SuspendLayout()
         Me.TlpHeadImage.SuspendLayout()
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TlpMain.SuspendLayout()
         Me.PanPurge.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -108,7 +108,7 @@ Partial Class FormReset
         Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
         Me.TlpHeadImage.ColumnCount = 1
         Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
-        Me.TlpHeadImage.Controls.Add(Me.PbxHead, 0, 0)
+        Me.TlpHeadImage.Controls.Add(Me.icnMain, 0, 0)
         Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
         Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
         Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
@@ -118,19 +118,19 @@ Partial Class FormReset
         Me.TlpHeadImage.Size = New System.Drawing.Size(40, 40)
         Me.TlpHeadImage.TabIndex = 73
         '
-        'PbxHead
+        'icnMain
         '
-        Me.PbxHead.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PbxHead.BackColor = System.Drawing.Color.Transparent
-        Me.PbxHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PbxHead.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
-        Me.PbxHead.Location = New System.Drawing.Point(9, 8)
-        Me.PbxHead.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
-        Me.PbxHead.Name = "PbxHead"
-        Me.PbxHead.Size = New System.Drawing.Size(24, 24)
-        Me.PbxHead.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxHead.TabIndex = 1
-        Me.PbxHead.TabStop = False
+        Me.icnMain.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.icnMain.BackColor = System.Drawing.Color.Transparent
+        Me.icnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.icnMain.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
+        Me.icnMain.Location = New System.Drawing.Point(9, 8)
+        Me.icnMain.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
+        Me.icnMain.Name = "icnMain"
+        Me.icnMain.Size = New System.Drawing.Size(24, 24)
+        Me.icnMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.icnMain.TabIndex = 1
+        Me.icnMain.TabStop = False
         '
         'TlpMain
         '
@@ -192,6 +192,24 @@ Partial Class FormReset
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(500, 34)
         Me.TableLayoutPanel1.TabIndex = 131
         '
+        'cbAgreeApplication
+        '
+        Me.cbAgreeApplication.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.cbAgreeApplication.BackColor = System.Drawing.Color.Transparent
+        Me.cbAgreeApplication.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.cbAgreeApplication.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.cbAgreeApplication.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cbAgreeApplication.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cbAgreeApplication.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cbAgreeApplication.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbAgreeApplication.ForeColor = System.Drawing.Color.White
+        Me.cbAgreeApplication.Location = New System.Drawing.Point(8, 6)
+        Me.cbAgreeApplication.Margin = New System.Windows.Forms.Padding(8, 0, 0, 0)
+        Me.cbAgreeApplication.Name = "cbAgreeApplication"
+        Me.cbAgreeApplication.Size = New System.Drawing.Size(92, 22)
+        Me.cbAgreeApplication.TabIndex = 2
+        Me.cbAgreeApplication.Text = "I agree"
+        '
         'lblApplication
         '
         Me.lblApplication.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
@@ -245,6 +263,24 @@ Partial Class FormReset
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(500, 34)
         Me.TableLayoutPanel2.TabIndex = 132
+        '
+        'cbAgreeWinsat
+        '
+        Me.cbAgreeWinsat.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.cbAgreeWinsat.BackColor = System.Drawing.Color.Transparent
+        Me.cbAgreeWinsat.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.cbAgreeWinsat.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.cbAgreeWinsat.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cbAgreeWinsat.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cbAgreeWinsat.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cbAgreeWinsat.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbAgreeWinsat.ForeColor = System.Drawing.Color.White
+        Me.cbAgreeWinsat.Location = New System.Drawing.Point(8, 6)
+        Me.cbAgreeWinsat.Margin = New System.Windows.Forms.Padding(8, 0, 0, 0)
+        Me.cbAgreeWinsat.Name = "cbAgreeWinsat"
+        Me.cbAgreeWinsat.Size = New System.Drawing.Size(92, 22)
+        Me.cbAgreeWinsat.TabIndex = 0
+        Me.cbAgreeWinsat.Text = "I agree"
         '
         'lblWinSAT
         '
@@ -318,46 +354,10 @@ Partial Class FormReset
         Me.PanSplit.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanSplit.ForeColor = System.Drawing.Color.Black
         Me.PanSplit.Location = New System.Drawing.Point(1, 41)
-        Me.PanSplit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanSplit.Margin = New System.Windows.Forms.Padding(4)
         Me.PanSplit.Name = "PanSplit"
         Me.PanSplit.Size = New System.Drawing.Size(512, 2)
         Me.PanSplit.TabIndex = 126
-        '
-        'cbAgreeApplication
-        '
-        Me.cbAgreeApplication.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.cbAgreeApplication.BackColor = System.Drawing.Color.Transparent
-        Me.cbAgreeApplication.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.cbAgreeApplication.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.cbAgreeApplication.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cbAgreeApplication.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.cbAgreeApplication.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cbAgreeApplication.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbAgreeApplication.ForeColor = System.Drawing.Color.White
-        Me.cbAgreeApplication.Location = New System.Drawing.Point(8, 6)
-        Me.cbAgreeApplication.Margin = New System.Windows.Forms.Padding(8, 0, 0, 0)
-        Me.cbAgreeApplication.Name = "cbAgreeApplication"
-        Me.cbAgreeApplication.Size = New System.Drawing.Size(92, 22)
-        Me.cbAgreeApplication.TabIndex = 2
-        Me.cbAgreeApplication.Text = "I agree"
-        '
-        'cbAgreeWinsat
-        '
-        Me.cbAgreeWinsat.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.cbAgreeWinsat.BackColor = System.Drawing.Color.Transparent
-        Me.cbAgreeWinsat.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.cbAgreeWinsat.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.cbAgreeWinsat.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cbAgreeWinsat.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.cbAgreeWinsat.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cbAgreeWinsat.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbAgreeWinsat.ForeColor = System.Drawing.Color.White
-        Me.cbAgreeWinsat.Location = New System.Drawing.Point(8, 6)
-        Me.cbAgreeWinsat.Margin = New System.Windows.Forms.Padding(8, 0, 0, 0)
-        Me.cbAgreeWinsat.Name = "cbAgreeWinsat"
-        Me.cbAgreeWinsat.Size = New System.Drawing.Size(92, 22)
-        Me.cbAgreeWinsat.TabIndex = 0
-        Me.cbAgreeWinsat.Text = "I agree"
         '
         'FormReset
         '
@@ -383,7 +383,7 @@ Partial Class FormReset
         Me.Text = "Cleanup"
         Me.PanHead.ResumeLayout(False)
         Me.TlpHeadImage.ResumeLayout(False)
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TlpMain.ResumeLayout(False)
         Me.PanPurge.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
@@ -399,7 +399,7 @@ Partial Class FormReset
     Friend WithEvents CmdClose As System.Windows.Forms.Button
     Friend WithEvents TlpMain As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TlpHeadImage As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents PbxHead As System.Windows.Forms.PictureBox
+    Friend WithEvents icnMain As System.Windows.Forms.PictureBox
     Friend WithEvents PanSplit As Panel
     Friend WithEvents PanPurge As Panel
     Friend WithEvents lblApplicationInf As Label

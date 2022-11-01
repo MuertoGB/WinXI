@@ -28,7 +28,7 @@ Partial Class FormSettings
         Me.PanHead = New System.Windows.Forms.Panel()
         Me.LabHead = New System.Windows.Forms.Label()
         Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
-        Me.PbxHead = New System.Windows.Forms.PictureBox()
+        Me.icnMain = New System.Windows.Forms.PictureBox()
         Me.CmdClose = New System.Windows.Forms.Button()
         Me.PanMain = New System.Windows.Forms.Panel()
         Me.TlpMain = New System.Windows.Forms.TableLayoutPanel()
@@ -67,27 +67,27 @@ Partial Class FormSettings
         Me.RadMegenta4 = New WinXI.Gambol.Controls.GambolRadioButton()
         Me.LabThemeColorInfo = New System.Windows.Forms.Label()
         Me.LabThemeColor = New System.Windows.Forms.Label()
+        Me.PanImgur = New System.Windows.Forms.Panel()
+        Me.TlpLabImgurClientIDCtrls = New System.Windows.Forms.TableLayoutPanel()
+        Me.TlpCustomID = New System.Windows.Forms.TableLayoutPanel()
+        Me.TbxClientId = New System.Windows.Forms.TextBox()
+        Me.Cnnct6 = New System.Windows.Forms.PictureBox()
+        Me.GcbImgurID = New WinXI.Gambol.Controls.GambolCheckbox()
+        Me.LabImgurClientIDInfo = New System.Windows.Forms.Label()
+        Me.LabImgurClientID = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.GambolCheckbox2 = New WinXI.Gambol.Controls.GambolCheckbox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.LabOverridesInfo = New System.Windows.Forms.Label()
+        Me.LabOverrides = New System.Windows.Forms.Label()
         Me.CmdApply = New System.Windows.Forms.Button()
         Me.CmdCancel = New System.Windows.Forms.Button()
         Me.CmdOkay = New System.Windows.Forms.Button()
         Me.PanSplit = New System.Windows.Forms.Panel()
-        Me.LabOverrides = New System.Windows.Forms.Label()
-        Me.LabOverridesInfo = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.GambolCheckbox2 = New WinXI.Gambol.Controls.GambolCheckbox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.LabImgurClientID = New System.Windows.Forms.Label()
-        Me.LabImgurClientIDInfo = New System.Windows.Forms.Label()
-        Me.TlpLabImgurClientIDCtrls = New System.Windows.Forms.TableLayoutPanel()
-        Me.GcbImgurID = New WinXI.Gambol.Controls.GambolCheckbox()
-        Me.Cnnct6 = New System.Windows.Forms.PictureBox()
-        Me.TlpCustomID = New System.Windows.Forms.TableLayoutPanel()
-        Me.TbxClientId = New System.Windows.Forms.TextBox()
-        Me.PanImgur = New System.Windows.Forms.Panel()
         Me.PanHead.SuspendLayout()
         Me.TlpHeadImage.SuspendLayout()
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanMain.SuspendLayout()
         Me.TlpMain.SuspendLayout()
         Me.PanShowHardware.SuspendLayout()
@@ -102,13 +102,13 @@ Partial Class FormSettings
         Me.PanThemeColor.SuspendLayout()
         Me.TlpThemeColorsCtrls.SuspendLayout()
         CType(Me.Cnnct4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanImgur.SuspendLayout()
+        Me.TlpLabImgurClientIDCtrls.SuspendLayout()
+        Me.TlpCustomID.SuspendLayout()
+        CType(Me.Cnnct6, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
-        Me.TlpLabImgurClientIDCtrls.SuspendLayout()
-        CType(Me.Cnnct6, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TlpCustomID.SuspendLayout()
-        Me.PanImgur.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanHead
@@ -143,7 +143,7 @@ Partial Class FormSettings
         Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
         Me.TlpHeadImage.ColumnCount = 1
         Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
-        Me.TlpHeadImage.Controls.Add(Me.PbxHead, 0, 0)
+        Me.TlpHeadImage.Controls.Add(Me.icnMain, 0, 0)
         Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
         Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
         Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
@@ -153,19 +153,19 @@ Partial Class FormSettings
         Me.TlpHeadImage.Size = New System.Drawing.Size(40, 38)
         Me.TlpHeadImage.TabIndex = 73
         '
-        'PbxHead
+        'icnMain
         '
-        Me.PbxHead.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PbxHead.BackColor = System.Drawing.Color.Transparent
-        Me.PbxHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PbxHead.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
-        Me.PbxHead.Location = New System.Drawing.Point(9, 7)
-        Me.PbxHead.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
-        Me.PbxHead.Name = "PbxHead"
-        Me.PbxHead.Size = New System.Drawing.Size(24, 24)
-        Me.PbxHead.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxHead.TabIndex = 1
-        Me.PbxHead.TabStop = False
+        Me.icnMain.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.icnMain.BackColor = System.Drawing.Color.Transparent
+        Me.icnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.icnMain.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
+        Me.icnMain.Location = New System.Drawing.Point(9, 7)
+        Me.icnMain.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
+        Me.icnMain.Name = "icnMain"
+        Me.icnMain.Size = New System.Drawing.Size(24, 24)
+        Me.icnMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.icnMain.TabIndex = 1
+        Me.icnMain.TabStop = False
         '
         'CmdClose
         '
@@ -783,6 +783,213 @@ Partial Class FormSettings
         Me.LabThemeColor.Text = "Theme Color"
         Me.LabThemeColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'PanImgur
+        '
+        Me.PanImgur.BackColor = System.Drawing.Color.Transparent
+        Me.PanImgur.Controls.Add(Me.TlpLabImgurClientIDCtrls)
+        Me.PanImgur.Controls.Add(Me.LabImgurClientIDInfo)
+        Me.PanImgur.Controls.Add(Me.LabImgurClientID)
+        Me.PanImgur.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanImgur.Location = New System.Drawing.Point(0, 408)
+        Me.PanImgur.Margin = New System.Windows.Forms.Padding(0)
+        Me.PanImgur.Name = "PanImgur"
+        Me.PanImgur.Size = New System.Drawing.Size(580, 100)
+        Me.PanImgur.TabIndex = 0
+        '
+        'TlpLabImgurClientIDCtrls
+        '
+        Me.TlpLabImgurClientIDCtrls.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.TlpLabImgurClientIDCtrls.ColumnCount = 3
+        Me.TlpLabImgurClientIDCtrls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TlpLabImgurClientIDCtrls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.TlpLabImgurClientIDCtrls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 460.0!))
+        Me.TlpLabImgurClientIDCtrls.Controls.Add(Me.TlpCustomID, 2, 0)
+        Me.TlpLabImgurClientIDCtrls.Controls.Add(Me.Cnnct6, 0, 0)
+        Me.TlpLabImgurClientIDCtrls.Controls.Add(Me.GcbImgurID, 1, 0)
+        Me.TlpLabImgurClientIDCtrls.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TlpLabImgurClientIDCtrls.Location = New System.Drawing.Point(0, 45)
+        Me.TlpLabImgurClientIDCtrls.Margin = New System.Windows.Forms.Padding(2)
+        Me.TlpLabImgurClientIDCtrls.Name = "TlpLabImgurClientIDCtrls"
+        Me.TlpLabImgurClientIDCtrls.RowCount = 1
+        Me.TlpLabImgurClientIDCtrls.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TlpLabImgurClientIDCtrls.Size = New System.Drawing.Size(580, 55)
+        Me.TlpLabImgurClientIDCtrls.TabIndex = 133
+        '
+        'TlpCustomID
+        '
+        Me.TlpCustomID.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.TlpCustomID.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.TlpCustomID.ColumnCount = 1
+        Me.TlpCustomID.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TlpCustomID.Controls.Add(Me.TbxClientId, 0, 0)
+        Me.TlpCustomID.Location = New System.Drawing.Point(122, 14)
+        Me.TlpCustomID.Margin = New System.Windows.Forms.Padding(2)
+        Me.TlpCustomID.Name = "TlpCustomID"
+        Me.TlpCustomID.RowCount = 1
+        Me.TlpCustomID.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TlpCustomID.Size = New System.Drawing.Size(260, 26)
+        Me.TlpCustomID.TabIndex = 129
+        '
+        'TbxClientId
+        '
+        Me.TbxClientId.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.TbxClientId.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.TbxClientId.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TbxClientId.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TbxClientId.ForeColor = System.Drawing.Color.White
+        Me.TbxClientId.Location = New System.Drawing.Point(3, 3)
+        Me.TbxClientId.Margin = New System.Windows.Forms.Padding(2)
+        Me.TbxClientId.MaxLength = 32
+        Me.TbxClientId.Name = "TbxClientId"
+        Me.TbxClientId.Size = New System.Drawing.Size(254, 20)
+        Me.TbxClientId.TabIndex = 128
+        Me.TbxClientId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Cnnct6
+        '
+        Me.Cnnct6.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Cnnct6.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.Cnnct6.Location = New System.Drawing.Point(9, 12)
+        Me.Cnnct6.Margin = New System.Windows.Forms.Padding(2)
+        Me.Cnnct6.Name = "Cnnct6"
+        Me.Cnnct6.Size = New System.Drawing.Size(1, 30)
+        Me.Cnnct6.TabIndex = 0
+        Me.Cnnct6.TabStop = False
+        '
+        'GcbImgurID
+        '
+        Me.GcbImgurID.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.GcbImgurID.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.GcbImgurID.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.GcbImgurID.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.GcbImgurID.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.GcbImgurID.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.GcbImgurID.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.GcbImgurID.ForeColor = System.Drawing.Color.White
+        Me.GcbImgurID.Location = New System.Drawing.Point(22, 16)
+        Me.GcbImgurID.Margin = New System.Windows.Forms.Padding(2)
+        Me.GcbImgurID.Name = "GcbImgurID"
+        Me.GcbImgurID.Size = New System.Drawing.Size(95, 22)
+        Me.GcbImgurID.TabIndex = 120
+        Me.GcbImgurID.Text = "Enable"
+        '
+        'LabImgurClientIDInfo
+        '
+        Me.LabImgurClientIDInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.LabImgurClientIDInfo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabImgurClientIDInfo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabImgurClientIDInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.LabImgurClientIDInfo.Location = New System.Drawing.Point(0, 24)
+        Me.LabImgurClientIDInfo.Margin = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.LabImgurClientIDInfo.Name = "LabImgurClientIDInfo"
+        Me.LabImgurClientIDInfo.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.LabImgurClientIDInfo.Size = New System.Drawing.Size(580, 21)
+        Me.LabImgurClientIDInfo.TabIndex = 0
+        Me.LabImgurClientIDInfo.Text = "· Enables the use of your own Imgur API client ID"
+        '
+        'LabImgurClientID
+        '
+        Me.LabImgurClientID.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.LabImgurClientID.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabImgurClientID.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabImgurClientID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.LabImgurClientID.Location = New System.Drawing.Point(0, 0)
+        Me.LabImgurClientID.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabImgurClientID.Name = "LabImgurClientID"
+        Me.LabImgurClientID.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
+        Me.LabImgurClientID.Size = New System.Drawing.Size(580, 24)
+        Me.LabImgurClientID.TabIndex = 131
+        Me.LabImgurClientID.Text = "Custom Imgur Client ID"
+        Me.LabImgurClientID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.Controls.Add(Me.TableLayoutPanel1)
+        Me.Panel1.Controls.Add(Me.LabOverridesInfo)
+        Me.Panel1.Controls.Add(Me.LabOverrides)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 510)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(580, 100)
+        Me.Panel1.TabIndex = 5
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.TableLayoutPanel1.ColumnCount = 3
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 320.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.GambolCheckbox2, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.PictureBox2, 0, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 45)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(2)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(580, 55)
+        Me.TableLayoutPanel1.TabIndex = 133
+        '
+        'GambolCheckbox2
+        '
+        Me.GambolCheckbox2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.GambolCheckbox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.GambolCheckbox2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.GambolCheckbox2.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.GambolCheckbox2.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.GambolCheckbox2.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.GambolCheckbox2.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.GambolCheckbox2.ForeColor = System.Drawing.Color.White
+        Me.GambolCheckbox2.Location = New System.Drawing.Point(22, 16)
+        Me.GambolCheckbox2.Margin = New System.Windows.Forms.Padding(2)
+        Me.GambolCheckbox2.Name = "GambolCheckbox2"
+        Me.GambolCheckbox2.Size = New System.Drawing.Size(235, 22)
+        Me.GambolCheckbox2.TabIndex = 121
+        Me.GambolCheckbox2.Text = "Automatic Update Check"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PictureBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.PictureBox2.Location = New System.Drawing.Point(9, 12)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(1, 30)
+        Me.PictureBox2.TabIndex = 0
+        Me.PictureBox2.TabStop = False
+        '
+        'LabOverridesInfo
+        '
+        Me.LabOverridesInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.LabOverridesInfo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabOverridesInfo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabOverridesInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.LabOverridesInfo.Location = New System.Drawing.Point(0, 24)
+        Me.LabOverridesInfo.Margin = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.LabOverridesInfo.Name = "LabOverridesInfo"
+        Me.LabOverridesInfo.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.LabOverridesInfo.Size = New System.Drawing.Size(580, 21)
+        Me.LabOverridesInfo.TabIndex = 0
+        Me.LabOverridesInfo.Text = "· Application specific overrides"
+        '
+        'LabOverrides
+        '
+        Me.LabOverrides.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.LabOverrides.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabOverrides.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabOverrides.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.LabOverrides.Location = New System.Drawing.Point(0, 0)
+        Me.LabOverrides.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabOverrides.Name = "LabOverrides"
+        Me.LabOverrides.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
+        Me.LabOverrides.Size = New System.Drawing.Size(580, 24)
+        Me.LabOverrides.TabIndex = 131
+        Me.LabOverrides.Text = "Overrides"
+        Me.LabOverrides.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'CmdApply
         '
         Me.CmdApply.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
@@ -851,213 +1058,6 @@ Partial Class FormSettings
         Me.PanSplit.Size = New System.Drawing.Size(598, 2)
         Me.PanSplit.TabIndex = 126
         '
-        'LabOverrides
-        '
-        Me.LabOverrides.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.LabOverrides.Dock = System.Windows.Forms.DockStyle.Top
-        Me.LabOverrides.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabOverrides.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.LabOverrides.Location = New System.Drawing.Point(0, 0)
-        Me.LabOverrides.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabOverrides.Name = "LabOverrides"
-        Me.LabOverrides.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
-        Me.LabOverrides.Size = New System.Drawing.Size(580, 24)
-        Me.LabOverrides.TabIndex = 131
-        Me.LabOverrides.Text = "Overrides"
-        Me.LabOverrides.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'LabOverridesInfo
-        '
-        Me.LabOverridesInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.LabOverridesInfo.Dock = System.Windows.Forms.DockStyle.Top
-        Me.LabOverridesInfo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabOverridesInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.LabOverridesInfo.Location = New System.Drawing.Point(0, 24)
-        Me.LabOverridesInfo.Margin = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.LabOverridesInfo.Name = "LabOverridesInfo"
-        Me.LabOverridesInfo.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.LabOverridesInfo.Size = New System.Drawing.Size(580, 21)
-        Me.LabOverridesInfo.TabIndex = 0
-        Me.LabOverridesInfo.Text = "· Application specific overrides"
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.TableLayoutPanel1.ColumnCount = 3
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 320.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.GambolCheckbox2, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.PictureBox2, 0, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 45)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(2)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(580, 55)
-        Me.TableLayoutPanel1.TabIndex = 133
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PictureBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.PictureBox2.Location = New System.Drawing.Point(9, 12)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(1, 30)
-        Me.PictureBox2.TabIndex = 0
-        Me.PictureBox2.TabStop = False
-        '
-        'GambolCheckbox2
-        '
-        Me.GambolCheckbox2.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.GambolCheckbox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.GambolCheckbox2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.GambolCheckbox2.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.GambolCheckbox2.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.GambolCheckbox2.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.GambolCheckbox2.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.GambolCheckbox2.ForeColor = System.Drawing.Color.White
-        Me.GambolCheckbox2.Location = New System.Drawing.Point(22, 16)
-        Me.GambolCheckbox2.Margin = New System.Windows.Forms.Padding(2)
-        Me.GambolCheckbox2.Name = "GambolCheckbox2"
-        Me.GambolCheckbox2.Size = New System.Drawing.Size(235, 22)
-        Me.GambolCheckbox2.TabIndex = 121
-        Me.GambolCheckbox2.Text = "Automatic Update Check"
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.Transparent
-        Me.Panel1.Controls.Add(Me.TableLayoutPanel1)
-        Me.Panel1.Controls.Add(Me.LabOverridesInfo)
-        Me.Panel1.Controls.Add(Me.LabOverrides)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(0, 510)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(580, 100)
-        Me.Panel1.TabIndex = 5
-        '
-        'LabImgurClientID
-        '
-        Me.LabImgurClientID.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.LabImgurClientID.Dock = System.Windows.Forms.DockStyle.Top
-        Me.LabImgurClientID.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabImgurClientID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.LabImgurClientID.Location = New System.Drawing.Point(0, 0)
-        Me.LabImgurClientID.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabImgurClientID.Name = "LabImgurClientID"
-        Me.LabImgurClientID.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
-        Me.LabImgurClientID.Size = New System.Drawing.Size(580, 24)
-        Me.LabImgurClientID.TabIndex = 131
-        Me.LabImgurClientID.Text = "Custom Imgur Client ID"
-        Me.LabImgurClientID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'LabImgurClientIDInfo
-        '
-        Me.LabImgurClientIDInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.LabImgurClientIDInfo.Dock = System.Windows.Forms.DockStyle.Top
-        Me.LabImgurClientIDInfo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabImgurClientIDInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.LabImgurClientIDInfo.Location = New System.Drawing.Point(0, 24)
-        Me.LabImgurClientIDInfo.Margin = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.LabImgurClientIDInfo.Name = "LabImgurClientIDInfo"
-        Me.LabImgurClientIDInfo.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.LabImgurClientIDInfo.Size = New System.Drawing.Size(580, 21)
-        Me.LabImgurClientIDInfo.TabIndex = 0
-        Me.LabImgurClientIDInfo.Text = "· Enables the use of your own Imgur API client ID"
-        '
-        'TlpLabImgurClientIDCtrls
-        '
-        Me.TlpLabImgurClientIDCtrls.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.TlpLabImgurClientIDCtrls.ColumnCount = 3
-        Me.TlpLabImgurClientIDCtrls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TlpLabImgurClientIDCtrls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
-        Me.TlpLabImgurClientIDCtrls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 460.0!))
-        Me.TlpLabImgurClientIDCtrls.Controls.Add(Me.TlpCustomID, 2, 0)
-        Me.TlpLabImgurClientIDCtrls.Controls.Add(Me.Cnnct6, 0, 0)
-        Me.TlpLabImgurClientIDCtrls.Controls.Add(Me.GcbImgurID, 1, 0)
-        Me.TlpLabImgurClientIDCtrls.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TlpLabImgurClientIDCtrls.Location = New System.Drawing.Point(0, 45)
-        Me.TlpLabImgurClientIDCtrls.Margin = New System.Windows.Forms.Padding(2)
-        Me.TlpLabImgurClientIDCtrls.Name = "TlpLabImgurClientIDCtrls"
-        Me.TlpLabImgurClientIDCtrls.RowCount = 1
-        Me.TlpLabImgurClientIDCtrls.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpLabImgurClientIDCtrls.Size = New System.Drawing.Size(580, 55)
-        Me.TlpLabImgurClientIDCtrls.TabIndex = 133
-        '
-        'GcbImgurID
-        '
-        Me.GcbImgurID.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.GcbImgurID.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.GcbImgurID.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.GcbImgurID.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.GcbImgurID.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.GcbImgurID.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.GcbImgurID.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.GcbImgurID.ForeColor = System.Drawing.Color.White
-        Me.GcbImgurID.Location = New System.Drawing.Point(22, 16)
-        Me.GcbImgurID.Margin = New System.Windows.Forms.Padding(2)
-        Me.GcbImgurID.Name = "GcbImgurID"
-        Me.GcbImgurID.Size = New System.Drawing.Size(95, 22)
-        Me.GcbImgurID.TabIndex = 120
-        Me.GcbImgurID.Text = "Enable"
-        '
-        'Cnnct6
-        '
-        Me.Cnnct6.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Cnnct6.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.Cnnct6.Location = New System.Drawing.Point(9, 12)
-        Me.Cnnct6.Margin = New System.Windows.Forms.Padding(2)
-        Me.Cnnct6.Name = "Cnnct6"
-        Me.Cnnct6.Size = New System.Drawing.Size(1, 30)
-        Me.Cnnct6.TabIndex = 0
-        Me.Cnnct6.TabStop = False
-        '
-        'TlpCustomID
-        '
-        Me.TlpCustomID.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.TlpCustomID.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.TlpCustomID.ColumnCount = 1
-        Me.TlpCustomID.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TlpCustomID.Controls.Add(Me.TbxClientId, 0, 0)
-        Me.TlpCustomID.Location = New System.Drawing.Point(122, 14)
-        Me.TlpCustomID.Margin = New System.Windows.Forms.Padding(2)
-        Me.TlpCustomID.Name = "TlpCustomID"
-        Me.TlpCustomID.RowCount = 1
-        Me.TlpCustomID.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TlpCustomID.Size = New System.Drawing.Size(260, 26)
-        Me.TlpCustomID.TabIndex = 129
-        '
-        'TbxClientId
-        '
-        Me.TbxClientId.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TbxClientId.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.TbxClientId.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TbxClientId.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TbxClientId.ForeColor = System.Drawing.Color.White
-        Me.TbxClientId.Location = New System.Drawing.Point(3, 3)
-        Me.TbxClientId.Margin = New System.Windows.Forms.Padding(2)
-        Me.TbxClientId.MaxLength = 32
-        Me.TbxClientId.Name = "TbxClientId"
-        Me.TbxClientId.Size = New System.Drawing.Size(254, 20)
-        Me.TbxClientId.TabIndex = 128
-        Me.TbxClientId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'PanImgur
-        '
-        Me.PanImgur.BackColor = System.Drawing.Color.Transparent
-        Me.PanImgur.Controls.Add(Me.TlpLabImgurClientIDCtrls)
-        Me.PanImgur.Controls.Add(Me.LabImgurClientIDInfo)
-        Me.PanImgur.Controls.Add(Me.LabImgurClientID)
-        Me.PanImgur.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanImgur.Location = New System.Drawing.Point(0, 408)
-        Me.PanImgur.Margin = New System.Windows.Forms.Padding(0)
-        Me.PanImgur.Name = "PanImgur"
-        Me.PanImgur.Size = New System.Drawing.Size(580, 100)
-        Me.PanImgur.TabIndex = 0
-        '
         'FormSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -1082,7 +1082,7 @@ Partial Class FormSettings
         Me.Text = "Settings"
         Me.PanHead.ResumeLayout(False)
         Me.TlpHeadImage.ResumeLayout(False)
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanMain.ResumeLayout(False)
         Me.TlpMain.ResumeLayout(False)
         Me.PanShowHardware.ResumeLayout(False)
@@ -1097,14 +1097,14 @@ Partial Class FormSettings
         Me.PanThemeColor.ResumeLayout(False)
         Me.TlpThemeColorsCtrls.ResumeLayout(False)
         CType(Me.Cnnct4, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
+        Me.PanImgur.ResumeLayout(False)
         Me.TlpLabImgurClientIDCtrls.ResumeLayout(False)
-        CType(Me.Cnnct6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TlpCustomID.ResumeLayout(False)
         Me.TlpCustomID.PerformLayout()
-        Me.PanImgur.ResumeLayout(False)
+        CType(Me.Cnnct6, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1113,7 +1113,7 @@ Partial Class FormSettings
     Friend WithEvents CmdClose As System.Windows.Forms.Button
     Friend WithEvents PanMain As System.Windows.Forms.Panel
     Friend WithEvents TlpHeadImage As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents PbxHead As System.Windows.Forms.PictureBox
+    Friend WithEvents icnMain As System.Windows.Forms.PictureBox
     Friend WithEvents PanSplit As Panel
     Friend WithEvents PanThemeColor As Panel
     Friend WithEvents RadTomato9 As GambolRadioButton

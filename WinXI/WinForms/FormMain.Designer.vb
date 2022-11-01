@@ -26,7 +26,7 @@ Partial Class FormMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
-        Me.PbxHead = New System.Windows.Forms.PictureBox()
+        Me.icnMain = New System.Windows.Forms.PictureBox()
         Me.CmsExplorer = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MinimizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResetPositionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -94,6 +94,7 @@ Partial Class FormMain
         Me.TlpBottom = New System.Windows.Forms.TableLayoutPanel()
         Me.PanShowHardware2 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.swHardware = New WinXI.Gambol.Controls.GambolSwitch()
         Me.lblShowHToggle = New System.Windows.Forms.Label()
         Me.CmdRunInDepth = New System.Windows.Forms.Button()
         Me.PanValidity = New System.Windows.Forms.Panel()
@@ -150,8 +151,9 @@ Partial Class FormMain
         Me.ShowToastInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShowToastWarningToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShowToastErrorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.swHardware = New WinXI.Gambol.Controls.GambolSwitch()
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OpenElevationWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CmsExplorer.SuspendLayout()
         Me.PanHead.SuspendLayout()
         Me.TlpHeadSplit.SuspendLayout()
@@ -180,20 +182,20 @@ Partial Class FormMain
         Me.cmsDebug.SuspendLayout()
         Me.SuspendLayout()
         '
-        'PbxHead
+        'icnMain
         '
-        Me.PbxHead.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.PbxHead.BackColor = System.Drawing.Color.Transparent
-        Me.PbxHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PbxHead.ContextMenuStrip = Me.CmsExplorer
-        Me.PbxHead.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
-        Me.PbxHead.Location = New System.Drawing.Point(10, 10)
-        Me.PbxHead.Margin = New System.Windows.Forms.Padding(10, 0, 0, 6)
-        Me.PbxHead.Name = "PbxHead"
-        Me.PbxHead.Size = New System.Drawing.Size(24, 24)
-        Me.PbxHead.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxHead.TabIndex = 1
-        Me.PbxHead.TabStop = False
+        Me.icnMain.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.icnMain.BackColor = System.Drawing.Color.Transparent
+        Me.icnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.icnMain.ContextMenuStrip = Me.CmsExplorer
+        Me.icnMain.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
+        Me.icnMain.Location = New System.Drawing.Point(10, 10)
+        Me.icnMain.Margin = New System.Windows.Forms.Padding(10, 0, 0, 6)
+        Me.icnMain.Name = "icnMain"
+        Me.icnMain.Size = New System.Drawing.Size(24, 24)
+        Me.icnMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.icnMain.TabIndex = 1
+        Me.icnMain.TabStop = False
         '
         'CmsExplorer
         '
@@ -705,7 +707,7 @@ Partial Class FormMain
         Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
         Me.TlpHeadImage.ColumnCount = 1
         Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166.0!))
-        Me.TlpHeadImage.Controls.Add(Me.PbxHead, 0, 0)
+        Me.TlpHeadImage.Controls.Add(Me.icnMain, 0, 0)
         Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
         Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
         Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
@@ -1193,6 +1195,21 @@ Partial Class FormMain
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(56, 37)
         Me.TableLayoutPanel1.TabIndex = 1
+        '
+        'swHardware
+        '
+        Me.swHardware.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.swHardware.BackColor = System.Drawing.Color.Black
+        Me.swHardware.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.swHardware.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.swHardware.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.swHardware.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.swHardware.Location = New System.Drawing.Point(9, 8)
+        Me.swHardware.Margin = New System.Windows.Forms.Padding(4)
+        Me.swHardware.Name = "swHardware"
+        Me.swHardware.Size = New System.Drawing.Size(38, 21)
+        Me.swHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(CType(CType(170, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(170, Byte), Integer))
+        Me.swHardware.TabIndex = 1
         '
         'lblShowHToggle
         '
@@ -1747,10 +1764,10 @@ Partial Class FormMain
         '
         Me.cmsDebug.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
         Me.cmsDebug.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cmsDebug.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ThrowUnhandledExceptionToolStripMenuItem, Me.ToolStripSeparator11, Me.ShowToastInfoToolStripMenuItem, Me.ShowToastWarningToolStripMenuItem, Me.ShowToastErrorToolStripMenuItem})
+        Me.cmsDebug.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ThrowUnhandledExceptionToolStripMenuItem, Me.ToolStripSeparator11, Me.ShowToastInfoToolStripMenuItem, Me.ShowToastWarningToolStripMenuItem, Me.ShowToastErrorToolStripMenuItem, Me.ToolStripSeparator12, Me.OpenElevationWindowToolStripMenuItem})
         Me.cmsDebug.Name = "cmsDebug"
         Me.cmsDebug.ShowImageMargin = False
-        Me.cmsDebug.Size = New System.Drawing.Size(270, 150)
+        Me.cmsDebug.Size = New System.Drawing.Size(270, 184)
         '
         'ThrowUnhandledExceptionToolStripMenuItem
         '
@@ -1789,20 +1806,18 @@ Partial Class FormMain
         Me.ShowToastErrorToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
         Me.ShowToastErrorToolStripMenuItem.Text = "Show Toast (Error)"
         '
-        'swHardware
+        'ToolStripSeparator12
         '
-        Me.swHardware.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.swHardware.BackColor = System.Drawing.Color.Black
-        Me.swHardware.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.swHardware.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.swHardware.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.swHardware.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.swHardware.Location = New System.Drawing.Point(9, 8)
-        Me.swHardware.Margin = New System.Windows.Forms.Padding(4)
-        Me.swHardware.Name = "swHardware"
-        Me.swHardware.Size = New System.Drawing.Size(38, 21)
-        Me.swHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(CType(CType(170, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(170, Byte), Integer))
-        Me.swHardware.TabIndex = 1
+        Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(266, 6)
+        '
+        'OpenElevationWindowToolStripMenuItem
+        '
+        Me.OpenElevationWindowToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OpenElevationWindowToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.OpenElevationWindowToolStripMenuItem.Name = "OpenElevationWindowToolStripMenuItem"
+        Me.OpenElevationWindowToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
+        Me.OpenElevationWindowToolStripMenuItem.Text = "Open Elevation Window"
         '
         'FormMain
         '
@@ -1828,7 +1843,7 @@ Partial Class FormMain
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "WinXI - Experience Index Tool"
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CmsExplorer.ResumeLayout(False)
         Me.PanHead.ResumeLayout(False)
         Me.TlpHeadSplit.ResumeLayout(False)
@@ -1860,7 +1875,7 @@ Partial Class FormMain
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents PbxHead As System.Windows.Forms.PictureBox
+    Friend WithEvents icnMain As System.Windows.Forms.PictureBox
     Friend WithEvents lblHead As System.Windows.Forms.Label
     Friend WithEvents lblValidityString As System.Windows.Forms.Label
     Friend WithEvents lblWinVerString As System.Windows.Forms.Label
@@ -1985,4 +2000,6 @@ Partial Class FormMain
     Friend WithEvents ShowToastInfoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ShowToastWarningToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ShowToastErrorToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
+    Friend WithEvents OpenElevationWindowToolStripMenuItem As ToolStripMenuItem
 End Class

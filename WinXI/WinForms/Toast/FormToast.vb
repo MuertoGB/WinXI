@@ -91,17 +91,17 @@ Public Class FormToast
         'Set toast type passed
         Select Case ToastAlert.AlertType
             Case ToastType.Critical
-                PbxTypeImage.BackgroundImage = My.Resources.ImgError32Px
+                icnMain.BackgroundImage = My.Resources.ImgError32Px
                 LabTitle.Text = "Error"
                 GProgressBar.ProgressColor = ColorError
                 BackColor = ColorError
             Case ToastType.Information
-                PbxTypeImage.BackgroundImage = My.Resources.ImgInfo32Px
+                icnMain.BackgroundImage = My.Resources.ImgInfo32Px
                 LabTitle.Text = "Information"
                 GProgressBar.ProgressColor = ColorInfo
                 BackColor = ColorInfo
             Case ToastType.Warning
-                PbxTypeImage.BackgroundImage = My.Resources.ImgWarn32Px
+                icnMain.BackgroundImage = My.Resources.ImgWarn32Px
                 LabTitle.Text = "Warning"
                 GProgressBar.ProgressColor = ColorWarning
                 BackColor = ColorWarning

@@ -23,7 +23,7 @@ Friend Class Program
 
     ' // FILL BEFORE RELEASE
     Friend Shared ReadOnly X_Version As String = Application.ProductVersion
-    Friend Const X_Build As String = "221011.220.041"
+    Friend Const X_Build As String = "221011.220.050"
     Friend Const X_Channel As String = "Alpha"
     Friend Const X_ReleaseDate As String = "Not set"
 
@@ -48,14 +48,14 @@ Friend Class Program
         'Perform WinSAT capability check
         Booleans.bIsWinsatCapable = CBool(IIf(WinSystem.IsWinSATCapable, True, False))
 
-        'Perform elevaation check
+        'Perform elevation check
         Booleans.bIsElevated = CBool(IIf(Elevation.IsElevated, True, False))
 
         'Framework
         Application.EnableVisualStyles()
         Application.SetCompatibleTextRenderingDefault(False)
 
-        'Run applicatioin instance
+        'Run application instance
         Dim RunNew As New ApplicationSupport(FormMain, Args)
 
     End Sub

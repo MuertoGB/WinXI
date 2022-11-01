@@ -26,7 +26,7 @@ Partial Class FormHotfix
         Me.PanHead = New System.Windows.Forms.Panel()
         Me.LabHead = New System.Windows.Forms.Label()
         Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
-        Me.PbxHead = New System.Windows.Forms.PictureBox()
+        Me.icnMain = New System.Windows.Forms.PictureBox()
         Me.CmdClose = New System.Windows.Forms.Button()
         Me.PanSplit = New System.Windows.Forms.Panel()
         Me.PanMain = New System.Windows.Forms.Panel()
@@ -43,7 +43,7 @@ Partial Class FormHotfix
         Me.LabInfo = New System.Windows.Forms.Label()
         Me.PanHead.SuspendLayout()
         Me.TlpHeadImage.SuspendLayout()
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanMain.SuspendLayout()
         Me.TlpLink.SuspendLayout()
         Me.TlpBottom.SuspendLayout()
@@ -61,7 +61,7 @@ Partial Class FormHotfix
         Me.PanHead.Location = New System.Drawing.Point(1, 1)
         Me.PanHead.Margin = New System.Windows.Forms.Padding(2)
         Me.PanHead.Name = "PanHead"
-        Me.PanHead.Size = New System.Drawing.Size(450, 32)
+        Me.PanHead.Size = New System.Drawing.Size(563, 40)
         Me.PanHead.TabIndex = 126
         '
         'LabHead
@@ -70,9 +70,10 @@ Partial Class FormHotfix
         Me.LabHead.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LabHead.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabHead.ForeColor = System.Drawing.Color.White
-        Me.LabHead.Location = New System.Drawing.Point(32, 0)
+        Me.LabHead.Location = New System.Drawing.Point(40, 0)
+        Me.LabHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabHead.Name = "LabHead"
-        Me.LabHead.Size = New System.Drawing.Size(386, 32)
+        Me.LabHead.Size = New System.Drawing.Size(483, 40)
         Me.LabHead.TabIndex = 70
         Me.LabHead.Text = "Application Support"
         Me.LabHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -81,30 +82,30 @@ Partial Class FormHotfix
         '
         Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
         Me.TlpHeadImage.ColumnCount = 1
-        Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
-        Me.TlpHeadImage.Controls.Add(Me.PbxHead, 0, 0)
+        Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.TlpHeadImage.Controls.Add(Me.icnMain, 0, 0)
         Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
         Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
         Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
         Me.TlpHeadImage.Name = "TlpHeadImage"
         Me.TlpHeadImage.RowCount = 1
         Me.TlpHeadImage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpHeadImage.Size = New System.Drawing.Size(32, 32)
+        Me.TlpHeadImage.Size = New System.Drawing.Size(40, 40)
         Me.TlpHeadImage.TabIndex = 73
         '
-        'PbxHead
+        'icnMain
         '
-        Me.PbxHead.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PbxHead.BackColor = System.Drawing.Color.Transparent
-        Me.PbxHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PbxHead.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
-        Me.PbxHead.Location = New System.Drawing.Point(7, 6)
-        Me.PbxHead.Margin = New System.Windows.Forms.Padding(0, 0, 8, 0)
-        Me.PbxHead.Name = "PbxHead"
-        Me.PbxHead.Size = New System.Drawing.Size(19, 19)
-        Me.PbxHead.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxHead.TabIndex = 1
-        Me.PbxHead.TabStop = False
+        Me.icnMain.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.icnMain.BackColor = System.Drawing.Color.Transparent
+        Me.icnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.icnMain.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
+        Me.icnMain.Location = New System.Drawing.Point(9, 8)
+        Me.icnMain.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
+        Me.icnMain.Name = "icnMain"
+        Me.icnMain.Size = New System.Drawing.Size(24, 24)
+        Me.icnMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.icnMain.TabIndex = 1
+        Me.icnMain.TabStop = False
         '
         'CmdClose
         '
@@ -116,11 +117,11 @@ Partial Class FormHotfix
         Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!)
         Me.CmdClose.ForeColor = System.Drawing.Color.White
-        Me.CmdClose.Location = New System.Drawing.Point(418, 0)
+        Me.CmdClose.Location = New System.Drawing.Point(523, 0)
         Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdClose.Name = "CmdClose"
         Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.CmdClose.Size = New System.Drawing.Size(32, 32)
+        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
         Me.CmdClose.TabIndex = 0
         Me.CmdClose.TabStop = False
         Me.CmdClose.Text = "✕"
@@ -131,9 +132,10 @@ Partial Class FormHotfix
         Me.PanSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.PanSplit.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanSplit.ForeColor = System.Drawing.Color.Black
-        Me.PanSplit.Location = New System.Drawing.Point(1, 33)
+        Me.PanSplit.Location = New System.Drawing.Point(1, 41)
+        Me.PanSplit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PanSplit.Name = "PanSplit"
-        Me.PanSplit.Size = New System.Drawing.Size(450, 2)
+        Me.PanSplit.Size = New System.Drawing.Size(563, 2)
         Me.PanSplit.TabIndex = 127
         '
         'PanMain
@@ -144,10 +146,10 @@ Partial Class FormHotfix
         Me.PanMain.Controls.Add(Me.TlpBottom)
         Me.PanMain.Controls.Add(Me.LabInfo)
         Me.PanMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanMain.Location = New System.Drawing.Point(1, 35)
-        Me.PanMain.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PanMain.Location = New System.Drawing.Point(1, 43)
+        Me.PanMain.Margin = New System.Windows.Forms.Padding(2)
         Me.PanMain.Name = "PanMain"
-        Me.PanMain.Size = New System.Drawing.Size(450, 236)
+        Me.PanMain.Size = New System.Drawing.Size(563, 296)
         Me.PanMain.TabIndex = 128
         '
         'LabInfo2
@@ -155,11 +157,11 @@ Partial Class FormHotfix
         Me.LabInfo2.Dock = System.Windows.Forms.DockStyle.Top
         Me.LabInfo2.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabInfo2.ForeColor = System.Drawing.Color.White
-        Me.LabInfo2.Location = New System.Drawing.Point(0, 86)
+        Me.LabInfo2.Location = New System.Drawing.Point(0, 108)
         Me.LabInfo2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LabInfo2.Name = "LabInfo2"
-        Me.LabInfo2.Padding = New System.Windows.Forms.Padding(6, 0, 0, 0)
-        Me.LabInfo2.Size = New System.Drawing.Size(450, 70)
+        Me.LabInfo2.Padding = New System.Windows.Forms.Padding(8, 0, 0, 0)
+        Me.LabInfo2.Size = New System.Drawing.Size(563, 88)
         Me.LabInfo2.TabIndex = 132
         Me.LabInfo2.Text = resources.GetString("LabInfo2.Text")
         Me.LabInfo2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -172,13 +174,13 @@ Partial Class FormHotfix
         Me.TlpLink.Controls.Add(Me.LabLink, 0, 0)
         Me.TlpLink.Controls.Add(Me.LnkHotfix, 1, 0)
         Me.TlpLink.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TlpLink.Location = New System.Drawing.Point(0, 165)
-        Me.TlpLink.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TlpLink.Location = New System.Drawing.Point(0, 207)
+        Me.TlpLink.Margin = New System.Windows.Forms.Padding(2)
         Me.TlpLink.Name = "TlpLink"
         Me.TlpLink.RowCount = 1
         Me.TlpLink.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpLink.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
-        Me.TlpLink.Size = New System.Drawing.Size(450, 24)
+        Me.TlpLink.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TlpLink.Size = New System.Drawing.Size(563, 30)
         Me.TlpLink.TabIndex = 138
         '
         'LabLink
@@ -187,11 +189,11 @@ Partial Class FormHotfix
         Me.LabLink.AutoSize = True
         Me.LabLink.Font = New System.Drawing.Font("Segoe MDL2 Assets", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabLink.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(91, Byte), Integer))
-        Me.LabLink.Location = New System.Drawing.Point(2, 4)
+        Me.LabLink.Location = New System.Drawing.Point(2, 5)
         Me.LabLink.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LabLink.Name = "LabLink"
-        Me.LabLink.Padding = New System.Windows.Forms.Padding(6, 0, 0, 0)
-        Me.LabLink.Size = New System.Drawing.Size(26, 15)
+        Me.LabLink.Padding = New System.Windows.Forms.Padding(8, 0, 0, 0)
+        Me.LabLink.Size = New System.Drawing.Size(34, 19)
         Me.LabLink.TabIndex = 137
         Me.LabLink.Text = ""
         '
@@ -205,10 +207,10 @@ Partial Class FormHotfix
         Me.LnkHotfix.ForeColor = System.Drawing.Color.White
         Me.LnkHotfix.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
         Me.LnkHotfix.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LnkHotfix.Location = New System.Drawing.Point(32, 2)
+        Me.LnkHotfix.Location = New System.Drawing.Point(40, 3)
         Me.LnkHotfix.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LnkHotfix.Name = "LnkHotfix"
-        Me.LnkHotfix.Size = New System.Drawing.Size(121, 19)
+        Me.LnkHotfix.Size = New System.Drawing.Size(150, 23)
         Me.LnkHotfix.TabIndex = 0
         Me.LnkHotfix.TabStop = True
         Me.LnkHotfix.Text = "Hotfix Information"
@@ -216,21 +218,21 @@ Partial Class FormHotfix
         'TlpBottom
         '
         Me.TlpBottom.ColumnCount = 3
-        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 276.0!))
-        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
-        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
-        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16.0!))
-        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 16.0!))
+        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 345.0!))
+        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212.0!))
+        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TlpBottom.Controls.Add(Me.LabDownload, 0, 0)
         Me.TlpBottom.Controls.Add(Me.PbxLoad, 1, 0)
         Me.TlpBottom.Controls.Add(Me.TlpButtons, 2, 0)
         Me.TlpBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TlpBottom.Location = New System.Drawing.Point(0, 189)
-        Me.TlpBottom.Margin = New System.Windows.Forms.Padding(2, 2, 2, 54)
+        Me.TlpBottom.Location = New System.Drawing.Point(0, 237)
+        Me.TlpBottom.Margin = New System.Windows.Forms.Padding(2, 2, 2, 68)
         Me.TlpBottom.Name = "TlpBottom"
         Me.TlpBottom.RowCount = 1
         Me.TlpBottom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpBottom.Size = New System.Drawing.Size(450, 47)
+        Me.TlpBottom.Size = New System.Drawing.Size(563, 59)
         Me.TlpBottom.TabIndex = 136
         '
         'LabDownload
@@ -240,36 +242,36 @@ Partial Class FormHotfix
         Me.LabDownload.BackColor = System.Drawing.Color.Transparent
         Me.LabDownload.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabDownload.ForeColor = System.Drawing.Color.White
-        Me.LabDownload.Location = New System.Drawing.Point(2, 14)
+        Me.LabDownload.Location = New System.Drawing.Point(2, 18)
         Me.LabDownload.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LabDownload.Name = "LabDownload"
-        Me.LabDownload.Padding = New System.Windows.Forms.Padding(4, 0, 0, 0)
-        Me.LabDownload.Size = New System.Drawing.Size(4, 19)
+        Me.LabDownload.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabDownload.Size = New System.Drawing.Size(5, 23)
         Me.LabDownload.TabIndex = 1
         '
         'PbxLoad
         '
         Me.PbxLoad.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.PbxLoad.Location = New System.Drawing.Point(276, 14)
+        Me.PbxLoad.Location = New System.Drawing.Point(345, 17)
         Me.PbxLoad.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxLoad.Name = "PbxLoad"
-        Me.PbxLoad.Size = New System.Drawing.Size(19, 19)
+        Me.PbxLoad.Size = New System.Drawing.Size(24, 24)
         Me.PbxLoad.TabIndex = 3
         Me.PbxLoad.TabStop = False
         '
         'TlpButtons
         '
         Me.TlpButtons.ColumnCount = 2
-        Me.TlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72.0!))
-        Me.TlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72.0!))
+        Me.TlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
+        Me.TlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
         Me.TlpButtons.Controls.Add(Me.CmdInstall, 1, 0)
         Me.TlpButtons.Controls.Add(Me.CmdCancel, 0, 0)
-        Me.TlpButtons.Location = New System.Drawing.Point(302, 2)
-        Me.TlpButtons.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TlpButtons.Location = New System.Drawing.Point(377, 2)
+        Me.TlpButtons.Margin = New System.Windows.Forms.Padding(2)
         Me.TlpButtons.Name = "TlpButtons"
         Me.TlpButtons.RowCount = 1
         Me.TlpButtons.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpButtons.Size = New System.Drawing.Size(144, 42)
+        Me.TlpButtons.Size = New System.Drawing.Size(180, 52)
         Me.TlpButtons.TabIndex = 4
         '
         'CmdInstall
@@ -284,10 +286,10 @@ Partial Class FormHotfix
         Me.CmdInstall.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdInstall.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdInstall.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdInstall.Location = New System.Drawing.Point(75, 6)
+        Me.CmdInstall.Location = New System.Drawing.Point(94, 7)
         Me.CmdInstall.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdInstall.Name = "CmdInstall"
-        Me.CmdInstall.Size = New System.Drawing.Size(66, 30)
+        Me.CmdInstall.Size = New System.Drawing.Size(82, 38)
         Me.CmdInstall.TabIndex = 2
         Me.CmdInstall.Text = "Install"
         Me.CmdInstall.UseVisualStyleBackColor = False
@@ -304,10 +306,10 @@ Partial Class FormHotfix
         Me.CmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdCancel.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdCancel.Location = New System.Drawing.Point(3, 6)
+        Me.CmdCancel.Location = New System.Drawing.Point(4, 7)
         Me.CmdCancel.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdCancel.Name = "CmdCancel"
-        Me.CmdCancel.Size = New System.Drawing.Size(66, 30)
+        Me.CmdCancel.Size = New System.Drawing.Size(82, 38)
         Me.CmdCancel.TabIndex = 1
         Me.CmdCancel.Text = "Cancel"
         Me.CmdCancel.UseVisualStyleBackColor = False
@@ -321,19 +323,19 @@ Partial Class FormHotfix
         Me.LabInfo.Location = New System.Drawing.Point(0, 0)
         Me.LabInfo.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.LabInfo.Name = "LabInfo"
-        Me.LabInfo.Padding = New System.Windows.Forms.Padding(6, 6, 0, 0)
-        Me.LabInfo.Size = New System.Drawing.Size(450, 86)
+        Me.LabInfo.Padding = New System.Windows.Forms.Padding(8, 8, 0, 0)
+        Me.LabInfo.Size = New System.Drawing.Size(563, 108)
         Me.LabInfo.TabIndex = 0
         Me.LabInfo.Text = resources.GetString("LabInfo.Text")
         '
         'FormHotfix
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(452, 272)
+        Me.ClientSize = New System.Drawing.Size(565, 340)
         Me.Controls.Add(Me.PanMain)
         Me.Controls.Add(Me.PanSplit)
         Me.Controls.Add(Me.PanHead)
@@ -341,16 +343,16 @@ Partial Class FormHotfix
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.MaximumSize = New System.Drawing.Size(452, 272)
-        Me.MinimumSize = New System.Drawing.Size(452, 272)
+        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MaximumSize = New System.Drawing.Size(565, 340)
+        Me.MinimumSize = New System.Drawing.Size(565, 340)
         Me.Name = "FormHotfix"
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Application Support"
         Me.PanHead.ResumeLayout(False)
         Me.TlpHeadImage.ResumeLayout(False)
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanMain.ResumeLayout(False)
         Me.TlpLink.ResumeLayout(False)
         Me.TlpLink.PerformLayout()
@@ -376,7 +378,7 @@ Partial Class FormHotfix
     Friend WithEvents LabDownload As Label
     Friend WithEvents PbxLoad As PictureBox
     Friend WithEvents TlpHeadImage As TableLayoutPanel
-    Friend WithEvents PbxHead As PictureBox
+    Friend WithEvents icnMain As PictureBox
     Friend WithEvents TlpButtons As TableLayoutPanel
     Friend WithEvents LabLink As Label
     Friend WithEvents TlpLink As TableLayoutPanel

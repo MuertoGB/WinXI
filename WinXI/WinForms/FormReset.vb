@@ -22,7 +22,7 @@ Public Class FormReset
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, PbxHead.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -140,7 +140,7 @@ Public Class FormReset
 #End Region
 #Region "Picturebox Event Handler"
 
-    Private Sub PbxHead_Click(sender As Object, e As EventArgs) Handles PbxHead.DoubleClick
+    Private Sub icnMain_Click(sender As Object, e As EventArgs) Handles icnMain.DoubleClick
         If Not WindowState = FormWindowState.Normal Then
             WindowState = FormWindowState.Normal
         End If

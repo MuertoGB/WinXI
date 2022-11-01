@@ -55,7 +55,7 @@ Public Class FormMain
 #End Region
 #Region "WndProc"
 
-    Private Sub Frame_Move(Sender As Object, e As MouseEventArgs) Handles Me.MouseMove, PbxHead.MouseMove, TlpHeadImage.MouseMove, lblHead.MouseMove, PanHead.MouseMove
+    Private Sub Frame_Move(Sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, lblHead.MouseMove, PanHead.MouseMove
 
         If e.Button = MouseButtons.Left Then
             DirectCast(Sender, Control).Capture = False
@@ -382,7 +382,7 @@ Public Class FormMain
             ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
             If Not Booleans.bIsElevated Then
-                MessageBox.Show("Not running as administrator, cannot continue test.")
+                RequestElevation()
             Else
                 If Settings.UseVerboseAssessmentMode = True Then
                     Booleans.bAssessmentVerbose = True
@@ -412,11 +412,13 @@ Public Class FormMain
     End Sub
     Private Sub CmdRunInDepth_Click(sender As Object, e As EventArgs) Handles CmdRunInDepth.Click
 
+
+
         If Not Power.IsAdapterPluggedIn() Then
             ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
             If Not Booleans.bIsElevated Then
-                MessageBox.Show("Not running as administrator, cannot continue test.")
+                RequestElevation()
             Else
                 'Override settings
                 Booleans.bAssessmentVerbose = True
@@ -486,7 +488,7 @@ Public Class FormMain
 
 #End Region
 #Region "Picturebox Event Handlers"
-    Private Sub PbxMain_DoubleClick(sender As Object, e As EventArgs) Handles PbxHead.DoubleClick
+    Private Sub icnMain_DoubleClick(sender As Object, e As EventArgs) Handles icnMain.DoubleClick
         If Not WindowState = FormWindowState.Normal Then
             WindowState = FormWindowState.Normal
         End If
@@ -857,7 +859,7 @@ Public Class FormMain
             ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
             If Not Booleans.bIsElevated Then
-                MessageBox.Show("Not running as administrator, cannot continue test.")
+                RequestElevation()
             Else
                 'Override settings
                 Booleans.bAssessmentVerbose = False
@@ -876,7 +878,7 @@ Public Class FormMain
             ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
             If Not Booleans.bIsElevated Then
-                MessageBox.Show("Not running as administrator, cannot continue test.")
+                RequestElevation()
             Else
                 'Override settings
                 Booleans.bAssessmentVerbose = True
@@ -989,7 +991,9 @@ Public Class FormMain
 #Region "Context Menu (Debug)"
 
     Private Sub ThrowUnhandledExceptionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ThrowUnhandledExceptionToolStripMenuItem.Click
-        Process.Start("unhandledexception.exe")
+
+        Process.Start("sohowdoyouplanonsavingtheworld?")
+
     End Sub
 
     Private Sub ShowToastInfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToastInfoToolStripMenuItem.Click
@@ -997,11 +1001,21 @@ Public Class FormMain
     End Sub
 
     Private Sub ShowToastWarningToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToastWarningToolStripMenuItem.Click
-        ToastAlert.Show("This is an warning message", ToastType.Warning)
+        ToastAlert.Show("This is a warning message", ToastType.Warning)
     End Sub
 
     Private Sub ShowToastErrorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToastErrorToolStripMenuItem.Click
         ToastAlert.Show("This is an error message", ToastType.Critical)
+    End Sub
+
+    Private Sub OpenElevationWindowToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenElevationWindowToolStripMenuItem.Click
+
+        Fade.FadeBehindChild(Me)
+
+        Dim F As New FormElevate
+        AddHandler F.FormClosing, AddressOf ChildFormClosedNoRefresh
+        F.ShowDialog()
+
     End Sub
 
 #End Region
@@ -1038,6 +1052,17 @@ Public Class FormMain
     End Sub
 
 #End Region
+
+    Private Sub RequestElevation()
+
+        If Not Booleans.bIsElevated Then
+            Fade.FadeBehindChild(Me)
+            Dim Frm As New FormElevate
+            AddHandler Frm.FormClosed, AddressOf ChildFormClosedNoRefresh
+            Frm.ShowDialog()
+        End If
+
+    End Sub
 
 #Region "Routines"
     Friend Shared Function DetermineScaleOf() As String

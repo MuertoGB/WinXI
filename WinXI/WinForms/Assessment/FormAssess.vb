@@ -60,14 +60,14 @@ Friend Class FormAssess
         End If
 
         PanHead.BackgroundImage = Settings.SetHeaderGraphic
-        PbxLoad.Image = My.Resources.ImgBusy24Px
+        icnMain.Image = My.Resources.ImgBusy24Px
 
     End Sub
 
 #End Region
 
 #Region "WndProc"
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, LabHead.MouseMove, PbxLoad.MouseMove, TlpHeadImage.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, LabHead.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -185,7 +185,7 @@ Friend Class FormAssess
 #End Region
 #Region "Picturebox Event Handler"
 
-    Private Sub PbxLoad_Click(sender As Object, e As EventArgs) Handles PbxLoad.DoubleClick
+    Private Sub icnMain_Click(sender As Object, e As EventArgs) Handles icnMain.DoubleClick
         If Not WindowState = FormWindowState.Normal Then
             WindowState = FormWindowState.Normal
         End If
@@ -301,7 +301,7 @@ Friend Class FormAssess
             LabStatus.Text = SStatusMessage
             CmdCancel.Text = "Close"
             CmdExport.Enabled = True
-            PbxLoad.Image = My.Resources.ImgComplete24Px
+            icnMain.Image = My.Resources.ImgComplete24Px
             LabProgress.Text = "" : LabProgress.BackColor = Color.Transparent
 
             Dim Int As Integer = WinsatReader.GetExitCode

@@ -29,11 +29,11 @@ Partial Class FormToast
         Me.LabTitle = New System.Windows.Forms.Label()
         Me.LabMessage = New System.Windows.Forms.Label()
         Me.PanMain = New System.Windows.Forms.Panel()
-        Me.PbxTypeImage = New System.Windows.Forms.PictureBox()
+        Me.icnMain = New System.Windows.Forms.PictureBox()
         Me.CmdClose = New System.Windows.Forms.Button()
-        Me.GProgressBar = New GambolProgressBar()
+        Me.GProgressBar = New WinXI.Gambol.Controls.GambolProgressBar()
         Me.PanMain.SuspendLayout()
-        CType(Me.PbxTypeImage, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TimerTick
@@ -68,7 +68,7 @@ Partial Class FormToast
         'PanMain
         '
         Me.PanMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.PanMain.Controls.Add(Me.PbxTypeImage)
+        Me.PanMain.Controls.Add(Me.icnMain)
         Me.PanMain.Controls.Add(Me.CmdClose)
         Me.PanMain.Controls.Add(Me.GProgressBar)
         Me.PanMain.Controls.Add(Me.LabTitle)
@@ -79,15 +79,15 @@ Partial Class FormToast
         Me.PanMain.Size = New System.Drawing.Size(498, 143)
         Me.PanMain.TabIndex = 0
         '
-        'PbxTypeImage
+        'icnMain
         '
-        Me.PbxTypeImage.BackColor = System.Drawing.Color.Transparent
-        Me.PbxTypeImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PbxTypeImage.Location = New System.Drawing.Point(12, 12)
-        Me.PbxTypeImage.Name = "PbxTypeImage"
-        Me.PbxTypeImage.Size = New System.Drawing.Size(32, 32)
-        Me.PbxTypeImage.TabIndex = 9
-        Me.PbxTypeImage.TabStop = False
+        Me.icnMain.BackColor = System.Drawing.Color.Transparent
+        Me.icnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.icnMain.Location = New System.Drawing.Point(12, 12)
+        Me.icnMain.Name = "icnMain"
+        Me.icnMain.Size = New System.Drawing.Size(32, 32)
+        Me.icnMain.TabIndex = 9
+        Me.icnMain.TabStop = False
         '
         'CmdClose
         '
@@ -150,7 +150,7 @@ Partial Class FormToast
         Me.Text = "Notification"
         Me.PanMain.ResumeLayout(False)
         Me.PanMain.PerformLayout()
-        CType(Me.PbxTypeImage, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -160,5 +160,5 @@ Partial Class FormToast
     Friend WithEvents PanMain As System.Windows.Forms.Panel
     Friend WithEvents GProgressBar As GambolProgressBar
     Friend WithEvents CmdClose As Button
-    Friend WithEvents PbxTypeImage As PictureBox
+    Friend WithEvents icnMain As PictureBox
 End Class

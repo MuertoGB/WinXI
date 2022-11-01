@@ -29,14 +29,14 @@ Partial Class FormEnvironment
         Me.LabHead = New System.Windows.Forms.Label()
         Me.TlpPlaceholder = New System.Windows.Forms.TableLayoutPanel()
         Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
-        Me.PbxHead = New System.Windows.Forms.PictureBox()
+        Me.icnMain = New System.Windows.Forms.PictureBox()
         Me.lnkIssue = New System.Windows.Forms.LinkLabel()
         Me.PanMain = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.PanSplit = New System.Windows.Forms.Panel()
         Me.PanHead.SuspendLayout()
         Me.TlpHeadImage.SuspendLayout()
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanMain.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -121,7 +121,7 @@ Partial Class FormEnvironment
         Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
         Me.TlpHeadImage.ColumnCount = 1
         Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
-        Me.TlpHeadImage.Controls.Add(Me.PbxHead, 0, 0)
+        Me.TlpHeadImage.Controls.Add(Me.icnMain, 0, 0)
         Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
         Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
         Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
@@ -131,19 +131,19 @@ Partial Class FormEnvironment
         Me.TlpHeadImage.Size = New System.Drawing.Size(40, 40)
         Me.TlpHeadImage.TabIndex = 10
         '
-        'PbxHead
+        'icnMain
         '
-        Me.PbxHead.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PbxHead.BackColor = System.Drawing.Color.Transparent
-        Me.PbxHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PbxHead.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
-        Me.PbxHead.Location = New System.Drawing.Point(9, 8)
-        Me.PbxHead.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
-        Me.PbxHead.Name = "PbxHead"
-        Me.PbxHead.Size = New System.Drawing.Size(24, 24)
-        Me.PbxHead.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxHead.TabIndex = 1
-        Me.PbxHead.TabStop = False
+        Me.icnMain.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.icnMain.BackColor = System.Drawing.Color.Transparent
+        Me.icnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.icnMain.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
+        Me.icnMain.Location = New System.Drawing.Point(9, 8)
+        Me.icnMain.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
+        Me.icnMain.Name = "icnMain"
+        Me.icnMain.Size = New System.Drawing.Size(24, 24)
+        Me.icnMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.icnMain.TabIndex = 1
+        Me.icnMain.TabStop = False
         '
         'lnkIssue
         '
@@ -225,7 +225,7 @@ Partial Class FormEnvironment
         Me.Text = "Application Support (Unsupported OS)"
         Me.PanHead.ResumeLayout(False)
         Me.TlpHeadImage.ResumeLayout(False)
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanMain.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
@@ -240,7 +240,7 @@ Partial Class FormEnvironment
     Friend WithEvents PanMain As System.Windows.Forms.Panel
     Friend WithEvents PanSplit As System.Windows.Forms.Panel
     Friend WithEvents TlpHeadImage As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents PbxHead As System.Windows.Forms.PictureBox
+    Friend WithEvents icnMain As System.Windows.Forms.PictureBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TlpPlaceholder As TableLayoutPanel
 End Class

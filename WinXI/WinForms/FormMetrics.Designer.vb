@@ -28,7 +28,7 @@ Partial Class FormMetrics
         Me.LabHead = New System.Windows.Forms.Label()
         Me.CmdClose = New System.Windows.Forms.Button()
         Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
-        Me.PbxHead = New System.Windows.Forms.PictureBox()
+        Me.icnMain = New System.Windows.Forms.PictureBox()
         Me.PanMain = New System.Windows.Forms.Panel()
         Me.TlpMain = New System.Windows.Forms.TableLayoutPanel()
         Me.RtbData = New System.Windows.Forms.RichTextBox()
@@ -59,7 +59,7 @@ Partial Class FormMetrics
         Me.PbxD3d = New System.Windows.Forms.PictureBox()
         Me.PanHead.SuspendLayout()
         Me.TlpHeadImage.SuspendLayout()
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanMain.SuspendLayout()
         Me.TlpMain.SuspendLayout()
         Me.TlpMenu.SuspendLayout()
@@ -81,10 +81,10 @@ Partial Class FormMetrics
         '
         Me.PanSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.PanSplit.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanSplit.Location = New System.Drawing.Point(1, 33)
-        Me.PanSplit.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PanSplit.Location = New System.Drawing.Point(1, 41)
+        Me.PanSplit.Margin = New System.Windows.Forms.Padding(2)
         Me.PanSplit.Name = "PanSplit"
-        Me.PanSplit.Size = New System.Drawing.Size(798, 2)
+        Me.PanSplit.Size = New System.Drawing.Size(998, 2)
         Me.PanSplit.TabIndex = 74
         '
         'PanHead
@@ -95,8 +95,9 @@ Partial Class FormMetrics
         Me.PanHead.Controls.Add(Me.TlpHeadImage)
         Me.PanHead.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanHead.Location = New System.Drawing.Point(1, 1)
+        Me.PanHead.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PanHead.Name = "PanHead"
-        Me.PanHead.Size = New System.Drawing.Size(798, 32)
+        Me.PanHead.Size = New System.Drawing.Size(998, 40)
         Me.PanHead.TabIndex = 73
         '
         'LabHead
@@ -105,9 +106,10 @@ Partial Class FormMetrics
         Me.LabHead.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LabHead.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabHead.ForeColor = System.Drawing.Color.White
-        Me.LabHead.Location = New System.Drawing.Point(32, 0)
+        Me.LabHead.Location = New System.Drawing.Point(40, 0)
+        Me.LabHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabHead.Name = "LabHead"
-        Me.LabHead.Size = New System.Drawing.Size(734, 32)
+        Me.LabHead.Size = New System.Drawing.Size(918, 40)
         Me.LabHead.TabIndex = 96
         Me.LabHead.Text = "Metrics"
         Me.LabHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -122,11 +124,11 @@ Partial Class FormMetrics
         Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdClose.ForeColor = System.Drawing.Color.White
-        Me.CmdClose.Location = New System.Drawing.Point(766, 0)
+        Me.CmdClose.Location = New System.Drawing.Point(958, 0)
         Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdClose.Name = "CmdClose"
         Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.CmdClose.Size = New System.Drawing.Size(32, 32)
+        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
         Me.CmdClose.TabIndex = 95
         Me.CmdClose.TabStop = False
         Me.CmdClose.Text = "✕"
@@ -136,30 +138,30 @@ Partial Class FormMetrics
         '
         Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
         Me.TlpHeadImage.ColumnCount = 1
-        Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
-        Me.TlpHeadImage.Controls.Add(Me.PbxHead, 0, 0)
+        Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.TlpHeadImage.Controls.Add(Me.icnMain, 0, 0)
         Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
         Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
         Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
         Me.TlpHeadImage.Name = "TlpHeadImage"
         Me.TlpHeadImage.RowCount = 1
         Me.TlpHeadImage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpHeadImage.Size = New System.Drawing.Size(32, 32)
+        Me.TlpHeadImage.Size = New System.Drawing.Size(40, 40)
         Me.TlpHeadImage.TabIndex = 74
         '
-        'PbxHead
+        'icnMain
         '
-        Me.PbxHead.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PbxHead.BackColor = System.Drawing.Color.Transparent
-        Me.PbxHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PbxHead.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
-        Me.PbxHead.Location = New System.Drawing.Point(7, 6)
-        Me.PbxHead.Margin = New System.Windows.Forms.Padding(0, 0, 8, 0)
-        Me.PbxHead.Name = "PbxHead"
-        Me.PbxHead.Size = New System.Drawing.Size(19, 19)
-        Me.PbxHead.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxHead.TabIndex = 1
-        Me.PbxHead.TabStop = False
+        Me.icnMain.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.icnMain.BackColor = System.Drawing.Color.Transparent
+        Me.icnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.icnMain.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
+        Me.icnMain.Location = New System.Drawing.Point(9, 8)
+        Me.icnMain.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
+        Me.icnMain.Name = "icnMain"
+        Me.icnMain.Size = New System.Drawing.Size(24, 24)
+        Me.icnMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.icnMain.TabIndex = 1
+        Me.icnMain.TabStop = False
         '
         'PanMain
         '
@@ -167,10 +169,10 @@ Partial Class FormMetrics
         Me.PanMain.Controls.Add(Me.TlpMain)
         Me.PanMain.Controls.Add(Me.TlpMenu)
         Me.PanMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanMain.Location = New System.Drawing.Point(1, 35)
-        Me.PanMain.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PanMain.Location = New System.Drawing.Point(1, 43)
+        Me.PanMain.Margin = New System.Windows.Forms.Padding(2)
         Me.PanMain.Name = "PanMain"
-        Me.PanMain.Size = New System.Drawing.Size(798, 444)
+        Me.PanMain.Size = New System.Drawing.Size(998, 556)
         Me.PanMain.TabIndex = 75
         '
         'TlpMain
@@ -179,13 +181,13 @@ Partial Class FormMetrics
         Me.TlpMain.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TlpMain.Controls.Add(Me.RtbData, 0, 0)
         Me.TlpMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TlpMain.Location = New System.Drawing.Point(158, 0)
-        Me.TlpMain.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TlpMain.Location = New System.Drawing.Point(198, 0)
+        Me.TlpMain.Margin = New System.Windows.Forms.Padding(2)
         Me.TlpMain.Name = "TlpMain"
-        Me.TlpMain.Padding = New System.Windows.Forms.Padding(3, 7, 3, 7)
+        Me.TlpMain.Padding = New System.Windows.Forms.Padding(4, 9, 4, 9)
         Me.TlpMain.RowCount = 1
         Me.TlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TlpMain.Size = New System.Drawing.Size(640, 444)
+        Me.TlpMain.Size = New System.Drawing.Size(800, 556)
         Me.TlpMain.TabIndex = 2
         '
         'RtbData
@@ -196,11 +198,11 @@ Partial Class FormMetrics
         Me.RtbData.Dock = System.Windows.Forms.DockStyle.Fill
         Me.RtbData.Font = New System.Drawing.Font("Consolas", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RtbData.ForeColor = System.Drawing.Color.White
-        Me.RtbData.Location = New System.Drawing.Point(5, 9)
-        Me.RtbData.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.RtbData.Location = New System.Drawing.Point(6, 11)
+        Me.RtbData.Margin = New System.Windows.Forms.Padding(2)
         Me.RtbData.Name = "RtbData"
         Me.RtbData.ReadOnly = True
-        Me.RtbData.Size = New System.Drawing.Size(630, 426)
+        Me.RtbData.Size = New System.Drawing.Size(788, 534)
         Me.RtbData.TabIndex = 0
         Me.RtbData.TabStop = False
         Me.RtbData.Text = ""
@@ -237,24 +239,24 @@ Partial Class FormMetrics
         Me.TlpMenu.Controls.Add(Me.PbxD3d, 1, 12)
         Me.TlpMenu.Dock = System.Windows.Forms.DockStyle.Left
         Me.TlpMenu.Location = New System.Drawing.Point(0, 0)
-        Me.TlpMenu.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TlpMenu.Margin = New System.Windows.Forms.Padding(2)
         Me.TlpMenu.Name = "TlpMenu"
         Me.TlpMenu.RowCount = 14
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TlpMenu.Size = New System.Drawing.Size(158, 444)
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpMenu.Size = New System.Drawing.Size(198, 556)
         Me.TlpMenu.TabIndex = 0
         '
         'CmdProgramInfo
@@ -268,10 +270,10 @@ Partial Class FormMetrics
         Me.CmdProgramInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdProgramInfo.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdProgramInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdProgramInfo.Location = New System.Drawing.Point(0, 8)
+        Me.CmdProgramInfo.Location = New System.Drawing.Point(0, 10)
         Me.CmdProgramInfo.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdProgramInfo.Name = "CmdProgramInfo"
-        Me.CmdProgramInfo.Size = New System.Drawing.Size(156, 29)
+        Me.CmdProgramInfo.Size = New System.Drawing.Size(196, 36)
         Me.CmdProgramInfo.TabIndex = 0
         Me.CmdProgramInfo.Text = "  ProgramInfo"
         Me.CmdProgramInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -288,10 +290,10 @@ Partial Class FormMetrics
         Me.CmdSysEnviron.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdSysEnviron.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdSysEnviron.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdSysEnviron.Location = New System.Drawing.Point(0, 37)
+        Me.CmdSysEnviron.Location = New System.Drawing.Point(0, 46)
         Me.CmdSysEnviron.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdSysEnviron.Name = "CmdSysEnviron"
-        Me.CmdSysEnviron.Size = New System.Drawing.Size(156, 29)
+        Me.CmdSysEnviron.Size = New System.Drawing.Size(196, 36)
         Me.CmdSysEnviron.TabIndex = 1
         Me.CmdSysEnviron.Text = "  SystemEnvironment"
         Me.CmdSysEnviron.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -308,10 +310,10 @@ Partial Class FormMetrics
         Me.CmdWinSpr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdWinSpr.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdWinSpr.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdWinSpr.Location = New System.Drawing.Point(0, 66)
+        Me.CmdWinSpr.Location = New System.Drawing.Point(0, 82)
         Me.CmdWinSpr.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdWinSpr.Name = "CmdWinSpr"
-        Me.CmdWinSpr.Size = New System.Drawing.Size(156, 29)
+        Me.CmdWinSpr.Size = New System.Drawing.Size(196, 36)
         Me.CmdWinSpr.TabIndex = 2
         Me.CmdWinSpr.Text = "  WinSPR"
         Me.CmdWinSpr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -328,10 +330,10 @@ Partial Class FormMetrics
         Me.CmdMetrics.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdMetrics.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdMetrics.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdMetrics.Location = New System.Drawing.Point(0, 95)
+        Me.CmdMetrics.Location = New System.Drawing.Point(0, 118)
         Me.CmdMetrics.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdMetrics.Name = "CmdMetrics"
-        Me.CmdMetrics.Size = New System.Drawing.Size(156, 29)
+        Me.CmdMetrics.Size = New System.Drawing.Size(196, 36)
         Me.CmdMetrics.TabIndex = 3
         Me.CmdMetrics.Text = "  Metrics"
         Me.CmdMetrics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -348,10 +350,10 @@ Partial Class FormMetrics
         Me.CmdOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdOS.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdOS.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdOS.Location = New System.Drawing.Point(0, 124)
+        Me.CmdOS.Location = New System.Drawing.Point(0, 154)
         Me.CmdOS.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdOS.Name = "CmdOS"
-        Me.CmdOS.Size = New System.Drawing.Size(156, 29)
+        Me.CmdOS.Size = New System.Drawing.Size(196, 36)
         Me.CmdOS.TabIndex = 4
         Me.CmdOS.Text = "  OSVersion"
         Me.CmdOS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -368,10 +370,10 @@ Partial Class FormMetrics
         Me.CmdGraphics.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdGraphics.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdGraphics.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdGraphics.Location = New System.Drawing.Point(0, 240)
+        Me.CmdGraphics.Location = New System.Drawing.Point(0, 298)
         Me.CmdGraphics.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdGraphics.Name = "CmdGraphics"
-        Me.CmdGraphics.Size = New System.Drawing.Size(156, 29)
+        Me.CmdGraphics.Size = New System.Drawing.Size(196, 36)
         Me.CmdGraphics.TabIndex = 8
         Me.CmdGraphics.Text = "  Graphics"
         Me.CmdGraphics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -388,10 +390,10 @@ Partial Class FormMetrics
         Me.CmdMemory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdMemory.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdMemory.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdMemory.Location = New System.Drawing.Point(0, 211)
+        Me.CmdMemory.Location = New System.Drawing.Point(0, 262)
         Me.CmdMemory.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdMemory.Name = "CmdMemory"
-        Me.CmdMemory.Size = New System.Drawing.Size(156, 29)
+        Me.CmdMemory.Size = New System.Drawing.Size(196, 36)
         Me.CmdMemory.TabIndex = 7
         Me.CmdMemory.Text = "  Memory (RAM)"
         Me.CmdMemory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -408,10 +410,10 @@ Partial Class FormMetrics
         Me.CmdProcessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdProcessor.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdProcessor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdProcessor.Location = New System.Drawing.Point(0, 182)
+        Me.CmdProcessor.Location = New System.Drawing.Point(0, 226)
         Me.CmdProcessor.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdProcessor.Name = "CmdProcessor"
-        Me.CmdProcessor.Size = New System.Drawing.Size(156, 29)
+        Me.CmdProcessor.Size = New System.Drawing.Size(196, 36)
         Me.CmdProcessor.TabIndex = 6
         Me.CmdProcessor.Text = "  Processor"
         Me.CmdProcessor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -428,10 +430,10 @@ Partial Class FormMetrics
         Me.CmdSystem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdSystem.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdSystem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdSystem.Location = New System.Drawing.Point(0, 153)
+        Me.CmdSystem.Location = New System.Drawing.Point(0, 190)
         Me.CmdSystem.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdSystem.Name = "CmdSystem"
-        Me.CmdSystem.Size = New System.Drawing.Size(156, 29)
+        Me.CmdSystem.Size = New System.Drawing.Size(196, 36)
         Me.CmdSystem.TabIndex = 5
         Me.CmdSystem.Text = "  System"
         Me.CmdSystem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -448,10 +450,10 @@ Partial Class FormMetrics
         Me.CmdDisk.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdDisk.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdDisk.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdDisk.Location = New System.Drawing.Point(0, 269)
+        Me.CmdDisk.Location = New System.Drawing.Point(0, 334)
         Me.CmdDisk.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdDisk.Name = "CmdDisk"
-        Me.CmdDisk.Size = New System.Drawing.Size(156, 29)
+        Me.CmdDisk.Size = New System.Drawing.Size(196, 36)
         Me.CmdDisk.TabIndex = 9
         Me.CmdDisk.Text = "  Disk"
         Me.CmdDisk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -468,10 +470,10 @@ Partial Class FormMetrics
         Me.CmdDwm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdDwm.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdDwm.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdDwm.Location = New System.Drawing.Point(0, 298)
+        Me.CmdDwm.Location = New System.Drawing.Point(0, 370)
         Me.CmdDwm.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdDwm.Name = "CmdDwm"
-        Me.CmdDwm.Size = New System.Drawing.Size(156, 29)
+        Me.CmdDwm.Size = New System.Drawing.Size(196, 36)
         Me.CmdDwm.TabIndex = 10
         Me.CmdDwm.Text = "  DWMAssessment"
         Me.CmdDwm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -488,10 +490,10 @@ Partial Class FormMetrics
         Me.CmdD3D.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdD3D.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdD3D.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdD3D.Location = New System.Drawing.Point(0, 327)
+        Me.CmdD3D.Location = New System.Drawing.Point(0, 406)
         Me.CmdD3D.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdD3D.Name = "CmdD3D"
-        Me.CmdD3D.Size = New System.Drawing.Size(156, 29)
+        Me.CmdD3D.Size = New System.Drawing.Size(196, 36)
         Me.CmdD3D.TabIndex = 11
         Me.CmdD3D.Text = "  D3DAssessment"
         Me.CmdD3D.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -501,10 +503,10 @@ Partial Class FormMetrics
         '
         Me.PbxProgramInfo.BackColor = System.Drawing.Color.Transparent
         Me.PbxProgramInfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PbxProgramInfo.Location = New System.Drawing.Point(156, 8)
+        Me.PbxProgramInfo.Location = New System.Drawing.Point(196, 10)
         Me.PbxProgramInfo.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxProgramInfo.Name = "PbxProgramInfo"
-        Me.PbxProgramInfo.Size = New System.Drawing.Size(2, 29)
+        Me.PbxProgramInfo.Size = New System.Drawing.Size(2, 36)
         Me.PbxProgramInfo.TabIndex = 12
         Me.PbxProgramInfo.TabStop = False
         '
@@ -512,10 +514,10 @@ Partial Class FormMetrics
         '
         Me.PbxSystemEnvironment.BackColor = System.Drawing.Color.Transparent
         Me.PbxSystemEnvironment.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PbxSystemEnvironment.Location = New System.Drawing.Point(156, 37)
+        Me.PbxSystemEnvironment.Location = New System.Drawing.Point(196, 46)
         Me.PbxSystemEnvironment.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxSystemEnvironment.Name = "PbxSystemEnvironment"
-        Me.PbxSystemEnvironment.Size = New System.Drawing.Size(2, 29)
+        Me.PbxSystemEnvironment.Size = New System.Drawing.Size(2, 36)
         Me.PbxSystemEnvironment.TabIndex = 13
         Me.PbxSystemEnvironment.TabStop = False
         '
@@ -523,10 +525,10 @@ Partial Class FormMetrics
         '
         Me.PbxWinSPR.BackColor = System.Drawing.Color.Transparent
         Me.PbxWinSPR.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PbxWinSPR.Location = New System.Drawing.Point(156, 66)
+        Me.PbxWinSPR.Location = New System.Drawing.Point(196, 82)
         Me.PbxWinSPR.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxWinSPR.Name = "PbxWinSPR"
-        Me.PbxWinSPR.Size = New System.Drawing.Size(2, 29)
+        Me.PbxWinSPR.Size = New System.Drawing.Size(2, 36)
         Me.PbxWinSPR.TabIndex = 14
         Me.PbxWinSPR.TabStop = False
         '
@@ -534,10 +536,10 @@ Partial Class FormMetrics
         '
         Me.PbxMetrics.BackColor = System.Drawing.Color.Transparent
         Me.PbxMetrics.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PbxMetrics.Location = New System.Drawing.Point(156, 95)
+        Me.PbxMetrics.Location = New System.Drawing.Point(196, 118)
         Me.PbxMetrics.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxMetrics.Name = "PbxMetrics"
-        Me.PbxMetrics.Size = New System.Drawing.Size(2, 29)
+        Me.PbxMetrics.Size = New System.Drawing.Size(2, 36)
         Me.PbxMetrics.TabIndex = 15
         Me.PbxMetrics.TabStop = False
         '
@@ -545,10 +547,10 @@ Partial Class FormMetrics
         '
         Me.PbxOSVersion.BackColor = System.Drawing.Color.Transparent
         Me.PbxOSVersion.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PbxOSVersion.Location = New System.Drawing.Point(156, 124)
+        Me.PbxOSVersion.Location = New System.Drawing.Point(196, 154)
         Me.PbxOSVersion.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxOSVersion.Name = "PbxOSVersion"
-        Me.PbxOSVersion.Size = New System.Drawing.Size(2, 29)
+        Me.PbxOSVersion.Size = New System.Drawing.Size(2, 36)
         Me.PbxOSVersion.TabIndex = 16
         Me.PbxOSVersion.TabStop = False
         '
@@ -556,10 +558,10 @@ Partial Class FormMetrics
         '
         Me.PbxSystem.BackColor = System.Drawing.Color.Transparent
         Me.PbxSystem.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PbxSystem.Location = New System.Drawing.Point(156, 153)
+        Me.PbxSystem.Location = New System.Drawing.Point(196, 190)
         Me.PbxSystem.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxSystem.Name = "PbxSystem"
-        Me.PbxSystem.Size = New System.Drawing.Size(2, 29)
+        Me.PbxSystem.Size = New System.Drawing.Size(2, 36)
         Me.PbxSystem.TabIndex = 17
         Me.PbxSystem.TabStop = False
         '
@@ -567,10 +569,10 @@ Partial Class FormMetrics
         '
         Me.PbxProcessor.BackColor = System.Drawing.Color.Transparent
         Me.PbxProcessor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PbxProcessor.Location = New System.Drawing.Point(156, 182)
+        Me.PbxProcessor.Location = New System.Drawing.Point(196, 226)
         Me.PbxProcessor.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxProcessor.Name = "PbxProcessor"
-        Me.PbxProcessor.Size = New System.Drawing.Size(2, 29)
+        Me.PbxProcessor.Size = New System.Drawing.Size(2, 36)
         Me.PbxProcessor.TabIndex = 18
         Me.PbxProcessor.TabStop = False
         '
@@ -578,10 +580,10 @@ Partial Class FormMetrics
         '
         Me.PbxMemory.BackColor = System.Drawing.Color.Transparent
         Me.PbxMemory.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PbxMemory.Location = New System.Drawing.Point(156, 211)
+        Me.PbxMemory.Location = New System.Drawing.Point(196, 262)
         Me.PbxMemory.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxMemory.Name = "PbxMemory"
-        Me.PbxMemory.Size = New System.Drawing.Size(2, 29)
+        Me.PbxMemory.Size = New System.Drawing.Size(2, 36)
         Me.PbxMemory.TabIndex = 19
         Me.PbxMemory.TabStop = False
         '
@@ -589,10 +591,10 @@ Partial Class FormMetrics
         '
         Me.PbxGraphics.BackColor = System.Drawing.Color.Transparent
         Me.PbxGraphics.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PbxGraphics.Location = New System.Drawing.Point(156, 240)
+        Me.PbxGraphics.Location = New System.Drawing.Point(196, 298)
         Me.PbxGraphics.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxGraphics.Name = "PbxGraphics"
-        Me.PbxGraphics.Size = New System.Drawing.Size(2, 29)
+        Me.PbxGraphics.Size = New System.Drawing.Size(2, 36)
         Me.PbxGraphics.TabIndex = 20
         Me.PbxGraphics.TabStop = False
         '
@@ -600,10 +602,10 @@ Partial Class FormMetrics
         '
         Me.PbxDisk.BackColor = System.Drawing.Color.Transparent
         Me.PbxDisk.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PbxDisk.Location = New System.Drawing.Point(156, 269)
+        Me.PbxDisk.Location = New System.Drawing.Point(196, 334)
         Me.PbxDisk.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxDisk.Name = "PbxDisk"
-        Me.PbxDisk.Size = New System.Drawing.Size(2, 29)
+        Me.PbxDisk.Size = New System.Drawing.Size(2, 36)
         Me.PbxDisk.TabIndex = 21
         Me.PbxDisk.TabStop = False
         '
@@ -611,10 +613,10 @@ Partial Class FormMetrics
         '
         Me.PbxDwm.BackColor = System.Drawing.Color.Transparent
         Me.PbxDwm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PbxDwm.Location = New System.Drawing.Point(156, 298)
+        Me.PbxDwm.Location = New System.Drawing.Point(196, 370)
         Me.PbxDwm.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxDwm.Name = "PbxDwm"
-        Me.PbxDwm.Size = New System.Drawing.Size(2, 29)
+        Me.PbxDwm.Size = New System.Drawing.Size(2, 36)
         Me.PbxDwm.TabIndex = 22
         Me.PbxDwm.TabStop = False
         '
@@ -622,21 +624,21 @@ Partial Class FormMetrics
         '
         Me.PbxD3d.BackColor = System.Drawing.Color.Transparent
         Me.PbxD3d.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PbxD3d.Location = New System.Drawing.Point(156, 327)
+        Me.PbxD3d.Location = New System.Drawing.Point(196, 406)
         Me.PbxD3d.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxD3d.Name = "PbxD3d"
-        Me.PbxD3d.Size = New System.Drawing.Size(2, 29)
+        Me.PbxD3d.Size = New System.Drawing.Size(2, 36)
         Me.PbxD3d.TabIndex = 23
         Me.PbxD3d.TabStop = False
         '
         'FormMetrics
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(800, 480)
+        Me.ClientSize = New System.Drawing.Size(1000, 600)
         Me.Controls.Add(Me.PanMain)
         Me.Controls.Add(Me.PanSplit)
         Me.Controls.Add(Me.PanHead)
@@ -645,15 +647,15 @@ Partial Class FormMetrics
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.MinimumSize = New System.Drawing.Size(800, 480)
+        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.MinimumSize = New System.Drawing.Size(1000, 600)
         Me.Name = "FormMetrics"
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Metrics"
         Me.PanHead.ResumeLayout(False)
         Me.TlpHeadImage.ResumeLayout(False)
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanMain.ResumeLayout(False)
         Me.TlpMain.ResumeLayout(False)
         Me.TlpMenu.ResumeLayout(False)
@@ -677,7 +679,7 @@ Partial Class FormMetrics
     Friend WithEvents PanHead As Panel
     Friend WithEvents CmdClose As Button
     Friend WithEvents TlpHeadImage As TableLayoutPanel
-    Friend WithEvents PbxHead As PictureBox
+    Friend WithEvents icnMain As PictureBox
     Friend WithEvents PanMain As Panel
     Friend WithEvents TlpMain As TableLayoutPanel
     Friend WithEvents RtbData As RichTextBox

@@ -75,7 +75,8 @@
     <OptionInfer>Off</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\main.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -161,6 +162,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Gambol\UI\GambolToolstripRenderer.vb" />
+    <Compile Include="WinForms\FormElevate.Designer.vb">
+      <DependentUpon>FormElevate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\FormElevate.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="WinForms\Toast\Enums\Enums.vb" />
     <Compile Include="WinForms\FormAckn.Designer.vb">
       <DependentUpon>FormAckn.vb</DependentUpon>
@@ -228,12 +235,6 @@
     <Compile Include="WinForms\FormReset.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForms\FormWarn.Designer.vb">
-      <DependentUpon>FormWarn.vb</DependentUpon>
-    </Compile>
-    <Compile Include="WinForms\FormWarn.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="WinForms\FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +297,9 @@
       <DependentUpon>FormAbout.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\FormElevate.resx">
+      <DependentUpon>FormElevate.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\FormTextDialog.resx">
       <DependentUpon>FormTextDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -313,9 +317,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\FormReset.resx">
       <DependentUpon>FormReset.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\FormWarn.resx">
-      <DependentUpon>FormWarn.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
@@ -336,7 +337,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Settings.ini" />
     <None Include="Signature\08032021.pfx" />
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -353,11 +353,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="Resources\CHANGELOG.rtf" />
-    <None Include="Resources\segmdl2.ttf" />
-    <None Include="Resources\Troubleshooting.rtf" />
-    <None Include="Resources\Windows6.1-KB2687862-x64.msu" />
-    <None Include="Resources\Windows6.1-KB2687862-x86.msu" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -382,18 +377,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <Private>False</Private>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\LICENSE.txt" />
-    <None Include="Resources\ImgMainIcon24Px.png" />
-    <None Include="Resources\ImgComplete24Px.png" />
-    <None Include="Resources\ImgBusy24Px.gif" />
-    <None Include="Resources\ImgMainIcon64Px.png" />
-    <None Include="Resources\ImgError32Px.png" />
-    <None Include="Resources\ImgInfo32Px.png" />
-    <None Include="Resources\ImgWarn32Px.png" />
-    <None Include="Resources\HeaderGraphicDefault.png" />
-    <Content Include="Resources\main.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />

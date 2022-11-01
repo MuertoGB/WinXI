@@ -31,7 +31,7 @@ Partial Class FormAssess
         Me.LabHead = New System.Windows.Forms.Label()
         Me.CmdClose = New System.Windows.Forms.Button()
         Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
-        Me.PbxLoad = New System.Windows.Forms.PictureBox()
+        Me.icnMain = New System.Windows.Forms.PictureBox()
         Me.PanMain = New System.Windows.Forms.Panel()
         Me.TlpData = New System.Windows.Forms.TableLayoutPanel()
         Me.RtbLog = New System.Windows.Forms.RichTextBox()
@@ -40,10 +40,10 @@ Partial Class FormAssess
         Me.CmdExport = New System.Windows.Forms.Button()
         Me.TlpStatus = New System.Windows.Forms.TableLayoutPanel()
         Me.LabProgress = New System.Windows.Forms.Label()
-        Me.PbrProgress = New GambolProgressBar()
+        Me.PbrProgress = New WinXI.Gambol.Controls.GambolProgressBar()
         Me.PanHead.SuspendLayout()
         Me.TlpHeadImage.SuspendLayout()
-        CType(Me.PbxLoad, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanMain.SuspendLayout()
         Me.TlpData.SuspendLayout()
         Me.TlpButtons.SuspendLayout()
@@ -136,7 +136,7 @@ Partial Class FormAssess
         Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
         Me.TlpHeadImage.ColumnCount = 1
         Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
-        Me.TlpHeadImage.Controls.Add(Me.PbxLoad, 0, 0)
+        Me.TlpHeadImage.Controls.Add(Me.icnMain, 0, 0)
         Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
         Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
         Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
@@ -146,18 +146,18 @@ Partial Class FormAssess
         Me.TlpHeadImage.Size = New System.Drawing.Size(40, 40)
         Me.TlpHeadImage.TabIndex = 9
         '
-        'PbxLoad
+        'icnMain
         '
-        Me.PbxLoad.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PbxLoad.BackColor = System.Drawing.Color.Transparent
-        Me.PbxLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PbxLoad.Location = New System.Drawing.Point(8, 8)
-        Me.PbxLoad.Margin = New System.Windows.Forms.Padding(0, 0, 12, 0)
-        Me.PbxLoad.Name = "PbxLoad"
-        Me.PbxLoad.Size = New System.Drawing.Size(24, 24)
-        Me.PbxLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxLoad.TabIndex = 5
-        Me.PbxLoad.TabStop = False
+        Me.icnMain.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.icnMain.BackColor = System.Drawing.Color.Transparent
+        Me.icnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.icnMain.Location = New System.Drawing.Point(8, 8)
+        Me.icnMain.Margin = New System.Windows.Forms.Padding(0, 0, 12, 0)
+        Me.icnMain.Name = "icnMain"
+        Me.icnMain.Size = New System.Drawing.Size(24, 24)
+        Me.icnMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.icnMain.TabIndex = 5
+        Me.icnMain.TabStop = False
         '
         'PanMain
         '
@@ -333,7 +333,7 @@ Partial Class FormAssess
         Me.Text = "WinXI Assessment"
         Me.PanHead.ResumeLayout(False)
         Me.TlpHeadImage.ResumeLayout(False)
-        CType(Me.PbxLoad, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanMain.ResumeLayout(False)
         Me.TlpData.ResumeLayout(False)
         Me.TlpButtons.ResumeLayout(False)
@@ -347,7 +347,7 @@ Partial Class FormAssess
     Friend WithEvents PanMain As System.Windows.Forms.Panel
     Friend WithEvents TlpButtons As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents CmdViewLog As System.Windows.Forms.Button
-    Friend WithEvents PbxLoad As System.Windows.Forms.PictureBox
+    Friend WithEvents icnMain As System.Windows.Forms.PictureBox
     Friend WithEvents CmdExport As System.Windows.Forms.Button
     Friend WithEvents TlpHeadImage As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents CmdClose As Button

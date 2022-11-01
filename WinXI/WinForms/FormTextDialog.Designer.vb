@@ -28,13 +28,13 @@ Partial Class FormTextDialog
         Me.LabHead = New System.Windows.Forms.Label()
         Me.CmdClose = New System.Windows.Forms.Button()
         Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
-        Me.PbxHead = New System.Windows.Forms.PictureBox()
+        Me.icnMain = New System.Windows.Forms.PictureBox()
         Me.PanMain = New System.Windows.Forms.Panel()
         Me.TlpMain = New System.Windows.Forms.TableLayoutPanel()
         Me.RtbChanges = New System.Windows.Forms.RichTextBox()
         Me.PanHead.SuspendLayout()
         Me.TlpHeadImage.SuspendLayout()
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanMain.SuspendLayout()
         Me.TlpMain.SuspendLayout()
         Me.SuspendLayout()
@@ -43,10 +43,10 @@ Partial Class FormTextDialog
         '
         Me.PanSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.PanSplit.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanSplit.Location = New System.Drawing.Point(1, 33)
+        Me.PanSplit.Location = New System.Drawing.Point(1, 41)
         Me.PanSplit.Margin = New System.Windows.Forms.Padding(2)
         Me.PanSplit.Name = "PanSplit"
-        Me.PanSplit.Size = New System.Drawing.Size(622, 2)
+        Me.PanSplit.Size = New System.Drawing.Size(778, 2)
         Me.PanSplit.TabIndex = 74
         '
         'PanHead
@@ -57,8 +57,9 @@ Partial Class FormTextDialog
         Me.PanHead.Controls.Add(Me.TlpHeadImage)
         Me.PanHead.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanHead.Location = New System.Drawing.Point(1, 1)
+        Me.PanHead.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PanHead.Name = "PanHead"
-        Me.PanHead.Size = New System.Drawing.Size(622, 32)
+        Me.PanHead.Size = New System.Drawing.Size(778, 40)
         Me.PanHead.TabIndex = 73
         '
         'LabHead
@@ -67,9 +68,10 @@ Partial Class FormTextDialog
         Me.LabHead.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LabHead.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabHead.ForeColor = System.Drawing.Color.White
-        Me.LabHead.Location = New System.Drawing.Point(32, 0)
+        Me.LabHead.Location = New System.Drawing.Point(40, 0)
+        Me.LabHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LabHead.Name = "LabHead"
-        Me.LabHead.Size = New System.Drawing.Size(558, 32)
+        Me.LabHead.Size = New System.Drawing.Size(698, 40)
         Me.LabHead.TabIndex = 75
         Me.LabHead.Text = "Changelog"
         Me.LabHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -84,11 +86,11 @@ Partial Class FormTextDialog
         Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdClose.ForeColor = System.Drawing.Color.White
-        Me.CmdClose.Location = New System.Drawing.Point(590, 0)
+        Me.CmdClose.Location = New System.Drawing.Point(738, 0)
         Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdClose.Name = "CmdClose"
         Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.CmdClose.Size = New System.Drawing.Size(32, 32)
+        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
         Me.CmdClose.TabIndex = 0
         Me.CmdClose.TabStop = False
         Me.CmdClose.Text = "✕"
@@ -98,40 +100,40 @@ Partial Class FormTextDialog
         '
         Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
         Me.TlpHeadImage.ColumnCount = 1
-        Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
-        Me.TlpHeadImage.Controls.Add(Me.PbxHead, 0, 0)
+        Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.TlpHeadImage.Controls.Add(Me.icnMain, 0, 0)
         Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
         Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
         Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
         Me.TlpHeadImage.Name = "TlpHeadImage"
         Me.TlpHeadImage.RowCount = 1
         Me.TlpHeadImage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpHeadImage.Size = New System.Drawing.Size(32, 32)
+        Me.TlpHeadImage.Size = New System.Drawing.Size(40, 40)
         Me.TlpHeadImage.TabIndex = 74
         '
-        'PbxHead
+        'icnMain
         '
-        Me.PbxHead.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PbxHead.BackColor = System.Drawing.Color.Transparent
-        Me.PbxHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PbxHead.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
-        Me.PbxHead.Location = New System.Drawing.Point(7, 6)
-        Me.PbxHead.Margin = New System.Windows.Forms.Padding(0, 0, 8, 0)
-        Me.PbxHead.Name = "PbxHead"
-        Me.PbxHead.Size = New System.Drawing.Size(19, 19)
-        Me.PbxHead.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxHead.TabIndex = 1
-        Me.PbxHead.TabStop = False
+        Me.icnMain.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.icnMain.BackColor = System.Drawing.Color.Transparent
+        Me.icnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.icnMain.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
+        Me.icnMain.Location = New System.Drawing.Point(9, 8)
+        Me.icnMain.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
+        Me.icnMain.Name = "icnMain"
+        Me.icnMain.Size = New System.Drawing.Size(24, 24)
+        Me.icnMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.icnMain.TabIndex = 1
+        Me.icnMain.TabStop = False
         '
         'PanMain
         '
         Me.PanMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.PanMain.Controls.Add(Me.TlpMain)
         Me.PanMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanMain.Location = New System.Drawing.Point(1, 35)
+        Me.PanMain.Location = New System.Drawing.Point(1, 43)
         Me.PanMain.Margin = New System.Windows.Forms.Padding(2)
         Me.PanMain.Name = "PanMain"
-        Me.PanMain.Size = New System.Drawing.Size(622, 524)
+        Me.PanMain.Size = New System.Drawing.Size(778, 656)
         Me.PanMain.TabIndex = 75
         '
         'TlpMain
@@ -146,7 +148,7 @@ Partial Class FormTextDialog
         Me.TlpMain.Name = "TlpMain"
         Me.TlpMain.RowCount = 1
         Me.TlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TlpMain.Size = New System.Drawing.Size(622, 524)
+        Me.TlpMain.Size = New System.Drawing.Size(778, 656)
         Me.TlpMain.TabIndex = 1
         '
         'RtbChanges
@@ -156,24 +158,24 @@ Partial Class FormTextDialog
         Me.RtbChanges.Dock = System.Windows.Forms.DockStyle.Fill
         Me.RtbChanges.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RtbChanges.ForeColor = System.Drawing.Color.White
-        Me.RtbChanges.Location = New System.Drawing.Point(5, 5)
-        Me.RtbChanges.Margin = New System.Windows.Forms.Padding(5)
+        Me.RtbChanges.Location = New System.Drawing.Point(6, 6)
+        Me.RtbChanges.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
         Me.RtbChanges.MaxLength = 999999
         Me.RtbChanges.Name = "RtbChanges"
         Me.RtbChanges.ReadOnly = True
-        Me.RtbChanges.Size = New System.Drawing.Size(612, 514)
+        Me.RtbChanges.Size = New System.Drawing.Size(766, 644)
         Me.RtbChanges.TabIndex = 0
         Me.RtbChanges.TabStop = False
         Me.RtbChanges.Text = "" & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'FormTextDialog
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(624, 560)
+        Me.ClientSize = New System.Drawing.Size(780, 700)
         Me.Controls.Add(Me.PanMain)
         Me.Controls.Add(Me.PanSplit)
         Me.Controls.Add(Me.PanHead)
@@ -183,14 +185,14 @@ Partial Class FormTextDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.MinimumSize = New System.Drawing.Size(624, 560)
+        Me.MinimumSize = New System.Drawing.Size(780, 700)
         Me.Name = "FormTextDialog"
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Changelog"
         Me.PanHead.ResumeLayout(False)
         Me.TlpHeadImage.ResumeLayout(False)
-        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanMain.ResumeLayout(False)
         Me.TlpMain.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -201,7 +203,7 @@ Partial Class FormTextDialog
     Friend WithEvents PanHead As Panel
     Friend WithEvents CmdClose As Button
     Friend WithEvents TlpHeadImage As TableLayoutPanel
-    Friend WithEvents PbxHead As PictureBox
+    Friend WithEvents icnMain As PictureBox
     Friend WithEvents PanMain As Panel
     Friend WithEvents TlpMain As TableLayoutPanel
     Friend WithEvents RtbChanges As RichTextBox
