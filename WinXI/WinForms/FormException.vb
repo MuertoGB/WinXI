@@ -153,7 +153,7 @@ Public Class FormException
             .AppendLine("Elevated: " & CStr(Booleans.bIsElevated))
             .AppendLine("SHA256: " & Checksum.GetSha256Digest(StringPath) & vbCrLf)
             .AppendLine("<-- Operating System -->" & vbCrLf)
-            .AppendLine("Name: " & WinSystem.GetWindowsName())
+            .AppendLine("Name: " & WinSystem.GetName())
             .AppendLine("Bitness: " & WinSystem.GetWindowsBitness)
             .AppendLine("Kernel: " & WinSystem.KernelVersion.ProductVersion())
             .AppendLine("Build: " & WinSystem.GetWindowsBuildLab() & vbCrLf)

@@ -7,7 +7,7 @@
 '                                                                                                           '
 ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
 
-'   01.11.2022 - DR - Impliment elevation changes, omit windows server changes
+'   01.11.2022 - DR - Impliment elevation changes, omit windows server changes, add capability check for WinSAT
 
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports System.Runtime.CompilerServices
@@ -25,6 +25,7 @@ Friend Class Program
     Friend Const X_Channel As String = "Alpha"
     Friend Const X_ReleaseDate As String = "Not set"
 
+    ' Main entry point
     <STAThread()>
     Friend Shared Sub Main(Args() As String)
 
@@ -42,11 +43,15 @@ Friend Class Program
             CheckFonts() 'Moved here on 23.10.2019 (Before text rendering is set)
         End If
 
+        If Not WinSystem.IsWinSATCapable Then
+            Booleans.bIncapableOfWinsat = True
+        End If
+
         'Framework
         Application.EnableVisualStyles()
         Application.SetCompatibleTextRenderingDefault(False)
 
-        Booleans.bIsElevated = CBool(IIf(Core.Helpers.AdminHelper.IsRunAsAdmin, True, False))
+        Booleans.bIsElevated = CBool(IIf(Core.Elevation.IsElevated, True, False))
 
         Dim Startup As New ApplicationSupport(FormMain, Args)
 
@@ -189,6 +194,7 @@ Namespace Main.Support
 
         Friend Shared Sub RestartElevated()
 
+            'Sometimes previous instance hangs around for a moment, need to figure why.
             If Not Booleans.bIsElevated Then
                 Try
                     StartInfo = New ProcessStartInfo() With {

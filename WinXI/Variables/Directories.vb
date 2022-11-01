@@ -4,7 +4,6 @@ Imports WinXI.Core.Common
 
 Friend Class Directories
 
-    '!Friend Shared ReadOnly DirWindows As String = Environment.GetEnvironmentVariable("WINDIR")!
     Friend Shared ReadOnly WindowsPath As String = Environment.GetFolderPath(Environment.SpecialFolder.Windows)
     Friend Shared ReadOnly DesktopPath As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
     Friend Shared ReadOnly AppPath As String = FileOps.GetApplicationPath()

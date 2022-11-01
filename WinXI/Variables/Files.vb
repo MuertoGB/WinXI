@@ -1,4 +1,4 @@
-﻿'Updated on 07.12.2019 - DS (Removed font variables)
+﻿'   07.12.2019 - DR - Removed font vars
 
 Imports System.IO
 

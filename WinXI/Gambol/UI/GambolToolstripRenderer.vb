@@ -1,4 +1,5 @@
-﻿'  Updated on 22.10.2019 - DS (Update imports)
+﻿'   22.10.2019 - DR - Update imports
+'   01.11.2022 - DR - Simplify expression
 
 Namespace Gambol.UI
 
@@ -21,7 +22,7 @@ Namespace Gambol.UI
             If e.Vertical OrElse TryCast(e.Item, ToolStripSeparator) Is Nothing Then
                 MyBase.OnRenderSeparator(e)
             Else
-                Dim sep As Rectangle = New Rectangle(Point.Empty, e.Item.Size)
+                Dim sep As New Rectangle(Point.Empty, e.Item.Size)
                 Using b As New SolidBrush(Color.FromArgb(20, 20, 20))
                     e.Graphics.FillRectangle(b, sep)
                 End Using

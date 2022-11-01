@@ -1,5 +1,5 @@
-﻿'  Updated on 27.03.2020 - DS (Update to new code)
-'  Updated on 07.03.2021 - DS (Cleanup)
+﻿'   27.03.2020 - DR - Update to new code)
+'   07.03.2021 - DR - Cleanup)
 
 Imports System.ComponentModel
 Imports WinXI.Gambol.Controls.Design
@@ -20,13 +20,13 @@ Namespace Gambol.Controls
             AddHandler MouseEnter, New EventHandler(AddressOf ProcessMouse)
             AddHandler MouseLeave, New EventHandler(AddressOf ProcessMouse)
             BackColor = Color.Transparent
-            ForeColor = Colors.EnabledText
+            ForeColor = Colors.clrEnabledText
         End Sub
 #End Region
 
 #Region "Properties"
 
-        Private BorderInactive_ As Color = Colors.BorderInactive
+        Private BorderInactive_ As Color = Colors.clrBorderInactive
 
         <Description("Check area border color")>
         <Category("Appearance (Gambol)")>
@@ -40,7 +40,7 @@ Namespace Gambol.Controls
             End Set
         End Property
 
-        Private BorderActive_ As Color = Colors.BorderActive
+        Private BorderActive_ As Color = Colors.clrBorderActive
 
         <Description("Check area mouseover border color")>
         <Category("Appearance (Gambol)")>
@@ -54,7 +54,7 @@ Namespace Gambol.Controls
             End Set
         End Property
 
-        Private ClientInactive_ As Color = Colors.ClientInactive
+        Private ClientInactive_ As Color = Colors.clrClientInactive
 
         <Description("Check area backcolor")>
         <Category("Appearance (Gambol)")>
@@ -68,7 +68,7 @@ Namespace Gambol.Controls
             End Set
         End Property
 
-        Private ClientActive_ As Color = Colors.ClientActive
+        Private ClientActive_ As Color = Colors.clrClientActive
 
         <Description("Check area mouseover color")>
         <Category("Appearance (Gambol)")>
@@ -133,7 +133,7 @@ Namespace Gambol.Controls
                         SwitchBorder = BorderColor
                     End If
                 Else
-                    SwitchBorder = Colors.DisabledControl
+                    SwitchBorder = Colors.clrDisabledControl
                 End If
 
                 Using P As Pen = New Pen(SwitchBorder, 2.0F)
@@ -161,7 +161,7 @@ Namespace Gambol.Controls
                 End If
 
                 Dim TextArea As Rectangle = New Rectangle(OuterRectangle.Width + 6, 0, Width - OuterRectangle.Width - 6, Height)
-                Dim BC As Color = If(Enabled, ForeColor, Colors.DisabledText)
+                Dim BC As Color = If(Enabled, ForeColor, Colors.clrDisabledText)
 
                 Using TF As StringFormat = New StringFormat() With {
                     .LineAlignment = StringAlignment.Center,

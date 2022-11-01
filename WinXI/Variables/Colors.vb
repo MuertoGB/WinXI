@@ -1,4 +1,4 @@
-﻿'  Updated on 17.03.2021 - DS (Added more colours, cleanup)
+﻿'   17.03.2021 - DR - More colours, cleanup
 
 Friend Class Colors
 

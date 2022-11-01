@@ -1,4 +1,4 @@
-﻿'  01.08.2019 - DR - Add IntNotificationCount
+﻿'   01.08.2019 - DR - Add IntNotificationCount
 
 Friend Class Integers
 

@@ -119,8 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Animation\Fade.vb" />
-    <Compile Include="Core\Helpers\AdminHelper.vb" />
-    <Compile Include="Core\Helpers\MemoryHelper.vb" />
+    <Compile Include="Core\Elevation.vb" />
+    <Compile Include="Core\ImgurApi.vb" />
+    <Compile Include="Core\MemoryType.vb" />
     <Compile Include="Gambol\Colors.vb" />
     <Compile Include="Core\Common\IniFile.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
@@ -141,7 +142,7 @@
     <Compile Include="Core\Common\FileOps.vb" />
     <Compile Include="Core\Helpers\ImageHelper.vb" />
     <Compile Include="Core\System\Network.vb" />
-    <Compile Include="Core\System\OS.vb" />
+    <Compile Include="Core\System\WinSystem.vb" />
     <Compile Include="Core\System\Power.vb" />
     <Compile Include="Core\Common\Knowledgebase.vb" />
     <Compile Include="Gambol\Controls\Design\GambolCheckboxDesigner.vb" />

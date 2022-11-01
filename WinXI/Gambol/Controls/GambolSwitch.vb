@@ -1,4 +1,4 @@
-﻿'  Updated on 07.03.2021 - DS (Cleanup)
+﻿'   07.03.2021 - DR - Cleanup
 
 Imports WinXI.Gambol.Controls.Design
 Imports System.ComponentModel
@@ -23,7 +23,7 @@ Namespace Gambol.Controls
 #End Region
 
 #Region "Properties"
-        Private BorderInactive_ As Color = Colors.BorderInactive
+        Private BorderInactive_ As Color = Colors.clrBorderInactive
 
         <Description("Set the control border color.")>
         <Category("Appearance (Gambol)")>
@@ -37,7 +37,7 @@ Namespace Gambol.Controls
             End Set
         End Property
 
-        Private BorderActive_ As Color = Colors.BorderActive
+        Private BorderActive_ As Color = Colors.clrBorderActive
 
         <Description("Set the control mouseover border color.")>
         <Category("Appearance (Gambol)")>
@@ -51,7 +51,7 @@ Namespace Gambol.Controls
             End Set
         End Property
 
-        Private HeadColor_ As Color = Colors.SwitchHead
+        Private HeadColor_ As Color = Colors.clrSwitchHead
 
         <Description("Set the switch head color")>
         <Category("Appearance (Gambol)")>
@@ -79,7 +79,7 @@ Namespace Gambol.Controls
             End Set
         End Property
 
-        Private ClientActive_ As Color = Colors.ClientActive
+        Private ClientActive_ As Color = Colors.clrClientActive
 
         <Description("Sets the mouseover background color when the switch is set to off.")>
         <Category("Appearance (Gambol)")>
@@ -126,7 +126,7 @@ Namespace Gambol.Controls
                         SwitchBorder = BorderColor
                     End If
                 Else
-                    SwitchBorder = Colors.DisabledControl
+                    SwitchBorder = Colors.clrDisabledControl
                 End If
 
                 Using P As Pen = New Pen(SwitchBorder) With {
@@ -155,7 +155,7 @@ Namespace Gambol.Controls
                     g.DrawRectangle(P, Rect)
                 End Using
 
-                Using SB As SolidBrush = New SolidBrush(If(Enabled, SwitchHeadColor, Colors.SwitchHeadDisabled))
+                Using SB As SolidBrush = New SolidBrush(If(Enabled, SwitchHeadColor, Colors.clrSwitchHeadDisabled))
                     Dim Int As Integer = CInt(If(Checked, Width - (Width / 3), 0))
                     Dim Rect As Rectangle = New Rectangle(Int, 0, CInt(Width / 3), Height)
                     g.FillRectangle(SB, Rect)

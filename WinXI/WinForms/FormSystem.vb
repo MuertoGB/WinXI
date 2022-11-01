@@ -8,8 +8,8 @@ Imports WinXI.Core.System
 
 Public Class FormSystem
 
-    Private ReadOnly StringBuildOther As String = WinSystem.GetWindowsName() & " · " & WinSystem.CurrentBuild()
-    Private ReadOnly StringBuildTen As String = WinSystem.GetWindowsName() & " · Build " & WinSystem.BuildBranch()
+    Private ReadOnly StringBuildOther As String = WinSystem.GetName() & " · " & WinSystem.CurrentBuild()
+    Private ReadOnly StringBuildTen As String = WinSystem.GetName() & " · Build " & WinSystem.BuildBranch()
 
     Private Delegate Sub InvokeUptime(Data As String)
     Private ThrTick As Thread

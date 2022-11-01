@@ -1,5 +1,5 @@
-﻿'   07.08.2019 - DR  - Cleanup.
-'   30.10.2022 - DR - Set security protocol, lowered timeout form 10s to 5s.
+﻿'   07.08.2019 - DR - Cleanup
+'   30.10.2022 - DR - Set security protocol, lowered timeout form 10s to 5s
 '   Checked for WinXI on 30.10.2022
 
 Imports System.Net

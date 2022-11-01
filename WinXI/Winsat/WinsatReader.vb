@@ -1,12 +1,12 @@
-﻿'  Updated on 02.01.2020 - DS (Fixed decimal seperator)
-'  Updated on 20.01.2020 - DS (Gain GetExitCode(), gain GetExitCodeString(), cleanup)
+﻿'   02.01.2020 - DR - Fixed decimal seperator.
+'   20.01.2020 - DR - Add GetExitCode(), Add GetExitCodeString(), cleanup.
 
 Imports System.IO
 Imports System.Linq
 Imports System.Xml
 
+Imports WinXI.Core
 Imports WinXI.Core.Common
-Imports WinXI.Core.Helpers
 Imports WinXI.Core.System
 Imports WinXI.WinsatAPI
 
@@ -151,7 +151,7 @@ Namespace Winsat
 
         Friend Shared Sub ReadXMLHardware()
 
-            If Not WinsatApi.GetAssessmentValidityInt() = 3 Then 'Block attempts to load hardware on unrated systems
+            If Not GetAssessmentValidityInt() = 3 Then 'Block attempts to load hardware on unrated systems
                 Strings.ProcessorHW = XMLGetProcessor()
                 Strings.MemoryHW = XMLGetMemoryType() & " " & XMLGetMemorySize()
                 Strings.GraphicsHW = XMLGetGraphicsName()
@@ -174,7 +174,7 @@ Namespace Winsat
 
         Private Shared Function XMLGetMemoryType() As String
 
-            Dim Str As String = MemoryHelper.ConvertToMemoryType(GetWinsatXMLInfo("WinSAT/SystemConfig/Memory/DIMM", "MemoryType"))
+            Dim Str As String = memorytype.ConvertToMemoryType(GetWinsatXMLInfo("WinSAT/SystemConfig/Memory/DIMM", "MemoryType"))
             If Str.Length = 0 Then
                 Return "Unknown Memory"
             Else
@@ -244,7 +244,7 @@ Namespace Winsat
 
         Private Shared Function APIGetProcessor() As String
 
-            Dim Str As String = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_CPU, INFO_TYPE.Description)
+            Dim Str As String = GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_CPU, INFO_TYPE.Description)
             If Str.Length = 0 Then
                 Return "Unknown Processor"
             Else
@@ -255,7 +255,7 @@ Namespace Winsat
 
         Private Shared Function APIGetMemorySize() As String
 
-            Dim Str As String = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_MEMORY, INFO_TYPE.Description)
+            Dim Str As String = GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_MEMORY, INFO_TYPE.Description)
             If Str.Length = 0 Then
                 Return "Unknown Memory"
             Else
@@ -266,7 +266,7 @@ Namespace Winsat
 
         Private Shared Function APIGetGraphicsName() As String
 
-            Dim Str As String = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_GRAPHICS, INFO_TYPE.Description)
+            Dim Str As String = GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_GRAPHICS, INFO_TYPE.Description)
             If Str.Length = 0 Then
                 Return "Unknown Adapter"
             Else
@@ -277,7 +277,7 @@ Namespace Winsat
 
         Private Shared Function APIGetGraphicsSize() As String
 
-            Dim Str As String = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_D3D, INFO_TYPE.Description)
+            Dim Str As String = GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_D3D, INFO_TYPE.Description)
             If Str.Length = 0 Then
                 Return "Unknown Shared Memory"
             Else
@@ -288,7 +288,7 @@ Namespace Winsat
 
         Private Shared Function APIGetDisk() As String
 
-            Dim Str As String = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_DISK, INFO_TYPE.Description)
+            Dim Str As String = GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_DISK, INFO_TYPE.Description)
             If Str.Length = 0 Then
                 Return "Unknown Disk"
             Else

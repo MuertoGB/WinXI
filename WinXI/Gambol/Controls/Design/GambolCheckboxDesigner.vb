@@ -1,4 +1,4 @@
-﻿'  Updated on 27.03.2020 - DS (Update to new code)
+﻿'   27.03.2020 - DR - Update to new code
 
 Imports System.Windows.Forms.Design
 

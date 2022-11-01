@@ -1,7 +1,8 @@
-﻿'  Some ContextMenu settings are overriden by Gambol\UI\GambolToolstripRenderer like background color, etc
-'  Updated on 15.04.2020 - DS (Add assessment overrides based on selection)
-'  Updated on 29.05.2020 - DS (Fixed Win32Excptions)
-'  Updated on 04.04.2021 - DS (Cleaned up system info string on export of scores as image, switch os info buildid to buildlab)
+﻿'   Some ContextMenu settings are overriden by Gambol\UI\GambolToolstripRenderer like background color, etc
+'   15.04.2020 - DR - Add assessment overrides based on selection
+'   29.05.2020 - DR - Fixed Win32Exceptions
+'   04.04.2021 - DR - Cleaned up system info string on export of scores as image, switch os info buildid to buildlab
+'   01.11.2022 - DR - Start to implement elevation changes, UI changes, add debug menu
 
 '  Thanks to https://www.transparenttextures.com/ for the title bar graphics.
 
@@ -17,6 +18,7 @@ Imports WinXI.Gambol.Controls
 Imports WinXI.Gambol.UI
 Imports WinXI.Winsat
 Imports WinXI.Main.Support
+Imports WinXI.Core
 
 Public Class FormMain
 
@@ -24,14 +26,15 @@ Public Class FormMain
 
         InitializeComponent()
 
-        'SetStyle(ControlStyles.SupportsTransparentBackColor, True)
-
         SetMainThemeAccent()
 
         CmsExport.Renderer = New GambolToolstripRenderer
         CmsOptions.Renderer = New GambolToolstripRenderer
         CmsTools.Renderer = New GambolToolstripRenderer
-        CmsHelp.Renderer = New GambolToolstripRenderer
+        cmsHelp.Renderer = New GambolToolstripRenderer
+#If DEBUG Then
+        cmsDebug.Renderer = New GambolToolstripRenderer
+#End If
         CmsExplorer.Renderer = New GambolToolstripRenderer
 
         TlpMain.BackgroundImage = Settings.SetHeaderGraphic
@@ -228,6 +231,11 @@ Public Class FormMain
         cmdDebug.Hide()
 #End If
 
+        If Booleans.bIsElevated Then
+            cmdElevate.Hide()
+            RestartElevatedToolStripMenuItem.Dispose()
+        End If
+
         'Hide items that are only shown when needed
         HotfixAvailableToolStripMenuItem.Visible = False
 
@@ -235,7 +243,7 @@ Public Class FormMain
         lblAppVersion.Text = Program.X_Version
 
         Dim strVersion As String = CStr(IIf(WinSystem.IsWin10, WinSystem.BuildBranch, WinSystem.CurrentBuild))
-        lblWinVerString.Text = WinSystem.GetWindowsName & " " & strVersion & " " & WinSystem.GetWindowsBitness
+        lblWinVerString.Text = WinSystem.GetName & " " & strVersion & " " & WinSystem.GetWindowsBitness
 
         lblScale.Text = DetermineScaleOf()
 
@@ -331,14 +339,6 @@ Public Class FormMain
             If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = TC
         Next
 
-        'For Each Ctrl As Control In TlpTop.Controls
-        '    If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = TC
-        'Next
-
-        'For Each Ctrl As Control In TlpBottom.Controls
-        '    If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = TC
-        'Next
-
         'Export Menu
         For Each Item As ToolStripItem In CmsExport.Items
             Item.ForeColor = TC
@@ -355,7 +355,12 @@ Public Class FormMain
         Next
 
         'Help Menu
-        For Each Item As ToolStripItem In CmsHelp.Items
+        For Each Item As ToolStripItem In cmsHelp.Items
+            Item.ForeColor = TC
+        Next
+
+        'Debug Menu
+        For Each Item As ToolStripItem In cmsDebug.Items
             Item.ForeColor = TC
         Next
 
@@ -456,7 +461,14 @@ Public Class FormMain
 
         Dim ptLowerLeft As Point = New Point(-1, CType(sender, Button).Height)
         ptLowerLeft = CType(sender, Button).PointToScreen(ptLowerLeft)
-        CmsHelp.Show(ptLowerLeft)
+        cmsHelp.Show(ptLowerLeft)
+
+    End Sub
+    Private Sub cmdDebug_Click(sender As Object, e As EventArgs) Handles cmdDebug.Click
+
+        Dim ptLowerLeft As Point = New Point(-1, CType(sender, Button).Height)
+        ptLowerLeft = CType(sender, Button).PointToScreen(ptLowerLeft)
+        cmsDebug.Show(ptLowerLeft)
 
     End Sub
 #End Region
@@ -712,7 +724,7 @@ Public Class FormMain
 
     Private Sub UploadCustomClient()
 
-        Dim exitCode As Integer = ImageHelper.PostToImgur(Files.TemporaryImgurFile, Settings.ImgurUrlsPath, Settings.CustomImgurApiKeyString, True, True, True)
+        Dim exitCode As Integer = ImgurApi.PostToImgur(Files.TemporaryImgurFile, Settings.ImgurUrlsPath, Settings.CustomImgurApiKeyString, True, True, True)
 
         If exitCode = 1 Then
             ToastAlert.Show("File uploaded to Imgur.", ToastType.Information)
@@ -724,7 +736,7 @@ Public Class FormMain
 
     Private Sub UploadNormalClient()
 
-        Dim exitCode As Integer = ImageHelper.PostToImgur(Files.TemporaryImgurFile, Settings.ImgurUrlsPath, Strings.ImgurClientID, True, True, True)
+        Dim exitCode As Integer = ImgurApi.PostToImgur(Files.TemporaryImgurFile, Settings.ImgurUrlsPath, Strings.ImgurClientID, True, True, True)
 
         If exitCode = 1 Then
             ToastAlert.Show("File uploaded to Imgur.", ToastType.Information)
@@ -975,6 +987,25 @@ Public Class FormMain
     End Sub
 
 #End Region
+#Region "Context Menu (Debug)"
+
+    Private Sub ThrowUnhandledExceptionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ThrowUnhandledExceptionToolStripMenuItem.Click
+        Process.Start("unhandledexception.exe")
+    End Sub
+
+    Private Sub ShowToastInfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToastInfoToolStripMenuItem.Click
+        ToastAlert.Show("This is an informational message", ToastType.Information)
+    End Sub
+
+    Private Sub ShowToastWarningToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToastWarningToolStripMenuItem.Click
+        ToastAlert.Show("This is an warning message", ToastType.Warning)
+    End Sub
+
+    Private Sub ShowToastErrorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToastErrorToolStripMenuItem.Click
+        ToastAlert.Show("This is an error message", ToastType.Critical)
+    End Sub
+
+#End Region
 #Region "Context Menu (Application)"
 
     Private Sub MinimizeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MinimizeToolStripMenuItem.Click
@@ -987,6 +1018,10 @@ Public Class FormMain
 
     Private Sub ResetApplicationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestartApplicationToolStripMenuItem.Click
         Application.Restart()
+    End Sub
+
+    Private Sub RestartElevatedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestartElevatedToolStripMenuItem.Click
+        ApplicationSupport.RestartElevated()
     End Sub
 
     Private Sub CloseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CloseToolStripMenuItem.Click
@@ -1025,14 +1060,17 @@ Public Class FormMain
 
     End Function
     Private Sub EnterPrintMode()
+
         CmdAssess.Hide()
+
         If WinSystem.IsWin10 Then
-            lblScale.Text = "WinXI v" & Application.ProductVersion & " on " & WinSystem.GetWindowsName() & " · " & WinSystem.CurrentBuild() & " · " _
+            lblScale.Text = "WinXI v" & Application.ProductVersion & " on " & WinSystem.GetName() & " · " & WinSystem.CurrentBuild() & " · " _
                 & WinSystem.BuildBranch() & " · " & WinSystem.GetWindowsBitness
         Else
-            lblScale.Text = "WinXI v" & Application.ProductVersion & " on " & WinSystem.GetWindowsName() & " · " _
+            lblScale.Text = "WinXI v" & Application.ProductVersion & " on " & WinSystem.GetName() & " · " _
                 & WinSystem.GetWindowsBuildLab() & " · " & WinSystem.GetWindowsBitness()
         End If
+
     End Sub
     Private Sub ExitPrintMode()
         CmdAssess.Show()
@@ -1185,6 +1223,7 @@ Public Class FormMain
     Private Sub FormMain_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
         Dim Clr As Color = Colors.clrFormDeactivated
         lblHead.ForeColor = Clr
+        cmdElevate.ForeColor = Clr
         CmdSettings.ForeColor = Clr
         CmdMinimize.ForeColor = Clr
         CmdClose.ForeColor = Clr
@@ -1192,14 +1231,10 @@ Public Class FormMain
     Private Sub FormActivate_GotFocus(sender As Object, e As EventArgs) Handles Me.Activated
         Dim Clr As Color = Colors.clrFormActivated
         lblHead.ForeColor = Color.White
+        cmdElevate.ForeColor = Clr
         CmdSettings.ForeColor = Clr
         CmdMinimize.ForeColor = Clr
         CmdClose.ForeColor = Clr
-    End Sub
-
-    Private Sub cmdDebug_Click(sender As Object, e As EventArgs) Handles cmdDebug.Click
-        'Spark exception handler
-        Process.Start("stepbroimstuckcomehelpme.exe.dll.com.somethingsomethingdark----side")
     End Sub
 
 #End Region

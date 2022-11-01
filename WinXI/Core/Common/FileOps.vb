@@ -91,6 +91,7 @@ Namespace Core.Common
 
 #End Region
 
+
         Public Shared Function ConvertToSize(SizeIn As Double) As String
 
             Dim Dbl As Double

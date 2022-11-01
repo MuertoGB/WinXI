@@ -1,4 +1,4 @@
-﻿'   31.07.2019 - DR - Better error handling.
+﻿'   31.07.2019 - DR - Better error handling
 '   30.10.2022 - DR - Merge enums
 '   Checked for WinXI on 30.10.2022
 
@@ -15,7 +15,6 @@ Friend Class WinsatAPI
         Score
         Title
     End Enum
-
     Friend Enum VISUAL_SIZE
         Small
         Normal

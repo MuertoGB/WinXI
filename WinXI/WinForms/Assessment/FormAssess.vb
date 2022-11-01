@@ -341,7 +341,7 @@ Friend Class FormAssess
         Logger.Log("New Test Started on " & Format(Now, "dddd, MMM d yyyy hh:mm tt"), LogType.InfoLog, RtbLog)
         Logger.Log("(╯°□°）╯︵ ┻━┻", LogType.InfoLog, RtbLog)
         Logger.Log("WinXI v" & Application.ProductVersion & " " & Program.X_Channel & " (" & Program.X_Build & ")", LogType.InfoLog, RtbLog)
-        Logger.Log("SystemOS: " & WinSystem.GetWindowsName() & " (Kernel: " & WinSystem.KernelVersion.ProductVersion & ")", LogType.InfoLog, RtbLog)
+        Logger.Log("SystemOS: " & WinSystem.GetName() & " (Kernel: " & WinSystem.KernelVersion.ProductVersion & ")", LogType.InfoLog, RtbLog)
         Logger.Log("Bitness: " & WinSystem.GetWindowsBitness(True), LogType.InfoLog, RtbLog)
         Logger.Log("Culture: " & Culture.GetCultureName, LogType.InfoLog, RtbLog)
         Logger.Log(CType(IIf(Culture.SetCultureStrings(), "INI: Present", "INI: Missing"), String), LogType.InfoLog, RtbLog)

@@ -1,6 +1,6 @@
-﻿'  23.01.2020 - DR - Switch from SHA512 to SHA256
-'  11.03.2021 - DR - Removed Base64ToImage()
-'  Checked for WinXI on 30.10.2022
+﻿'   23.01.2020 - DR - Switch from SHA512 to SHA256
+'   11.03.2021 - DR - Removed Base64ToImage()
+'   Checked for WinXI on 30.10.2022
 
 Imports System.IO
 Imports System.Security.Cryptography

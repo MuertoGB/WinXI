@@ -58,6 +58,7 @@ Partial Class FormMain
         Me.lblMemoryR = New System.Windows.Forms.Label()
         Me.lblGraphicsR = New System.Windows.Forms.Label()
         Me.PanHead = New System.Windows.Forms.Panel()
+        Me.cmdElevate = New System.Windows.Forms.Button()
         Me.CmdSettings = New System.Windows.Forms.Button()
         Me.TlpHeadSplit = New System.Windows.Forms.TableLayoutPanel()
         Me.PanHeadSplit = New System.Windows.Forms.Panel()
@@ -128,7 +129,7 @@ Partial Class FormMain
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.RunToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RunVerboseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CmsHelp = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.cmsHelp = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MediaFeaturePackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TroubleshootingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
@@ -143,6 +144,12 @@ Partial Class FormMain
         Me.TlpMenu = New System.Windows.Forms.TableLayoutPanel()
         Me.cmdDebug = New System.Windows.Forms.Button()
         Me.TlpMain = New System.Windows.Forms.TableLayoutPanel()
+        Me.cmsDebug = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ThrowUnhandledExceptionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ShowToastInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ShowToastWarningToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ShowToastErrorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.swHardware = New WinXI.Gambol.Controls.GambolSwitch()
         CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CmsExplorer.SuspendLayout()
@@ -167,9 +174,10 @@ Partial Class FormMain
         Me.CmsExport.SuspendLayout()
         Me.CmsOptions.SuspendLayout()
         Me.CmsTools.SuspendLayout()
-        Me.CmsHelp.SuspendLayout()
+        Me.cmsHelp.SuspendLayout()
         Me.TlpMenu.SuspendLayout()
         Me.TlpMain.SuspendLayout()
+        Me.cmsDebug.SuspendLayout()
         Me.SuspendLayout()
         '
         'PbxHead
@@ -571,6 +579,7 @@ Partial Class FormMain
         'PanHead
         '
         Me.PanHead.BackColor = System.Drawing.Color.Transparent
+        Me.PanHead.Controls.Add(Me.cmdElevate)
         Me.PanHead.Controls.Add(Me.CmdSettings)
         Me.PanHead.Controls.Add(Me.TlpHeadSplit)
         Me.PanHead.Controls.Add(Me.CmdMinimize)
@@ -583,6 +592,27 @@ Partial Class FormMain
         Me.PanHead.Name = "PanHead"
         Me.PanHead.Size = New System.Drawing.Size(923, 50)
         Me.PanHead.TabIndex = 59
+        '
+        'cmdElevate
+        '
+        Me.cmdElevate.BackColor = System.Drawing.Color.Transparent
+        Me.cmdElevate.Dock = System.Windows.Forms.DockStyle.Right
+        Me.cmdElevate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdElevate.FlatAppearance.BorderSize = 0
+        Me.cmdElevate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.cmdElevate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.cmdElevate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdElevate.Font = New System.Drawing.Font("Segoe MDL2 Assets", 13.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdElevate.ForeColor = System.Drawing.Color.White
+        Me.cmdElevate.Location = New System.Drawing.Point(707, 0)
+        Me.cmdElevate.Margin = New System.Windows.Forms.Padding(0)
+        Me.cmdElevate.Name = "cmdElevate"
+        Me.cmdElevate.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
+        Me.cmdElevate.Size = New System.Drawing.Size(50, 50)
+        Me.cmdElevate.TabIndex = 11
+        Me.cmdElevate.TabStop = False
+        Me.cmdElevate.Text = ""
+        Me.cmdElevate.UseVisualStyleBackColor = False
         '
         'CmdSettings
         '
@@ -1542,15 +1572,15 @@ Partial Class FormMain
         Me.RunVerboseToolStripMenuItem.Size = New System.Drawing.Size(303, 28)
         Me.RunVerboseToolStripMenuItem.Text = "Run In-depth Assessment"
         '
-        'CmsHelp
+        'cmsHelp
         '
-        Me.CmsHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.CmsHelp.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.CmsHelp.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MediaFeaturePackToolStripMenuItem, Me.TroubleshootingToolStripMenuItem, Me.ToolStripSeparator3, Me.HotfixAvailableToolStripMenuItem, Me.UpdateAvailableToolStripMenuItem, Me.ChangelogToolStripMenuItem, Me.ToolStripSeparator10, Me.AboutToolStripMenuItem, Me.AcknowledgementsToolStripMenuItem, Me.BMACToolstripMenuItem, Me.LicenseToolStripMenuItem})
-        Me.CmsHelp.Name = "cmsHelp"
-        Me.CmsHelp.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.CmsHelp.ShowImageMargin = False
-        Me.CmsHelp.Size = New System.Drawing.Size(267, 268)
+        Me.cmsHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.cmsHelp.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.cmsHelp.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MediaFeaturePackToolStripMenuItem, Me.TroubleshootingToolStripMenuItem, Me.ToolStripSeparator3, Me.HotfixAvailableToolStripMenuItem, Me.UpdateAvailableToolStripMenuItem, Me.ChangelogToolStripMenuItem, Me.ToolStripSeparator10, Me.AboutToolStripMenuItem, Me.AcknowledgementsToolStripMenuItem, Me.BMACToolstripMenuItem, Me.LicenseToolStripMenuItem})
+        Me.cmsHelp.Name = "cmsHelp"
+        Me.cmsHelp.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.cmsHelp.ShowImageMargin = False
+        Me.cmsHelp.Size = New System.Drawing.Size(267, 268)
         '
         'MediaFeaturePackToolStripMenuItem
         '
@@ -1713,6 +1743,52 @@ Partial Class FormMain
         Me.TlpMain.Size = New System.Drawing.Size(923, 90)
         Me.TlpMain.TabIndex = 89
         '
+        'cmsDebug
+        '
+        Me.cmsDebug.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.cmsDebug.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.cmsDebug.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ThrowUnhandledExceptionToolStripMenuItem, Me.ToolStripSeparator11, Me.ShowToastInfoToolStripMenuItem, Me.ShowToastWarningToolStripMenuItem, Me.ShowToastErrorToolStripMenuItem})
+        Me.cmsDebug.Name = "cmsDebug"
+        Me.cmsDebug.ShowImageMargin = False
+        Me.cmsDebug.Size = New System.Drawing.Size(270, 150)
+        '
+        'ThrowUnhandledExceptionToolStripMenuItem
+        '
+        Me.ThrowUnhandledExceptionToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ThrowUnhandledExceptionToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ThrowUnhandledExceptionToolStripMenuItem.Name = "ThrowUnhandledExceptionToolStripMenuItem"
+        Me.ThrowUnhandledExceptionToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
+        Me.ThrowUnhandledExceptionToolStripMenuItem.Text = "Throw Unhandled Exception"
+        '
+        'ToolStripSeparator11
+        '
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(266, 6)
+        '
+        'ShowToastInfoToolStripMenuItem
+        '
+        Me.ShowToastInfoToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ShowToastInfoToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ShowToastInfoToolStripMenuItem.Name = "ShowToastInfoToolStripMenuItem"
+        Me.ShowToastInfoToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
+        Me.ShowToastInfoToolStripMenuItem.Text = "Show Toast (Info)"
+        '
+        'ShowToastWarningToolStripMenuItem
+        '
+        Me.ShowToastWarningToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ShowToastWarningToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ShowToastWarningToolStripMenuItem.Name = "ShowToastWarningToolStripMenuItem"
+        Me.ShowToastWarningToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
+        Me.ShowToastWarningToolStripMenuItem.Text = "Show Toast (Warning)"
+        '
+        'ShowToastErrorToolStripMenuItem
+        '
+        Me.ShowToastErrorToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ShowToastErrorToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ShowToastErrorToolStripMenuItem.Name = "ShowToastErrorToolStripMenuItem"
+        Me.ShowToastErrorToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
+        Me.ShowToastErrorToolStripMenuItem.Text = "Show Toast (Error)"
+        '
         'swHardware
         '
         Me.swHardware.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -1776,10 +1852,11 @@ Partial Class FormMain
         Me.CmsExport.ResumeLayout(False)
         Me.CmsOptions.ResumeLayout(False)
         Me.CmsTools.ResumeLayout(False)
-        Me.CmsHelp.ResumeLayout(False)
+        Me.cmsHelp.ResumeLayout(False)
         Me.TlpMenu.ResumeLayout(False)
         Me.TlpMenu.PerformLayout()
         Me.TlpMain.ResumeLayout(False)
+        Me.cmsDebug.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1850,7 +1927,7 @@ Partial Class FormMain
     Friend WithEvents CmsTools As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents RunToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RunVerboseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CmsHelp As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents cmsHelp As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents TroubleshootingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents UpdateAvailableToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -1901,4 +1978,11 @@ Partial Class FormMain
     Friend WithEvents CreateSettingsiniToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RestartElevatedToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents cmdDebug As Button
+    Friend WithEvents cmdElevate As Button
+    Friend WithEvents cmsDebug As ContextMenuStrip
+    Friend WithEvents ThrowUnhandledExceptionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator11 As ToolStripSeparator
+    Friend WithEvents ShowToastInfoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ShowToastWarningToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ShowToastErrorToolStripMenuItem As ToolStripMenuItem
 End Class
