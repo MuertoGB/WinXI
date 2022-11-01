@@ -23,7 +23,7 @@ Friend Class Program
 
     ' // FILL BEFORE RELEASE
     Friend Shared ReadOnly X_Version As String = Application.ProductVersion
-    Friend Const X_Build As String = "221011.220.050"
+    Friend Const X_Build As String = "221011.220.051"
     Friend Const X_Channel As String = "Alpha"
     Friend Const X_ReleaseDate As String = "Not set"
 
@@ -131,6 +131,7 @@ Namespace Main.Support
         End Sub
 
 #Region "Application Startup"
+
         Private ReadOnly FEnvironment As New FormEnvironment
         Private Sub ApplicationSupport_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
 
@@ -155,7 +156,7 @@ Namespace Main.Support
 
         Friend Shared Sub ApplicationSupport_Shutdown() Handles Me.Shutdown
 
-            ' Tumbleweed
+            'Where did everybody go?
 
         End Sub
 
@@ -171,8 +172,6 @@ Namespace Main.Support
 
         Friend Shared StringException As String
         Friend Shared StringExceptionMessage As String
-
-
         Private Sub ApplicationSupport_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs) Handles Me.UnhandledException
 
             StringException = e.Exception.Message

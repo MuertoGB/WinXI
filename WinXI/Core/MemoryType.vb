@@ -7,8 +7,8 @@ Namespace Core
 
         Public Shared Function ConvertToMemoryType(Data As String) As String
 
+            'Need to find DDR5 integer value, not available from MS website.
             Select Case Data
-
                 Case "0"
                     Return "Unknown"
                 Case "1"
@@ -68,8 +68,6 @@ Namespace Core
                         Return Data 'Return what was passed
                     End If
             End Select
-
-            'Need to find DDR5 integer value, not available from MS website.
 
         End Function
 
