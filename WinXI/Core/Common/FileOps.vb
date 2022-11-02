@@ -1,6 +1,7 @@
-﻿'   23.09.2019 - DR - Move checksum generation from SHA256 to SHA512
-'   09.03.2021 - DR - Remove MoveSafely() function is it's no longer needed
+﻿'   23.09.2019 - DR - Changed checksum generation to SHA256
+'   09.03.2021 - DR - Remove MoveSafely()
 '   Checked for WinXI on 30.10.2022
+'   01.11.2022 - DR - Remove unused var, cleanup
 
 '  -------------------------------------------------------------------------
 
@@ -19,8 +20,6 @@ Imports System.Text
 Namespace Core.Common
 
     NotInheritable Class FileOps
-
-        Public Shared MoveSafelyError As String = ""
 
         Public Shared Function GetApplicationImage() As String
 
@@ -91,6 +90,7 @@ Namespace Core.Common
 
 #End Region
 
+#Region "File Size Conversions"
 
         Public Shared Function ConvertToSize(SizeIn As Double) As String
 
@@ -131,6 +131,8 @@ Namespace Core.Common
         End Function
 
     End Class
+
+#End Region
 
 End Namespace
 

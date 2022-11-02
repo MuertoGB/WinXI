@@ -21,6 +21,8 @@ Imports WinXI.Core
 
 Public Class FormMain
 
+#Region "Constructor"
+
     Public Sub New()
 
         InitializeComponent()
@@ -40,7 +42,10 @@ Public Class FormMain
 
     End Sub
 
+#End Region
+
 #Region "Overriden Properties"
+
     Const WS_MINIMIZEBOX As Integer = &H20000
     Const CS_DBLCLKS As Integer = &H8
     Const CS_DROP As Integer = &H20000
@@ -52,6 +57,7 @@ Public Class FormMain
             Return Params
         End Get
     End Property
+
 #End Region
 #Region "WndProc"
 
@@ -83,6 +89,7 @@ Public Class FormMain
 
 #End Region
 #Region "KeyDown Events"
+
     Private Sub FormMain_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
 
         'EXPORT MENU
@@ -212,12 +219,12 @@ Public Class FormMain
         End If
 
         'License
-        'Donate
         If My.Computer.Keyboard.AltKeyDown And e.KeyCode = Keys.Z Then
             LicenseToolStripMenuItem.PerformClick()
         End If
 
     End Sub
+
 #End Region
 
 #Region "Load Event Handler"
@@ -239,10 +246,10 @@ Public Class FormMain
         HotfixAvailableToolStripMenuItem.Visible = False
 
         'Load data to labels
-        lblAppVersion.Text = Program.X_Version
+        lblAppVersion.Text = Program.Version
 
         Dim strVersion As String = CStr(IIf(WinSystem.IsWin10, WinSystem.BuildBranch, WinSystem.CurrentBuild))
-        lblWinVerString.Text = WinSystem.GetName & " " & strVersion & " " & WinSystem.GetWindowsBitness
+        lblWinVerString.Text = WinSystem.GetProductName & " " & strVersion & " " & WinSystem.GetWindowsBitness
 
         lblScale.Text = DetermineScaleOf()
 
@@ -412,8 +419,6 @@ Public Class FormMain
     End Sub
     Private Sub CmdRunInDepth_Click(sender As Object, e As EventArgs) Handles CmdRunInDepth.Click
 
-
-
         If Not Power.IsAdapterPluggedIn() Then
             ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
@@ -433,6 +438,7 @@ Public Class FormMain
     End Sub
 #End Region
 #Region "Menu Button Event Handlers"
+
     Private Sub CmdExport_Click(sender As Object, e As EventArgs) Handles CmdExport.Click
 
         If CDbl(Strings.BaseScore) = 0 Then
@@ -444,6 +450,7 @@ Public Class FormMain
         End If
 
     End Sub
+
     Private Sub CmdOptions_Click(sender As Object, e As EventArgs) Handles CmdOptions.Click
 
         Dim ptLowerLeft As Point = New Point(-1, CType(sender, Button).Height)
@@ -451,6 +458,7 @@ Public Class FormMain
         CmsOptions.Show(ptLowerLeft)
 
     End Sub
+
     Private Sub CmdTools_Click(sender As Object, e As EventArgs) Handles CmdTools.Click
 
         Dim ptLowerLeft As Point = New Point(-1, CType(sender, Button).Height)
@@ -458,6 +466,7 @@ Public Class FormMain
         CmsTools.Show(ptLowerLeft)
 
     End Sub
+
     Private Sub CmdHelp_Click(sender As Object, e As EventArgs) Handles CmdHelp.Click
 
         Dim ptLowerLeft As Point = New Point(-1, CType(sender, Button).Height)
@@ -465,6 +474,7 @@ Public Class FormMain
         cmsHelp.Show(ptLowerLeft)
 
     End Sub
+
     Private Sub cmdDebug_Click(sender As Object, e As EventArgs) Handles cmdDebug.Click
 
         Dim ptLowerLeft As Point = New Point(-1, CType(sender, Button).Height)
@@ -472,6 +482,7 @@ Public Class FormMain
         cmsDebug.Show(ptLowerLeft)
 
     End Sub
+
 #End Region
 #Region "Gambol Switch Event Handlers"
 
@@ -488,12 +499,14 @@ Public Class FormMain
 
 #End Region
 #Region "Picturebox Event Handlers"
+
     Private Sub icnMain_DoubleClick(sender As Object, e As EventArgs) Handles icnMain.DoubleClick
         If Not WindowState = FormWindowState.Normal Then
             WindowState = FormWindowState.Normal
         End If
         CenterToScreen()
     End Sub
+
 #End Region
 #Region "Label Event Handlers"
 
@@ -763,6 +776,7 @@ Public Class FormMain
         End Try
 
     End Sub
+
     Private Sub ViewImgurLinksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewImgurLinksToolStripMenuItem.Click
 
         Try
@@ -835,6 +849,7 @@ Public Class FormMain
 
 #End Region
 #Region "Context Menu (Tools)"
+
     Private Sub CleanupToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResetToolStripMenuItem.Click
 
         Fade.FadeBehindChild(Me)
@@ -844,6 +859,7 @@ Public Class FormMain
         F.ShowDialog()
 
     End Sub
+
     Private Sub ViewSystemDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewSystemDetailsToolStripMenuItem.Click
 
         Fade.FadeBehindChild(Me)
@@ -853,6 +869,7 @@ Public Class FormMain
         F.ShowDialog()
 
     End Sub
+
     Private Sub RunToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RunToolStripMenuItem.Click
 
         If Not Power.IsAdapterPluggedIn() Then
@@ -872,6 +889,7 @@ Public Class FormMain
         End If
 
     End Sub
+
     Private Sub RunVerboseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RunVerboseToolStripMenuItem.Click
 
         If Not Power.IsAdapterPluggedIn() Then
@@ -894,9 +912,11 @@ Public Class FormMain
 
 #End Region
 #Region "Context Menu (Help)"
+
     Private Sub MediaFeaturePackToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles MediaFeaturePackToolStripMenuItem.Click
         Process.Start(Strings.MediaFeatureUrl)
     End Sub
+
     Private Sub TroubleshootingToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles TroubleshootingToolStripMenuItem.Click
 
         Try
@@ -920,6 +940,7 @@ Public Class FormMain
         End Try
 
     End Sub
+
     Private Sub HotfixAvaiableToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HotfixAvailableToolStripMenuItem.Click
 
         Fade.FadeBehindChild(Me)
@@ -929,6 +950,7 @@ Public Class FormMain
         Frm.ShowDialog()
 
     End Sub
+
     Private Sub CheckForUpdateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateAvailableToolStripMenuItem.Click
 
         Fade.FadeBehindChild(Me)
@@ -938,6 +960,7 @@ Public Class FormMain
         Frm.ShowDialog()
 
     End Sub
+
     Private Sub ChangelogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangelogToolStripMenuItem.Click
 
         Booleans.bShowLicense = False
@@ -964,7 +987,7 @@ Public Class FormMain
 
         Fade.FadeBehindChild(Me)
 
-        Dim Frm As New FormAckn
+        Dim Frm As New FormAcknowledgements
         AddHandler Frm.FormClosed, AddressOf ChildFormClosedNoRefresh
         Frm.ShowDialog()
 
@@ -975,6 +998,7 @@ Public Class FormMain
         Process.Start("https://buymeacoffee.com/Muerto")
 
     End Sub
+
     Private Sub LicenseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LicenseToolStripMenuItem.Click
 
         Booleans.bShowLicense = True
@@ -1053,18 +1077,8 @@ Public Class FormMain
 
 #End Region
 
-    Private Sub RequestElevation()
-
-        If Not Booleans.bIsElevated Then
-            Fade.FadeBehindChild(Me)
-            Dim Frm As New FormElevate
-            AddHandler Frm.FormClosed, AddressOf ChildFormClosedNoRefresh
-            Frm.ShowDialog()
-        End If
-
-    End Sub
-
 #Region "Routines"
+
     Friend Shared Function DetermineScaleOf() As String
 
         Dim strDefault As String = "The Experience Index assesses key system components."
@@ -1083,31 +1097,36 @@ Public Class FormMain
         Return strDefault
 
     End Function
+
     Private Sub EnterPrintMode()
 
         CmdAssess.Hide()
 
         If WinSystem.IsWin10 Then
-            lblScale.Text = "WinXI v" & Application.ProductVersion & " on " & WinSystem.GetName() & " · " & WinSystem.CurrentBuild() & " · " _
+            lblScale.Text = "WinXI v" & Application.ProductVersion & " on " & WinSystem.GetProductName() & " · " & WinSystem.CurrentBuild() & " · " _
                 & WinSystem.BuildBranch() & " · " & WinSystem.GetWindowsBitness
         Else
-            lblScale.Text = "WinXI v" & Application.ProductVersion & " on " & WinSystem.GetName() & " · " _
+            lblScale.Text = "WinXI v" & Application.ProductVersion & " on " & WinSystem.GetProductName() & " · " _
                 & WinSystem.GetWindowsBuildLab() & " · " & WinSystem.GetWindowsBitness()
         End If
 
     End Sub
+
     Private Sub ExitPrintMode()
         CmdAssess.Show()
         lblScale.Text = DetermineScaleOf()
     End Sub
+
     Private Sub ChildFormClosedRefreshUI(ByVal sender As Object, ByVal e As EventArgs)
         Fade.RefadeIn(Me)
         WinsatReader.GetWinsatSPR()
         UpdateControls()
     End Sub
+
     Private Sub ChildFormClosedNoRefresh(ByVal sender As Object, e As EventArgs)
         Fade.RefadeIn(Me)
     End Sub
+
     Friend Sub UpdateControls()
 
         'Check assessment validity
@@ -1174,6 +1193,7 @@ Public Class FormMain
         LoadHardwareStrings()
 
     End Sub
+
     Private Sub SetSwitchState()
         If Not WinsatAPI.GetAssessmentValidityInt() = 3 Then
             swHardware.Enabled = True
@@ -1189,6 +1209,7 @@ Public Class FormMain
             WinsatReader.ReadXMLHardware()
         End If
     End Sub
+
     Public Sub SetHW()
 
         LoadHardwareStrings()
@@ -1208,12 +1229,14 @@ Public Class FormMain
         End If
 
     End Sub
+
     Private Sub UpdateToolstripHotfixItem()
         HotfixAvailableToolStripMenuItem.Visible = True
         HotfixAvailableToolStripMenuItem.ForeColor = Color.White
         HotfixAvailableToolStripMenuItem.Text = "Hotfix Available"
         HotfixAvailableToolStripMenuItem.Font = New Font("Segoe UI Semibold", 10) 'Cannot call SemiBold from FontStyle, be explicit.
     End Sub
+
     Private Sub UpdateToolstripUpdateItem()
         UpdateAvailableToolStripMenuItem.Visible = True
         UpdateAvailableToolStripMenuItem.ForeColor = Color.White
@@ -1236,14 +1259,28 @@ Public Class FormMain
 
     End Sub
 
+    Private Sub RequestElevation()
+
+        If Not Booleans.bIsElevated Then
+            Fade.FadeBehindChild(Me)
+            Dim Frm As New FormElevate
+            AddHandler Frm.FormClosed, AddressOf ChildFormClosedNoRefresh
+            Frm.ShowDialog()
+        End If
+
+    End Sub
+
 #End Region
 #Region "Misc design"
+
     Private Sub GSwitchHardware_MouseEnter(sender As Object, e As EventArgs) Handles swHardware.MouseEnter
         lblShowHToggle.BackColor = Colors.clrCtrlHovered
     End Sub
+
     Private Sub GSwitchHardware_MouseLeave(sender As Object, e As EventArgs) Handles swHardware.MouseLeave
         lblShowHToggle.BackColor = Colors.clrCtrlLeave
     End Sub
+
     Private Sub FormMain_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
         Dim Clr As Color = Colors.clrFormDeactivated
         lblHead.ForeColor = Clr
@@ -1252,6 +1289,7 @@ Public Class FormMain
         CmdMinimize.ForeColor = Clr
         CmdClose.ForeColor = Clr
     End Sub
+
     Private Sub FormActivate_GotFocus(sender As Object, e As EventArgs) Handles Me.Activated
         Dim Clr As Color = Colors.clrFormActivated
         lblHead.ForeColor = Color.White

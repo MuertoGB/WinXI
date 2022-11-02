@@ -23,7 +23,7 @@ Public Class FormSettings
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -34,6 +34,7 @@ Public Class FormSettings
 
 #End Region
 #Region "KeyDown Events"
+
     Private Sub FormSettings_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Close()
@@ -42,9 +43,11 @@ Public Class FormSettings
 
 #End Region
 #Region "Frame Buttons"
+
     Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
         Close()
     End Sub
+
 #End Region
 
 #Region "Load Event Handler"
@@ -54,7 +57,7 @@ Public Class FormSettings
         'Check current settings and set controls state
         SetControlStates()
 
-        'Fix scroll
+        'Focus for scroll
         TlpMain.Select()
 
     End Sub
@@ -62,6 +65,7 @@ Public Class FormSettings
 #End Region
 
 #Region "Theme"
+
     Private Sub SetOptionsThemeAccent()
 
         PanSplit.BackColor = Settings.SetThemeColour
@@ -98,6 +102,7 @@ Public Class FormSettings
 #End Region
 
 #Region "Button Event Handlers"
+
     Private Sub CmdOkay_Click(sender As Object, e As EventArgs) Handles CmdOkay.Click
 
         WriteClientID()
@@ -124,6 +129,7 @@ Public Class FormSettings
         Close()
 
     End Sub
+
     Private Sub CmdApply_Click(sender As Object, e As EventArgs) Handles CmdApply.Click
 
         WriteClientID()
@@ -145,6 +151,7 @@ Public Class FormSettings
         ToastAlert.Show("Settings updated.", ToastType.Information)
 
     End Sub
+
     Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click
         Close()
     End Sub
@@ -329,12 +336,15 @@ Public Class FormSettings
 #End Region
 
 #Region "Scroll Events"
+
     Private Sub TlpMain_Scroll(sender As Object, e As ScrollEventArgs) Handles TlpMain.Scroll
         LabHead.Text = "Settings"
     End Sub
+
     Private Sub TlpMain_MouseWheel(sender As Object, e As MouseEventArgs) Handles TlpMain.MouseWheel
         LabHead.Text = "Settings"
     End Sub
+
 #End Region
 
 End Class

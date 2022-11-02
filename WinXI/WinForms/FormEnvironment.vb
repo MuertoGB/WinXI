@@ -32,11 +32,13 @@ Public Class FormEnvironment
 
 #End Region
 #Region "KeyDown Events"
+
     Private Sub FormEnvironment_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Close()
         End If
     End Sub
+
 #End Region
 
 #Region "Theme"

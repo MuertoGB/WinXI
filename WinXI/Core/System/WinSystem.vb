@@ -30,7 +30,7 @@ Namespace Core.System
 
         End Function
 
-#Region "Bools"
+#Region "Booleans"
         Friend Shared Function IsWinVista() As Boolean
             If (KernelVersion.ProductMajorPart = 6) And (KernelVersion.ProductMinorPart = 0) Then
                 Return True 'Vista, ret true.
@@ -75,10 +75,11 @@ Namespace Core.System
         '    Return False 'Ret false, not server.
 
         'End Function
+
 #End Region
 #Region "Name"
 
-        Public Shared Function GetName() As String
+        Public Shared Function GetProductName() As String
 
             Try
                 'Return Registry.GetValue(Strings.HKLMCV, "ProductName", Nothing).ToString().Replace(" (TM)", "™")

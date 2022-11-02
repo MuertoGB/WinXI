@@ -24,7 +24,7 @@ Public Class FormTextDialog
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
 
         If e.Button = MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -35,6 +35,7 @@ Public Class FormTextDialog
 
 #End Region
 #Region "KeyDown Events"
+
     Private Sub FormChangelog_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Close()

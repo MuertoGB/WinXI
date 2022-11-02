@@ -21,13 +21,13 @@ Imports WinXI.Core.System
 Friend Class Program
     Inherits Signing
 
-    ' // FILL BEFORE RELEASE
-    Friend Shared ReadOnly X_Version As String = Application.ProductVersion
-    Friend Const X_Build As String = "221011.220.051"
-    Friend Const X_Channel As String = "Alpha"
-    Friend Const X_ReleaseDate As String = "Not set"
+    'Stuff to fill before release
+    Friend Shared ReadOnly Version As String = Application.ProductVersion
+    Friend Const Build As String = "221011.220.052"
+    Friend Const Channel As String = "Alpha"
+    Friend Const ReleaseDate As String = "Not set"
 
-    ' Main entry point
+    'Main entry point
     <STAThread()>
     Friend Shared Sub Main(Args() As String)
 

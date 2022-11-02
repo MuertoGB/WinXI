@@ -41,11 +41,13 @@ Public Class FormException
 
 #End Region
 #Region "KeyDown Events"
+
     Private Sub FormException_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Close()
         End If
     End Sub
+
 #End Region
 
 #Region "Theme"
@@ -65,6 +67,7 @@ Public Class FormException
         Settings.SetBorderColor(Me)
 
     End Sub
+
 #End Region
 
 #Region "Load Event Handler"
@@ -82,9 +85,11 @@ Public Class FormException
 
 #End Region
 #Region "Shown Event Handler"
+
     Private Sub FormException_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Asterisk)
     End Sub
+
 #End Region
 #Region "Button Event Handlers"
 
@@ -149,11 +154,11 @@ Public Class FormException
             .AppendLine("<-- Application -->" & vbCrLf)
             .AppendLine("Name: " & StringName)
             .AppendLine("Version: " & StringVersion)
-            .AppendLine("Channel: " & Program.X_Channel)
+            .AppendLine("Channel: " & Program.Channel)
             .AppendLine("Elevated: " & CStr(Booleans.bIsElevated))
             .AppendLine("SHA256: " & Checksum.GetSha256Digest(StringPath) & vbCrLf)
             .AppendLine("<-- Operating System -->" & vbCrLf)
-            .AppendLine("Name: " & WinSystem.GetName())
+            .AppendLine("Name: " & WinSystem.GetProductName())
             .AppendLine("Bitness: " & WinSystem.GetWindowsBitness)
             .AppendLine("Kernel: " & WinSystem.KernelVersion.ProductVersion())
             .AppendLine("Build: " & WinSystem.GetWindowsBuildLab() & vbCrLf)
@@ -213,6 +218,7 @@ Public Class FormException
             LabHead.Text = "Exception Handler"
         End If
     End Sub
+
     Private Delegate Sub DataDelegate(Data As String)
     Private Sub InvokeData(Data As String)
         strSystemData = Data

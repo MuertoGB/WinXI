@@ -42,8 +42,8 @@ Partial Class FormReset
         Me.cbAgreeWinsat = New WinXI.Gambol.Controls.GambolCheckbox()
         Me.lblWinSAT = New System.Windows.Forms.Label()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.LabNotRecover = New System.Windows.Forms.Label()
-        Me.CmdDelete = New System.Windows.Forms.Button()
+        Me.lblWarning = New System.Windows.Forms.Label()
+        Me.cmdDelete = New System.Windows.Forms.Button()
         Me.PanSplit = New System.Windows.Forms.Panel()
         Me.PanHead.SuspendLayout()
         Me.TlpHeadImage.SuspendLayout()
@@ -301,8 +301,8 @@ Partial Class FormReset
         Me.TableLayoutPanel3.ColumnCount = 2
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.49606!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.50394!))
-        Me.TableLayoutPanel3.Controls.Add(Me.LabNotRecover, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.CmdDelete, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.lblWarning, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.cmdDelete, 1, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 196)
         Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
@@ -312,41 +312,41 @@ Partial Class FormReset
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(512, 49)
         Me.TableLayoutPanel3.TabIndex = 130
         '
-        'LabNotRecover
+        'lblWarning
         '
-        Me.LabNotRecover.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.LabNotRecover.AutoSize = True
-        Me.LabNotRecover.BackColor = System.Drawing.Color.Transparent
-        Me.LabNotRecover.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabNotRecover.ForeColor = System.Drawing.Color.Tomato
-        Me.LabNotRecover.Location = New System.Drawing.Point(0, 13)
-        Me.LabNotRecover.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabNotRecover.Name = "LabNotRecover"
-        Me.LabNotRecover.Size = New System.Drawing.Size(246, 23)
-        Me.LabNotRecover.TabIndex = 115
-        Me.LabNotRecover.Text = " ··· Files will not be recoverable!"
-        Me.LabNotRecover.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblWarning.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblWarning.AutoSize = True
+        Me.lblWarning.BackColor = System.Drawing.Color.Transparent
+        Me.lblWarning.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWarning.ForeColor = System.Drawing.Color.Tomato
+        Me.lblWarning.Location = New System.Drawing.Point(0, 13)
+        Me.lblWarning.Margin = New System.Windows.Forms.Padding(0)
+        Me.lblWarning.Name = "lblWarning"
+        Me.lblWarning.Size = New System.Drawing.Size(246, 23)
+        Me.lblWarning.TabIndex = 115
+        Me.lblWarning.Text = " ··· Files will not be recoverable!"
+        Me.lblWarning.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'CmdDelete
+        'cmdDelete
         '
-        Me.CmdDelete.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.CmdDelete.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.CmdDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.CmdDelete.Enabled = False
-        Me.CmdDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.CmdDelete.FlatAppearance.BorderSize = 0
-        Me.CmdDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.CmdDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.CmdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdDelete.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdDelete.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdDelete.Location = New System.Drawing.Point(310, 7)
-        Me.CmdDelete.Margin = New System.Windows.Forms.Padding(0, 0, 6, 0)
-        Me.CmdDelete.Name = "CmdDelete"
-        Me.CmdDelete.Size = New System.Drawing.Size(196, 35)
-        Me.CmdDelete.TabIndex = 131
-        Me.CmdDelete.Text = "DELETE SELECTED FILES"
-        Me.CmdDelete.UseVisualStyleBackColor = False
+        Me.cmdDelete.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.cmdDelete.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.cmdDelete.Enabled = False
+        Me.cmdDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdDelete.FlatAppearance.BorderSize = 0
+        Me.cmdDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cmdDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cmdDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdDelete.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdDelete.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cmdDelete.Location = New System.Drawing.Point(310, 7)
+        Me.cmdDelete.Margin = New System.Windows.Forms.Padding(0, 0, 6, 0)
+        Me.cmdDelete.Name = "cmdDelete"
+        Me.cmdDelete.Size = New System.Drawing.Size(196, 35)
+        Me.cmdDelete.TabIndex = 131
+        Me.cmdDelete.Text = "DELETE SELECTED FILES"
+        Me.cmdDelete.UseVisualStyleBackColor = False
         '
         'PanSplit
         '
@@ -411,7 +411,7 @@ Partial Class FormReset
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents cbAgreeWinsat As GambolCheckbox
     Friend WithEvents lblWinSAT As Label
-    Friend WithEvents LabNotRecover As Label
+    Friend WithEvents lblWarning As Label
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
-    Friend WithEvents CmdDelete As Button
+    Friend WithEvents cmdDelete As Button
 End Class

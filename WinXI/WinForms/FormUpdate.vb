@@ -27,7 +27,7 @@ Public Class FormUpdate
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -66,7 +66,7 @@ Public Class FormUpdate
             CmdDownload.Enabled = False
         End If
 
-        LabCurrent.Text = CheckForUpdate.strLocal & " · " & Program.X_ReleaseDate
+        LabCurrent.Text = CheckForUpdate.strLocal & " · " & Program.ReleaseDate
         LabServer.Text = CheckForUpdate.strServer & " · " & CheckForUpdate.strReleaseDate
 
     End Sub
@@ -118,6 +118,7 @@ Public Class FormUpdate
 #End Region
 
 #Region "WebClient"
+
     Private Sub CmdDownload_Click(sender As Object, e As EventArgs) Handles CmdDownload.Click
 
         If Network.IsWebsiteAvailable(Strings.strHomeUrl) = True Then
@@ -147,6 +148,7 @@ Public Class FormUpdate
         End If
 
     End Sub
+
     Private Sub WClient_ProgressChanged(ByVal sender As Object, ByVal e As DownloadProgressChangedEventArgs)
 
         Dim bytesIn As Double = Double.Parse(e.BytesReceived.ToString())
@@ -159,6 +161,7 @@ Public Class FormUpdate
         'PbrUpdate.Refresh()
 
     End Sub
+
     Private Sub WClient_DownloadCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
 
         My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Asterisk)

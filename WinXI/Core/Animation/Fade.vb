@@ -35,6 +35,7 @@ Namespace Core.Animation
                 Next
             End If
         End Sub
+
     End Class
 
 End Namespace

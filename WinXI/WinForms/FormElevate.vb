@@ -1,4 +1,4 @@
-﻿'   01.11.2022 - DR - Create FormElevate.vb
+﻿'   01.11.2022 - DR - Create FormElevate.vb, set KeyPreview true
 
 Imports WinXI.Core
 
@@ -32,11 +32,13 @@ Public Class FormElevate
 
 #End Region
 #Region "KeyDown Events"
+
     Private Sub FormEnvironment_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Close()
         End If
     End Sub
+
 #End Region
 
 #Region "Theme"
@@ -52,13 +54,6 @@ Public Class FormElevate
 
     End Sub
 
-    Private Sub cmdElevate_Click(sender As Object, e As EventArgs) Handles cmdElevate.Click
-        Elevation.RestartElevated()
-    End Sub
-
-    Private Sub cmdDecline_Click(sender As Object, e As EventArgs) Handles cmdDecline.Click
-        Close()
-    End Sub
 #End Region
 
 #Region "Picturebox Event Handler"
@@ -68,6 +63,17 @@ Public Class FormElevate
             WindowState = FormWindowState.Normal
         End If
         CenterToScreen()
+    End Sub
+
+#End Region
+#Region "Button Event Handlers"
+
+    Private Sub cmdElevate_Click(sender As Object, e As EventArgs) Handles cmdElevate.Click
+        Elevation.RestartElevated()
+    End Sub
+
+    Private Sub cmdDecline_Click(sender As Object, e As EventArgs) Handles cmdDecline.Click
+        Close()
     End Sub
 
 #End Region

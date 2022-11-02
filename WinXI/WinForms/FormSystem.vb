@@ -8,8 +8,8 @@ Imports WinXI.Core.System
 
 Public Class FormSystem
 
-    Private ReadOnly StringBuildOther As String = WinSystem.GetName() & " · " & WinSystem.CurrentBuild()
-    Private ReadOnly StringBuildTen As String = WinSystem.GetName() & " · Build " & WinSystem.BuildBranch()
+    Private ReadOnly StringBuildOther As String = WinSystem.GetProductName() & " · " & WinSystem.CurrentBuild()
+    Private ReadOnly StringBuildTen As String = WinSystem.GetProductName() & " · Build " & WinSystem.BuildBranch()
 
     Private Delegate Sub InvokeUptime(Data As String)
     Private ThrTick As Thread
@@ -32,7 +32,7 @@ Public Class FormSystem
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -43,23 +43,26 @@ Public Class FormSystem
 
 #End Region
 #Region "KeyDown Events"
+
     Private Sub FormSystem_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
-            StopLoop()
+            StopTick()
             Close()
         Else
             If e.Alt And e.KeyCode = Keys.F4 Then
-                StopLoop()
+                StopTick()
             End If
         End If
     End Sub
 
 #End Region
 #Region "Frame Buttons"
+
     Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
-        StopLoop()
+        StopTick()
         Close()
     End Sub
+
 #End Region
 
 #Region "Load Event Handler"
@@ -86,6 +89,7 @@ Public Class FormSystem
 #End Region
 
 #Region "Theme"
+
     Private Sub SetCleanupThemeAccent()
 
         PanSplit.BackColor = Settings.SetThemeColour
@@ -123,7 +127,7 @@ Public Class FormSystem
     Private Sub InvokeTickUptime(Data As String)
         LabUptime.Text = Data
     End Sub
-    Private Sub StopLoop()
+    Private Sub StopTick()
         BContinue = False
     End Sub
 #End Region

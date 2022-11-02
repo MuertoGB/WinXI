@@ -7,7 +7,6 @@ Imports System.Reflection
 Imports System.Text
 
 Namespace Core.Common
-
     Friend Class IniFile
 
         Friend Shared Path As String

@@ -31,6 +31,8 @@ Friend Class Settings
     Friend Shared SetThemeColour As Color = Color.FromArgb(120, 180, 0)
     Friend Shared SetHeaderGraphic As Image = Nothing
 
+#Region "Create Settings"
+
     Friend Shared Sub Create()
 
         If Not File.Exists(SettingsFile) Then
@@ -39,9 +41,13 @@ Friend Class Settings
 
     End Sub
 
+#End Region
+#Region "Load Settings"
+
     Friend Shared Sub Load()
 
         If File.Exists(SettingsFile) Then
+
             '[Settings]
             Try
                 ShowHardwareOnStartup = CBool(IniFile.Read("Settings", "ShowHardwareOnStartup", SettingsFile))
@@ -80,6 +86,7 @@ Friend Class Settings
             CustomImgurApiKeyString = IniFile.Read("Settings", "CustomImgurApiKeyString", SettingsFile)
 
             '[Overrides]
+
             Try
                 UpdateAutoCheck = CBool(IniFile.Read("Overrides", "UpdateAutoCheck", SettingsFile))
             Catch ex As Exception
@@ -117,6 +124,9 @@ Friend Class Settings
 
     End Sub
 
+#End Region
+#Region "Save Settings"
+
     Friend Shared Sub Save()
 
         If File.Exists(SettingsFile) Then
@@ -135,6 +145,14 @@ Friend Class Settings
         End If
 
     End Sub
+
+#End Region
+
+#Region "Migrate XML settings"
+
+    'Tumbleweeds, so many of them.
+
+#End Region
 
 #Region "Functions"
 

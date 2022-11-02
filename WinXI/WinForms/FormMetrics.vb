@@ -1,8 +1,8 @@
-﻿'  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
-'  Updated on 21.01.2020 - DS (Update GetXMLInfoWinsat to notify of empty sections and XML data)
-'  Updated on 27.01.2020 - DS (Added really bad caching to the really badly written tool, other UI stuff)
+﻿'   07.08.2019 - DR - Add constructor, update theme, update WndProc
+'   21.01.2020 - DR - Update GetXMLInfoWinsat to notify of empty sections and XML data
+'   27.01.2020 - DR - Added really bad caching to the really badly written tool, other UI stuff
 
-'  This code is terrible, I understand that. But it works. IT WORKS. NOW GET OUT.
+'  The GetWinsatXmlInfo code is terrible, I understand that. But it works. IT WORKS. NOW GET OUT.
 
 Imports System.Linq
 Imports System.Xml
@@ -12,9 +12,6 @@ Imports System.Xml
 Public Class FormMetrics
 
     Private ReadOnly Blacklist() As String = {"Signature", "L1Cache", "L2Cache", "L3Cache", "LogicalProcessorInfo"}
-
-#Region "RTB"
-
     Private RtfProgramInfo As New RichTextBox
     Private RtbSystemEnvironment As New RichTextBox
     Private RtfWinspr As New RichTextBox
@@ -28,9 +25,7 @@ Public Class FormMetrics
     Private RtfDwm As New RichTextBox
     Private RtfD3d As New RichTextBox
 
-#End Region
-
-#Region "Ctor"
+#Region "Constructor"
 
     Public Sub New()
 
@@ -58,6 +53,7 @@ Public Class FormMetrics
 
 #End Region
 #Region "KeyDown Events"
+
     Private Sub FormMetrics_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Close()
@@ -78,13 +74,14 @@ Public Class FormMetrics
     Private Sub FormMetrics_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         ResetActivate(PbxProgramInfo, CmdProgramInfo)
-        GetXMLInfoWinsat("ProgramInfo", False)
+        GetWinsatXmlInfo("ProgramInfo", False)
 
     End Sub
 
 #End Region
 
 #Region "Theme"
+
     Private Sub SetMetricsThemeAccent()
 
         Dim TC As Color = Settings.SetThemeColour
@@ -109,159 +106,170 @@ Public Class FormMetrics
         Cls(RtbData)
 
         If RtfProgramInfo.Text.Length <= 0 Then
-            GetXMLInfoWinsat("ProgramInfo", False)
+            GetWinsatXmlInfo("ProgramInfo", False)
             RtfProgramInfo.Rtf = RtbData.Rtf
         Else
             RtbData.Rtf = RtfProgramInfo.Rtf
         End If
 
     End Sub
+
     Private Sub CmdSysEnviron_Click(sender As Object, e As EventArgs) Handles CmdSysEnviron.Click
 
         ResetActivate(PbxSystemEnvironment, CType(sender, Button))
         Cls(RtbData)
 
         If RtbSystemEnvironment.Text.Length <= 0 Then
-            GetXMLInfoWinsat("SystemEnvironment", False)
+            GetWinsatXmlInfo("SystemEnvironment", False)
             RtbSystemEnvironment.Rtf = RtbData.Rtf
         Else
             RtbData.Rtf = RtbSystemEnvironment.Rtf
         End If
 
     End Sub
+
     Private Sub CmdWinSpr_Click(sender As Object, e As EventArgs) Handles CmdWinSpr.Click
 
         ResetActivate(PbxWinSPR, CType(sender, Button))
         Cls(RtbData)
 
         If RtfWinspr.Text.Length <= 0 Then
-            GetXMLInfoWinsat("WinSPR", False)
+            GetWinsatXmlInfo("WinSPR", False)
             RtfWinspr.Rtf = RtbData.Rtf
         Else
             RtbData.Rtf = RtfWinspr.Rtf
         End If
 
     End Sub
+
     Private Sub CmdMetrics_Click(sender As Object, e As EventArgs) Handles CmdMetrics.Click
 
         ResetActivate(PbxMetrics, CType(sender, Button))
         Cls(RtbData)
 
         If RtfMetrics.Text.Length <= 0 Then
-            GetXMLInfoWinsat("Metrics", False)
+            GetWinsatXmlInfo("Metrics", False)
             RtfMetrics.Rtf = RtbData.Rtf
         Else
             RtbData.Rtf = RtfMetrics.Rtf
         End If
 
     End Sub
+
     Private Sub CmdOS_Click(sender As Object, e As EventArgs) Handles CmdOS.Click
 
         ResetActivate(PbxOSVersion, CType(sender, Button))
         Cls(RtbData)
 
         If RtfWinSystem.Text.Length <= 0 Then
-            GetXMLInfoWinsat("OSVersion", False)
-            GetXMLInfoWinsat("Platform", False)
+            GetWinsatXmlInfo("OSVersion", False)
+            GetWinsatXmlInfo("Platform", False)
             RtfWinSystem.Rtf = RtbData.Rtf
         Else
             RtbData.Rtf = RtfWinSystem.Rtf
         End If
 
     End Sub
+
     Private Sub CmdSystem_Click(sender As Object, e As EventArgs) Handles CmdSystem.Click
 
         ResetActivate(PbxSystem, CType(sender, Button))
         Cls(RtbData)
 
         If RtfSystem.Text.Length <= 0 Then
-            GetXMLInfoWinsat("MotherBoard", False)
-            GetXMLInfoWinsat("BIOS", False)
-            GetXMLInfoWinsat("Machine", False)
+            GetWinsatXmlInfo("MotherBoard", False)
+            GetWinsatXmlInfo("BIOS", False)
+            GetWinsatXmlInfo("Machine", False)
             RtfSystem.Rtf = RtbData.Rtf
         Else
             RtbData.Rtf = RtfSystem.Rtf
         End If
 
     End Sub
+
     Private Sub CmdProcessor_Click(sender As Object, e As EventArgs) Handles CmdProcessor.Click
 
         ResetActivate(PbxProcessor, CType(sender, Button))
         Cls(RtbData)
 
         If RtfProcessor.Text.Length <= 0 Then
-            GetXMLInfoWinsat("Processor", False)
-            GetXMLInfoWinsat("Signature", True)
-            GetXMLInfoWinsat("L1Cache", True)
-            GetXMLInfoWinsat("L2Cache", True)
-            GetXMLInfoWinsat("L3Cache", True)
-            GetXMLInfoWinsat("LogicalProcessorInfo", True)
+            GetWinsatXmlInfo("Processor", False)
+            GetWinsatXmlInfo("Signature", True)
+            GetWinsatXmlInfo("L1Cache", True)
+            GetWinsatXmlInfo("L2Cache", True)
+            GetWinsatXmlInfo("L3Cache", True)
+            GetWinsatXmlInfo("LogicalProcessorInfo", True)
             RtfProcessor.Rtf = RtbData.Rtf
         Else
             RtbData.Rtf = RtfProcessor.Rtf
         End If
 
     End Sub
+
     Private Sub CmdMemory_Click(sender As Object, e As EventArgs) Handles CmdMemory.Click
 
         ResetActivate(PbxMemory, CType(sender, Button))
         Cls(RtbData)
 
         If RtfMemory.Text.Length <= 0 Then
-            GetXMLInfoWinsat("Memory", False)
+            GetWinsatXmlInfo("Memory", False)
             RtfMemory.Rtf = RtbData.Rtf
         Else
             RtbData.Rtf = RtfMemory.Rtf
         End If
 
     End Sub
+
     Private Sub CmdGraphics_Click(sender As Object, e As EventArgs) Handles CmdGraphics.Click
 
         ResetActivate(PbxGraphics, CType(sender, Button))
         Cls(RtbData)
 
         If RtfGraphics.Text.Length <= 0 Then
-            GetXMLInfoWinsat("Graphics", False)
-            GetXMLInfoWinsat("Monitors", False)
+            GetWinsatXmlInfo("Graphics", False)
+            GetWinsatXmlInfo("Monitors", False)
             RtfGraphics.Rtf = RtbData.Rtf
         Else
             RtbData.Rtf = RtfGraphics.Rtf
         End If
 
     End Sub
+
     Private Sub CmdDisk_Click(sender As Object, e As EventArgs) Handles CmdDisk.Click
 
         ResetActivate(PbxDisk, CType(sender, Button))
         Cls(RtbData)
 
         If RtfDisk.Text.Length <= 0 Then
-            GetXMLInfoWinsat("SystemDisk", False)
+            GetWinsatXmlInfo("SystemDisk", False)
             RtfDisk.Rtf = RtbData.Rtf
         Else
             RtbData.Rtf = RtfDisk.Rtf
         End If
 
     End Sub
+
     Private Sub CmdDwm_Click(sender As Object, e As EventArgs) Handles CmdDwm.Click
 
         ResetActivate(PbxDwm, CType(sender, Button))
         Cls(RtbData)
 
         If RtfDwm.Text.Length <= 0 Then
-            GetXMLInfoWinsat("DWMAssessment", False)
+            GetWinsatXmlInfo("DWMAssessment", False)
             RtfDwm.Rtf = RtbData.Rtf
         Else
             RtbData.Rtf = RtfDwm.Rtf
         End If
 
     End Sub
+
     Private Sub CmdD3D_Click(sender As Object, e As EventArgs) Handles CmdD3D.Click
 
         ResetActivate(PbxD3d, CType(sender, Button))
         Cls(RtbData)
 
         If RtfD3d.Text.Length <= 0 Then
-            GetXMLInfoWinsat("D3DAssessment", False)
+            GetWinsatXmlInfo("D3DAssessment", False)
             RtfD3d.Rtf = RtbData.Rtf
         Else
             RtbData.Rtf = RtfD3d.Rtf
@@ -283,7 +291,7 @@ Public Class FormMetrics
 
 #Region "Routines"
 
-    Private Sub GetXMLInfoWinsat(ByVal LookIn As String, IsInnerNode As Boolean)
+    Private Sub GetWinsatXmlInfo(LookIn As String, IsInnerNode As Boolean)
 
         If IsInnerNode Then
             Format("Output from " & LookIn, "", Color.MediumOrchid, Color.White)

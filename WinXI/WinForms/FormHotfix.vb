@@ -34,14 +34,17 @@ Public Class FormHotfix
 #End Region
 
 #Region "WndProc"
+
     Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
             WndProc(Message.Create(Handle, Integers.WM_NCLBUTTONDOWN, CType(Integers.HT_CAPTION, IntPtr), IntPtr.Zero))
         End If
     End Sub
+
 #End Region
 #Region "KeyDown Events"
+
     Private Sub FormHotfix_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Close()
@@ -50,9 +53,11 @@ Public Class FormHotfix
 
 #End Region
 #Region "Frame Buttons"
+
     Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
         Close()
     End Sub
+
 #End Region
 
 #Region "Load Event Handler"

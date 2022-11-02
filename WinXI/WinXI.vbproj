@@ -75,8 +75,7 @@
     <OptionInfer>Off</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>main.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -169,10 +168,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WinForms\Toast\Enums\Enums.vb" />
-    <Compile Include="WinForms\FormAckn.Designer.vb">
-      <DependentUpon>FormAckn.vb</DependentUpon>
+    <Compile Include="WinForms\FormAcknowledgements.Designer.vb">
+      <DependentUpon>FormAcknowledgements.vb</DependentUpon>
     </Compile>
-    <Compile Include="WinForms\FormAckn.vb">
+    <Compile Include="WinForms\FormAcknowledgements.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WinForms\FormException.designer.vb">
@@ -280,8 +279,8 @@
     <Compile Include="Winsat\WinsatApi.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="WinForms\FormAckn.resx">
-      <DependentUpon>FormAckn.vb</DependentUpon>
+    <EmbeddedResource Include="WinForms\FormAcknowledgements.resx">
+      <DependentUpon>FormAcknowledgements.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\Assessment\FormAssess.resx">
       <DependentUpon>FormAssess.vb</DependentUpon>
@@ -380,6 +379,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="main.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

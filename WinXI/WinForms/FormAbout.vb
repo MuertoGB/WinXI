@@ -16,27 +16,34 @@ Friend Class FormAbout
 #End Region
 
 #Region "WndProc"
+
     Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
         If e.Button = MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
             WndProc(Message.Create(Handle, Integers.WM_NCLBUTTONDOWN, CType(Integers.HT_CAPTION, IntPtr), IntPtr.Zero))
         End If
     End Sub
+
 #End Region
 #Region "KeyDown Events"
+
     Private Sub FormAbout_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Close()
         End If
     End Sub
+
 #End Region
 #Region "Frame Buttons"
+
     Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
         Close()
     End Sub
+
 #End Region
 
 #Region "Theme"
+
     Private Sub SetAboutThemeAccent()
 
         Dim TC As Color = Settings.SetThemeColour
@@ -50,13 +57,15 @@ Friend Class FormAbout
         Settings.SetBorderColor(Me)
 
     End Sub
+
 #End Region
 
 #Region "Load Event Handler"
+
     Private Sub FormAbout_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        lblName.Text &= " " & Application.ProductVersion & " · " & Program.X_Channel
-        lblBuild.Text = "Build " & Program.X_Build
+        lblName.Text &= " " & Application.ProductVersion & " · " & Program.Channel
+        lblBuild.Text = "Build " & Program.Build
 
         FormatLinks()
 
@@ -65,6 +74,7 @@ Friend Class FormAbout
 #End Region
 
 #Region "Picturebox Event Handler"
+
     Private Sub icnMain_Click(sender As Object, e As EventArgs) Handles icnMain.DoubleClick
         If Not WindowState = FormWindowState.Normal Then
             WindowState = FormWindowState.Normal
@@ -85,7 +95,7 @@ Friend Class FormAbout
 
     Private Sub FormatLinks()
 
-        Dim str As String = "WinXI build: " & Program.X_Build
+        Dim str As String = "WinXI build: " & Program.Build
         lnkLinks.Links.Clear()
         lnkLinks.Links.Add(0, 8, "mailto:qbug@tuta.io?subject=" & "Software enquiry or bug report&body=" & vbCrLf & str)
         lnkLinks.Links.Add(11, 11, "https://github.com/MuertoGB")

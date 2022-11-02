@@ -22,7 +22,7 @@ Public Class FormReset
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -33,6 +33,7 @@ Public Class FormReset
 
 #End Region
 #Region "KeyDown Events"
+
     Private Sub FormCleanup_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             Close()
@@ -41,16 +42,18 @@ Public Class FormReset
 
 #End Region
 #Region "Frame Buttons"
+
     Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
         Close()
     End Sub
+
 #End Region
 
 #Region "Load Event Handler"
 
     Private Sub FormCleanup_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        LabNotRecover.Visible = False
+        lblWarning.Visible = False
 
         'If not elevated, we cannot touch WinSAT config files
         If Not Booleans.bIsElevated Then
@@ -63,6 +66,7 @@ Public Class FormReset
 #End Region
 
 #Region "Theme"
+
     Private Sub SetCleanupThemeAccent()
 
         Dim TC As Color = Settings.SetThemeColour
@@ -70,7 +74,7 @@ Public Class FormReset
         PanSplit.BackColor = TC
         cbAgreeWinsat.CheckedColor = TC
         cbAgreeApplication.CheckedColor = TC
-        CmdDelete.ForeColor = TC
+        cmdDelete.ForeColor = TC
 
         Settings.SetBorderColor(Me)
 
@@ -80,7 +84,7 @@ Public Class FormReset
 
 #Region "Button Event Handlers"
 
-    Private Sub CmdDelete_Click(sender As Object, e As EventArgs) Handles CmdDelete.Click
+    Private Sub CmdDelete_Click(sender As Object, e As EventArgs) Handles cmdDelete.Click
 
         Try
             If cbAgreeWinsat.Checked Then
@@ -123,21 +127,6 @@ Public Class FormReset
     End Sub
 
 #End Region
-#Region "Checkbox Event Handlers"
-
-    Private Sub Checkboxes_CheckedChanged(sender As Object, e As EventArgs) Handles cbAgreeApplication.CheckedChanged, cbAgreeWinsat.CheckedChanged
-
-        If cbAgreeWinsat.Checked Or cbAgreeApplication.Checked Then
-            CmdDelete.Enabled = True
-            LabNotRecover.Visible = True
-        Else
-            CmdDelete.Enabled = False
-            LabNotRecover.Visible = False
-        End If
-
-    End Sub
-
-#End Region
 #Region "Picturebox Event Handler"
 
     Private Sub icnMain_Click(sender As Object, e As EventArgs) Handles icnMain.DoubleClick
@@ -145,6 +134,21 @@ Public Class FormReset
             WindowState = FormWindowState.Normal
         End If
         CenterToParent()
+    End Sub
+
+#End Region
+#Region "Checkbox Event Handlers"
+
+    Private Sub Checkboxes_CheckedChanged(sender As Object, e As EventArgs) Handles cbAgreeApplication.CheckedChanged, cbAgreeWinsat.CheckedChanged
+
+        If cbAgreeWinsat.Checked Or cbAgreeApplication.Checked Then
+            cmdDelete.Enabled = True
+            lblWarning.Visible = True
+        Else
+            cmdDelete.Enabled = False
+            lblWarning.Visible = False
+        End If
+
     End Sub
 
 #End Region
