@@ -52,7 +52,7 @@ Partial Class FormAssess
         '
         'CmdCancel
         '
-        Me.CmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdCancel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CmdCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.CmdCancel.FlatAppearance.BorderSize = 0
@@ -225,7 +225,7 @@ Partial Class FormAssess
         '
         'CmdViewLog
         '
-        Me.CmdViewLog.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdViewLog.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdViewLog.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CmdViewLog.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.CmdViewLog.FlatAppearance.BorderSize = 0
@@ -244,7 +244,7 @@ Partial Class FormAssess
         '
         'CmdExport
         '
-        Me.CmdExport.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdExport.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdExport.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CmdExport.Enabled = False
         Me.CmdExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))

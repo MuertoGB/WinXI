@@ -44,7 +44,7 @@ Partial Class FormEnvironment
         'CmdOkay
         '
         Me.CmdOkay.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.CmdOkay.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdOkay.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdOkay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.CmdOkay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.CmdOkay.FlatAppearance.BorderSize = 0
@@ -180,8 +180,8 @@ Partial Class FormEnvironment
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.CmdOkay, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.lnkIssue, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.CmdOkay, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 117)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(2)

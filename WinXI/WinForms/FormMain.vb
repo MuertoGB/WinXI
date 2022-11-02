@@ -4,7 +4,7 @@
 '   04.04.2021 - DR - Cleaned up system info string on export of scores as image, switch os info buildid to buildlab
 '   01.11.2022 - DR - Start to implement elevation changes, UI changes, add debug menu
 
-'  Thanks to https://www.transparenttextures.com/ for the title bar graphics.
+'   Thanks to https://www.transparenttextures.com/ for the title bar graphics.
 
 Imports System.Text
 Imports System.Threading.Tasks
@@ -238,7 +238,6 @@ Public Class FormMain
 #End If
 
         If Booleans.bIsElevated Then
-            cmdElevate.Hide()
             RestartElevatedToolStripMenuItem.Dispose()
         End If
 
@@ -738,7 +737,7 @@ Public Class FormMain
 
     Private Sub UploadCustomClient()
 
-        Dim exitCode As Integer = ImgurApi.PostToImgur(Files.TemporaryImgurFile, Settings.ImgurUrlsPath, Settings.CustomImgurApiKeyString, True, True, True)
+        Dim exitCode As Integer = ImgurApi.UploadToImgur(Files.TemporaryImgurFile, Settings.ImgurUrlsPath, Settings.CustomImgurApiKeyString, True, True, True)
 
         If exitCode = 1 Then
             ToastAlert.Show("File uploaded to Imgur.", ToastType.Information)
@@ -750,7 +749,7 @@ Public Class FormMain
 
     Private Sub UploadNormalClient()
 
-        Dim exitCode As Integer = ImgurApi.PostToImgur(Files.TemporaryImgurFile, Settings.ImgurUrlsPath, Strings.ImgurClientID, True, True, True)
+        Dim exitCode As Integer = ImgurApi.UploadToImgur(Files.TemporaryImgurFile, Settings.ImgurUrlsPath, Strings.ImgurClientID, True, True, True)
 
         If exitCode = 1 Then
             ToastAlert.Show("File uploaded to Imgur.", ToastType.Information)
@@ -1284,7 +1283,6 @@ Public Class FormMain
     Private Sub FormMain_Deactivate(sender As Object, e As EventArgs) Handles Me.Deactivate
         Dim Clr As Color = Colors.clrFormDeactivated
         lblHead.ForeColor = Clr
-        cmdElevate.ForeColor = Clr
         CmdSettings.ForeColor = Clr
         CmdMinimize.ForeColor = Clr
         CmdClose.ForeColor = Clr
@@ -1293,7 +1291,6 @@ Public Class FormMain
     Private Sub FormActivate_GotFocus(sender As Object, e As EventArgs) Handles Me.Activated
         Dim Clr As Color = Colors.clrFormActivated
         lblHead.ForeColor = Color.White
-        cmdElevate.ForeColor = Clr
         CmdSettings.ForeColor = Clr
         CmdMinimize.ForeColor = Clr
         CmdClose.ForeColor = Clr

@@ -133,7 +133,7 @@ Partial Class FormHotfix
         Me.PanSplit.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanSplit.ForeColor = System.Drawing.Color.Black
         Me.PanSplit.Location = New System.Drawing.Point(1, 41)
-        Me.PanSplit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanSplit.Margin = New System.Windows.Forms.Padding(4)
         Me.PanSplit.Name = "PanSplit"
         Me.PanSplit.Size = New System.Drawing.Size(563, 2)
         Me.PanSplit.TabIndex = 127
@@ -277,7 +277,7 @@ Partial Class FormHotfix
         'CmdInstall
         '
         Me.CmdInstall.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.CmdInstall.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdInstall.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdInstall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.CmdInstall.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.CmdInstall.FlatAppearance.BorderSize = 0
@@ -297,7 +297,7 @@ Partial Class FormHotfix
         'CmdCancel
         '
         Me.CmdCancel.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.CmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.CmdCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.CmdCancel.FlatAppearance.BorderSize = 0

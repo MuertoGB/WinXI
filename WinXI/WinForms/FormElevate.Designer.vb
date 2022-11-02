@@ -52,13 +52,13 @@ Partial Class FormElevate
         Me.lblMessage.Padding = New System.Windows.Forms.Padding(9)
         Me.lblMessage.Size = New System.Drawing.Size(428, 115)
         Me.lblMessage.TabIndex = 0
-        Me.lblMessage.Text = "WinXI requires administrative privilages to run an assessment, and access the nec" &
-    "essary system files." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click elevate to restart as administrator."
+        Me.lblMessage.Text = "WinXI requires administrative privilages to complete this process." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click eleva" &
+    "te to restart as administrator."
         '
         'cmdElevate
         '
         Me.cmdElevate.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.cmdElevate.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdElevate.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.cmdElevate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.cmdElevate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.cmdElevate.FlatAppearance.BorderSize = 0
@@ -189,7 +189,7 @@ Partial Class FormElevate
         'cmdDecline
         '
         Me.cmdDecline.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.cmdDecline.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdDecline.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.cmdDecline.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.cmdDecline.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.cmdDecline.FlatAppearance.BorderSize = 0

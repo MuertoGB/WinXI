@@ -330,7 +330,7 @@ Partial Class FormReset
         'cmdDelete
         '
         Me.cmdDelete.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.cmdDelete.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdDelete.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.cmdDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.cmdDelete.Enabled = False
         Me.cmdDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))

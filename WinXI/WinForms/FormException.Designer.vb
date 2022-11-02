@@ -30,7 +30,7 @@ Partial Class FormException
         Me.TlpSep = New System.Windows.Forms.TableLayoutPanel()
         Me.CmdContinue = New System.Windows.Forms.Button()
         Me.CmdForceQuit = New System.Windows.Forms.Button()
-        Me.LabInfo = New System.Windows.Forms.Label()
+        Me.lblInfo = New System.Windows.Forms.Label()
         Me.LabError = New System.Windows.Forms.Label()
         Me.PanSplit = New System.Windows.Forms.Panel()
         Me.PanMain = New System.Windows.Forms.Panel()
@@ -121,7 +121,7 @@ Partial Class FormException
         '
         'CmdContinue
         '
-        Me.CmdContinue.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdContinue.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdContinue.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CmdContinue.Enabled = False
         Me.CmdContinue.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
@@ -142,7 +142,7 @@ Partial Class FormException
         '
         'CmdForceQuit
         '
-        Me.CmdForceQuit.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdForceQuit.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdForceQuit.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CmdForceQuit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.CmdForceQuit.FlatAppearance.BorderSize = 0
@@ -160,18 +160,18 @@ Partial Class FormException
         Me.CmdForceQuit.Text = "Force Quit"
         Me.CmdForceQuit.UseVisualStyleBackColor = False
         '
-        'LabInfo
+        'lblInfo
         '
-        Me.LabInfo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabInfo.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.LabInfo.Location = New System.Drawing.Point(0, 122)
-        Me.LabInfo.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabInfo.Name = "LabInfo"
-        Me.LabInfo.Size = New System.Drawing.Size(588, 127)
-        Me.LabInfo.TabIndex = 7
-        Me.LabInfo.Text = resources.GetString("LabInfo.Text")
-        Me.LabInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblInfo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblInfo.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.lblInfo.Location = New System.Drawing.Point(0, 122)
+        Me.lblInfo.Margin = New System.Windows.Forms.Padding(0)
+        Me.lblInfo.Name = "lblInfo"
+        Me.lblInfo.Size = New System.Drawing.Size(588, 127)
+        Me.lblInfo.TabIndex = 7
+        Me.lblInfo.Text = resources.GetString("lblInfo.Text")
+        Me.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'LabError
         '
@@ -200,7 +200,7 @@ Partial Class FormException
         'PanMain
         '
         Me.PanMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.PanMain.Controls.Add(Me.LabInfo)
+        Me.PanMain.Controls.Add(Me.lblInfo)
         Me.PanMain.Controls.Add(Me.TlpBottom)
         Me.PanMain.Controls.Add(Me.LabError)
         Me.PanMain.Dock = System.Windows.Forms.DockStyle.Fill
@@ -248,7 +248,7 @@ Partial Class FormException
         '
         'CmdSaveLog
         '
-        Me.CmdSaveLog.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdSaveLog.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdSaveLog.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CmdSaveLog.Enabled = False
         Me.CmdSaveLog.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
@@ -345,7 +345,7 @@ Partial Class FormException
 
     End Sub
     Friend WithEvents PanHead As System.Windows.Forms.Panel
-    Friend WithEvents LabInfo As System.Windows.Forms.Label
+    Friend WithEvents lblInfo As System.Windows.Forms.Label
     Friend WithEvents LabError As System.Windows.Forms.Label
     Friend WithEvents CmdContinue As System.Windows.Forms.Button
     Friend WithEvents CmdForceQuit As System.Windows.Forms.Button

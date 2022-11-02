@@ -992,7 +992,7 @@ Partial Class FormSettings
         '
         'CmdApply
         '
-        Me.CmdApply.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdApply.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdApply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.CmdApply.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.CmdApply.FlatAppearance.BorderSize = 0
@@ -1001,7 +1001,7 @@ Partial Class FormSettings
         Me.CmdApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdApply.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdApply.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdApply.Location = New System.Drawing.Point(509, 332)
+        Me.CmdApply.Location = New System.Drawing.Point(509, 335)
         Me.CmdApply.Margin = New System.Windows.Forms.Padding(4)
         Me.CmdApply.Name = "CmdApply"
         Me.CmdApply.Size = New System.Drawing.Size(80, 35)
@@ -1011,7 +1011,7 @@ Partial Class FormSettings
         '
         'CmdCancel
         '
-        Me.CmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.CmdCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.CmdCancel.FlatAppearance.BorderSize = 0
@@ -1020,7 +1020,7 @@ Partial Class FormSettings
         Me.CmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdCancel.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdCancel.Location = New System.Drawing.Point(419, 332)
+        Me.CmdCancel.Location = New System.Drawing.Point(419, 335)
         Me.CmdCancel.Margin = New System.Windows.Forms.Padding(4)
         Me.CmdCancel.Name = "CmdCancel"
         Me.CmdCancel.Size = New System.Drawing.Size(80, 35)
@@ -1030,7 +1030,7 @@ Partial Class FormSettings
         '
         'CmdOkay
         '
-        Me.CmdOkay.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdOkay.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdOkay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.CmdOkay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.CmdOkay.FlatAppearance.BorderSize = 0
@@ -1039,7 +1039,7 @@ Partial Class FormSettings
         Me.CmdOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdOkay.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdOkay.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdOkay.Location = New System.Drawing.Point(332, 332)
+        Me.CmdOkay.Location = New System.Drawing.Point(331, 335)
         Me.CmdOkay.Margin = New System.Windows.Forms.Padding(4)
         Me.CmdOkay.Name = "CmdOkay"
         Me.CmdOkay.Size = New System.Drawing.Size(80, 35)

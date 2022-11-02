@@ -58,7 +58,6 @@ Partial Class FormMain
         Me.lblMemoryR = New System.Windows.Forms.Label()
         Me.lblGraphicsR = New System.Windows.Forms.Label()
         Me.PanHead = New System.Windows.Forms.Panel()
-        Me.cmdElevate = New System.Windows.Forms.Button()
         Me.CmdSettings = New System.Windows.Forms.Button()
         Me.TlpHeadSplit = New System.Windows.Forms.TableLayoutPanel()
         Me.PanHeadSplit = New System.Windows.Forms.Panel()
@@ -581,7 +580,6 @@ Partial Class FormMain
         'PanHead
         '
         Me.PanHead.BackColor = System.Drawing.Color.Transparent
-        Me.PanHead.Controls.Add(Me.cmdElevate)
         Me.PanHead.Controls.Add(Me.CmdSettings)
         Me.PanHead.Controls.Add(Me.TlpHeadSplit)
         Me.PanHead.Controls.Add(Me.CmdMinimize)
@@ -594,27 +592,6 @@ Partial Class FormMain
         Me.PanHead.Name = "PanHead"
         Me.PanHead.Size = New System.Drawing.Size(923, 50)
         Me.PanHead.TabIndex = 59
-        '
-        'cmdElevate
-        '
-        Me.cmdElevate.BackColor = System.Drawing.Color.Transparent
-        Me.cmdElevate.Dock = System.Windows.Forms.DockStyle.Right
-        Me.cmdElevate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdElevate.FlatAppearance.BorderSize = 0
-        Me.cmdElevate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.cmdElevate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.cmdElevate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdElevate.Font = New System.Drawing.Font("Segoe MDL2 Assets", 13.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdElevate.ForeColor = System.Drawing.Color.White
-        Me.cmdElevate.Location = New System.Drawing.Point(707, 0)
-        Me.cmdElevate.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdElevate.Name = "cmdElevate"
-        Me.cmdElevate.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
-        Me.cmdElevate.Size = New System.Drawing.Size(50, 50)
-        Me.cmdElevate.TabIndex = 11
-        Me.cmdElevate.TabStop = False
-        Me.cmdElevate.Text = ""
-        Me.cmdElevate.UseVisualStyleBackColor = False
         '
         'CmdSettings
         '
@@ -1715,8 +1692,8 @@ Partial Class FormMain
         Me.TlpMenu.Controls.Add(Me.CmdExport, 0, 0)
         Me.TlpMenu.Controls.Add(Me.CmdOptions, 1, 0)
         Me.TlpMenu.Controls.Add(Me.CmdHelp, 3, 0)
-        Me.TlpMenu.Controls.Add(Me.lblAppVersion, 5, 0)
         Me.TlpMenu.Controls.Add(Me.cmdDebug, 4, 0)
+        Me.TlpMenu.Controls.Add(Me.lblAppVersion, 5, 0)
         Me.TlpMenu.Location = New System.Drawing.Point(0, 50)
         Me.TlpMenu.Margin = New System.Windows.Forms.Padding(0)
         Me.TlpMenu.Name = "TlpMenu"
@@ -1767,7 +1744,7 @@ Partial Class FormMain
         Me.cmsDebug.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ThrowUnhandledExceptionToolStripMenuItem, Me.ToolStripSeparator11, Me.ShowToastInfoToolStripMenuItem, Me.ShowToastWarningToolStripMenuItem, Me.ShowToastErrorToolStripMenuItem, Me.ToolStripSeparator12, Me.OpenElevationWindowToolStripMenuItem})
         Me.cmsDebug.Name = "cmsDebug"
         Me.cmsDebug.ShowImageMargin = False
-        Me.cmsDebug.Size = New System.Drawing.Size(270, 184)
+        Me.cmsDebug.Size = New System.Drawing.Size(270, 156)
         '
         'ThrowUnhandledExceptionToolStripMenuItem
         '
@@ -1993,7 +1970,6 @@ Partial Class FormMain
     Friend WithEvents CreateSettingsiniToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RestartElevatedToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents cmdDebug As Button
-    Friend WithEvents cmdElevate As Button
     Friend WithEvents cmsDebug As ContextMenuStrip
     Friend WithEvents ThrowUnhandledExceptionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator11 As ToolStripSeparator

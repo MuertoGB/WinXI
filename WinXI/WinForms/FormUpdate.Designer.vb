@@ -72,7 +72,7 @@ Partial Class FormUpdate
         Me.PanHead.Controls.Add(Me.CmdClose)
         Me.PanHead.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanHead.Location = New System.Drawing.Point(1, 1)
-        Me.PanHead.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PanHead.Margin = New System.Windows.Forms.Padding(4)
         Me.PanHead.Name = "PanHead"
         Me.PanHead.Size = New System.Drawing.Size(408, 40)
         Me.PanHead.TabIndex = 73
@@ -175,7 +175,7 @@ Partial Class FormUpdate
         'CmdDownload
         '
         Me.CmdDownload.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.CmdDownload.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdDownload.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdDownload.Enabled = False
         Me.CmdDownload.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.CmdDownload.FlatAppearance.BorderSize = 0
@@ -195,7 +195,7 @@ Partial Class FormUpdate
         'CmdCancel
         '
         Me.CmdCancel.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.CmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
         Me.CmdCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.CmdCancel.FlatAppearance.BorderSize = 0
         Me.CmdCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
