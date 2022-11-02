@@ -1,15 +1,14 @@
 ﻿'   Some ContextMenu settings are overriden by Gambol\UI\GambolToolstripRenderer like background color, etc
-'   15.04.2020 - DR - Add assessment overrides based on selection
-'   29.05.2020 - DR - Fixed Win32Exceptions
-'   04.04.2021 - DR - Cleaned up system info string on export of scores as image, switch os info buildid to buildlab
-'   01.11.2022 - DR - Start to implement elevation changes, UI changes, add debug menu
-
 '   Thanks to https://www.transparenttextures.com/ for the title bar graphics.
+
+'   01.11.2022 - DR - Start to implement elevation changes, UI changes, add debug menu
+'   02.11.2022 - DR - Simplify object creation
 
 Imports System.Text
 Imports System.Threading.Tasks
 Imports System.IO
 
+Imports WinXI.Core
 Imports WinXI.Core.Animation
 Imports WinXI.Core.Common
 Imports WinXI.Core.Helpers
@@ -17,7 +16,6 @@ Imports WinXI.Core.System
 Imports WinXI.Gambol.Controls
 Imports WinXI.Gambol.UI
 Imports WinXI.Winsat
-Imports WinXI.Core
 
 Public Class FormMain
 
@@ -237,7 +235,7 @@ Public Class FormMain
         cmdDebug.Hide()
 #End If
 
-        If Booleans.bIsElevated Then
+        If Elevation.bIsElevated Then
             RestartElevatedToolStripMenuItem.Dispose()
         End If
 
@@ -271,7 +269,7 @@ Public Class FormMain
     Private Sub CheckNotifications()
 
         'Updated 07.10.2019
-        'All hotfixes are loaded from WMI into a data array which can be referenced 3x faster with less overhead.
+        'All hotfixes are loaded from WMI into a data array which can be referenced faster with less overhead.
         'This means we're not iterating through every hotfix in WMI multiple times. Good news for slower processors.
         Dim ListOfUpdates As HashSet(Of String) = Knowledgebase.EnumerateHotfixes
 
@@ -303,19 +301,19 @@ Public Class FormMain
     Private Sub OnFinishedCheckNotifications()
 
         If Booleans.bMissingHotfix Then
-            Integers.NotificationCount += 1
+            Integers.intNotificationCount += 1
             UpdateToolstripHotfixItem()
         End If
 
         If Booleans.bMissingUpdate Then
             lblAppVersion.BackColor = Color.FromArgb(100, 255, 185, 0)
-            Integers.NotificationCount += 1
+            Integers.intNotificationCount += 1
             UpdateToolstripUpdateItem()
         End If
 
-        If Not Integers.NotificationCount = 0 Then
+        If Not Integers.intNotificationCount = 0 Then
             CmdHelp.ForeColor = Color.White
-            CmdHelp.Text += " · " & Integers.NotificationCount
+            CmdHelp.Text += " · " & Integers.intNotificationCount
         End If
 
     End Sub
@@ -387,7 +385,7 @@ Public Class FormMain
         If Not Power.IsAdapterPluggedIn() Then
             ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
-            If Not Booleans.bIsElevated Then
+            If Not Elevation.bIsElevated Then
                 RequestElevation()
             Else
                 If Settings.UseVerboseAssessmentMode = True Then
@@ -421,7 +419,7 @@ Public Class FormMain
         If Not Power.IsAdapterPluggedIn() Then
             ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
-            If Not Booleans.bIsElevated Then
+            If Not Elevation.bIsElevated Then
                 RequestElevation()
             Else
                 'Override settings
@@ -440,10 +438,10 @@ Public Class FormMain
 
     Private Sub CmdExport_Click(sender As Object, e As EventArgs) Handles CmdExport.Click
 
-        If CDbl(Strings.BaseScore) = 0 Then
+        If CDbl(Strings.strBaseScore) = 0 Then
             ToastAlert.Show("The system must be rated to use these features.", ToastType.Warning)
         Else
-            Dim ptLowerLeft As Point = New Point(-1, CType(sender, Button).Height)
+            Dim ptLowerLeft As New Point(-1, CType(sender, Button).Height)
             ptLowerLeft = CType(sender, Button).PointToScreen(ptLowerLeft)
             CmsExport.Show(ptLowerLeft)
         End If
@@ -452,7 +450,7 @@ Public Class FormMain
 
     Private Sub CmdOptions_Click(sender As Object, e As EventArgs) Handles CmdOptions.Click
 
-        Dim ptLowerLeft As Point = New Point(-1, CType(sender, Button).Height)
+        Dim ptLowerLeft As New Point(-1, CType(sender, Button).Height)
         ptLowerLeft = CType(sender, Button).PointToScreen(ptLowerLeft)
         CmsOptions.Show(ptLowerLeft)
 
@@ -460,7 +458,7 @@ Public Class FormMain
 
     Private Sub CmdTools_Click(sender As Object, e As EventArgs) Handles CmdTools.Click
 
-        Dim ptLowerLeft As Point = New Point(-1, CType(sender, Button).Height)
+        Dim ptLowerLeft As New Point(-1, CType(sender, Button).Height)
         ptLowerLeft = CType(sender, Button).PointToScreen(ptLowerLeft)
         CmsTools.Show(ptLowerLeft)
 
@@ -468,7 +466,7 @@ Public Class FormMain
 
     Private Sub CmdHelp_Click(sender As Object, e As EventArgs) Handles CmdHelp.Click
 
-        Dim ptLowerLeft As Point = New Point(-1, CType(sender, Button).Height)
+        Dim ptLowerLeft As New Point(-1, CType(sender, Button).Height)
         ptLowerLeft = CType(sender, Button).PointToScreen(ptLowerLeft)
         cmsHelp.Show(ptLowerLeft)
 
@@ -476,7 +474,7 @@ Public Class FormMain
 
     Private Sub cmdDebug_Click(sender As Object, e As EventArgs) Handles cmdDebug.Click
 
-        Dim ptLowerLeft As Point = New Point(-1, CType(sender, Button).Height)
+        Dim ptLowerLeft As New Point(-1, CType(sender, Button).Height)
         ptLowerLeft = CType(sender, Button).PointToScreen(ptLowerLeft)
         cmsDebug.Show(ptLowerLeft)
 
@@ -534,7 +532,7 @@ Public Class FormMain
 
     Private Sub JPGToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles JPGToolStripMenuItem.Click
 
-        If CDbl(Strings.BaseScore) = 0 Then
+        If CDbl(Strings.strBaseScore) = 0 Then
             ToastAlert.Show("You must rate your system first.", ToastType.Warning)
         Else
             EnterPrintMode()
@@ -566,7 +564,7 @@ Public Class FormMain
     End Sub
     Private Sub PNGToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PNGToolStripMenuItem.Click
 
-        If CDbl(Strings.BaseScore) = 0 Then
+        If CDbl(Strings.strBaseScore) = 0 Then
             ToastAlert.Show("You must rate your system first.", ToastType.Warning)
         Else
             EnterPrintMode()
@@ -600,7 +598,7 @@ Public Class FormMain
     End Sub
     Private Sub BMPToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BMPToolStripMenuItem.Click
 
-        If CDbl(Strings.BaseScore) = 0 Then
+        If CDbl(Strings.strBaseScore) = 0 Then
             ToastAlert.Show("You must rate your system first.", ToastType.Warning)
         Else
             EnterPrintMode()
@@ -634,38 +632,38 @@ Public Class FormMain
     End Sub
     Private Sub TXTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TXTToolStripMenuItem.Click
 
-        If CDbl(Strings.BaseScore) = 0 Then
+        If CDbl(Strings.strBaseScore) = 0 Then
             ToastAlert.Show("You must rate your system first.", ToastType.Warning)
         Else
             Dim SBuilder As New StringBuilder
             SBuilder.Append("Windows Experience Index scores generated by WinXI On " & Date.Today & "." & vbNewLine & vbNewLine)
             SBuilder.Append("Base Score: " & lblBasescore.Text & vbNewLine & vbNewLine)
 
-            If Strings.ProcessorScore = Strings.BaseScore Then
+            If Strings.strProcessorScore = Strings.strBaseScore Then
                 SBuilder.Append("Processor Score:  " & lblProcessorScore.Text & " (*)" & vbNewLine)
             Else
                 SBuilder.Append("Processor Score:  " & lblProcessorScore.Text & vbNewLine)
             End If
 
-            If Strings.MemoryScore = Strings.BaseScore Then
+            If Strings.strMemoryScore = Strings.strBaseScore Then
                 SBuilder.Append("Memory Score:     " & lblMemoryScore.Text & " (*)" & vbNewLine)
             Else
                 SBuilder.Append("Memory Score:     " & lblMemoryScore.Text & vbNewLine)
             End If
 
-            If Strings.GraphicsScore = Strings.BaseScore Then
+            If Strings.strGraphicsScore = Strings.strBaseScore Then
                 SBuilder.Append("Graphics Score:   " & lblGraphicsScore.Text & " (*)" & vbNewLine)
             Else
                 SBuilder.Append("Graphics Score:   " & lblGraphicsScore.Text & vbNewLine)
             End If
 
-            If Strings.D3DScore = Strings.BaseScore Then
+            If Strings.strD3dScore = Strings.strBaseScore Then
                 SBuilder.Append("Gaming Score:     " & lblGamingScore.Text & " (*)" & vbNewLine)
             Else
                 SBuilder.Append("Gaming Score:     " & lblGamingScore.Text & vbNewLine)
             End If
 
-            If Strings.DiskScore = Strings.BaseScore Then
+            If Strings.strDiskScore = Strings.strBaseScore Then
                 SBuilder.Append("Disk Score:       " & lblDiskScore.Text & " (*)" & vbCrLf & vbCrLf)
             Else
                 SBuilder.Append("Disk Score:       " & lblDiskScore.Text & vbCrLf & vbCrLf)
@@ -701,13 +699,13 @@ Public Class FormMain
 
         CType(sender, ToolStripMenuItem).Enabled = False
 
-        If Strings.ImgurClientID.Length = 0 Then
+        If Strings.strImgurClientID.Length = 0 Then
             ToastAlert.Show("Imgur API client key needed.", ToastType.Warning)
         Else
-            If CDbl(Strings.BaseScore) = 0 Then 'Unrated system
+            If CDbl(Strings.strBaseScore) = 0 Then 'Unrated system
                 ToastAlert.Show("You must rate your system first.", ToastType.Warning)
             Else 'Check imgur is online
-                If Network.IsWebsiteAvailable(Strings.ImgurUrl) Then
+                If Network.IsWebsiteAvailable(Strings.strImgurUrl) Then
 
                     'Enter printscreen mode
                     EnterPrintMode()
@@ -749,7 +747,7 @@ Public Class FormMain
 
     Private Sub UploadNormalClient()
 
-        Dim exitCode As Integer = ImgurApi.UploadToImgur(Files.TemporaryImgurFile, Settings.ImgurUrlsPath, Strings.ImgurClientID, True, True, True)
+        Dim exitCode As Integer = ImgurApi.UploadToImgur(Files.TemporaryImgurFile, Settings.ImgurUrlsPath, Strings.strImgurClientID, True, True, True)
 
         If exitCode = 1 Then
             ToastAlert.Show("File uploaded to Imgur.", ToastType.Information)
@@ -874,7 +872,7 @@ Public Class FormMain
         If Not Power.IsAdapterPluggedIn() Then
             ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
-            If Not Booleans.bIsElevated Then
+            If Not Elevation.bIsElevated Then
                 RequestElevation()
             Else
                 'Override settings
@@ -894,7 +892,7 @@ Public Class FormMain
         If Not Power.IsAdapterPluggedIn() Then
             ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
-            If Not Booleans.bIsElevated Then
+            If Not Elevation.bIsElevated Then
                 RequestElevation()
             Else
                 'Override settings
@@ -913,7 +911,7 @@ Public Class FormMain
 #Region "Context Menu (Help)"
 
     Private Sub MediaFeaturePackToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles MediaFeaturePackToolStripMenuItem.Click
-        Process.Start(Strings.MediaFeatureUrl)
+        Process.Start(Strings.strMediaFeatureUrl)
     End Sub
 
     Private Sub TroubleshootingToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles TroubleshootingToolStripMenuItem.Click
@@ -1082,11 +1080,11 @@ Public Class FormMain
 
         Dim strDefault As String = "The Experience Index assesses key system components."
 
-        Select Case WinSystem.KernelVersion.ProductMajorPart
+        Select Case WinSystem.fviKernelVersion.ProductMajorPart
             Case 6
-                If WinSystem.KernelVersion.ProductMinorPart = 0 Then : Return "The Experience Index assesses key system components on a scale of 1.0 to 5.9." : End If 'Vista
-                If WinSystem.KernelVersion.ProductMinorPart = 1 Then : Return "The Experience Index assesses key system components on a scale of 1.0 to 7.9." : End If '7
-                If WinSystem.KernelVersion.ProductMinorPart > 1 Then : Return "The Experience Index assesses key system components on a scale of 1.0 to 9.9." : End If '8, 8.1
+                If WinSystem.fviKernelVersion.ProductMinorPart = 0 Then : Return "The Experience Index assesses key system components on a scale of 1.0 to 5.9." : End If 'Vista
+                If WinSystem.fviKernelVersion.ProductMinorPart = 1 Then : Return "The Experience Index assesses key system components on a scale of 1.0 to 7.9." : End If '7
+                If WinSystem.fviKernelVersion.ProductMinorPart > 1 Then : Return "The Experience Index assesses key system components on a scale of 1.0 to 9.9." : End If '8, 8.1
             Case 10
                 Return "The Experience Index assesses key system components on a scale of 1.0 to 9.9." '10
             Case Else
@@ -1137,36 +1135,36 @@ Public Class FormMain
         End If
 
         'Check CPU score against Base score
-        If Strings.ProcessorScore = Strings.BaseScore Then : lblProcessorScore.BackColor = Colors.clrPanelActive : lblProcessorScore.ForeColor = Settings.SetThemeColour
+        If Strings.strProcessorScore = Strings.strBaseScore Then : lblProcessorScore.BackColor = Colors.clrPanelActive : lblProcessorScore.ForeColor = Settings.SetThemeColour
         Else : lblProcessorScore.BackColor = Colors.clrPanelNormal : lblProcessorScore.ForeColor = Color.White
         End If
 
         'Check Memory score against Base score
-        If Strings.MemoryScore = Strings.BaseScore Then : lblMemoryScore.BackColor = Colors.clrPanelActive : lblMemoryScore.ForeColor = Settings.SetThemeColour
+        If Strings.strMemoryScore = Strings.strBaseScore Then : lblMemoryScore.BackColor = Colors.clrPanelActive : lblMemoryScore.ForeColor = Settings.SetThemeColour
         Else : lblMemoryScore.BackColor = Colors.clrPanelNormal : lblMemoryScore.ForeColor = Color.White
         End If
 
         'Check Graphics Score against Base score
-        If Strings.GraphicsScore = Strings.BaseScore Then : lblGraphicsScore.BackColor = Colors.clrPanelActive : lblGraphicsScore.ForeColor = Settings.SetThemeColour
+        If Strings.strGraphicsScore = Strings.strBaseScore Then : lblGraphicsScore.BackColor = Colors.clrPanelActive : lblGraphicsScore.ForeColor = Settings.SetThemeColour
         Else : lblGraphicsScore.BackColor = Colors.clrPanelNormal : lblGraphicsScore.ForeColor = Color.White
         End If
 
         'Check Gaming score against Base score
-        If Strings.D3DScore = Strings.BaseScore Then : lblGamingScore.BackColor = Colors.clrPanelActive : lblGamingScore.ForeColor = Settings.SetThemeColour
+        If Strings.strD3dScore = Strings.strBaseScore Then : lblGamingScore.BackColor = Colors.clrPanelActive : lblGamingScore.ForeColor = Settings.SetThemeColour
         Else : lblGamingScore.BackColor = Colors.clrPanelNormal : lblGamingScore.ForeColor = Color.White
         End If
 
         'Check Disk score against Base score
-        If Strings.DiskScore = Strings.BaseScore Then : lblDiskScore.BackColor = Colors.clrPanelActive : lblDiskScore.ForeColor = Settings.SetThemeColour
+        If Strings.strDiskScore = Strings.strBaseScore Then : lblDiskScore.BackColor = Colors.clrPanelActive : lblDiskScore.ForeColor = Settings.SetThemeColour
         Else : lblDiskScore.BackColor = Colors.clrPanelNormal : lblDiskScore.ForeColor = Color.White
         End If
 
         'Determine last assessment date
-        Strings.AssessDate = Format(WinsatAPI.GetWinsatLastUpdateDate(), "dddd, MMM d yyyy hh:mm tt")
-        If (Strings.AssessDate.Length = 0) Or Strings.AssessDate.Contains("1999") Then
+        Strings.strLastAssessDate = Format(WinsatAPI.GetWinsatLastUpdateDate(), "dddd, MMM d yyyy hh:mm tt")
+        If (Strings.strLastAssessDate.Length = 0) Or Strings.strLastAssessDate.Contains("1999") Then
             lblLastAssessedString.Text = "Never"
         Else
-            lblLastAssessedString.Text = Strings.AssessDate
+            lblLastAssessedString.Text = Strings.strLastAssessDate
         End If
 
         'Hardware switch
@@ -1177,14 +1175,14 @@ Public Class FormMain
         End If
 
         'Pass score strings to UI
-        lblBasescore.Text = Strings.BaseScore
-        lblProcessorScore.Text = Strings.ProcessorScore
-        lblMemoryScore.Text = Strings.MemoryScore
-        lblGraphicsScore.Text = Strings.GraphicsScore
-        lblGamingScore.Text = Strings.D3DScore
-        lblDiskScore.Text = Strings.DiskScore
+        lblBasescore.Text = Strings.strBaseScore
+        lblProcessorScore.Text = Strings.strProcessorScore
+        lblMemoryScore.Text = Strings.strMemoryScore
+        lblGraphicsScore.Text = Strings.strGraphicsScore
+        lblGamingScore.Text = Strings.strD3dScore
+        lblDiskScore.Text = Strings.strDiskScore
 
-        If Strings.BaseScore = "0" Or Strings.BaseScore = Nothing Then
+        If Strings.strBaseScore = "0" Or Strings.strBaseScore = Nothing Then
             lblBasescore.Text = "0.0"
         End If
 
@@ -1214,17 +1212,17 @@ Public Class FormMain
         LoadHardwareStrings()
 
         If swHardware.Checked Then
-            lblProcessorR.Text = Strings.ProcessorHW.Replace("(R)", "®").Replace("(TM)", "™")
-            lblMemoryR.Text = Strings.MemoryHW
-            lblGraphicsR.Text = Strings.GraphicsHW.Replace("(R)", "®").Replace("(TM)", "™")
-            lblGamingR.Text = Strings.D3DHW
-            lblDiskR.Text = Strings.DiskHW
+            lblProcessorR.Text = Strings.strProcessorHardware.Replace("(R)", "®").Replace("(TM)", "™")
+            lblMemoryR.Text = Strings.strMemoryHardware
+            lblGraphicsR.Text = Strings.strGraphicsHardware.Replace("(R)", "®").Replace("(TM)", "™")
+            lblGamingR.Text = Strings.strD3dHardware
+            lblDiskR.Text = Strings.strDiskHardware
         Else
-            lblProcessorR.Text = Strings.ProcessorRO
-            lblMemoryR.Text = Strings.MemoryRO
-            lblGraphicsR.Text = Strings.GraphicsRO
-            lblGamingR.Text = Strings.D3DRO
-            lblDiskR.Text = Strings.DiskRO
+            lblProcessorR.Text = Strings.strProcessorText
+            lblMemoryR.Text = Strings.strMemoryText
+            lblGraphicsR.Text = Strings.strGraphicsText
+            lblGamingR.Text = Strings.strD3dText
+            lblDiskR.Text = Strings.strDiskText
         End If
 
     End Sub
@@ -1247,10 +1245,10 @@ Public Class FormMain
 
         HotfixAvailableToolStripMenuItem.Visible = False
 
-        Integers.NotificationCount -= 1
+        Integers.intNotificationCount -= 1
 
-        If Not Integers.NotificationCount = 0 Then
-            CmdHelp.Text = "Help · " & Integers.NotificationCount
+        If Not Integers.intNotificationCount = 0 Then
+            CmdHelp.Text = "Help · " & Integers.intNotificationCount
         Else
             CmdHelp.ForeColor = Color.White
             CmdHelp.Text = "Help"
@@ -1260,7 +1258,7 @@ Public Class FormMain
 
     Private Sub RequestElevation()
 
-        If Not Booleans.bIsElevated Then
+        If Not Elevation.bIsElevated Then
             Fade.FadeBehindChild(Me)
             Dim Frm As New FormElevate
             AddHandler Frm.FormClosed, AddressOf ChildFormClosedNoRefresh

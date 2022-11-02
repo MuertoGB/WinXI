@@ -66,8 +66,8 @@ Public Class FormUpdate
             CmdDownload.Enabled = False
         End If
 
-        LabCurrent.Text = CheckForUpdate.strLocal & " · " & Program.ReleaseDate
-        LabServer.Text = CheckForUpdate.strServer & " · " & CheckForUpdate.strReleaseDate
+        LabCurrent.Text = CheckForUpdate.strLocalBuild & " · " & Program.ReleaseDate
+        LabServer.Text = CheckForUpdate.strRemoteBuild & " · " & CheckForUpdate.strReleaseDate
 
     End Sub
 
@@ -138,7 +138,7 @@ Public Class FormUpdate
 
                 DLPath = Path.Combine(FBD.SelectedPath, "WinXI.zip")
 
-                WClient.DownloadFileAsync(New Uri(Strings.WinXIZipUrl), DLPath)
+                WClient.DownloadFileAsync(New Uri("ENTER NEW DOWNLOAD URL"), DLPath)
                 WClient.Dispose()
 
             End If

@@ -1,4 +1,5 @@
-﻿'  Updated on 10.03.2021 - DS (Removed GetIniValue, switched to Core/Helpers/IniFile)
+﻿'   10.03.2021 - DR - Removed GetIniValue, switched to Core/Helpers/IniFile
+'   02.11.2022 - DR - Update variable
 
 Imports System.Globalization
 Imports System.IO
@@ -7,7 +8,7 @@ Imports WinXI.Core.Common
 
 NotInheritable Class Culture
 
-    Private Shared ReadOnly CompatibilityFile As String = Path.Combine(Directories.AppPath, "Compatibility.ini")
+    Private Shared ReadOnly CompatibilityFile As String = Path.Combine(FileOps.GetApplicationPath(), "Compatibility.ini")
 
     Friend Shared MediaFoundationStr As String = ""
     Friend Shared ExtendedMediaStr As String = ""

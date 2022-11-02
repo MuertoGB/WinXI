@@ -10,11 +10,15 @@ Namespace Core.System
 
     NotInheritable Class WinSystem
 
-        Private Shared ReadOnly SystemDirectory As String = Environment.GetFolderPath(Environment.SpecialFolder.System)
+        Private Shared ReadOnly strSystemDirectory As String = Environment.GetFolderPath(Environment.SpecialFolder.System)
 
-        Friend Shared ReadOnly KernelVersion As FileVersionInfo = FileVersionInfo.GetVersionInfo(Path.Combine(SystemDirectory, "kernel32.dll"))
-        Friend Shared ReadOnly WinsatVersion As FileVersionInfo = FileVersionInfo.GetVersionInfo(Path.Combine(SystemDirectory, "winsat.exe"))
-        Friend Shared ReadOnly WinsatApiVersion As FileVersionInfo = FileVersionInfo.GetVersionInfo(Path.Combine(SystemDirectory, "winsatapi.dll"))
+        Friend Shared bIsWinsatCapable As Boolean = False
+
+        Friend Shared ReadOnly fviKernelVersion As FileVersionInfo = FileVersionInfo.GetVersionInfo(Path.Combine(strSystemDirectory, "kernel32.dll"))
+        Friend Shared ReadOnly fviWinsatVersion As FileVersionInfo = FileVersionInfo.GetVersionInfo(Path.Combine(strSystemDirectory, "winsat.exe"))
+        Friend Shared ReadOnly fviWinsatApiVersion As FileVersionInfo = FileVersionInfo.GetVersionInfo(Path.Combine(strSystemDirectory, "winsatapi.dll"))
+
+        Private Const strRegistryHKLM As String = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
 
         Friend Shared Function IsWinSATCapable() As Boolean
 
@@ -32,33 +36,33 @@ Namespace Core.System
 
 #Region "Booleans"
         Friend Shared Function IsWinVista() As Boolean
-            If (KernelVersion.ProductMajorPart = 6) And (KernelVersion.ProductMinorPart = 0) Then
-                Return True 'Vista, ret true.
+            If (fviKernelVersion.ProductMajorPart = 6) And (fviKernelVersion.ProductMinorPart = 0) Then
+                Return True
             End If
             Return False
         End Function
         Friend Shared Function IsWin7() As Boolean
-            If (KernelVersion.ProductMajorPart = 6) And (KernelVersion.ProductMinorPart = 1) Then
-                Return True 'W7, ret true.
+            If (fviKernelVersion.ProductMajorPart = 6) And (fviKernelVersion.ProductMinorPart = 1) Then
+                Return True
             End If
             Return False
         End Function
         Friend Shared Function IsWin8() As Boolean
-            If (KernelVersion.ProductMajorPart = 6) And (KernelVersion.ProductMinorPart = 2) Then
-                Return True 'W8 ret true.
+            If (fviKernelVersion.ProductMajorPart = 6) And (fviKernelVersion.ProductMinorPart = 2) Then
+                Return True
             End If
             Return False
         End Function
         Friend Shared Function IsWin81() As Boolean
 
-            If (KernelVersion.ProductMajorPart = 6) And (KernelVersion.ProductMinorPart = 3) Then
-                Return True 'W8.1 ret true
+            If (fviKernelVersion.ProductMajorPart = 6) And (fviKernelVersion.ProductMinorPart = 3) Then
+                Return True
             End If
             Return False
         End Function
         Friend Shared Function IsWin10() As Boolean
-            If (KernelVersion.ProductMajorPart = 10) And (KernelVersion.ProductMinorPart = 0) Then
-                Return True 'W10, ret true.
+            If (fviKernelVersion.ProductMajorPart = 10) And (fviKernelVersion.ProductMinorPart = 0) Then
+                Return True
             End If
             Return False
         End Function
@@ -125,12 +129,7 @@ Namespace Core.System
         Public Shared Function GetWindowsServicePack() As String
 
             Dim strServicePack As String = Environment.OSVersion.ServicePack
-
-            If strServicePack.Length = 0 Then
-                Return "N/A"
-            Else
-                Return strServicePack
-            End If
+            Return CStr(IIf(CInt(strServicePack.Length) = 0, "N/A", strServicePack))
 
         End Function
 
@@ -140,9 +139,9 @@ Namespace Core.System
         Public Shared Function GetWindowsUptime() As String
 
             Try
-                Dim Int As Integer = CInt(NativeMethods.GetTickCount() / 1000)
-                Return Format$(Int \ 3600 \ 24, "0") & "d, " & Format$((Int \ 3600) Mod 24, "00") & "h, " _
-                     & Format$((Int Mod 3600) \ 60, "00") & "m, " & Format$(Int Mod 60, "00") & "s"
+                Dim intTick As Integer = CInt(NativeMethods.GetTickCount() / 1000)
+                Return Format$(intTick \ 3600 \ 24, "0") & "d, " & Format$((intTick \ 3600) Mod 24, "00") & "h, " _
+                     & Format$((intTick Mod 3600) \ 60, "00") & "m, " & Format$(intTick Mod 60, "00") & "s"
             Catch
                 Return "Unknown"
             End Try
@@ -154,20 +153,21 @@ Namespace Core.System
 
         Public Shared Function GetWindowsInstallDate() As String
 
-            Dim Reg As String = CStr(Registry.GetValue(Strings.HKLMCV, "InstallDate", Nothing))
+            Dim strRegKey As String = CStr(Registry.GetValue(strRegistryHKLM, "InstallDate", Nothing))
 
             Try
-                If Not Reg.Length = 0 Then
-                    Dim DawnOfTime As Date 'Not funny
-                    Dim Lng As Long
-                    DawnOfTime = New DateTime(1970, 1, 1, 0, 0, 0).ToLocalTime
-                    Lng = Convert.ToInt64(Reg.ToString())
-                    Return CStr(DawnOfTime.AddSeconds(Lng))
+                If Not strRegKey.Length = 0 Then
+                    Dim dDate As Date 'Not funny
+                    Dim lLong As Long
+                    dDate = New DateTime(1970, 1, 1, 0, 0, 0).ToLocalTime
+                    lLong = Convert.ToInt64(strRegKey.ToString())
+                    Return CStr(dDate.AddSeconds(lLong))
                 End If
-                Return Date.MinValue & " (Error)"
             Catch
                 Return Date.MinValue & " (Error)"
             End Try
+
+            Return CStr(Date.MinValue)
 
         End Function
 
@@ -176,12 +176,12 @@ Namespace Core.System
 
         Friend Shared Function CurrentBuild() As Integer
 
-            Dim Val As Integer = CInt(Registry.GetValue(Strings.HKLMCV, "CurrentBuild", Nothing))
+            Dim intValue As Integer = CInt(Registry.GetValue(strRegistryHKLM, "CurrentBuild", Nothing))
 
-            If Val = 0 Or Nothing Then
+            If intValue = 0 Or Nothing Then
                 Return 0
             Else
-                Return Val
+                Return intValue
             End If
 
         End Function
@@ -257,7 +257,7 @@ Namespace Core.System
         Public Shared Function GetWindowsBuildLab() As String
 
             Try
-                Return CStr(Registry.GetValue(Strings.HKLMCV, "BuildLab", Nothing))
+                Return CStr(Registry.GetValue(strRegistryHKLM, "BuildLab", Nothing))
             Catch
                 Return "Not found"
             End Try

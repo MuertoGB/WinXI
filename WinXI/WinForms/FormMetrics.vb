@@ -1,13 +1,12 @@
 ﻿'   07.08.2019 - DR - Add constructor, update theme, update WndProc
 '   21.01.2020 - DR - Update GetXMLInfoWinsat to notify of empty sections and XML data
-'   27.01.2020 - DR - Added really bad caching to the really badly written tool, other UI stuff
+'   02.11.2022 - DR - Remove unsused var
 
 '  The GetWinsatXmlInfo code is terrible, I understand that. But it works. IT WORKS. NOW GET OUT.
 
 Imports System.Linq
 Imports System.Xml
-
-#Disable Warning IDE0044
+Imports WinXI.Winsat
 
 Public Class FormMetrics
 
@@ -304,7 +303,7 @@ Public Class FormMetrics
         Dim Doc As New XmlDocument
         Dim MainNodeList As XmlNodeList
 
-        Doc.Load(Files.LatestFormalXML)
+        Doc.Load(WinsatReader.strLatestFormalXml)
         MainNodeList = Doc.GetElementsByTagName(LookIn)
 
         Dim Attribs As String = ""

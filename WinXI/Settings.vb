@@ -1,5 +1,6 @@
 ﻿'   08.03.2021 - DR - Rewrite
 '   01.11.2022 - DR - Omit windows server changes, supress BC42025
+'   02.11.2022 - DR - Gain SaveSingleKey()
 
 Imports System.IO
 Imports WinXI.Core.Common
@@ -22,11 +23,11 @@ Friend Class Settings
     Friend Shared ResetState As Integer = 0
 
     'Paths
-    Friend Shared ReadOnly SettingsFile As String = Path.Combine(Directories.AppPath, "Settings.ini")
-    Friend Shared ReadOnly CompatibilityFile As String = Path.Combine(Directories.AppPath, "Compatibility.ini")
+    Friend Shared ReadOnly SettingsFile As String = Path.Combine(FileOps.GetApplicationPath(), "Settings.ini")
+    Friend Shared ReadOnly CompatibilityFile As String = Path.Combine(FileOps.GetApplicationPath(), "Compatibility.ini")
     Friend Shared ReadOnly AppdataPath As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Xiret")
-    Friend Shared ReadOnly AssessmentLogPath As String = Path.Combine(Directories.AppPath, "WinXI.log")
-    Friend Shared ReadOnly ImgurUrlsPath As String = Path.Combine(Directories.AppPath, "imgurlinks.log")
+    Friend Shared ReadOnly AssessmentLogPath As String = Path.Combine(FileOps.GetApplicationPath(), "WinXI.log")
+    Friend Shared ReadOnly ImgurUrlsPath As String = Path.Combine(FileOps.GetApplicationPath(), "imgurlinks.log")
 
     Friend Shared SetThemeColour As Color = Color.FromArgb(120, 180, 0)
     Friend Shared SetHeaderGraphic As Image = Nothing
@@ -72,6 +73,32 @@ Friend Class Settings
                 If ThemeColourInteger < 0 OrElse ThemeColourInteger > 9 Then
                     ThemeColourInteger = 0
                 End If
+
+                Select Case ThemeColourInteger
+                    Case 0
+                        SetThemeColour = Color.FromArgb(120, 200, 40)
+                    Case 1
+                        SetThemeColour = Color.FromArgb(0, 191, 255)
+                    Case 2
+                        SetThemeColour = Color.FromArgb(0, 255, 181)
+                    Case 3
+                        SetThemeColour = Color.FromArgb(46, 220, 110)
+                    Case 4
+                        SetThemeColour = Color.FromArgb(255, 70, 255)
+                    Case 5
+                        SetThemeColour = Color.FromArgb(255, 105, 180)
+                    Case 6
+                        SetThemeColour = Color.FromArgb(255, 118, 0)
+                    Case 7
+                        SetThemeColour = Color.FromArgb(205, 219, 18)
+                    Case 8
+                        SetThemeColour = Color.FromArgb(255, 50, 50)
+                    Case 9
+                        SetThemeColour = Color.FromArgb(255, 99, 71)
+                    Case Else
+                        SetThemeColour = Color.FromArgb(120, 200, 40)
+                End Select
+
             Catch
                 ThemeColourInteger = 0
             End Try
@@ -86,39 +113,20 @@ Friend Class Settings
             CustomImgurApiKeyString = IniFile.Read("Settings", "CustomImgurApiKeyString", SettingsFile)
 
             '[Overrides]
-
             Try
                 UpdateAutoCheck = CBool(IniFile.Read("Overrides", "UpdateAutoCheck", SettingsFile))
             Catch ex As Exception
-                MessageBox.Show("2 " + ex.ToString())
+                UpdateAutoCheck = False
+            End Try
+
+            '[State]
+            Try
+                ResetState = CInt(IniFile.Read("States", "ResetState", SettingsFile))
+            Catch ex As Exception
+                ResetState = 0
             End Try
 
         End If
-
-        Select Case ThemeColourInteger
-            Case 0
-                SetThemeColour = Color.FromArgb(120, 200, 40)
-            Case 1
-                SetThemeColour = Color.FromArgb(0, 191, 255)
-            Case 2
-                SetThemeColour = Color.FromArgb(0, 255, 181)
-            Case 3
-                SetThemeColour = Color.FromArgb(46, 220, 110)
-            Case 4
-                SetThemeColour = Color.FromArgb(255, 70, 255)
-            Case 5
-                SetThemeColour = Color.FromArgb(255, 105, 180)
-            Case 6
-                SetThemeColour = Color.FromArgb(255, 118, 0)
-            Case 7
-                SetThemeColour = Color.FromArgb(205, 219, 18)
-            Case 8
-                SetThemeColour = Color.FromArgb(255, 50, 50)
-            Case 9
-                SetThemeColour = Color.FromArgb(255, 99, 71)
-            Case Else
-                SetThemeColour = Color.FromArgb(120, 200, 40)
-        End Select
 
         SetHeaderGraphic = My.Resources.HeaderGraphicDefault
 
@@ -144,6 +152,15 @@ Friend Class Settings
 #Enable Warning BC42025
         End If
 
+    End Sub
+
+    Friend Shared Sub SaveSingleKey(Section As String, Key As String, value As String)
+        If File.Exists(SettingsFile) Then
+            Dim Ini As New IniFile(SettingsFile)
+#Disable Warning BC42025
+            Ini.Write(Key, value, Section)
+#Enable Warning BC42025
+        End If
     End Sub
 
 #End Region

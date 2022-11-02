@@ -2,6 +2,8 @@
 '   Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
 '   01.11.2022 - DR - Add capaability changes, change support link text and URL
 
+Imports WinXI.Core.System
+
 Public Class FormEnvironment
 
 #Region "Ctor"
@@ -57,7 +59,7 @@ Public Class FormEnvironment
 
     Private Sub FormEnvironment_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        If Not Booleans.bIsWinsatCapable Then
+        If Not WinSystem.bIsWinsatCapable Then
             lblMessage.Text = "This Operating is missing vital WinSAT files. The application will now exit."
         Else
             lblMessage.Text = "This program requires Windows Vista or later. The application will now exit."

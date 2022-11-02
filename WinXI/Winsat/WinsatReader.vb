@@ -14,115 +14,116 @@ Namespace Winsat
 
     Friend Class WinsatReader
 
-        Friend Shared ReadOnly DecSeperator As String = Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator
+        Friend Shared ReadOnly strSeperator As String = Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator
+        Friend Shared strLatestFormalXml As String = ""
 
 #Region "WinSPR"
 
         Friend Shared Sub GetWinsatSPR()
 
             Try
-                If CDbl(WinsatApi.GetWinsatBaseScore()) = 0 Then
-                    Strings.BaseScore = "0"
-                    Strings.ProcessorScore = "Unrated"
-                    Strings.MemoryScore = "Unrated"
-                    Strings.GraphicsScore = "Unrated"
-                    Strings.D3DScore = "Unrated"
-                    Strings.DiskScore = "Unrated"
+                If CDbl(WinsatAPI.GetWinsatBaseScore()) = 0 Then
+                    Strings.strBaseScore = "0"
+                    Strings.strProcessorScore = "Unrated"
+                    Strings.strMemoryScore = "Unrated"
+                    Strings.strGraphicsScore = "Unrated"
+                    Strings.strD3dScore = "Unrated"
+                    Strings.strDiskScore = "Unrated"
                     FormMain.UpdateControls()
                 Else
                     Try
-                        Strings.BaseScore = CType(WinsatApi.GetWinsatBaseScore(), String)
+                        Strings.strBaseScore = CType(WinsatAPI.GetWinsatBaseScore(), String)
                         'Append if length is 1
-                        If Strings.BaseScore.Length = 1 Then
-                            Strings.BaseScore &= DecSeperator & "0"
+                        If Strings.strBaseScore.Length = 1 Then
+                            Strings.strBaseScore &= strSeperator & "0"
                         Else
                             'Remove extra byte
-                            If Strings.BaseScore.Length > 3 Then
-                                Strings.BaseScore = Strings.BaseScore.Substring(0, Strings.BaseScore.Length - 1)
+                            If Strings.strBaseScore.Length > 3 Then
+                                Strings.strBaseScore = Strings.strBaseScore.Substring(0, Strings.strBaseScore.Length - 1)
                             End If
                         End If
                     Catch
-                        Strings.BaseScore = "..."
+                        Strings.strBaseScore = "..."
                     End Try
 
                     '// Processor Score
                     Try
-                        Strings.ProcessorScore = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_CPU, INFO_TYPE.Score)
+                        Strings.strProcessorScore = WinsatAPI.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_CPU, INFO_TYPE.Score)
                         'Append if length is 1
-                        If Strings.ProcessorScore.Length = 1 Then
-                            Strings.ProcessorScore &= DecSeperator & "0"
+                        If Strings.strProcessorScore.Length = 1 Then
+                            Strings.strProcessorScore &= strSeperator & "0"
                         Else
                             'Remove extra byte
-                            If Strings.ProcessorScore.Length > 3 Then
-                                Strings.ProcessorScore = Strings.ProcessorScore.Substring(0, Strings.ProcessorScore.Length - 1)
+                            If Strings.strProcessorScore.Length > 3 Then
+                                Strings.strProcessorScore = Strings.strProcessorScore.Substring(0, Strings.strProcessorScore.Length - 1)
                             End If
                         End If
                     Catch
-                        Strings.ProcessorScore = "..."
+                        Strings.strProcessorScore = "..."
                     End Try
 
                     '// Memory Score
                     Try
-                        Strings.MemoryScore = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_MEMORY, INFO_TYPE.Score)
+                        Strings.strMemoryScore = WinsatAPI.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_MEMORY, INFO_TYPE.Score)
                         'Append if length is 1
-                        If Strings.MemoryScore.Length = 1 Then
-                            Strings.MemoryScore &= DecSeperator & "0"
+                        If Strings.strMemoryScore.Length = 1 Then
+                            Strings.strMemoryScore &= strSeperator & "0"
                         Else
                             'Remove extra byte
-                            If Strings.MemoryScore.Length > 3 Then
-                                Strings.MemoryScore = Strings.MemoryScore.Substring(0, Strings.MemoryScore.Length - 1)
+                            If Strings.strMemoryScore.Length > 3 Then
+                                Strings.strMemoryScore = Strings.strMemoryScore.Substring(0, Strings.strMemoryScore.Length - 1)
                             End If
                         End If
                     Catch
-                        Strings.MemoryScore = "..."
+                        Strings.strMemoryScore = "..."
                     End Try
 
                     '// Graphics Score
                     Try
-                        Strings.GraphicsScore = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_GRAPHICS, INFO_TYPE.Score)
+                        Strings.strGraphicsScore = WinsatAPI.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_GRAPHICS, INFO_TYPE.Score)
                         'Append if length is 1
-                        If Strings.GraphicsScore.Length = 1 Then
-                            Strings.GraphicsScore &= DecSeperator & "0"
+                        If Strings.strGraphicsScore.Length = 1 Then
+                            Strings.strGraphicsScore &= strSeperator & "0"
                         Else
                             'Remove extra byte
-                            If Strings.GraphicsScore.Length > 3 Then
-                                Strings.GraphicsScore = Strings.GraphicsScore.Substring(0, Strings.GraphicsScore.Length - 1)
+                            If Strings.strGraphicsScore.Length > 3 Then
+                                Strings.strGraphicsScore = Strings.strGraphicsScore.Substring(0, Strings.strGraphicsScore.Length - 1)
                             End If
                         End If
                     Catch
-                        Strings.GraphicsScore = "..."
+                        Strings.strGraphicsScore = "..."
                     End Try
 
                     '// Gaming Graphics Score
                     Try
-                        Strings.D3DScore = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_D3D, INFO_TYPE.Score)
+                        Strings.strD3dScore = WinsatAPI.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_D3D, INFO_TYPE.Score)
                         'Append if length is 1
-                        If Strings.D3DScore.Length = 1 Then
-                            Strings.D3DScore &= DecSeperator & "0"
+                        If Strings.strD3dScore.Length = 1 Then
+                            Strings.strD3dScore &= strSeperator & "0"
                         Else
                             'Remove extra byte
-                            If Strings.D3DScore.Length > 3 Then
-                                Strings.D3DScore = Strings.D3DScore.Substring(0, Strings.D3DScore.Length - 1)
+                            If Strings.strD3dScore.Length > 3 Then
+                                Strings.strD3dScore = Strings.strD3dScore.Substring(0, Strings.strD3dScore.Length - 1)
                             End If
                         End If
                     Catch
-                        Strings.D3DScore = "..."
+                        Strings.strD3dScore = "..."
                     End Try
 
                     '// Disk Score
                     Try
-                        Strings.DiskScore = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_DISK, INFO_TYPE.Score)
+                        Strings.strDiskScore = WinsatAPI.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_DISK, INFO_TYPE.Score)
                         'Append is length is 1
-                        If Strings.DiskScore.Length = 1 Then
-                            Strings.DiskScore &= DecSeperator & "0"
+                        If Strings.strDiskScore.Length = 1 Then
+                            Strings.strDiskScore &= strSeperator & "0"
                         Else
                             'Remove extra byte
-                            If Strings.DiskScore.Length > 3 Then
-                                Strings.DiskScore = Strings.DiskScore.Substring(0, Strings.DiskScore.Length - 1)
+                            If Strings.strDiskScore.Length > 3 Then
+                                Strings.strDiskScore = Strings.strDiskScore.Substring(0, Strings.strDiskScore.Length - 1)
                             End If
                         End If
                     Catch
-                        Strings.DiskScore = "..."
+                        Strings.strDiskScore = "..."
                     End Try
 
                     If Settings.UseApiHardwareMode = True Then
@@ -134,12 +135,12 @@ Namespace Winsat
                 End If
 
             Catch ex As Exception
-                Strings.BaseScore = "0"
-                Strings.ProcessorScore = "Unrated"
-                Strings.MemoryScore = "Unrated"
-                Strings.GraphicsScore = "Unrated"
-                Strings.D3DScore = "Unrated"
-                Strings.DiskScore = "Unrated"
+                Strings.strBaseScore = "0"
+                Strings.strProcessorScore = "Unrated"
+                Strings.strMemoryScore = "Unrated"
+                Strings.strGraphicsScore = "Unrated"
+                Strings.strD3dScore = "Unrated"
+                Strings.strDiskScore = "Unrated"
                 FormMain.UpdateControls()
                 MessageBox.Show(ex.ToString, "WSR.GetWinsatSPR", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -152,11 +153,11 @@ Namespace Winsat
         Friend Shared Sub ReadXMLHardware()
 
             If Not GetAssessmentValidityInt() = 3 Then 'Block attempts to load hardware on unrated systems
-                Strings.ProcessorHW = XMLGetProcessor()
-                Strings.MemoryHW = XMLGetMemoryType() & " " & XMLGetMemorySize()
-                Strings.GraphicsHW = XMLGetGraphicsName()
-                Strings.D3DHW = XMLGetGraphicsSize()
-                Strings.DiskHW = XMLGetDisk()
+                Strings.strProcessorHardware = XMLGetProcessor()
+                Strings.strMemoryHardware = XMLGetMemoryType() & " " & XMLGetMemorySize()
+                Strings.strGraphicsHardware = XMLGetGraphicsName()
+                Strings.strD3dHardware = XMLGetGraphicsSize()
+                Strings.strDiskHardware = XMLGetDisk()
             End If
 
         End Sub
@@ -233,11 +234,11 @@ Namespace Winsat
         Friend Shared Sub ReadAPIHardware()
 
             If Not WinsatApi.GetAssessmentValidityInt() = 3 Then 'Block attempts to load hardware on unrated systems
-                Strings.ProcessorHW = APIGetProcessor()
-                Strings.MemoryHW = APIGetMemorySize()
-                Strings.GraphicsHW = APIGetGraphicsName()
-                Strings.D3DHW = APIGetGraphicsSize()
-                Strings.DiskHW = APIGetDisk()
+                Strings.strProcessorHardware = APIGetProcessor()
+                Strings.strMemoryHardware = APIGetMemorySize()
+                Strings.strGraphicsHardware = APIGetGraphicsName()
+                Strings.strD3dHardware = APIGetGraphicsSize()
+                Strings.strDiskHardware = APIGetDisk()
             End If
 
         End Sub
@@ -305,10 +306,10 @@ Namespace Winsat
             Try
                 Dim XMLDoc As New XmlDocument
                 Dim XMLDocNode As XmlNode
-                If Not GetLatestFormalXML() = Files.LatestFormalXML Then
+                If Not GetLatestFormalXML() = strLatestFormalXml Then
                     XMLDoc.Load(GetLatestFormalXML())
                 Else
-                    XMLDoc.Load(Files.LatestFormalXML)
+                    XMLDoc.Load(strLatestFormalXml)
                 End If
 
                 XMLDocNode = XMLDoc.SelectSingleNode(Node)
@@ -349,15 +350,15 @@ Namespace Winsat
                 Next
 
                 If NewestFile Is Nothing Then
-                    Files.LatestFormalXML = ""
+                    strLatestFormalXml = ""
                     Return ""
                 Else
-                    Files.LatestFormalXML = NewestFile.FullName
+                    strLatestFormalXml = NewestFile.FullName
                     Return NewestFile.FullName
                 End If
 
             Else
-                Files.LatestFormalXML = NewestFile.FullName
+                strLatestFormalXml = NewestFile.FullName
                 Return NewestFile.FullName
             End If
 

@@ -341,13 +341,13 @@ Friend Class FormAssess
         Logger.Log("New Test Started on " & Format(Now, "dddd, MMM d yyyy hh:mm tt"), LogType.InfoLog, RtbLog)
         Logger.Log("(╯°□°）╯︵ ┻━┻", LogType.InfoLog, RtbLog)
         Logger.Log("WinXI v" & Application.ProductVersion & " " & Program.Channel & " (" & Program.Build & ")", LogType.InfoLog, RtbLog)
-        Logger.Log("SystemOS: " & WinSystem.GetProductName() & " (Kernel: " & WinSystem.KernelVersion.ProductVersion & ")", LogType.InfoLog, RtbLog)
+        Logger.Log("SystemOS: " & WinSystem.GetProductName() & " (Kernel: " & WinSystem.fviKernelVersion.ProductVersion & ")", LogType.InfoLog, RtbLog)
         Logger.Log("Bitness: " & WinSystem.GetWindowsBitness(True), LogType.InfoLog, RtbLog)
         Logger.Log("Culture: " & Culture.GetCultureName, LogType.InfoLog, RtbLog)
         Logger.Log(CType(IIf(Culture.SetCultureStrings(), "INI: Present", "INI: Missing"), String), LogType.InfoLog, RtbLog)
 
-        Logger.Log("Winsat EXE v" & WinSystem.WinsatVersion.ProductVersion, LogType.InfoLog, RtbLog)
-        Logger.Log("Winsat API v" & WinSystem.WinsatApiVersion.ProductVersion, LogType.InfoLog, RtbLog)
+        Logger.Log("Winsat EXE v" & WinSystem.fviWinsatVersion.ProductVersion, LogType.InfoLog, RtbLog)
+        Logger.Log("Winsat API v" & WinSystem.fviWinsatApiVersion.ProductVersion, LogType.InfoLog, RtbLog)
 
         If WinSystem.IsWinVista OrElse WinSystem.IsWin7 OrElse WinSystem.IsWin8 Then
             Logger.Log("Tests: D3D9, D3D10, Processor, Memory, Disk", LogType.InfoLog, RtbLog)

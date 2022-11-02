@@ -8,8 +8,9 @@ Namespace Core
 
     NotInheritable Class Elevation
 
-        Friend Shared StartInfo As ProcessStartInfo
-        Friend Shared RunElevated As Process
+        Friend Shared psiInfo As ProcessStartInfo
+        Friend Shared pNewWinXI As Process
+        Friend Shared bIsElevated As Boolean = False
 
         Public Shared Function IsElevated() As Boolean
             Return New WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator)
@@ -18,16 +19,16 @@ Namespace Core
         Friend Shared Sub RestartElevated()
 
             'Sometimes previous instance hangs around for a moment, need to figure why.
-            If Not Booleans.bIsElevated Then
+            If Not bIsElevated Then
                 Try
-                    StartInfo = New ProcessStartInfo() With {
+                    psiInfo = New ProcessStartInfo() With {
                         .UseShellExecute = True,
                         .WorkingDirectory = FileOps.GetApplicationPath(),
                         .FileName = FileOps.GetApplicationImage(),
                         .Verb = "runas"}
 
-                    RunElevated = New Process() With {.StartInfo = StartInfo}
-                    RunElevated.Start()
+                    pNewWinXI = New Process() With {.StartInfo = psiInfo}
+                    pNewWinXI.Start()
                     Environment.Exit(-101)
                 Catch ex As Exception
                     MessageBox.Show("Could not perform elevated restart." & vbCrLf & ex.ToString, "ApplicationSupport.RestartElevated()", MessageBoxButtons.OK, MessageBoxIcon.Error)

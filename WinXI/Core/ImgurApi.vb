@@ -21,22 +21,21 @@ Namespace Core
                     Return 0 'Routine will now return and exit execution of this function.
                 End If
 
-                Dim Keys As New Specialized.NameValueCollection From
-                    {{"image", Convert.ToBase64String(File.ReadAllBytes(ImageLocation))}}
-                Dim CBytes As Byte() = Client.UploadValues("https://api.imgur.com/3/image", Keys)
-                Dim Str As String = Encoding.ASCII.GetString(CBytes)
-                Dim REx As New RegularExpressions.Regex("link"":""(.*?)""")
-                Dim Match As RegularExpressions.Match = REx.Match(Str)
-                Dim Address As String = Match.ToString().Replace("link"":""", "").Replace("""", "").Replace("\/", "/")
+                Dim nvcKeys As New Specialized.NameValueCollection From {{"image", Convert.ToBase64String(File.ReadAllBytes(ImageLocation))}}
+                Dim bByte As Byte() = Client.UploadValues("https://api.imgur.com/3/image", nvcKeys)
+                Dim strBytes As String = Encoding.ASCII.GetString(bByte)
+                Dim reRegex As New RegularExpressions.Regex("link"":""(.*?)""")
+                Dim Match As RegularExpressions.Match = reRegex.Match(strBytes)
+                Dim strAddress As String = Match.ToString().Replace("link"":""", "").Replace("""", "").Replace("\/", "/")
 
                 'Open uploaded image in main browser.
                 If ShowInBrowser Then
-                    Process.Start(Address)
+                    Process.Start(strAddress)
                 End If
 
                 'Save uploaded image address to link file.
                 If LogUpload Then
-                    My.Computer.FileSystem.WriteAllText(LogLocation, Date.Now & " - " & Address & vbCrLf, True)
+                    My.Computer.FileSystem.WriteAllText(LogLocation, Date.Now & " - " & strAddress & vbCrLf, True)
                 End If
 
                 'Delete temporary image file
@@ -62,18 +61,18 @@ Namespace Core
 
         Friend Shared Function WaitForImageCreation(ImageLocation As String) As Boolean
 
-            Dim sWatch As Stopwatch = Stopwatch.StartNew
-            Dim timeOut As New TimeSpan(0, 0, 5) 'Five seconds should be enough to wait for image creation.
+            Dim tsTimeout As New TimeSpan(0, 0, 5) 'Five seconds should be enough to wait for image creation.
+            Dim swTimeout As Stopwatch = Stopwatch.StartNew
 
             'This is whilst we wait for WinXI to save the capture, we cannot upload something that doesn't exist.
             Do
                 If File.Exists(ImageLocation) Then
                     Exit Do
                 End If
-            Loop While Not File.Exists(ImageLocation) OrElse sWatch.Elapsed < timeOut
+            Loop While Not File.Exists(ImageLocation) OrElse swTimeout.Elapsed < tsTimeout
 
             '02.11.2022 - Return unsuccessful as the image was not created or detected.
-            If sWatch.Elapsed >= timeOut Then
+            If swTimeout.Elapsed >= tsTimeout Then
                 MessageBox.Show("Image wait timeout.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return False
             End If

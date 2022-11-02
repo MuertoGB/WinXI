@@ -9,6 +9,7 @@
 
 '   01.11.2022 - DR - Impliment elevation changes, omit windows server changes, add capability check for WinSAT
 '   01.11.2022 - DR - Move RestartElevated() to Elevation.vb, update variable
+'   02.11.2022 - DR - Edited Main() load order
 
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports System.Runtime.CompilerServices
@@ -23,7 +24,7 @@ Friend Class Program
 
     'Stuff to fill before release
     Friend Shared ReadOnly Version As String = Application.ProductVersion
-    Friend Const Build As String = "221011.220.053"
+    Friend Const Build As String = "221011.220.055"
     Friend Const Channel As String = "Alpha"
     Friend Const ReleaseDate As String = "Not set"
 
@@ -31,25 +32,26 @@ Friend Class Program
     <STAThread()>
     Friend Shared Sub Main(Args() As String)
 
+        'Signature validation
+        RuntimeHelpers.RunClassConstructor(GetType(Signing).TypeHandle)
+
         'Set DPI scaling.
         NativeMethods.SetProcessDPIAware()
 
-        'Signature validation
-        RuntimeHelpers.RunClassConstructor(GetType(Signing).TypeHandle)
+        'Perform WinSAT capability check
+        WinSystem.bIsWinsatCapable = CBool(IIf(WinSystem.IsWinSATCapable, True, False))
 
         'Settings
         Settings.Create() 'Performs a check, creates file if missing.
         Settings.Load()
 
+        'Does this need elevated privilages?
         If Not WinSystem.IsWin10 Then 'Windows 10 already ships with all required fonts
             CheckFonts() 'Moved here on 23.10.2019 (Before text rendering is set)
         End If
 
-        'Perform WinSAT capability check
-        Booleans.bIsWinsatCapable = CBool(IIf(WinSystem.IsWinSATCapable, True, False))
-
         'Perform elevation check
-        Booleans.bIsElevated = CBool(IIf(Elevation.IsElevated, True, False))
+        Elevation.bIsElevated = CBool(IIf(Elevation.IsElevated, True, False))
 
         'Framework
         Application.EnableVisualStyles()
@@ -65,7 +67,7 @@ Friend Class Program
     Private Shared Function DoesFontExist(Font_Family As String, Font_Style As FontStyle) As Boolean
 
         Try
-            Using FF As FontFamily = New FontFamily(Font_Family)
+            Using FF As New FontFamily(Font_Family)
                 Return FF.IsStyleAvailable(Font_Style)
             End Using
         Catch ex As Exception
@@ -132,17 +134,17 @@ Namespace Main.Support
 
 #Region "Application Startup"
 
-        Private ReadOnly FEnvironment As New FormEnvironment
+        Private ReadOnly frmEnvironment As New FormEnvironment
         Private Sub ApplicationSupport_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
 
-            AddHandler FEnvironment.FormClosed, AddressOf Wait
+            AddHandler frmEnvironment.FormClosed, AddressOf Wait
 
-            If WinSystem.KernelVersion.ProductMajorPart < 6 Then
-                FEnvironment.ShowDialog()
+            If WinSystem.fviKernelVersion.ProductMajorPart < 6 Then
+                frmEnvironment.ShowDialog()
             End If
 
-            If Not Booleans.bIsWinsatCapable Then
-                FEnvironment.ShowDialog()
+            If Not WinSystem.bIsWinsatCapable Then
+                frmEnvironment.ShowDialog()
             End If
 
         End Sub
@@ -170,12 +172,12 @@ Namespace Main.Support
 #End Region
 #Region "Unhandled Exception"
 
-        Friend Shared StringException As String
-        Friend Shared StringExceptionMessage As String
+        Friend Shared strException As String
+        Friend Shared strExceptionMessage As String
         Private Sub ApplicationSupport_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs) Handles Me.UnhandledException
 
-            StringException = e.Exception.Message
-            StringExceptionMessage = Convert.ToString(e.Exception)
+            strException = e.Exception.Message
+            strExceptionMessage = Convert.ToString(e.Exception)
 
             Dim FException As New FormException
 

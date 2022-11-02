@@ -74,9 +74,9 @@ Public Class FormSystem
         LabBitness.Text = WinSystem.GetWindowsBitness()
         LabServPack.Text = WinSystem.GetWindowsServicePack()
 
-        LabKernel.Text = WinSystem.KernelVersion.ProductVersion
-        LabWinsat.Text = WinSystem.WinsatVersion.ProductVersion
-        LabApi.Text = WinSystem.WinsatApiVersion.ProductVersion
+        LabKernel.Text = WinSystem.fviKernelVersion.ProductVersion
+        LabWinsat.Text = WinSystem.fviWinsatVersion.ProductVersion
+        LabApi.Text = WinSystem.fviWinsatApiVersion.ProductVersion
 
         LabInstDat.Text = WinSystem.GetWindowsInstallDate
         ThrTick = New Thread(AddressOf TickUptime) With {

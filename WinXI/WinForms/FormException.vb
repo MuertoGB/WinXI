@@ -4,7 +4,7 @@
 
 Imports System.Text
 Imports System.Threading
-
+Imports WinXI.Core
 Imports WinXI.Core.Cryptography
 Imports WinXI.Core.System
 
@@ -74,7 +74,7 @@ Public Class FormException
 
     Private Sub FormException_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        LabError.Text = ApplicationSupport.StringException
+        LabError.Text = ApplicationSupport.strException
         LabHead.Text = "Generating report, please wait..."
         Dim T As New Thread(AddressOf LoadData) With {
             .IsBackground = True
@@ -155,20 +155,20 @@ Public Class FormException
             .AppendLine("Name: " & StringName)
             .AppendLine("Version: " & StringVersion)
             .AppendLine("Channel: " & Program.Channel)
-            .AppendLine("Elevated: " & CStr(Booleans.bIsElevated))
+            .AppendLine("Elevated: " & CStr(Elevation.bIsElevated))
             .AppendLine("SHA256: " & Checksum.GetSha256Digest(StringPath) & vbCrLf)
             .AppendLine("<-- Operating System -->" & vbCrLf)
             .AppendLine("Name: " & WinSystem.GetProductName())
             .AppendLine("Bitness: " & WinSystem.GetWindowsBitness)
-            .AppendLine("Kernel: " & WinSystem.KernelVersion.ProductVersion())
+            .AppendLine("Kernel: " & WinSystem.fviKernelVersion.ProductVersion())
             .AppendLine("Build: " & WinSystem.GetWindowsBuildLab() & vbCrLf)
             .AppendLine("<-- WinSAT -->" & vbCrLf)
-            .AppendLine("Executable Version: " & WinSystem.WinsatVersion.ProductVersion)
-            .AppendLine("API Version: " & WinSystem.WinsatApiVersion.ProductVersion & vbCrLf)
+            .AppendLine("Executable Version: " & WinSystem.fviWinsatVersion.ProductVersion)
+            .AppendLine("API Version: " & WinSystem.fviWinsatApiVersion.ProductVersion & vbCrLf)
             .AppendLine("<-- Exception -->" & vbCrLf)
-            .AppendLine(ApplicationSupport.StringException & vbCrLf)
+            .AppendLine(ApplicationSupport.strException & vbCrLf)
             .AppendLine("<-- Message -->" & vbCrLf)
-            .AppendLine(ApplicationSupport.StringExceptionMessage & vbCrLf)
+            .AppendLine(ApplicationSupport.strExceptionMessage & vbCrLf)
             .AppendLine("<-- Loaded Modules -->" & vbCrLf)
             .AppendLine(GenerateModuleData)
             .AppendLine("# // End of file")
@@ -177,6 +177,7 @@ Public Class FormException
         Return SBuilder.ToString
 
     End Function
+
     Private Function GenerateModuleData() As String
 
         Dim SBuilder As New StringBuilder

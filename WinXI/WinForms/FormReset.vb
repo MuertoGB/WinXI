@@ -2,6 +2,7 @@
 '   01.11.2022 - DR - Impliment elevation changes
 
 Imports System.IO
+Imports WinXI.Core
 
 Public Class FormReset
 
@@ -56,7 +57,7 @@ Public Class FormReset
         lblWarning.Visible = False
 
         'If not elevated, we cannot touch WinSAT config files
-        If Not Booleans.bIsElevated Then
+        If Not Elevation.bIsElevated Then
             lblWinSAT.Text &= " (Requires elevation)"
             cbAgreeWinsat.Enabled = False
         End If

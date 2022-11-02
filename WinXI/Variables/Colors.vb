@@ -1,4 +1,5 @@
 ﻿'   17.03.2021 - DR - More colours, cleanup
+'   30.10.2022 - DR - Update variable names
 
 Friend Class Colors
 
