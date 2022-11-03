@@ -289,7 +289,7 @@ Public Class FormMain
         End If
 
         If Settings.UpdateAutoCheck Then
-            If CheckForUpdate.IsNewVersionAvailable() Then
+            If UpdateCheck.IsNewVersionAvailable() Then
                 Booleans.bMissingUpdate = True
             End If
         End If

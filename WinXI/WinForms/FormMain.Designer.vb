@@ -93,7 +93,6 @@ Partial Class FormMain
         Me.TlpBottom = New System.Windows.Forms.TableLayoutPanel()
         Me.PanShowHardware2 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.swHardware = New WinXI.Gambol.Controls.GambolSwitch()
         Me.lblShowHToggle = New System.Windows.Forms.Label()
         Me.CmdRunInDepth = New System.Windows.Forms.Button()
         Me.PanValidity = New System.Windows.Forms.Panel()
@@ -152,6 +151,7 @@ Partial Class FormMain
         Me.ShowToastErrorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.OpenElevationWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.swHardware = New WinXI.Gambol.Controls.GambolSwitch()
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CmsExplorer.SuspendLayout()
         Me.PanHead.SuspendLayout()
@@ -1173,21 +1173,6 @@ Partial Class FormMain
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(56, 37)
         Me.TableLayoutPanel1.TabIndex = 1
         '
-        'swHardware
-        '
-        Me.swHardware.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.swHardware.BackColor = System.Drawing.Color.Black
-        Me.swHardware.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.swHardware.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.swHardware.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.swHardware.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.swHardware.Location = New System.Drawing.Point(9, 8)
-        Me.swHardware.Margin = New System.Windows.Forms.Padding(4)
-        Me.swHardware.Name = "swHardware"
-        Me.swHardware.Size = New System.Drawing.Size(38, 21)
-        Me.swHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(CType(CType(170, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(170, Byte), Integer))
-        Me.swHardware.TabIndex = 1
-        '
         'lblShowHToggle
         '
         Me.lblShowHToggle.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
@@ -1795,6 +1780,21 @@ Partial Class FormMain
         Me.OpenElevationWindowToolStripMenuItem.Name = "OpenElevationWindowToolStripMenuItem"
         Me.OpenElevationWindowToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
         Me.OpenElevationWindowToolStripMenuItem.Text = "Open Elevation Window"
+        '
+        'swHardware
+        '
+        Me.swHardware.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.swHardware.BackColor = System.Drawing.Color.Black
+        Me.swHardware.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.swHardware.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.swHardware.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.swHardware.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.swHardware.Location = New System.Drawing.Point(9, 8)
+        Me.swHardware.Margin = New System.Windows.Forms.Padding(4)
+        Me.swHardware.Name = "swHardware"
+        Me.swHardware.Size = New System.Drawing.Size(38, 21)
+        Me.swHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(CType(CType(170, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(170, Byte), Integer))
+        Me.swHardware.TabIndex = 1
         '
         'FormMain
         '

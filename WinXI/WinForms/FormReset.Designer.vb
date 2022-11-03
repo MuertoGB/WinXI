@@ -34,17 +34,17 @@ Partial Class FormReset
         Me.PanPurge = New System.Windows.Forms.Panel()
         Me.lblApplicationInf = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.cbAgreeApplication = New WinXI.Gambol.Controls.GambolCheckbox()
         Me.lblApplication = New System.Windows.Forms.Label()
         Me.PanReset = New System.Windows.Forms.Panel()
         Me.lblWinsatInf = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.cbAgreeWinsat = New WinXI.Gambol.Controls.GambolCheckbox()
         Me.lblWinSAT = New System.Windows.Forms.Label()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblWarning = New System.Windows.Forms.Label()
         Me.cmdDelete = New System.Windows.Forms.Button()
         Me.PanSplit = New System.Windows.Forms.Panel()
+        Me.cbAgreeApplication = New WinXI.Gambol.Controls.GambolCheckbox()
+        Me.cbAgreeWinsat = New WinXI.Gambol.Controls.GambolCheckbox()
         Me.PanHead.SuspendLayout()
         Me.TlpHeadImage.SuspendLayout()
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -176,7 +176,7 @@ Partial Class FormReset
         Me.lblApplicationInf.Name = "lblApplicationInf"
         Me.lblApplicationInf.Size = New System.Drawing.Size(500, 22)
         Me.lblApplicationInf.TabIndex = 114
-        Me.lblApplicationInf.Text = " · Deletes all WinXI files, folders and logs permanenetly."
+        Me.lblApplicationInf.Text = " · Permanently deletes all application files and folders."
         '
         'TableLayoutPanel1
         '
@@ -192,24 +192,6 @@ Partial Class FormReset
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(500, 34)
         Me.TableLayoutPanel1.TabIndex = 131
         '
-        'cbAgreeApplication
-        '
-        Me.cbAgreeApplication.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.cbAgreeApplication.BackColor = System.Drawing.Color.Transparent
-        Me.cbAgreeApplication.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.cbAgreeApplication.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.cbAgreeApplication.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cbAgreeApplication.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.cbAgreeApplication.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cbAgreeApplication.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbAgreeApplication.ForeColor = System.Drawing.Color.White
-        Me.cbAgreeApplication.Location = New System.Drawing.Point(8, 6)
-        Me.cbAgreeApplication.Margin = New System.Windows.Forms.Padding(8, 0, 0, 0)
-        Me.cbAgreeApplication.Name = "cbAgreeApplication"
-        Me.cbAgreeApplication.Size = New System.Drawing.Size(92, 22)
-        Me.cbAgreeApplication.TabIndex = 2
-        Me.cbAgreeApplication.Text = "I agree"
-        '
         'lblApplication
         '
         Me.lblApplication.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
@@ -221,7 +203,7 @@ Partial Class FormReset
         Me.lblApplication.Name = "lblApplication"
         Me.lblApplication.Size = New System.Drawing.Size(500, 28)
         Me.lblApplication.TabIndex = 130
-        Me.lblApplication.Text = "Application"
+        Me.lblApplication.Text = "WinXI"
         Me.lblApplication.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'PanReset
@@ -248,7 +230,7 @@ Partial Class FormReset
         Me.lblWinsatInf.Name = "lblWinsatInf"
         Me.lblWinsatInf.Size = New System.Drawing.Size(500, 22)
         Me.lblWinsatInf.TabIndex = 114
-        Me.lblWinsatInf.Text = " · Deletes all system scores and the log file permanently."
+        Me.lblWinsatInf.Text = " · Permanently deletes all system scores and the log file."
         '
         'TableLayoutPanel2
         '
@@ -264,24 +246,6 @@ Partial Class FormReset
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(500, 34)
         Me.TableLayoutPanel2.TabIndex = 132
         '
-        'cbAgreeWinsat
-        '
-        Me.cbAgreeWinsat.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.cbAgreeWinsat.BackColor = System.Drawing.Color.Transparent
-        Me.cbAgreeWinsat.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.cbAgreeWinsat.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.cbAgreeWinsat.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cbAgreeWinsat.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.cbAgreeWinsat.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cbAgreeWinsat.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbAgreeWinsat.ForeColor = System.Drawing.Color.White
-        Me.cbAgreeWinsat.Location = New System.Drawing.Point(8, 6)
-        Me.cbAgreeWinsat.Margin = New System.Windows.Forms.Padding(8, 0, 0, 0)
-        Me.cbAgreeWinsat.Name = "cbAgreeWinsat"
-        Me.cbAgreeWinsat.Size = New System.Drawing.Size(92, 22)
-        Me.cbAgreeWinsat.TabIndex = 0
-        Me.cbAgreeWinsat.Text = "I agree"
-        '
         'lblWinSAT
         '
         Me.lblWinSAT.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
@@ -293,7 +257,7 @@ Partial Class FormReset
         Me.lblWinSAT.Name = "lblWinSAT"
         Me.lblWinSAT.Size = New System.Drawing.Size(500, 28)
         Me.lblWinSAT.TabIndex = 107
-        Me.lblWinSAT.Text = "WinSAT"
+        Me.lblWinSAT.Text = "Windows Experience Index"
         Me.lblWinSAT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TableLayoutPanel3
@@ -358,6 +322,42 @@ Partial Class FormReset
         Me.PanSplit.Name = "PanSplit"
         Me.PanSplit.Size = New System.Drawing.Size(512, 2)
         Me.PanSplit.TabIndex = 126
+        '
+        'cbAgreeApplication
+        '
+        Me.cbAgreeApplication.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.cbAgreeApplication.BackColor = System.Drawing.Color.Transparent
+        Me.cbAgreeApplication.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.cbAgreeApplication.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.cbAgreeApplication.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cbAgreeApplication.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cbAgreeApplication.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cbAgreeApplication.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbAgreeApplication.ForeColor = System.Drawing.Color.White
+        Me.cbAgreeApplication.Location = New System.Drawing.Point(8, 6)
+        Me.cbAgreeApplication.Margin = New System.Windows.Forms.Padding(8, 0, 0, 0)
+        Me.cbAgreeApplication.Name = "cbAgreeApplication"
+        Me.cbAgreeApplication.Size = New System.Drawing.Size(92, 22)
+        Me.cbAgreeApplication.TabIndex = 2
+        Me.cbAgreeApplication.Text = "I agree"
+        '
+        'cbAgreeWinsat
+        '
+        Me.cbAgreeWinsat.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.cbAgreeWinsat.BackColor = System.Drawing.Color.Transparent
+        Me.cbAgreeWinsat.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.cbAgreeWinsat.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.cbAgreeWinsat.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cbAgreeWinsat.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cbAgreeWinsat.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cbAgreeWinsat.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbAgreeWinsat.ForeColor = System.Drawing.Color.White
+        Me.cbAgreeWinsat.Location = New System.Drawing.Point(8, 6)
+        Me.cbAgreeWinsat.Margin = New System.Windows.Forms.Padding(8, 0, 0, 0)
+        Me.cbAgreeWinsat.Name = "cbAgreeWinsat"
+        Me.cbAgreeWinsat.Size = New System.Drawing.Size(92, 22)
+        Me.cbAgreeWinsat.TabIndex = 0
+        Me.cbAgreeWinsat.Text = "I agree"
         '
         'FormReset
         '

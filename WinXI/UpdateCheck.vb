@@ -1,5 +1,6 @@
 ﻿'   30.10.2022 - DR - Nodes
 '   02.11.2022 - DR - Update code
+'   03.11.2022 - DR - Move file, rename file
 
 Imports System.Net
 Imports System.Xml
@@ -7,7 +8,7 @@ Imports System.Xml
 Imports WinXI.Core.Common
 Imports WinXI.Core.System
 
-Friend Class CheckForUpdate
+Friend Class UpdateCheck
 
     Private Shared xmlDoc As New XmlDocument
     Friend Shared strLocalBuild As String = ""
@@ -45,7 +46,7 @@ Friend Class CheckForUpdate
                     End If
                 End If
             Else
-                'Network unavailable, ohnoooooooooooo.
+                'Website or network unavailable
                 Return False
             End If
         Catch ex As Exception

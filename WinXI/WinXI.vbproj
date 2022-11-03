@@ -189,7 +189,7 @@
     <Compile Include="Variables\Booleans.vb" />
     <Compile Include="Variables\Integers.vb" />
     <Compile Include="Winsat\WinsatState.vb" />
-    <Compile Include="Core\Common\CheckForUpdate.vb" />
+    <Compile Include="UpdateCheck.vb" />
     <Compile Include="Variables\Colors.vb" />
     <Compile Include="Variables\Files.vb" />
     <Compile Include="Variables\Directories.vb" />

@@ -1,21 +1,32 @@
 ﻿'   20.09.2019 - DR - Add username, add install date, add tick to uptime and remove refresh button
 '   26.09.2019 - DR - Improve threading, edit keydown
 '   01.11.2022 - DR - Remove releaseid
+'   03.11.2022 - DR - Improved code, incorperate export info
 
+Imports System.Text
+Imports WinXI.Core.System
 Imports System.Threading
 
-Imports WinXI.Core.System
 
 Public Class FormSystem
 
-    Private ReadOnly StringBuildOther As String = WinSystem.GetProductName() & " · " & WinSystem.CurrentBuild()
-    Private ReadOnly StringBuildTen As String = WinSystem.GetProductName() & " · Build " & WinSystem.BuildBranch()
+    Private ReadOnly strUsername As String = WinSystem.GetUsername
+    Private ReadOnly strBuildOther As String = WinSystem.GetProductName() & " · " & WinSystem.CurrentBuild()
+    Private ReadOnly strBuildTen As String = WinSystem.GetProductName() & " · Build " & WinSystem.BuildBranch()
+    Private ReadOnly strOs As String = CType(IIf(WinSystem.IsWin10, strBuildTen, strBuildOther), String)
+    Private ReadOnly strBitness As String = WinSystem.GetWindowsBitness()
+    Private ReadOnly strServicePack As String = WinSystem.GetWindowsServicePack
+    Private ReadOnly strKernelVersion As String = WinSystem.fviKernelVersion.ProductVersion
+    Private ReadOnly strWinSATVersion As String = WinSystem.fviWinsatVersion.ProductVersion
+    Private ReadOnly strWinSATAPIVersion As String = WinSystem.fviWinsatApiVersion.ProductVersion
+    Private strSystemUptime As String = WinSystem.GetWindowsUptime
+    Private ReadOnly strWinInstallDate As String = WinSystem.GetWindowsInstallDate
 
     Private Delegate Sub InvokeUptime(Data As String)
-    Private ThrTick As Thread
-    Private BContinue As Boolean = True
+    Private thrTick As Thread
+    Private bContinue As Boolean = True
 
-#Region "Ctor"
+#Region "Constructor"
 
     Public Sub New()
 
@@ -24,7 +35,7 @@ Public Class FormSystem
 
         SetCleanupThemeAccent()
 
-        PanHead.BackgroundImage = Settings.imgHeaderGraphic
+        panTitle.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -32,7 +43,7 @@ Public Class FormSystem
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, tlpTitleIcon.MouseMove, lblTitle.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -58,7 +69,7 @@ Public Class FormSystem
 #End Region
 #Region "Frame Buttons"
 
-    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
         StopTick()
         Close()
     End Sub
@@ -69,20 +80,21 @@ Public Class FormSystem
 
     Private Sub FormSystem_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        LabUsername.Text = WinSystem.GetUsername
-        LabWinSystemtem.Text = CType(IIf(WinSystem.IsWin10, StringBuildTen, StringBuildOther), String)
-        LabBitness.Text = WinSystem.GetWindowsBitness()
-        LabServPack.Text = WinSystem.GetWindowsServicePack()
+        lblUsername.Text = strUsername
+        lblOs.Text = strOs
+        lblBitness.Text = strBitness
+        lblServicePack.Text = strServicePack
 
-        LabKernel.Text = WinSystem.fviKernelVersion.ProductVersion
-        LabWinsat.Text = WinSystem.fviWinsatVersion.ProductVersion
-        LabApi.Text = WinSystem.fviWinsatApiVersion.ProductVersion
+        lblKernelVersion.Text = strKernelVersion
+        lblWinSATVersion.Text = strWinSATVersion
+        lblWinSATAPIVersion.Text = strWinSATAPIVersion
 
-        LabInstDat.Text = WinSystem.GetWindowsInstallDate
-        ThrTick = New Thread(AddressOf TickUptime) With {
+        thrTick = New Thread(AddressOf TickUptime) With {
             .IsBackground = True
         }
-        ThrTick.Start()
+        thrTick.Start()
+
+        lblWinInstallDate.Text = strWinInstallDate
 
     End Sub
 
@@ -92,7 +104,7 @@ Public Class FormSystem
 
     Private Sub SetCleanupThemeAccent()
 
-        PanSplit.BackColor = Settings.clrSetThemeColour
+        pnlSplit.BackColor = Settings.clrSetThemeColour
         Settings.SetBorderColor(Me)
 
     End Sub
@@ -109,27 +121,66 @@ Public Class FormSystem
     End Sub
 
 #End Region
+#Region "Button Event Handler"
+
+    Private Sub cmdExportInfo_Click(sender As Object, e As EventArgs) Handles cmdExportInfo.Click
+
+        Dim StringDate As String = Now.ToShortDateString & " - " & Now.ToShortTimeString
+
+        Dim Sfd As New SaveFileDialog With {
+            .FileName = "System-Info.txt",
+            .Filter = "Text File (*.txt)|*.txt",
+            .InitialDirectory = Directories.DesktopPath,
+            .OverwritePrompt = True
+            }
+
+        Dim strBuilder As New StringBuilder()
+
+        With strBuilder
+            .AppendLine("System Info - " & StringDate & vbCrLf)
+            .AppendLine("Username: " & strUsername)
+            .AppendLine("Software: " & strOs)
+            .AppendLine("Bitness: " & strBitness)
+            .AppendLine("Service Pack: " & strServicePack)
+            .AppendLine("Kernel Version: " & strKernelVersion)
+            .AppendLine("WinSAT Version: " & strWinSATVersion)
+            .AppendLine("WinSAT API Version: " & strWinSATAPIVersion)
+            .AppendLine("Install Date: " & strWinInstallDate)
+            .AppendLine("System Uptime: " & strSystemUptime)
+        End With
+
+
+        If Sfd.ShowDialog = DialogResult.OK Then
+            My.Computer.FileSystem.WriteAllText(Sfd.FileName, strBuilder.ToString(), False)
+            ToastAlert.Show("System information saved to " & Sfd.FileName, ToastType.Information)
+        End If
+
+        'Probably GC will handle this, but still...
+        strBuilder = Nothing
+
+    End Sub
+
+#End Region
 
 #Region "Thread"
 
     Private Sub TickUptime()
 
-        Do While BContinue
-            If InvokeRequired Then
-                Invoke(New InvokeUptime(AddressOf InvokeTickUptime), WinSystem.GetWindowsUptime)
-            Else
-                LabUptime.Text = WinSystem.GetWindowsUptime
-            End If
+        Do While bContinue
+            IIf(InvokeRequired, Invoke(New InvokeUptime(AddressOf InvokeTickUptime), WinSystem.GetWindowsUptime), lblSystemUptime.Text = WinSystem.GetWindowsUptime)
             Thread.Sleep(500)
         Loop
 
     End Sub
+
     Private Sub InvokeTickUptime(Data As String)
-        LabUptime.Text = Data
+        lblSystemUptime.Text = Data
     End Sub
+
     Private Sub StopTick()
-        BContinue = False
+        bContinue = False
     End Sub
+
 #End Region
 
 End Class

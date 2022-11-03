@@ -25,7 +25,7 @@ Friend Class Program
 
     'Stuff to fill before release
     Friend Shared ReadOnly Version As String = Application.ProductVersion
-    Friend Const Build As String = "221011.220.056"
+    Friend Const Build As String = "221011.220.058"
     Friend Const Channel As String = "Alpha"
     Friend Const ReleaseDate As String = "Not set"
 

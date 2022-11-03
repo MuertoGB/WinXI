@@ -59,8 +59,8 @@ Public Class FormUpdate
 
     Private Sub FormUpdate_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        If Not Settings.UpdateAutoCheck Then ' We already checked
-            If CheckForUpdate.IsNewVersionAvailable() Then
+        If Not Settings.UpdateAutoCheck Then 'we need to check for an update
+            If UpdateCheck.IsNewVersionAvailable() Then
                 Booleans.bMissingUpdate = True
             End If
         End If
@@ -72,15 +72,15 @@ Public Class FormUpdate
     Private Sub OnFinishedInvokeUI()
 
         If Booleans.bMissingUpdate Then
-            LabInfo.Text = "An application update is available to download."
+            LabInfo.Text = "An update is ready to download."
             CmdDownload.Enabled = True
         Else
-            LabInfo.Text = "No update available."
+            LabInfo.Text = "No updates are available."
             CmdDownload.Enabled = False
         End If
 
-        LabCurrent.Text = CheckForUpdate.strLocalBuild & " · " & Program.ReleaseDate
-        LabServer.Text = CheckForUpdate.strRemoteBuild & " · " & CheckForUpdate.strReleaseDate
+        LabCurrent.Text = UpdateCheck.strLocalBuild & " · " & Program.ReleaseDate
+        LabServer.Text = UpdateCheck.strRemoteBuild & " · " & UpdateCheck.strReleaseDate
 
     End Sub
 

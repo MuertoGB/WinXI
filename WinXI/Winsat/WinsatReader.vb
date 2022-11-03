@@ -8,6 +8,7 @@ Imports System.Xml
 Imports WinXI.Core
 Imports WinXI.Core.Common
 Imports WinXI.Core.System
+
 Imports WinXI.WinsatAPI
 
 Namespace Winsat
