@@ -16,7 +16,7 @@ Public Class FormTextDialog
 
         SetChangelogThemeAccent()
 
-        PanHead.BackgroundImage = Settings.SetHeaderGraphic
+        PanHead.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -76,7 +76,7 @@ Public Class FormTextDialog
 #Region "Theme"
     Private Sub SetChangelogThemeAccent()
 
-        PanSplit.BackColor = Settings.SetThemeColour
+        PanSplit.BackColor = Settings.clrSetThemeColour
         Settings.SetBorderColor(Me)
 
     End Sub

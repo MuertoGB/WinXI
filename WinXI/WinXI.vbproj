@@ -336,6 +336,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Signature\08032021.pfx" />
     <None Include="app.config">
       <SubType>Designer</SubType>

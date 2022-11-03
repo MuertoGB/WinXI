@@ -15,7 +15,7 @@ Public Class FormEnvironment
 
         SetEnvironmentThemeAccent()
 
-        PanHead.BackgroundImage = Settings.SetHeaderGraphic
+        PanHead.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -46,7 +46,7 @@ Public Class FormEnvironment
 #Region "Theme"
     Private Sub SetEnvironmentThemeAccent()
 
-        Dim TC As Color = Settings.SetThemeColour
+        Dim TC As Color = Settings.clrSetThemeColour
 
         PanSplit.BackColor = TC
         CmdOkay.ForeColor = TC

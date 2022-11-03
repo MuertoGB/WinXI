@@ -26,7 +26,7 @@ Public Class FormHotfix
 
         SetHotfixThemeAccent()
 
-        PanHead.BackgroundImage = Settings.SetHeaderGraphic
+        PanHead.BackgroundImage = Settings.imgHeaderGraphic
         PbxLoad.Image = My.Resources.ImgBusy24Px
 
     End Sub
@@ -80,7 +80,7 @@ Public Class FormHotfix
 #Region "Theme"
     Private Sub SetHotfixThemeAccent()
 
-        Dim TC As Color = Settings.SetThemeColour
+        Dim TC As Color = Settings.clrSetThemeColour
 
         PanSplit.BackColor = TC
         LnkHotfix.LinkColor = TC

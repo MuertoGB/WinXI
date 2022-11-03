@@ -53,7 +53,7 @@ Public Class FormException
 #Region "Theme"
     Private Sub SetExceptionThemeAccent()
 
-        Dim TC As Color = Settings.SetThemeColour
+        Dim TC As Color = Settings.clrSetThemeColour
 
         PanSplit.BackColor = TC
 

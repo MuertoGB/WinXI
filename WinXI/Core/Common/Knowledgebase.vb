@@ -20,7 +20,7 @@ Namespace Core.Common
                 Searcher.Dispose()
                 Return Updates
             Catch ex As Exception
-                MessageBox.Show("Could not iterate objects." & vbCrLf & ex.Message, "WinXI.WMI.Knowldgebase.ListAllHotfixes", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Error whilst accessing WMI:" & vbCrLf & ex.Message, "Knowldgebase.ListAllHotfixes()", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return Nothing
             End Try
 

@@ -11,7 +11,7 @@ Public Class FormAcknowledgements
 
         SetAcknThemeAccent()
 
-        PanHead.BackgroundImage = Settings.SetHeaderGraphic
+        PanHead.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -48,7 +48,7 @@ Public Class FormAcknowledgements
 
     Private Sub SetAcknThemeAccent()
 
-        Dim TC As Color = Settings.SetThemeColour
+        Dim TC As Color = Settings.clrSetThemeColour
 
         PanSplit.BackColor = TC
 

@@ -59,7 +59,7 @@ Friend Class FormAssess
 
         End If
 
-        PanHead.BackgroundImage = Settings.SetHeaderGraphic
+        PanHead.BackgroundImage = Settings.imgHeaderGraphic
         icnMain.Image = My.Resources.ImgBusy24Px
 
     End Sub
@@ -126,7 +126,7 @@ Friend Class FormAssess
 #Region "Theme"
     Private Sub SetAssessThemeAccent()
 
-        Dim TC As Color = Settings.SetThemeColour
+        Dim TC As Color = Settings.clrSetThemeColour
 
         LabProgress.ForeColor = TC
         PbrProgress.ProgressColor = TC
@@ -162,7 +162,7 @@ Friend Class FormAssess
     Private Sub CmdViewLog_Click(sender As Object, e As EventArgs) Handles CmdViewLog.Click
 
         Try
-            Process.Start(Settings.AssessmentLogPath)
+            Process.Start(Settings.strAssessmentLogPath)
         Catch ex As Exception
             ToastAlert.Show("The log file is missing or has not been created.", ToastType.Warning)
         End Try
@@ -171,7 +171,7 @@ Friend Class FormAssess
     Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click
 
         If Not BComplete Then
-            My.Computer.FileSystem.WriteAllText(Settings.AssessmentLogPath, "Test interruped by user" & vbCrLf, True)
+            My.Computer.FileSystem.WriteAllText(Settings.strAssessmentLogPath, "Test interruped by user" & vbCrLf, True)
         End If
 
         BClosing = True

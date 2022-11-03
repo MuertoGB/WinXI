@@ -1,12 +1,13 @@
-﻿'  Updated on 02.01.2020 - DS (UI improvements, switch controls to Gambol components)
-'  Updated on 09.03.2021 - DS (Remove portability mode, cleanup)
+﻿'   02.01.2020 - DR - UI improvements, switch controls to Gambol components
+'   09.03.2021 - DR - Remove portability mode, cleanup
+'   03.11.2022 - DR - Finalized auto update check, UI changes
 
 Imports WinXI.Core.Common
 Imports WinXI.Gambol.Controls
 
 Public Class FormSettings
 
-#Region "Ctor"
+#Region "Constructor"
 
     Public Sub New()
 
@@ -15,7 +16,7 @@ Public Class FormSettings
 
         SetOptionsThemeAccent()
 
-        PanHead.BackgroundImage = Settings.SetHeaderGraphic
+        PanHead.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -68,31 +69,35 @@ Public Class FormSettings
 
     Private Sub SetOptionsThemeAccent()
 
-        PanSplit.BackColor = Settings.SetThemeColour
-        TbxClientId.ForeColor = Settings.SetThemeColour
+        PanSplit.BackColor = Settings.clrSetThemeColour
+        tbClientId.ForeColor = Settings.clrSetThemeColour
 
         For Each Ctrl As Control In TlpShowHardwareCtrls.Controls
-            If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.SetThemeColour
+            If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.clrSetThemeColour
         Next
 
         For Each Ctrl As Control In TlpHardwareModeCtrls.Controls
-            If TypeOf Ctrl Is GambolRadioButton Then DirectCast(Ctrl, GambolRadioButton).CheckedColor = Settings.SetThemeColour
+            If TypeOf Ctrl Is GambolRadioButton Then DirectCast(Ctrl, GambolRadioButton).CheckedColor = Settings.clrSetThemeColour
         Next
 
         For Each Ctrl As Control In TlpAssessmentModeCtrls.Controls
-            If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.SetThemeColour
+            If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.clrSetThemeColour
         Next
 
         For Each Ctrl As Control In TlpThemeColorsCtrls.Controls
-            If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.SetThemeColour
+            If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.clrSetThemeColour
         Next
 
         For Each Ctrl As Control In TlpLabImgurClientIDCtrls.Controls
-            If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.SetThemeColour
+            If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.clrSetThemeColour
         Next
 
         For Each Ctrl As Control In PanMain.Controls
-            If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = Settings.SetThemeColour
+            If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = Settings.clrSetThemeColour
+        Next
+
+        For Each Ctrl As Control In tlpOverrides.Controls
+            If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.clrSetThemeColour
         Next
 
         Settings.SetBorderColor(Me)
@@ -173,65 +178,71 @@ Public Class FormSettings
     Private Sub SetControlStates()
 
         If Settings.ShowHardwareOnStartup Then
-            GcbHardwareOnStartup.Checked = True
+            cbxHardwareOnStartup.Checked = True
         Else
-            GcbHardwareOnStartup.Checked = False
+            cbxHardwareOnStartup.Checked = False
         End If
 
         If Settings.UseApiHardwareMode Then
-            RadHardwareModeApi.Checked = True
+            rbnHardwareModeApi.Checked = True
         Else
-            RadHardwareModeXml.Checked = True
+            rbnHardwareModeXml.Checked = True
         End If
 
         If Settings.UseVerboseAssessmentMode Then
-            GcbInDepthAssessment.Checked = True
+            cbxInDepthAssessment.Checked = True
         Else
-            GcbInDepthAssessment.Checked = False
+            cbxInDepthAssessment.Checked = False
         End If
 
         Select Case Settings.ThemeColourInteger
             Case 0
-                RadDefault0.Checked = True
+                rbnDefault0.Checked = True
             Case 1
-                RadSky1.Checked = True
+                rbnSky1.Checked = True
             Case 2
-                RadTurquoise2.Checked = True
+                rbnTurquoise2.Checked = True
             Case 3
-                RadEmerald3.Checked = True
+                rbnEmerald3.Checked = True
             Case 4
-                RadMegenta4.Checked = True
+                rbnMegenta4.Checked = True
             Case 5
-                RadPink5.Checked = True
+                rbnPink5.Checked = True
             Case 6
-                RadCarrot6.Checked = True
+                rbnCarrot6.Checked = True
             Case 7
-                RadYellow7.Checked = True
+                rbnYellow7.Checked = True
             Case 8
-                RadAlazarin8.Checked = True
+                rbnAlazarin8.Checked = True
             Case 9
-                RadTomato9.Checked = True
+                rbnTomato9.Checked = True
             Case Else
-                RadDefault0.Checked = True
+                rbnDefault0.Checked = True
         End Select
 
         If Settings.ApplyThemeColourToBorder Then
-            CbxApplyToBorder.Checked = True
+            cbxApplyToBorder.Checked = True
         Else
-            CbxApplyToBorder.Checked = False
+            cbxApplyToBorder.Checked = False
         End If
 
         If Settings.UseCustomImgurApiKey Then
-            GcbImgurID.Checked = True
+            cbxImgurID.Checked = True
         Else
-            GcbImgurID.Checked = False
+            cbxImgurID.Checked = False
         End If
 
-        If GcbImgurID.Checked Then
+        If cbxImgurID.Checked Then
             TlpCustomID.Show()
-            TbxClientId.Text = Settings.CustomImgurApiKeyString
+            tbClientId.Text = Settings.CustomImgurApiKeyString
         Else
             TlpCustomID.Hide()
+        End If
+
+        If Settings.UpdateAutoCheck Then
+            cbxAutoUpdateCheck.Checked = True
+        Else
+            cbxAutoUpdateCheck.Checked = False
         End If
 
     End Sub
@@ -239,88 +250,95 @@ Public Class FormSettings
     Private Sub LoadSettingsValues()
 
         '// Show hardware on startup
-        If GcbHardwareOnStartup.Checked Then
+        If cbxHardwareOnStartup.Checked Then
             Settings.ShowHardwareOnStartup = True
         Else
             Settings.ShowHardwareOnStartup = False
         End If
 
         '// Hardware mode
-        If RadHardwareModeXml.Checked Then
+        If rbnHardwareModeXml.Checked Then
             Settings.UseApiHardwareMode = False
         Else
             Settings.UseApiHardwareMode = True
         End If
 
         '// Assessment Mode
-        If GcbInDepthAssessment.Checked Then
+        If cbxInDepthAssessment.Checked Then
             Settings.UseVerboseAssessmentMode = True
         Else
             Settings.UseVerboseAssessmentMode = False
         End If
 
         '// Theme
-        If RadDefault0.Checked Then
+        If rbnDefault0.Checked Then
             Settings.ThemeColourInteger = 0
         End If
-        If RadSky1.Checked Then
+        If rbnSky1.Checked Then
             Settings.ThemeColourInteger = 1
         End If
-        If RadTurquoise2.Checked Then
+        If rbnTurquoise2.Checked Then
             Settings.ThemeColourInteger = 2
         End If
-        If RadEmerald3.Checked Then
+        If rbnEmerald3.Checked Then
             Settings.ThemeColourInteger = 3
         End If
-        If RadMegenta4.Checked Then
+        If rbnMegenta4.Checked Then
             Settings.ThemeColourInteger = 4
         End If
-        If RadPink5.Checked Then
+        If rbnPink5.Checked Then
             Settings.ThemeColourInteger = 5
         End If
-        If RadCarrot6.Checked Then
+        If rbnCarrot6.Checked Then
             Settings.ThemeColourInteger = 6
         End If
-        If RadYellow7.Checked Then
+        If rbnYellow7.Checked Then
             Settings.ThemeColourInteger = 7
         End If
-        If RadAlazarin8.Checked Then
+        If rbnAlazarin8.Checked Then
             Settings.ThemeColourInteger = 8
         End If
-        If RadTomato9.Checked Then
+        If rbnTomato9.Checked Then
             Settings.ThemeColourInteger = 9
         End If
         'Apply theme to border
-        If Not CbxApplyToBorder.Checked Then
+        If Not cbxApplyToBorder.Checked Then
             Settings.ApplyThemeColourToBorder = False
         Else
             Settings.ApplyThemeColourToBorder = True
         End If
 
         'Custom Imgur Client ID
-        If Not GcbImgurID.Checked Then
+        If Not cbxImgurID.Checked Then
             Settings.UseCustomImgurApiKey = False
         Else
-            If GcbImgurID.Checked And TbxClientId.Text.Length = 0 Then
+            If cbxImgurID.Checked And tbClientId.Text.Length = 0 Then
                 Settings.UseCustomImgurApiKey = False
             Else
                 Settings.UseCustomImgurApiKey = True
             End If
         End If
 
-    End Sub
-
-    Private Sub WriteClientID()
-
-        If Not GcbImgurID.Checked Then
-            Settings.CustomImgurApiKeyString = ""
+        'Automatic Update Check
+        If Not cbxAutoUpdateCheck.Checked Then
+            Settings.UpdateAutoCheck = False
         Else
-            Settings.CustomImgurApiKeyString = TbxClientId.Text
+            Settings.UpdateAutoCheck = True
         End If
 
     End Sub
 
-    Private Sub GcbImgurID_CheckedChanged(sender As Object, e As EventArgs) Handles GcbImgurID.CheckedChanged
+    Private Sub WriteClientID()
+
+        If Not cbxImgurID.Checked Then
+            Settings.CustomImgurApiKeyString = ""
+        Else
+            Settings.CustomImgurApiKeyString = tbClientId.Text
+        End If
+
+    End Sub
+
+    Private Sub GcbImgurID_CheckedChanged(sender As Object, e As EventArgs) Handles cbxImgurID.CheckedChanged
 
         If Not CType(sender, GambolCheckbox).Checked Then
             'Custom ID disabled
@@ -328,21 +346,9 @@ Public Class FormSettings
         Else
             TlpCustomID.Show()
             'Custom ID enabled
-            CueText.SetCueText(TbxClientId, "Enter Client ID")
+            CueText.SetCueText(tbClientId, "Enter Client ID")
         End If
 
-    End Sub
-
-#End Region
-
-#Region "Scroll Events"
-
-    Private Sub TlpMain_Scroll(sender As Object, e As ScrollEventArgs) Handles TlpMain.Scroll
-        LabHead.Text = "Settings"
-    End Sub
-
-    Private Sub TlpMain_MouseWheel(sender As Object, e As MouseEventArgs) Handles TlpMain.MouseWheel
-        LabHead.Text = "Settings"
     End Sub
 
 #End Region

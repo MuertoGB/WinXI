@@ -9,7 +9,7 @@ Friend Class FormAbout
         InitializeComponent()
         SetStyle(ControlStyles.SupportsTransparentBackColor, True)
         SetAboutThemeAccent()
-        PanHead.BackgroundImage = Settings.SetHeaderGraphic
+        PanHead.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -46,7 +46,7 @@ Friend Class FormAbout
 
     Private Sub SetAboutThemeAccent()
 
-        Dim TC As Color = Settings.SetThemeColour
+        Dim TC As Color = Settings.clrSetThemeColour
 
         PanSplit.BackColor = TC
 

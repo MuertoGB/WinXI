@@ -15,7 +15,7 @@ Namespace Core.System
                 Dim Request As WebRequest
                 Dim Response As WebResponse
                 Request = WebRequest.Create(WebAddress)
-                Request.Timeout = 5000 '5 sec
+                Request.Timeout = 10000 'Ten second timeout
                 Response = Request.GetResponse()
                 Return True
             Catch

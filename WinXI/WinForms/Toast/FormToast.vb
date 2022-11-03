@@ -19,7 +19,7 @@ Public Class FormToast
         InitializeComponent()
         SetStyle(ControlStyles.SupportsTransparentBackColor, True)
 
-        PanMain.BackgroundImage = Settings.SetHeaderGraphic
+        PanMain.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 

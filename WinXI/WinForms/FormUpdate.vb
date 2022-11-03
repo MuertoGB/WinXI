@@ -10,6 +10,7 @@ Public Class FormUpdate
 
     Private Shared DLPath As String = ""
 
+
 #Region "Ctor"
 
     Public Sub New()
@@ -19,7 +20,7 @@ Public Class FormUpdate
 
         SetThemeAccent()
 
-        PanHead.BackgroundImage = Settings.SetHeaderGraphic
+        PanHead.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -58,6 +59,18 @@ Public Class FormUpdate
 
     Private Sub FormUpdate_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+        If Not Settings.UpdateAutoCheck Then ' We already checked
+            If CheckForUpdate.IsNewVersionAvailable() Then
+                Booleans.bMissingUpdate = True
+            End If
+        End If
+
+        Invoke(DirectCast(Sub() OnFinishedInvokeUI(), MethodInvoker))
+
+    End Sub
+
+    Private Sub OnFinishedInvokeUI()
+
         If Booleans.bMissingUpdate Then
             LabInfo.Text = "An application update is available to download."
             CmdDownload.Enabled = True
@@ -77,7 +90,7 @@ Public Class FormUpdate
 
     Private Sub SetThemeAccent()
 
-        Dim TC As Color = Settings.SetThemeColour
+        Dim TC As Color = Settings.clrSetThemeColour
 
         PanSplit.BackColor = TC
         LnkChangelog.LinkColor = TC
@@ -142,9 +155,11 @@ Public Class FormUpdate
                 WClient.Dispose()
 
             End If
+
             FBD.Dispose()
+
         Else
-            ToastAlert.Show("Could not reach server", ToastType.Warning)
+            ToastAlert.Show("Could not reach server.", ToastType.Warning)
         End If
 
     End Sub

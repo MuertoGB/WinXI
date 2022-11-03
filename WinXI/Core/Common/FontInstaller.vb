@@ -1,6 +1,7 @@
 ﻿'   27.07.2019 - DR - Combined to one routine, added args to InstallFont()
 '   07.12.2019 - DR - Add SystemFontSegoeAssets
 '   Checked for WinXI on 30.10.2022
+'   02.11.2022 - DR - Show exception message when InstallFont throws
 
 Imports System.IO
 
@@ -31,6 +32,7 @@ Namespace Core.Common
                     Return 2 'File did not copy
                 End If
             Catch ex As Exception
+                MessageBox.Show("Could not install font:" & vbCrLf & ex.ToString, "FontInstaller.InstallFont()", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return 0 'Error
             End Try
 

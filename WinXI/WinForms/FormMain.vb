@@ -36,7 +36,7 @@ Public Class FormMain
 #End If
         CmsExplorer.Renderer = New GambolToolstripRenderer
 
-        TlpMain.BackgroundImage = Settings.SetHeaderGraphic
+        TlpMain.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -330,7 +330,7 @@ Public Class FormMain
 #Region "Theme"
     Friend Sub SetMainThemeAccent()
 
-        Dim TC As Color = Settings.SetThemeColour
+        Dim TC As Color = Settings.clrSetThemeColour
 
         PanSplit.BackColor = TC
 
@@ -735,7 +735,7 @@ Public Class FormMain
 
     Private Sub UploadCustomClient()
 
-        Dim exitCode As Integer = ImgurApi.UploadToImgur(Files.TemporaryImgurFile, Settings.ImgurUrlsPath, Settings.CustomImgurApiKeyString, True, True, True)
+        Dim exitCode As Integer = ImgurApi.UploadToImgur(Files.TemporaryImgurFile, Settings.strImgurUrlsPath, Settings.CustomImgurApiKeyString, True, True, True)
 
         If exitCode = 1 Then
             ToastAlert.Show("File uploaded to Imgur.", ToastType.Information)
@@ -747,7 +747,7 @@ Public Class FormMain
 
     Private Sub UploadNormalClient()
 
-        Dim exitCode As Integer = ImgurApi.UploadToImgur(Files.TemporaryImgurFile, Settings.ImgurUrlsPath, Strings.strImgurClientID, True, True, True)
+        Dim exitCode As Integer = ImgurApi.UploadToImgur(Files.TemporaryImgurFile, Settings.strImgurUrlsPath, Strings.strImgurClientID, True, True, True)
 
         If exitCode = 1 Then
             ToastAlert.Show("File uploaded to Imgur.", ToastType.Information)
@@ -763,8 +763,8 @@ Public Class FormMain
     Private Sub ViewLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewLogToolStripMenuItem.Click
 
         Try
-            If File.Exists(Settings.AssessmentLogPath) Then
-                Process.Start(Settings.AssessmentLogPath)
+            If File.Exists(Settings.strAssessmentLogPath) Then
+                Process.Start(Settings.strAssessmentLogPath)
             Else
                 ToastAlert.Show("The assessment log file has not been created. It will be available after rating your system at least once.", ToastType.Warning)
             End If
@@ -777,8 +777,8 @@ Public Class FormMain
     Private Sub ViewImgurLinksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewImgurLinksToolStripMenuItem.Click
 
         Try
-            If File.Exists(Settings.ImgurUrlsPath) Then
-                Process.Start(Settings.ImgurUrlsPath)
+            If File.Exists(Settings.strImgurUrlsPath) Then
+                Process.Start(Settings.strImgurUrlsPath)
             Else
                 ToastAlert.Show("The Imgur link file has not been created. It will be available after you upload a valid system rating.", ToastType.Warning)
             End If
@@ -1130,32 +1130,32 @@ Public Class FormMain
         lblValidityString.Text = WinsatState.ConvertAssessmentState(WinsatAPI.GetAssessmentValidityInt())
         CmdAssess.Text = WinsatState.GenerateRunStateText
 
-        If WinsatAPI.GetAssessmentValidityInt() = 1 Then : lblBasescore.ForeColor = Settings.SetThemeColour : PanValidityState.BackColor = Colors.clrValid
+        If WinsatAPI.GetAssessmentValidityInt() = 1 Then : lblBasescore.ForeColor = Settings.clrSetThemeColour : PanValidityState.BackColor = Colors.clrValid
         Else : lblBasescore.ForeColor = Colors.clrBaseScoreUnrated : PanValidityState.BackColor = Colors.clrInvalid
         End If
 
         'Check CPU score against Base score
-        If Strings.strProcessorScore = Strings.strBaseScore Then : lblProcessorScore.BackColor = Colors.clrPanelActive : lblProcessorScore.ForeColor = Settings.SetThemeColour
+        If Strings.strProcessorScore = Strings.strBaseScore Then : lblProcessorScore.BackColor = Colors.clrPanelActive : lblProcessorScore.ForeColor = Settings.clrSetThemeColour
         Else : lblProcessorScore.BackColor = Colors.clrPanelNormal : lblProcessorScore.ForeColor = Color.White
         End If
 
         'Check Memory score against Base score
-        If Strings.strMemoryScore = Strings.strBaseScore Then : lblMemoryScore.BackColor = Colors.clrPanelActive : lblMemoryScore.ForeColor = Settings.SetThemeColour
+        If Strings.strMemoryScore = Strings.strBaseScore Then : lblMemoryScore.BackColor = Colors.clrPanelActive : lblMemoryScore.ForeColor = Settings.clrSetThemeColour
         Else : lblMemoryScore.BackColor = Colors.clrPanelNormal : lblMemoryScore.ForeColor = Color.White
         End If
 
         'Check Graphics Score against Base score
-        If Strings.strGraphicsScore = Strings.strBaseScore Then : lblGraphicsScore.BackColor = Colors.clrPanelActive : lblGraphicsScore.ForeColor = Settings.SetThemeColour
+        If Strings.strGraphicsScore = Strings.strBaseScore Then : lblGraphicsScore.BackColor = Colors.clrPanelActive : lblGraphicsScore.ForeColor = Settings.clrSetThemeColour
         Else : lblGraphicsScore.BackColor = Colors.clrPanelNormal : lblGraphicsScore.ForeColor = Color.White
         End If
 
         'Check Gaming score against Base score
-        If Strings.strD3dScore = Strings.strBaseScore Then : lblGamingScore.BackColor = Colors.clrPanelActive : lblGamingScore.ForeColor = Settings.SetThemeColour
+        If Strings.strD3dScore = Strings.strBaseScore Then : lblGamingScore.BackColor = Colors.clrPanelActive : lblGamingScore.ForeColor = Settings.clrSetThemeColour
         Else : lblGamingScore.BackColor = Colors.clrPanelNormal : lblGamingScore.ForeColor = Color.White
         End If
 
         'Check Disk score against Base score
-        If Strings.strDiskScore = Strings.strBaseScore Then : lblDiskScore.BackColor = Colors.clrPanelActive : lblDiskScore.ForeColor = Settings.SetThemeColour
+        If Strings.strDiskScore = Strings.strBaseScore Then : lblDiskScore.BackColor = Colors.clrPanelActive : lblDiskScore.ForeColor = Settings.clrSetThemeColour
         Else : lblDiskScore.BackColor = Colors.clrPanelNormal : lblDiskScore.ForeColor = Color.White
         End If
 

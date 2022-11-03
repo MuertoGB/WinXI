@@ -15,7 +15,7 @@ Public Class FormReset
 
         SetCleanupThemeAccent()
 
-        PanHead.BackgroundImage = Settings.SetHeaderGraphic
+        PanHead.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -70,7 +70,7 @@ Public Class FormReset
 
     Private Sub SetCleanupThemeAccent()
 
-        Dim TC As Color = Settings.SetThemeColour
+        Dim TC As Color = Settings.clrSetThemeColour
 
         PanSplit.BackColor = TC
         cbAgreeWinsat.CheckedColor = TC
@@ -99,9 +99,9 @@ Public Class FormReset
 
                 'Enumerate configs + storage files
                 Dim HS As New List(Of String) From {
-                Settings.SettingsFile,          'Settings (Local)
-                Settings.AssessmentLogPath,     'Log file
-                Settings.ImgurUrlsPath          'Imgur URL storage
+                Settings.strSettingsFile,          'Settings (Local)
+                Settings.strAssessmentLogPath,     'Log file
+                Settings.strImgurUrlsPath          'Imgur URL storage
                 }
 
                 'Delete files in list ^
@@ -111,9 +111,9 @@ Public Class FormReset
                     End If
                 Next
 
-                'Delete application directory
-                If Directory.Exists(Settings.AppdataPath) Then
-                    Directory.Delete(Settings.AppdataPath)
+                'Delete application data directory
+                If Directory.Exists(Settings.strOldAppdataPath) Then
+                    Directory.Delete(Settings.strOldAppdataPath)
                 End If
 
                 Application.Exit()

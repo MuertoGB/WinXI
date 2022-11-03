@@ -35,7 +35,7 @@
             .ScrollToCaret() 'ScrollToCarrot
         End With
 
-        My.Computer.FileSystem.WriteAllText(Settings.AssessmentLogPath, StringReceived & vbCrLf, True)
+        My.Computer.FileSystem.WriteAllText(Settings.strAssessmentLogPath, StringReceived & vbCrLf, True)
 
     End Sub
 

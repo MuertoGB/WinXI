@@ -24,7 +24,7 @@ Public Class FormSystem
 
         SetCleanupThemeAccent()
 
-        PanHead.BackgroundImage = Settings.SetHeaderGraphic
+        PanHead.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -92,7 +92,7 @@ Public Class FormSystem
 
     Private Sub SetCleanupThemeAccent()
 
-        PanSplit.BackColor = Settings.SetThemeColour
+        PanSplit.BackColor = Settings.clrSetThemeColour
         Settings.SetBorderColor(Me)
 
     End Sub

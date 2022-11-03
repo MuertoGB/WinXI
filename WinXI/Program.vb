@@ -1,15 +1,16 @@
-﻿' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
-'                                                                                                           '           
-'  WinXI - Win Experience Index UI. A portable replacement for the Windows Experience Index                 '
-'  Created by David R aka Muerto on 24.03.2016.                                                             '
-'  This software is copyright and released under the GNU GPL v3.0 license.                                  '
-'  https://github.com/MuertoGB                                                                              '
-'                                                                                                           '
-' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
+﻿' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '                                                                                                '           
+'  WinXI - Win Experience Index UI. A portable replacement for the Windows Experience Index       '
+'  Created by David R aka Muerto on 24.03.2016.                                                   '
+'  This software is copyright and released under the GNU GPL v3.0 license.                        '
+'  https://github.com/MuertoGB                                                                    '
+'                                                                                                 '
+'  I miss you MichaelaJoy. I hope you're happy wherever you are.                                  '
+'                                                                                                 '
+' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
 
 '   01.11.2022 - DR - Impliment elevation changes, omit windows server changes, add capability check for WinSAT
 '   01.11.2022 - DR - Move RestartElevated() to Elevation.vb, update variable
-'   02.11.2022 - DR - Edited Main() load order
+'   02.11.2022 - DR - Edited Main() load order, supress naming violations globally
 
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports System.Runtime.CompilerServices
@@ -24,7 +25,7 @@ Friend Class Program
 
     'Stuff to fill before release
     Friend Shared ReadOnly Version As String = Application.ProductVersion
-    Friend Const Build As String = "221011.220.055"
+    Friend Const Build As String = "221011.220.056"
     Friend Const Channel As String = "Alpha"
     Friend Const ReleaseDate As String = "Not set"
 
@@ -38,6 +39,9 @@ Friend Class Program
         'Set DPI scaling.
         NativeMethods.SetProcessDPIAware()
 
+        'Perform elevation check
+        Elevation.bIsElevated = CBool(IIf(Elevation.IsElevated, True, False))
+
         'Perform WinSAT capability check
         WinSystem.bIsWinsatCapable = CBool(IIf(WinSystem.IsWinSATCapable, True, False))
 
@@ -49,9 +53,6 @@ Friend Class Program
         If Not WinSystem.IsWin10 Then 'Windows 10 already ships with all required fonts
             CheckFonts() 'Moved here on 23.10.2019 (Before text rendering is set)
         End If
-
-        'Perform elevation check
-        Elevation.bIsElevated = CBool(IIf(Elevation.IsElevated, True, False))
 
         'Framework
         Application.EnableVisualStyles()

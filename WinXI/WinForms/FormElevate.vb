@@ -13,7 +13,7 @@ Public Class FormElevate
 
         SetEnvironmentThemeAccent()
 
-        PanHead.BackgroundImage = Settings.SetHeaderGraphic
+        PanHead.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -44,7 +44,7 @@ Public Class FormElevate
 #Region "Theme"
     Private Sub SetEnvironmentThemeAccent()
 
-        Dim TC As Color = Settings.SetThemeColour
+        Dim TC As Color = Settings.clrSetThemeColour
 
         PanSplit.BackColor = TC
         cmdDecline.ForeColor = TC

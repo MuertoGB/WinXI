@@ -23,16 +23,16 @@ Namespace Core.Common
 
         Public Shared Function GetApplicationImage() As String
 
-            Dim Builder As New StringBuilder(255)
-            NativeMethods.GetModuleFileName(IntPtr.Zero, Builder, Builder.Capacity)
-            Return Builder.ToString
+            Dim strBuilder As New StringBuilder(255)
+            NativeMethods.GetModuleFileName(IntPtr.Zero, strBuilder, strBuilder.Capacity)
+            Return strBuilder.ToString
 
         End Function
 
         Public Shared Function GetApplicationPath() As String
-            Dim Builder As New StringBuilder(255)
-            NativeMethods.GetModuleFileName(IntPtr.Zero, Builder, Builder.Capacity)
-            Dim Info As New FileInfo(Builder.ToString())
+            Dim strBuilder As New StringBuilder(255)
+            NativeMethods.GetModuleFileName(IntPtr.Zero, strBuilder, strBuilder.Capacity)
+            Dim Info As New FileInfo(strBuilder.ToString())
             Return Info.Directory.FullName
         End Function
 
@@ -40,15 +40,15 @@ Namespace Core.Common
 
         Public Shared Function GenerateRandomString(LengthOfString As Integer, Optional UpperCase As Boolean = False) As String
 
-            Dim Chars As String = "abcdefghijklmnopqrstuvwxyz1234567890"
-            Dim Ran As New Random
-            Dim Builder As New StringBuilder
-            For Int As Integer = 1 To LengthOfString
-                Dim IntNext As Integer = Ran.Next(0, 35)
-                Builder.Append(Chars.Substring(IntNext, 1))
+            Dim strChars As String = "abcdefghijklmnopqrstuvwxyz1234567890"
+            Dim ranChar As New Random
+            Dim strBuilder As New StringBuilder
+            For intLength As Integer = 1 To LengthOfString
+                Dim intNext As Integer = ranChar.Next(0, 35)
+                strBuilder.Append(strChars.Substring(intNext, 1))
             Next
 
-            Return CType(IIf(UpperCase, Builder.ToString.ToUpper(), Builder.ToString()), String)
+            Return CType(IIf(UpperCase, strBuilder.ToString.ToUpper(), strBuilder.ToString()), String)
 
         End Function
 
@@ -56,11 +56,11 @@ Namespace Core.Common
 
 #Region "Install MSU file"
         Public Shared Function InstallMsu(ByVal FileName As String) As Integer
-            Dim startInfo As ProcessStartInfo = New ProcessStartInfo With {
+            Dim psiInfo As ProcessStartInfo = New ProcessStartInfo With {
                 .FileName = "%SystemRoot%\System32\wusa.exe",
                 .Arguments = """" & FileName & """ /quiet /norestart"
             }
-            Return ExecTask(startInfo)
+            Return ExecTask(psiInfo)
         End Function
 
         Public Shared Function ExecTask(ByVal StartInfo As ProcessStartInfo, ByVal Optional SilentInstall As Boolean = True) As Integer
@@ -76,15 +76,15 @@ Namespace Core.Common
                 End With
             End If
 
-            Dim Proc As Process = New Process With {
+            Dim pNew As Process = New Process With {
                 .StartInfo = StartInfo,
                 .EnableRaisingEvents = True
             }
 
-            Proc.Start()
-            Proc.WaitForExit()
+            pNew.Start()
+            pNew.WaitForExit()
 
-            Return Proc.ExitCode
+            Return pNew.ExitCode
 
         End Function
 
@@ -92,30 +92,30 @@ Namespace Core.Common
 
 #Region "File Size Conversions"
 
-        Public Shared Function ConvertToSize(SizeIn As Double) As String
+        Public Shared Function ConvertToSize(intBytes As Double) As String
 
             Dim Dbl As Double
 
             Try
-                Select Case SizeIn
+                Select Case intBytes
                     Case Is >= 1099511627776
-                        Dbl = SizeIn / 1099511627776 'TB
+                        Dbl = intBytes / 1099511627776 'TB
                         Return FormatNumber(Dbl, 2) & " TB"
                     Case 1073741824 To 1099511627775
-                        Dbl = SizeIn / 1073741824 'GB
+                        Dbl = intBytes / 1073741824 'GB
                         Return FormatNumber(Dbl, 2) & " GB"
                         'Return Format(Dbl, "########0") & " GB"
                     Case 1048576 To 1073741823
-                        Dbl = SizeIn / 1048576 'MB
+                        Dbl = intBytes / 1048576 'MB
                         Return FormatNumber(Dbl, 2) & " MB"
                     Case 1024 To 1048575
-                        Dbl = SizeIn / 1024 'KB
+                        Dbl = intBytes / 1024 'KB
                         Return FormatNumber(Dbl, 2) & " KB"
                     Case 0 To 1023
-                        Dbl = SizeIn
+                        Dbl = intBytes
                         Return FormatNumber(Dbl, 2) & " bytes"
                     Case Else
-                        Return ""
+                        Return "0 bytes"
                 End Select
             Catch
                 Return ""
@@ -125,8 +125,8 @@ Namespace Core.Common
 
         Public Shared Function ConvertToSquared(SizeIn As Double) As String
 
-            Dim SizeOut As Double = SizeIn / Math.Pow(1024, 2)
-            Return Format(SizeOut, "########0.00")
+            Dim dblOut As Double = SizeIn / Math.Pow(1024, 2)
+            Return Format(dblOut, "########0.00")
 
         End Function
 

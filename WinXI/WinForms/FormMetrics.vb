@@ -33,7 +33,7 @@ Public Class FormMetrics
 
         SetMetricsThemeAccent()
 
-        PanHead.BackgroundImage = Settings.SetHeaderGraphic
+        PanHead.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -83,7 +83,7 @@ Public Class FormMetrics
 
     Private Sub SetMetricsThemeAccent()
 
-        Dim TC As Color = Settings.SetThemeColour
+        Dim TC As Color = Settings.clrSetThemeColour
 
         PanSplit.BackColor = TC
 
@@ -381,7 +381,7 @@ Public Class FormMetrics
             If TypeOf Ctrl Is PictureBox Then DirectCast(Ctrl, PictureBox).BackColor = Trans
         Next
 
-        PbxControl.BackColor = Settings.SetThemeColour
+        PbxControl.BackColor = Settings.clrSetThemeColour
 
         For Each Ctrl As Control In TlpMenu.Controls
             If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).BackColor = Trans
