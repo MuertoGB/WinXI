@@ -126,7 +126,7 @@ Friend Class FormAssess
 #Region "Theme"
     Private Sub SetAssessThemeAccent()
 
-        Dim TC As Color = Settings.clrSetThemeColour
+        Dim TC As Color = Settings.clrThemeColour
 
         LabProgress.ForeColor = TC
         PbrProgress.ProgressColor = TC

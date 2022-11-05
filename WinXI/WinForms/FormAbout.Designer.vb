@@ -23,93 +23,93 @@ Partial Class FormAbout
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormAbout))
-        Me.PanHead = New System.Windows.Forms.Panel()
-        Me.LabHead = New System.Windows.Forms.Label()
-        Me.CmdClose = New System.Windows.Forms.Button()
-        Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
+        Me.pnlTitle = New System.Windows.Forms.Panel()
+        Me.lblTitle = New System.Windows.Forms.Label()
+        Me.cmdClose = New System.Windows.Forms.Button()
+        Me.tlptitleIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.icnMain = New System.Windows.Forms.PictureBox()
-        Me.PanSplit = New System.Windows.Forms.Panel()
-        Me.PanMain = New System.Windows.Forms.Panel()
+        Me.pnlSplit = New System.Windows.Forms.Panel()
+        Me.pnlMain = New System.Windows.Forms.Panel()
         Me.lblText = New System.Windows.Forms.Label()
         Me.lnkLinks = New System.Windows.Forms.LinkLabel()
         Me.lblCopyright = New System.Windows.Forms.Label()
         Me.TlpTop = New System.Windows.Forms.TableLayoutPanel()
-        Me.PbxLogo = New System.Windows.Forms.PictureBox()
-        Me.TlpLabels = New System.Windows.Forms.TableLayoutPanel()
+        Me.pbxLogo = New System.Windows.Forms.PictureBox()
+        Me.tlpLabels = New System.Windows.Forms.TableLayoutPanel()
         Me.lblBuild = New System.Windows.Forms.Label()
         Me.lblName = New System.Windows.Forms.Label()
-        Me.PanHead.SuspendLayout()
-        Me.TlpHeadImage.SuspendLayout()
+        Me.pnlTitle.SuspendLayout()
+        Me.tlptitleIcon.SuspendLayout()
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanMain.SuspendLayout()
+        Me.pnlMain.SuspendLayout()
         Me.TlpTop.SuspendLayout()
-        CType(Me.PbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TlpLabels.SuspendLayout()
+        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tlpLabels.SuspendLayout()
         Me.SuspendLayout()
         '
-        'PanHead
+        'pnlTitle
         '
-        Me.PanHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.PanHead.Controls.Add(Me.LabHead)
-        Me.PanHead.Controls.Add(Me.CmdClose)
-        Me.PanHead.Controls.Add(Me.TlpHeadImage)
-        Me.PanHead.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanHead.Location = New System.Drawing.Point(1, 1)
-        Me.PanHead.Margin = New System.Windows.Forms.Padding(0)
-        Me.PanHead.Name = "PanHead"
-        Me.PanHead.Size = New System.Drawing.Size(518, 40)
-        Me.PanHead.TabIndex = 69
+        Me.pnlTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.pnlTitle.Controls.Add(Me.lblTitle)
+        Me.pnlTitle.Controls.Add(Me.cmdClose)
+        Me.pnlTitle.Controls.Add(Me.tlptitleIcon)
+        Me.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlTitle.Location = New System.Drawing.Point(1, 1)
+        Me.pnlTitle.Margin = New System.Windows.Forms.Padding(0)
+        Me.pnlTitle.Name = "pnlTitle"
+        Me.pnlTitle.Size = New System.Drawing.Size(518, 40)
+        Me.pnlTitle.TabIndex = 69
         '
-        'LabHead
+        'lblTitle
         '
-        Me.LabHead.BackColor = System.Drawing.Color.Transparent
-        Me.LabHead.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabHead.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabHead.ForeColor = System.Drawing.Color.White
-        Me.LabHead.Location = New System.Drawing.Point(40, 0)
-        Me.LabHead.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabHead.Name = "LabHead"
-        Me.LabHead.Size = New System.Drawing.Size(438, 40)
-        Me.LabHead.TabIndex = 69
-        Me.LabHead.Text = "About"
-        Me.LabHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
+        Me.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.White
+        Me.lblTitle.Location = New System.Drawing.Point(40, 0)
+        Me.lblTitle.Margin = New System.Windows.Forms.Padding(0)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(438, 40)
+        Me.lblTitle.TabIndex = 69
+        Me.lblTitle.Text = "About"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'CmdClose
+        'cmdClose
         '
-        Me.CmdClose.BackColor = System.Drawing.Color.Transparent
-        Me.CmdClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.CmdClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.CmdClose.FlatAppearance.BorderSize = 0
-        Me.CmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdClose.ForeColor = System.Drawing.Color.White
-        Me.CmdClose.Location = New System.Drawing.Point(478, 0)
-        Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
-        Me.CmdClose.Name = "CmdClose"
-        Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
-        Me.CmdClose.TabIndex = 0
-        Me.CmdClose.TabStop = False
-        Me.CmdClose.Text = "✕"
-        Me.CmdClose.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.CmdClose.UseVisualStyleBackColor = False
+        Me.cmdClose.BackColor = System.Drawing.Color.Transparent
+        Me.cmdClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.cmdClose.Dock = System.Windows.Forms.DockStyle.Right
+        Me.cmdClose.FlatAppearance.BorderSize = 0
+        Me.cmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdClose.ForeColor = System.Drawing.Color.White
+        Me.cmdClose.Location = New System.Drawing.Point(478, 0)
+        Me.cmdClose.Margin = New System.Windows.Forms.Padding(0)
+        Me.cmdClose.Name = "cmdClose"
+        Me.cmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.cmdClose.Size = New System.Drawing.Size(40, 40)
+        Me.cmdClose.TabIndex = 0
+        Me.cmdClose.TabStop = False
+        Me.cmdClose.Text = "✕"
+        Me.cmdClose.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.cmdClose.UseVisualStyleBackColor = False
         '
-        'TlpHeadImage
+        'tlptitleIcon
         '
-        Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
-        Me.TlpHeadImage.ColumnCount = 1
-        Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
-        Me.TlpHeadImage.Controls.Add(Me.icnMain, 0, 0)
-        Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
-        Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
-        Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
-        Me.TlpHeadImage.Name = "TlpHeadImage"
-        Me.TlpHeadImage.RowCount = 1
-        Me.TlpHeadImage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpHeadImage.Size = New System.Drawing.Size(40, 40)
-        Me.TlpHeadImage.TabIndex = 74
+        Me.tlptitleIcon.BackColor = System.Drawing.Color.Transparent
+        Me.tlptitleIcon.ColumnCount = 1
+        Me.tlptitleIcon.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.tlptitleIcon.Controls.Add(Me.icnMain, 0, 0)
+        Me.tlptitleIcon.Dock = System.Windows.Forms.DockStyle.Left
+        Me.tlptitleIcon.Location = New System.Drawing.Point(0, 0)
+        Me.tlptitleIcon.Margin = New System.Windows.Forms.Padding(0)
+        Me.tlptitleIcon.Name = "tlptitleIcon"
+        Me.tlptitleIcon.RowCount = 1
+        Me.tlptitleIcon.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlptitleIcon.Size = New System.Drawing.Size(40, 40)
+        Me.tlptitleIcon.TabIndex = 74
         '
         'icnMain
         '
@@ -125,29 +125,29 @@ Partial Class FormAbout
         Me.icnMain.TabIndex = 1
         Me.icnMain.TabStop = False
         '
-        'PanSplit
+        'pnlSplit
         '
-        Me.PanSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.PanSplit.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanSplit.Location = New System.Drawing.Point(1, 41)
-        Me.PanSplit.Margin = New System.Windows.Forms.Padding(2)
-        Me.PanSplit.Name = "PanSplit"
-        Me.PanSplit.Size = New System.Drawing.Size(518, 2)
-        Me.PanSplit.TabIndex = 72
+        Me.pnlSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.pnlSplit.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlSplit.Location = New System.Drawing.Point(1, 41)
+        Me.pnlSplit.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlSplit.Name = "pnlSplit"
+        Me.pnlSplit.Size = New System.Drawing.Size(518, 2)
+        Me.pnlSplit.TabIndex = 72
         '
-        'PanMain
+        'pnlMain
         '
-        Me.PanMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.PanMain.Controls.Add(Me.lblText)
-        Me.PanMain.Controls.Add(Me.lnkLinks)
-        Me.PanMain.Controls.Add(Me.lblCopyright)
-        Me.PanMain.Controls.Add(Me.TlpTop)
-        Me.PanMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanMain.Location = New System.Drawing.Point(1, 43)
-        Me.PanMain.Margin = New System.Windows.Forms.Padding(2)
-        Me.PanMain.Name = "PanMain"
-        Me.PanMain.Size = New System.Drawing.Size(518, 266)
-        Me.PanMain.TabIndex = 0
+        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.pnlMain.Controls.Add(Me.lblText)
+        Me.pnlMain.Controls.Add(Me.lnkLinks)
+        Me.pnlMain.Controls.Add(Me.lblCopyright)
+        Me.pnlMain.Controls.Add(Me.TlpTop)
+        Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlMain.Location = New System.Drawing.Point(1, 43)
+        Me.pnlMain.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlMain.Name = "pnlMain"
+        Me.pnlMain.Size = New System.Drawing.Size(518, 266)
+        Me.pnlMain.TabIndex = 0
         '
         'lblText
         '
@@ -203,8 +203,8 @@ Partial Class FormAbout
         Me.TlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
         Me.TlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
-        Me.TlpTop.Controls.Add(Me.PbxLogo, 0, 0)
-        Me.TlpTop.Controls.Add(Me.TlpLabels, 1, 0)
+        Me.TlpTop.Controls.Add(Me.pbxLogo, 0, 0)
+        Me.TlpTop.Controls.Add(Me.tlpLabels, 1, 0)
         Me.TlpTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.TlpTop.Location = New System.Drawing.Point(0, 0)
         Me.TlpTop.Margin = New System.Windows.Forms.Padding(2)
@@ -214,37 +214,37 @@ Partial Class FormAbout
         Me.TlpTop.Size = New System.Drawing.Size(518, 90)
         Me.TlpTop.TabIndex = 0
         '
-        'PbxLogo
+        'pbxLogo
         '
-        Me.PbxLogo.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PbxLogo.BackColor = System.Drawing.Color.Transparent
-        Me.PbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PbxLogo.Cursor = System.Windows.Forms.Cursors.Default
-        Me.PbxLogo.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon64Px
-        Me.PbxLogo.Location = New System.Drawing.Point(13, 13)
-        Me.PbxLogo.Margin = New System.Windows.Forms.Padding(0)
-        Me.PbxLogo.Name = "PbxLogo"
-        Me.PbxLogo.Size = New System.Drawing.Size(64, 64)
-        Me.PbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxLogo.TabIndex = 85
-        Me.PbxLogo.TabStop = False
+        Me.pbxLogo.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pbxLogo.BackColor = System.Drawing.Color.Transparent
+        Me.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbxLogo.Cursor = System.Windows.Forms.Cursors.Default
+        Me.pbxLogo.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon64Px
+        Me.pbxLogo.Location = New System.Drawing.Point(13, 13)
+        Me.pbxLogo.Margin = New System.Windows.Forms.Padding(0)
+        Me.pbxLogo.Name = "pbxLogo"
+        Me.pbxLogo.Size = New System.Drawing.Size(64, 64)
+        Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxLogo.TabIndex = 85
+        Me.pbxLogo.TabStop = False
         '
-        'TlpLabels
+        'tlpLabels
         '
-        Me.TlpLabels.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.TlpLabels.BackColor = System.Drawing.Color.Transparent
-        Me.TlpLabels.ColumnCount = 1
-        Me.TlpLabels.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpLabels.Controls.Add(Me.lblBuild, 0, 1)
-        Me.TlpLabels.Controls.Add(Me.lblName, 0, 0)
-        Me.TlpLabels.Location = New System.Drawing.Point(96, 19)
-        Me.TlpLabels.Margin = New System.Windows.Forms.Padding(6, 0, 0, 0)
-        Me.TlpLabels.Name = "TlpLabels"
-        Me.TlpLabels.RowCount = 2
-        Me.TlpLabels.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
-        Me.TlpLabels.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
-        Me.TlpLabels.Size = New System.Drawing.Size(311, 52)
-        Me.TlpLabels.TabIndex = 86
+        Me.tlpLabels.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.tlpLabels.BackColor = System.Drawing.Color.Transparent
+        Me.tlpLabels.ColumnCount = 1
+        Me.tlpLabels.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpLabels.Controls.Add(Me.lblBuild, 0, 1)
+        Me.tlpLabels.Controls.Add(Me.lblName, 0, 0)
+        Me.tlpLabels.Location = New System.Drawing.Point(96, 19)
+        Me.tlpLabels.Margin = New System.Windows.Forms.Padding(6, 0, 0, 0)
+        Me.tlpLabels.Name = "tlpLabels"
+        Me.tlpLabels.RowCount = 2
+        Me.tlpLabels.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.tlpLabels.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.tlpLabels.Size = New System.Drawing.Size(311, 52)
+        Me.tlpLabels.TabIndex = 86
         '
         'lblBuild
         '
@@ -285,9 +285,9 @@ Partial Class FormAbout
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(520, 310)
         Me.ControlBox = False
-        Me.Controls.Add(Me.PanMain)
-        Me.Controls.Add(Me.PanSplit)
-        Me.Controls.Add(Me.PanHead)
+        Me.Controls.Add(Me.pnlMain)
+        Me.Controls.Add(Me.pnlSplit)
+        Me.Controls.Add(Me.pnlTitle)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -302,29 +302,29 @@ Partial Class FormAbout
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "About"
-        Me.PanHead.ResumeLayout(False)
-        Me.TlpHeadImage.ResumeLayout(False)
+        Me.pnlTitle.ResumeLayout(False)
+        Me.tlptitleIcon.ResumeLayout(False)
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanMain.ResumeLayout(False)
+        Me.pnlMain.ResumeLayout(False)
         Me.TlpTop.ResumeLayout(False)
-        CType(Me.PbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TlpLabels.ResumeLayout(False)
-        Me.TlpLabels.PerformLayout()
+        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tlpLabels.ResumeLayout(False)
+        Me.tlpLabels.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents PanHead As System.Windows.Forms.Panel
-    Friend WithEvents PanSplit As System.Windows.Forms.Panel
-    Friend WithEvents PanMain As System.Windows.Forms.Panel
-    Friend WithEvents CmdClose As Button
-    Friend WithEvents PbxLogo As PictureBox
-    Friend WithEvents TlpLabels As TableLayoutPanel
+    Friend WithEvents pnlTitle As System.Windows.Forms.Panel
+    Friend WithEvents pnlSplit As System.Windows.Forms.Panel
+    Friend WithEvents pnlMain As System.Windows.Forms.Panel
+    Friend WithEvents cmdClose As Button
+    Friend WithEvents pbxLogo As PictureBox
+    Friend WithEvents tlpLabels As TableLayoutPanel
     Friend WithEvents lblName As Label
     Friend WithEvents lblCopyright As Label
     Friend WithEvents lblBuild As Label
     Friend WithEvents TlpTop As TableLayoutPanel
-    Friend WithEvents LabHead As Label
-    Friend WithEvents TlpHeadImage As TableLayoutPanel
+    Friend WithEvents lblTitle As Label
+    Friend WithEvents tlptitleIcon As TableLayoutPanel
     Friend WithEvents icnMain As PictureBox
     Friend WithEvents lnkLinks As LinkLabel
     Friend WithEvents lblText As Label

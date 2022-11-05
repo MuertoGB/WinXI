@@ -23,105 +23,105 @@ Partial Class FormAcknowledgements
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormAcknowledgements))
-        Me.PanHead = New System.Windows.Forms.Panel()
-        Me.LabHead = New System.Windows.Forms.Label()
-        Me.CmdClose = New System.Windows.Forms.Button()
-        Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
+        Me.pnlTitle = New System.Windows.Forms.Panel()
+        Me.lblTitle = New System.Windows.Forms.Label()
+        Me.cmdClose = New System.Windows.Forms.Button()
+        Me.tlpTitleIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.icnMain = New System.Windows.Forms.PictureBox()
-        Me.PanSplit = New System.Windows.Forms.Panel()
-        Me.PanMain = New System.Windows.Forms.Panel()
-        Me.TlpTop = New System.Windows.Forms.TableLayoutPanel()
-        Me.TlpBottom = New System.Windows.Forms.TableLayoutPanel()
-        Me.TlpImgLinks = New System.Windows.Forms.TableLayoutPanel()
-        Me.PbxLogo = New System.Windows.Forms.PictureBox()
-        Me.PbxError = New System.Windows.Forms.PictureBox()
-        Me.LnkError = New System.Windows.Forms.LinkLabel()
-        Me.PbxInfo = New System.Windows.Forms.PictureBox()
-        Me.PbxWarn = New System.Windows.Forms.PictureBox()
-        Me.LnkGraph = New System.Windows.Forms.LinkLabel()
-        Me.LnkWarn = New System.Windows.Forms.LinkLabel()
-        Me.LnkIcon = New System.Windows.Forms.LinkLabel()
-        Me.LabImages = New System.Windows.Forms.Label()
-        Me.LabCopyrights = New System.Windows.Forms.Label()
-        Me.LnkMicrosoft = New System.Windows.Forms.LinkLabel()
-        Me.LabThanks = New System.Windows.Forms.Label()
-        Me.LnkCredits = New System.Windows.Forms.LinkLabel()
-        Me.PanHead.SuspendLayout()
-        Me.TlpHeadImage.SuspendLayout()
+        Me.pnlSplit = New System.Windows.Forms.Panel()
+        Me.pnlMain = New System.Windows.Forms.Panel()
+        Me.tlpForm = New System.Windows.Forms.TableLayoutPanel()
+        Me.tlpImageResources = New System.Windows.Forms.TableLayoutPanel()
+        Me.tlpImgLinks = New System.Windows.Forms.TableLayoutPanel()
+        Me.pbxLogo = New System.Windows.Forms.PictureBox()
+        Me.pbxError = New System.Windows.Forms.PictureBox()
+        Me.lnkError = New System.Windows.Forms.LinkLabel()
+        Me.pbxInfo = New System.Windows.Forms.PictureBox()
+        Me.pbxWarn = New System.Windows.Forms.PictureBox()
+        Me.lnkGraph = New System.Windows.Forms.LinkLabel()
+        Me.lnkWarn = New System.Windows.Forms.LinkLabel()
+        Me.lnkIcon = New System.Windows.Forms.LinkLabel()
+        Me.lblImages = New System.Windows.Forms.Label()
+        Me.lblCopyrights = New System.Windows.Forms.Label()
+        Me.lnkMicrosoft = New System.Windows.Forms.LinkLabel()
+        Me.lblThanks = New System.Windows.Forms.Label()
+        Me.lnkCredits = New System.Windows.Forms.LinkLabel()
+        Me.pnlTitle.SuspendLayout()
+        Me.tlpTitleIcon.SuspendLayout()
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanMain.SuspendLayout()
-        Me.TlpTop.SuspendLayout()
-        Me.TlpBottom.SuspendLayout()
-        Me.TlpImgLinks.SuspendLayout()
-        CType(Me.PbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PbxError, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PbxInfo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PbxWarn, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlMain.SuspendLayout()
+        Me.tlpForm.SuspendLayout()
+        Me.tlpImageResources.SuspendLayout()
+        Me.tlpImgLinks.SuspendLayout()
+        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxError, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxInfo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxWarn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'PanHead
+        'pnlTitle
         '
-        Me.PanHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.PanHead.Controls.Add(Me.LabHead)
-        Me.PanHead.Controls.Add(Me.CmdClose)
-        Me.PanHead.Controls.Add(Me.TlpHeadImage)
-        Me.PanHead.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanHead.Location = New System.Drawing.Point(1, 1)
-        Me.PanHead.Margin = New System.Windows.Forms.Padding(0)
-        Me.PanHead.Name = "PanHead"
-        Me.PanHead.Size = New System.Drawing.Size(518, 40)
-        Me.PanHead.TabIndex = 70
+        Me.pnlTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.pnlTitle.Controls.Add(Me.lblTitle)
+        Me.pnlTitle.Controls.Add(Me.cmdClose)
+        Me.pnlTitle.Controls.Add(Me.tlpTitleIcon)
+        Me.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlTitle.Location = New System.Drawing.Point(1, 1)
+        Me.pnlTitle.Margin = New System.Windows.Forms.Padding(0)
+        Me.pnlTitle.Name = "pnlTitle"
+        Me.pnlTitle.Size = New System.Drawing.Size(518, 40)
+        Me.pnlTitle.TabIndex = 70
         '
-        'LabHead
+        'lblTitle
         '
-        Me.LabHead.BackColor = System.Drawing.Color.Transparent
-        Me.LabHead.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabHead.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabHead.ForeColor = System.Drawing.Color.White
-        Me.LabHead.Location = New System.Drawing.Point(40, 0)
-        Me.LabHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LabHead.Name = "LabHead"
-        Me.LabHead.Size = New System.Drawing.Size(438, 40)
-        Me.LabHead.TabIndex = 69
-        Me.LabHead.Text = "Acknowledgements"
-        Me.LabHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
+        Me.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.White
+        Me.lblTitle.Location = New System.Drawing.Point(40, 0)
+        Me.lblTitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(438, 40)
+        Me.lblTitle.TabIndex = 69
+        Me.lblTitle.Text = "Acknowledgements"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'CmdClose
+        'cmdClose
         '
-        Me.CmdClose.BackColor = System.Drawing.Color.Transparent
-        Me.CmdClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.CmdClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.CmdClose.FlatAppearance.BorderSize = 0
-        Me.CmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdClose.ForeColor = System.Drawing.Color.White
-        Me.CmdClose.Location = New System.Drawing.Point(478, 0)
-        Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
-        Me.CmdClose.Name = "CmdClose"
-        Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
-        Me.CmdClose.TabIndex = 0
-        Me.CmdClose.TabStop = False
-        Me.CmdClose.Text = "✕"
-        Me.CmdClose.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
-        Me.CmdClose.UseVisualStyleBackColor = False
+        Me.cmdClose.BackColor = System.Drawing.Color.Transparent
+        Me.cmdClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.cmdClose.Dock = System.Windows.Forms.DockStyle.Right
+        Me.cmdClose.FlatAppearance.BorderSize = 0
+        Me.cmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdClose.ForeColor = System.Drawing.Color.White
+        Me.cmdClose.Location = New System.Drawing.Point(478, 0)
+        Me.cmdClose.Margin = New System.Windows.Forms.Padding(0)
+        Me.cmdClose.Name = "cmdClose"
+        Me.cmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.cmdClose.Size = New System.Drawing.Size(40, 40)
+        Me.cmdClose.TabIndex = 0
+        Me.cmdClose.TabStop = False
+        Me.cmdClose.Text = "✕"
+        Me.cmdClose.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
+        Me.cmdClose.UseVisualStyleBackColor = False
         '
-        'TlpHeadImage
+        'tlpTitleIcon
         '
-        Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
-        Me.TlpHeadImage.ColumnCount = 1
-        Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
-        Me.TlpHeadImage.Controls.Add(Me.icnMain, 0, 0)
-        Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
-        Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
-        Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
-        Me.TlpHeadImage.Name = "TlpHeadImage"
-        Me.TlpHeadImage.RowCount = 1
-        Me.TlpHeadImage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpHeadImage.Size = New System.Drawing.Size(40, 40)
-        Me.TlpHeadImage.TabIndex = 74
+        Me.tlpTitleIcon.BackColor = System.Drawing.Color.Transparent
+        Me.tlpTitleIcon.ColumnCount = 1
+        Me.tlpTitleIcon.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.tlpTitleIcon.Controls.Add(Me.icnMain, 0, 0)
+        Me.tlpTitleIcon.Dock = System.Windows.Forms.DockStyle.Left
+        Me.tlpTitleIcon.Location = New System.Drawing.Point(0, 0)
+        Me.tlpTitleIcon.Margin = New System.Windows.Forms.Padding(0)
+        Me.tlpTitleIcon.Name = "tlpTitleIcon"
+        Me.tlpTitleIcon.RowCount = 1
+        Me.tlpTitleIcon.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpTitleIcon.Size = New System.Drawing.Size(40, 40)
+        Me.tlpTitleIcon.TabIndex = 74
         '
         'icnMain
         '
@@ -137,310 +137,310 @@ Partial Class FormAcknowledgements
         Me.icnMain.TabIndex = 1
         Me.icnMain.TabStop = False
         '
-        'PanSplit
+        'pnlSplit
         '
-        Me.PanSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.PanSplit.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanSplit.Location = New System.Drawing.Point(1, 41)
-        Me.PanSplit.Margin = New System.Windows.Forms.Padding(2)
-        Me.PanSplit.Name = "PanSplit"
-        Me.PanSplit.Size = New System.Drawing.Size(518, 2)
-        Me.PanSplit.TabIndex = 73
+        Me.pnlSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.pnlSplit.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlSplit.Location = New System.Drawing.Point(1, 41)
+        Me.pnlSplit.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlSplit.Name = "pnlSplit"
+        Me.pnlSplit.Size = New System.Drawing.Size(518, 2)
+        Me.pnlSplit.TabIndex = 73
         '
-        'PanMain
+        'pnlMain
         '
-        Me.PanMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.PanMain.Controls.Add(Me.TlpTop)
-        Me.PanMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanMain.Location = New System.Drawing.Point(1, 43)
-        Me.PanMain.Margin = New System.Windows.Forms.Padding(2)
-        Me.PanMain.Name = "PanMain"
-        Me.PanMain.Padding = New System.Windows.Forms.Padding(9, 9, 9, 9)
-        Me.PanMain.Size = New System.Drawing.Size(518, 476)
-        Me.PanMain.TabIndex = 74
+        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.pnlMain.Controls.Add(Me.tlpForm)
+        Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlMain.Location = New System.Drawing.Point(1, 43)
+        Me.pnlMain.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlMain.Name = "pnlMain"
+        Me.pnlMain.Padding = New System.Windows.Forms.Padding(9)
+        Me.pnlMain.Size = New System.Drawing.Size(518, 476)
+        Me.pnlMain.TabIndex = 74
         '
-        'TlpTop
+        'tlpForm
         '
-        Me.TlpTop.ColumnCount = 1
-        Me.TlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpTop.Controls.Add(Me.TlpBottom, 0, 6)
-        Me.TlpTop.Controls.Add(Me.LabCopyrights, 0, 0)
-        Me.TlpTop.Controls.Add(Me.LnkMicrosoft, 0, 1)
-        Me.TlpTop.Controls.Add(Me.LabThanks, 0, 3)
-        Me.TlpTop.Controls.Add(Me.LnkCredits, 0, 4)
-        Me.TlpTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TlpTop.Location = New System.Drawing.Point(9, 9)
-        Me.TlpTop.Margin = New System.Windows.Forms.Padding(0)
-        Me.TlpTop.Name = "TlpTop"
-        Me.TlpTop.RowCount = 7
-        Me.TlpTop.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TlpTop.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
-        Me.TlpTop.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1.0!))
-        Me.TlpTop.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TlpTop.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
-        Me.TlpTop.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1.0!))
-        Me.TlpTop.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 175.0!))
-        Me.TlpTop.Size = New System.Drawing.Size(500, 458)
-        Me.TlpTop.TabIndex = 1
+        Me.tlpForm.ColumnCount = 1
+        Me.tlpForm.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpForm.Controls.Add(Me.tlpImageResources, 0, 6)
+        Me.tlpForm.Controls.Add(Me.lblCopyrights, 0, 0)
+        Me.tlpForm.Controls.Add(Me.lnkMicrosoft, 0, 1)
+        Me.tlpForm.Controls.Add(Me.lblThanks, 0, 3)
+        Me.tlpForm.Controls.Add(Me.lnkCredits, 0, 4)
+        Me.tlpForm.Dock = System.Windows.Forms.DockStyle.Top
+        Me.tlpForm.Location = New System.Drawing.Point(9, 9)
+        Me.tlpForm.Margin = New System.Windows.Forms.Padding(0)
+        Me.tlpForm.Name = "tlpForm"
+        Me.tlpForm.RowCount = 7
+        Me.tlpForm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.tlpForm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.tlpForm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1.0!))
+        Me.tlpForm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.tlpForm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.tlpForm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1.0!))
+        Me.tlpForm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 175.0!))
+        Me.tlpForm.Size = New System.Drawing.Size(500, 458)
+        Me.tlpForm.TabIndex = 1
         '
-        'TlpBottom
+        'tlpImageResources
         '
-        Me.TlpBottom.ColumnCount = 1
-        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500.0!))
-        Me.TlpBottom.Controls.Add(Me.TlpImgLinks, 0, 1)
-        Me.TlpBottom.Controls.Add(Me.LabImages, 0, 0)
-        Me.TlpBottom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TlpBottom.Location = New System.Drawing.Point(0, 262)
-        Me.TlpBottom.Margin = New System.Windows.Forms.Padding(0)
-        Me.TlpBottom.Name = "TlpBottom"
-        Me.TlpBottom.RowCount = 2
-        Me.TlpBottom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TlpBottom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TlpBottom.Size = New System.Drawing.Size(500, 196)
-        Me.TlpBottom.TabIndex = 0
+        Me.tlpImageResources.ColumnCount = 1
+        Me.tlpImageResources.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500.0!))
+        Me.tlpImageResources.Controls.Add(Me.tlpImgLinks, 0, 1)
+        Me.tlpImageResources.Controls.Add(Me.lblImages, 0, 0)
+        Me.tlpImageResources.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tlpImageResources.Location = New System.Drawing.Point(0, 262)
+        Me.tlpImageResources.Margin = New System.Windows.Forms.Padding(0)
+        Me.tlpImageResources.Name = "tlpImageResources"
+        Me.tlpImageResources.RowCount = 2
+        Me.tlpImageResources.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.tlpImageResources.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpImageResources.Size = New System.Drawing.Size(500, 196)
+        Me.tlpImageResources.TabIndex = 0
         '
-        'TlpImgLinks
+        'tlpImgLinks
         '
-        Me.TlpImgLinks.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.TlpImgLinks.ColumnCount = 2
-        Me.TlpImgLinks.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.886264!))
-        Me.TlpImgLinks.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.11374!))
-        Me.TlpImgLinks.Controls.Add(Me.PbxLogo, 0, 1)
-        Me.TlpImgLinks.Controls.Add(Me.PbxError, 0, 4)
-        Me.TlpImgLinks.Controls.Add(Me.LnkError, 1, 4)
-        Me.TlpImgLinks.Controls.Add(Me.PbxInfo, 0, 2)
-        Me.TlpImgLinks.Controls.Add(Me.PbxWarn, 0, 3)
-        Me.TlpImgLinks.Controls.Add(Me.LnkGraph, 1, 1)
-        Me.TlpImgLinks.Controls.Add(Me.LnkWarn, 1, 3)
-        Me.TlpImgLinks.Controls.Add(Me.LnkIcon, 1, 2)
-        Me.TlpImgLinks.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TlpImgLinks.Location = New System.Drawing.Point(0, 30)
-        Me.TlpImgLinks.Margin = New System.Windows.Forms.Padding(0)
-        Me.TlpImgLinks.Name = "TlpImgLinks"
-        Me.TlpImgLinks.RowCount = 6
-        Me.TlpImgLinks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 4.0!))
-        Me.TlpImgLinks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TlpImgLinks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TlpImgLinks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TlpImgLinks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TlpImgLinks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TlpImgLinks.Size = New System.Drawing.Size(500, 166)
-        Me.TlpImgLinks.TabIndex = 129
+        Me.tlpImgLinks.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.tlpImgLinks.ColumnCount = 2
+        Me.tlpImgLinks.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.886264!))
+        Me.tlpImgLinks.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.11374!))
+        Me.tlpImgLinks.Controls.Add(Me.pbxLogo, 0, 1)
+        Me.tlpImgLinks.Controls.Add(Me.pbxError, 0, 4)
+        Me.tlpImgLinks.Controls.Add(Me.lnkError, 1, 4)
+        Me.tlpImgLinks.Controls.Add(Me.pbxInfo, 0, 2)
+        Me.tlpImgLinks.Controls.Add(Me.pbxWarn, 0, 3)
+        Me.tlpImgLinks.Controls.Add(Me.lnkGraph, 1, 1)
+        Me.tlpImgLinks.Controls.Add(Me.lnkWarn, 1, 3)
+        Me.tlpImgLinks.Controls.Add(Me.lnkIcon, 1, 2)
+        Me.tlpImgLinks.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tlpImgLinks.Location = New System.Drawing.Point(0, 30)
+        Me.tlpImgLinks.Margin = New System.Windows.Forms.Padding(0)
+        Me.tlpImgLinks.Name = "tlpImgLinks"
+        Me.tlpImgLinks.RowCount = 6
+        Me.tlpImgLinks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 4.0!))
+        Me.tlpImgLinks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.tlpImgLinks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.tlpImgLinks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.tlpImgLinks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.tlpImgLinks.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpImgLinks.Size = New System.Drawing.Size(500, 166)
+        Me.tlpImgLinks.TabIndex = 129
         '
-        'PbxLogo
+        'pbxLogo
         '
-        Me.PbxLogo.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PbxLogo.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
-        Me.PbxLogo.Location = New System.Drawing.Point(9, 9)
-        Me.PbxLogo.Margin = New System.Windows.Forms.Padding(0)
-        Me.PbxLogo.Name = "PbxLogo"
-        Me.PbxLogo.Size = New System.Drawing.Size(30, 30)
-        Me.PbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxLogo.TabIndex = 0
-        Me.PbxLogo.TabStop = False
+        Me.pbxLogo.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbxLogo.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon24Px
+        Me.pbxLogo.Location = New System.Drawing.Point(9, 9)
+        Me.pbxLogo.Margin = New System.Windows.Forms.Padding(0)
+        Me.pbxLogo.Name = "pbxLogo"
+        Me.pbxLogo.Size = New System.Drawing.Size(30, 30)
+        Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxLogo.TabIndex = 0
+        Me.pbxLogo.TabStop = False
         '
-        'PbxError
+        'pbxError
         '
-        Me.PbxError.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PbxError.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PbxError.Image = Global.WinXI.My.Resources.Resources.ImgError32Px
-        Me.PbxError.Location = New System.Drawing.Point(9, 129)
-        Me.PbxError.Margin = New System.Windows.Forms.Padding(0)
-        Me.PbxError.Name = "PbxError"
-        Me.PbxError.Size = New System.Drawing.Size(30, 30)
-        Me.PbxError.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxError.TabIndex = 2
-        Me.PbxError.TabStop = False
+        Me.pbxError.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pbxError.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbxError.Image = Global.WinXI.My.Resources.Resources.ImgError32Px
+        Me.pbxError.Location = New System.Drawing.Point(9, 129)
+        Me.pbxError.Margin = New System.Windows.Forms.Padding(0)
+        Me.pbxError.Name = "pbxError"
+        Me.pbxError.Size = New System.Drawing.Size(30, 30)
+        Me.pbxError.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxError.TabIndex = 2
+        Me.pbxError.TabStop = False
         '
-        'LnkError
+        'lnkError
         '
-        Me.LnkError.ActiveLinkColor = System.Drawing.Color.White
-        Me.LnkError.BackColor = System.Drawing.Color.Transparent
-        Me.LnkError.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LnkError.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LnkError.ForeColor = System.Drawing.Color.White
-        Me.LnkError.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
-        Me.LnkError.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.LnkError.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LnkError.Location = New System.Drawing.Point(61, 124)
-        Me.LnkError.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.LnkError.Name = "LnkError"
-        Me.LnkError.Size = New System.Drawing.Size(439, 40)
-        Me.LnkError.TabIndex = 14
-        Me.LnkError.Text = "Error icon by Smashicons from Flaticon."
-        Me.LnkError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lnkError.ActiveLinkColor = System.Drawing.Color.White
+        Me.lnkError.BackColor = System.Drawing.Color.Transparent
+        Me.lnkError.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lnkError.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkError.ForeColor = System.Drawing.Color.White
+        Me.lnkError.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
+        Me.lnkError.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.lnkError.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lnkError.Location = New System.Drawing.Point(61, 124)
+        Me.lnkError.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.lnkError.Name = "lnkError"
+        Me.lnkError.Size = New System.Drawing.Size(439, 40)
+        Me.lnkError.TabIndex = 14
+        Me.lnkError.Text = "Error icon by Smashicons from Flaticon."
+        Me.lnkError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'PbxInfo
+        'pbxInfo
         '
-        Me.PbxInfo.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PbxInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PbxInfo.Image = Global.WinXI.My.Resources.Resources.ImgInfo32Px
-        Me.PbxInfo.Location = New System.Drawing.Point(9, 49)
-        Me.PbxInfo.Margin = New System.Windows.Forms.Padding(0)
-        Me.PbxInfo.Name = "PbxInfo"
-        Me.PbxInfo.Size = New System.Drawing.Size(30, 30)
-        Me.PbxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxInfo.TabIndex = 1
-        Me.PbxInfo.TabStop = False
+        Me.pbxInfo.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pbxInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbxInfo.Image = Global.WinXI.My.Resources.Resources.ImgInfo32Px
+        Me.pbxInfo.Location = New System.Drawing.Point(9, 49)
+        Me.pbxInfo.Margin = New System.Windows.Forms.Padding(0)
+        Me.pbxInfo.Name = "pbxInfo"
+        Me.pbxInfo.Size = New System.Drawing.Size(30, 30)
+        Me.pbxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxInfo.TabIndex = 1
+        Me.pbxInfo.TabStop = False
         '
-        'PbxWarn
+        'pbxWarn
         '
-        Me.PbxWarn.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PbxWarn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PbxWarn.Image = Global.WinXI.My.Resources.Resources.ImgWarn32Px
-        Me.PbxWarn.Location = New System.Drawing.Point(9, 89)
-        Me.PbxWarn.Margin = New System.Windows.Forms.Padding(0)
-        Me.PbxWarn.Name = "PbxWarn"
-        Me.PbxWarn.Size = New System.Drawing.Size(30, 30)
-        Me.PbxWarn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxWarn.TabIndex = 3
-        Me.PbxWarn.TabStop = False
+        Me.pbxWarn.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pbxWarn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbxWarn.Image = Global.WinXI.My.Resources.Resources.ImgWarn32Px
+        Me.pbxWarn.Location = New System.Drawing.Point(9, 89)
+        Me.pbxWarn.Margin = New System.Windows.Forms.Padding(0)
+        Me.pbxWarn.Name = "pbxWarn"
+        Me.pbxWarn.Size = New System.Drawing.Size(30, 30)
+        Me.pbxWarn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxWarn.TabIndex = 3
+        Me.pbxWarn.TabStop = False
         '
-        'LnkGraph
+        'lnkGraph
         '
-        Me.LnkGraph.ActiveLinkColor = System.Drawing.Color.White
-        Me.LnkGraph.BackColor = System.Drawing.Color.Transparent
-        Me.LnkGraph.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LnkGraph.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LnkGraph.ForeColor = System.Drawing.Color.White
-        Me.LnkGraph.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
-        Me.LnkGraph.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.LnkGraph.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LnkGraph.Location = New System.Drawing.Point(61, 4)
-        Me.LnkGraph.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.LnkGraph.Name = "LnkGraph"
-        Me.LnkGraph.Size = New System.Drawing.Size(439, 40)
-        Me.LnkGraph.TabIndex = 1
-        Me.LnkGraph.Text = "Graph icon by Vectors Market from Flaticon."
-        Me.LnkGraph.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lnkGraph.ActiveLinkColor = System.Drawing.Color.White
+        Me.lnkGraph.BackColor = System.Drawing.Color.Transparent
+        Me.lnkGraph.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lnkGraph.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkGraph.ForeColor = System.Drawing.Color.White
+        Me.lnkGraph.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
+        Me.lnkGraph.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.lnkGraph.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lnkGraph.Location = New System.Drawing.Point(61, 4)
+        Me.lnkGraph.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.lnkGraph.Name = "lnkGraph"
+        Me.lnkGraph.Size = New System.Drawing.Size(439, 40)
+        Me.lnkGraph.TabIndex = 1
+        Me.lnkGraph.Text = "Graph icon by Vectors Market from Flaticon."
+        Me.lnkGraph.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'LnkWarn
+        'lnkWarn
         '
-        Me.LnkWarn.ActiveLinkColor = System.Drawing.Color.White
-        Me.LnkWarn.BackColor = System.Drawing.Color.Transparent
-        Me.LnkWarn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LnkWarn.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LnkWarn.ForeColor = System.Drawing.Color.White
-        Me.LnkWarn.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
-        Me.LnkWarn.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.LnkWarn.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LnkWarn.Location = New System.Drawing.Point(61, 84)
-        Me.LnkWarn.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.LnkWarn.Name = "LnkWarn"
-        Me.LnkWarn.Size = New System.Drawing.Size(439, 40)
-        Me.LnkWarn.TabIndex = 132
-        Me.LnkWarn.Text = "Warning icon by Freepik from Flaticon."
-        Me.LnkWarn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lnkWarn.ActiveLinkColor = System.Drawing.Color.White
+        Me.lnkWarn.BackColor = System.Drawing.Color.Transparent
+        Me.lnkWarn.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lnkWarn.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkWarn.ForeColor = System.Drawing.Color.White
+        Me.lnkWarn.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
+        Me.lnkWarn.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.lnkWarn.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lnkWarn.Location = New System.Drawing.Point(61, 84)
+        Me.lnkWarn.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.lnkWarn.Name = "lnkWarn"
+        Me.lnkWarn.Size = New System.Drawing.Size(439, 40)
+        Me.lnkWarn.TabIndex = 132
+        Me.lnkWarn.Text = "Warning icon by Freepik from Flaticon."
+        Me.lnkWarn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'LnkIcon
+        'lnkIcon
         '
-        Me.LnkIcon.ActiveLinkColor = System.Drawing.Color.White
-        Me.LnkIcon.BackColor = System.Drawing.Color.Transparent
-        Me.LnkIcon.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LnkIcon.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LnkIcon.ForeColor = System.Drawing.Color.White
-        Me.LnkIcon.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
-        Me.LnkIcon.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.LnkIcon.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LnkIcon.Location = New System.Drawing.Point(61, 44)
-        Me.LnkIcon.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.LnkIcon.Name = "LnkIcon"
-        Me.LnkIcon.Size = New System.Drawing.Size(439, 40)
-        Me.LnkIcon.TabIndex = 11
-        Me.LnkIcon.Text = "Information icon by Freepik from Flaticon."
-        Me.LnkIcon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lnkIcon.ActiveLinkColor = System.Drawing.Color.White
+        Me.lnkIcon.BackColor = System.Drawing.Color.Transparent
+        Me.lnkIcon.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lnkIcon.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkIcon.ForeColor = System.Drawing.Color.White
+        Me.lnkIcon.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
+        Me.lnkIcon.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.lnkIcon.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lnkIcon.Location = New System.Drawing.Point(61, 44)
+        Me.lnkIcon.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
+        Me.lnkIcon.Name = "lnkIcon"
+        Me.lnkIcon.Size = New System.Drawing.Size(439, 40)
+        Me.lnkIcon.TabIndex = 11
+        Me.lnkIcon.Text = "Information icon by Freepik from Flaticon."
+        Me.lnkIcon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'LabImages
+        'lblImages
         '
-        Me.LabImages.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.LabImages.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabImages.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabImages.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.LabImages.Location = New System.Drawing.Point(0, 0)
-        Me.LabImages.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabImages.Name = "LabImages"
-        Me.LabImages.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.LabImages.Size = New System.Drawing.Size(500, 30)
-        Me.LabImages.TabIndex = 127
-        Me.LabImages.Text = "Image Resources"
-        Me.LabImages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblImages.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.lblImages.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblImages.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblImages.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.lblImages.Location = New System.Drawing.Point(0, 0)
+        Me.lblImages.Margin = New System.Windows.Forms.Padding(0)
+        Me.lblImages.Name = "lblImages"
+        Me.lblImages.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.lblImages.Size = New System.Drawing.Size(500, 30)
+        Me.lblImages.TabIndex = 127
+        Me.lblImages.Text = "Image Resources"
+        Me.lblImages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'LabCopyrights
+        'lblCopyrights
         '
-        Me.LabCopyrights.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.LabCopyrights.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabCopyrights.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabCopyrights.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.LabCopyrights.Location = New System.Drawing.Point(0, 0)
-        Me.LabCopyrights.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabCopyrights.Name = "LabCopyrights"
-        Me.LabCopyrights.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.LabCopyrights.Size = New System.Drawing.Size(500, 30)
-        Me.LabCopyrights.TabIndex = 125
-        Me.LabCopyrights.Text = "Copyrights"
-        Me.LabCopyrights.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblCopyrights.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.lblCopyrights.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblCopyrights.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCopyrights.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.lblCopyrights.Location = New System.Drawing.Point(0, 0)
+        Me.lblCopyrights.Margin = New System.Windows.Forms.Padding(0)
+        Me.lblCopyrights.Name = "lblCopyrights"
+        Me.lblCopyrights.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.lblCopyrights.Size = New System.Drawing.Size(500, 30)
+        Me.lblCopyrights.TabIndex = 125
+        Me.lblCopyrights.Text = "Copyrights"
+        Me.lblCopyrights.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'LnkMicrosoft
+        'lnkMicrosoft
         '
-        Me.LnkMicrosoft.ActiveLinkColor = System.Drawing.Color.White
-        Me.LnkMicrosoft.AutoSize = True
-        Me.LnkMicrosoft.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.LnkMicrosoft.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LnkMicrosoft.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LnkMicrosoft.ForeColor = System.Drawing.Color.White
-        Me.LnkMicrosoft.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
-        Me.LnkMicrosoft.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.LnkMicrosoft.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LnkMicrosoft.Location = New System.Drawing.Point(0, 30)
-        Me.LnkMicrosoft.Margin = New System.Windows.Forms.Padding(0)
-        Me.LnkMicrosoft.Name = "LnkMicrosoft"
-        Me.LnkMicrosoft.Padding = New System.Windows.Forms.Padding(4, 0, 0, 0)
-        Me.LnkMicrosoft.Size = New System.Drawing.Size(500, 100)
-        Me.LnkMicrosoft.TabIndex = 129
-        Me.LnkMicrosoft.Text = "Microsoft®, Windows®, and the Windows® Experience Index are either registered tra" &
+        Me.lnkMicrosoft.ActiveLinkColor = System.Drawing.Color.White
+        Me.lnkMicrosoft.AutoSize = True
+        Me.lnkMicrosoft.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.lnkMicrosoft.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lnkMicrosoft.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkMicrosoft.ForeColor = System.Drawing.Color.White
+        Me.lnkMicrosoft.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
+        Me.lnkMicrosoft.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.lnkMicrosoft.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lnkMicrosoft.Location = New System.Drawing.Point(0, 30)
+        Me.lnkMicrosoft.Margin = New System.Windows.Forms.Padding(0)
+        Me.lnkMicrosoft.Name = "lnkMicrosoft"
+        Me.lnkMicrosoft.Padding = New System.Windows.Forms.Padding(4, 0, 0, 0)
+        Me.lnkMicrosoft.Size = New System.Drawing.Size(500, 100)
+        Me.lnkMicrosoft.TabIndex = 129
+        Me.lnkMicrosoft.Text = "Microsoft®, Windows®, and the Windows® Experience Index are either registered tra" &
     "demarks or trademarks of Microsoft Corporation in the United States and/or other" &
     " countries."
-        Me.LnkMicrosoft.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lnkMicrosoft.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'LabThanks
+        'lblThanks
         '
-        Me.LabThanks.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.LabThanks.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabThanks.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabThanks.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.LabThanks.Location = New System.Drawing.Point(0, 131)
-        Me.LabThanks.Margin = New System.Windows.Forms.Padding(0)
-        Me.LabThanks.Name = "LabThanks"
-        Me.LabThanks.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.LabThanks.Size = New System.Drawing.Size(500, 30)
-        Me.LabThanks.TabIndex = 126
-        Me.LabThanks.Text = "Thank you"
-        Me.LabThanks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblThanks.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.lblThanks.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblThanks.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblThanks.ForeColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(250, Byte), Integer))
+        Me.lblThanks.Location = New System.Drawing.Point(0, 131)
+        Me.lblThanks.Margin = New System.Windows.Forms.Padding(0)
+        Me.lblThanks.Name = "lblThanks"
+        Me.lblThanks.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.lblThanks.Size = New System.Drawing.Size(500, 30)
+        Me.lblThanks.TabIndex = 126
+        Me.lblThanks.Text = "Thank you"
+        Me.lblThanks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'LnkCredits
+        'lnkCredits
         '
-        Me.LnkCredits.ActiveLinkColor = System.Drawing.Color.White
-        Me.LnkCredits.AutoSize = True
-        Me.LnkCredits.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.LnkCredits.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LnkCredits.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LnkCredits.ForeColor = System.Drawing.Color.White
-        Me.LnkCredits.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
-        Me.LnkCredits.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.LnkCredits.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LnkCredits.Location = New System.Drawing.Point(0, 161)
-        Me.LnkCredits.Margin = New System.Windows.Forms.Padding(0)
-        Me.LnkCredits.Name = "LnkCredits"
-        Me.LnkCredits.Padding = New System.Windows.Forms.Padding(4, 0, 0, 0)
-        Me.LnkCredits.Size = New System.Drawing.Size(500, 100)
-        Me.LnkCredits.TabIndex = 130
-        Me.LnkCredits.Text = "ItielMaN, Carlos Detweiller, Michaela Joy, Tiger-1, BJ0RN, apologized and GezoeSl" &
+        Me.lnkCredits.ActiveLinkColor = System.Drawing.Color.White
+        Me.lnkCredits.AutoSize = True
+        Me.lnkCredits.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.lnkCredits.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lnkCredits.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkCredits.ForeColor = System.Drawing.Color.White
+        Me.lnkCredits.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
+        Me.lnkCredits.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.lnkCredits.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lnkCredits.Location = New System.Drawing.Point(0, 161)
+        Me.lnkCredits.Margin = New System.Windows.Forms.Padding(0)
+        Me.lnkCredits.Name = "lnkCredits"
+        Me.lnkCredits.Padding = New System.Windows.Forms.Padding(4, 0, 0, 0)
+        Me.lnkCredits.Size = New System.Drawing.Size(500, 100)
+        Me.lnkCredits.TabIndex = 130
+        Me.lnkCredits.Text = "ItielMaN, Carlos Detweiller, Michaela Joy, Tiger-1, BJ0RN, apologized and GezoeSl" &
     "oog at MyDigitalLife for development help and testing. Majorgeeks and Softpedia " &
     "for hosting my software."
-        Me.LnkCredits.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lnkCredits.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'FormAckn
+        'FormAcknowledgements
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
@@ -448,9 +448,9 @@ Partial Class FormAcknowledgements
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(520, 520)
-        Me.Controls.Add(Me.PanMain)
-        Me.Controls.Add(Me.PanSplit)
-        Me.Controls.Add(Me.PanHead)
+        Me.Controls.Add(Me.pnlMain)
+        Me.Controls.Add(Me.pnlSplit)
+        Me.Controls.Add(Me.pnlTitle)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -461,48 +461,48 @@ Partial Class FormAcknowledgements
         Me.MaximumSize = New System.Drawing.Size(520, 520)
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(520, 520)
-        Me.Name = "FormAckn"
+        Me.Name = "FormAcknowledgements"
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Acknowledgements"
-        Me.PanHead.ResumeLayout(False)
-        Me.TlpHeadImage.ResumeLayout(False)
+        Me.pnlTitle.ResumeLayout(False)
+        Me.tlpTitleIcon.ResumeLayout(False)
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanMain.ResumeLayout(False)
-        Me.TlpTop.ResumeLayout(False)
-        Me.TlpTop.PerformLayout()
-        Me.TlpBottom.ResumeLayout(False)
-        Me.TlpImgLinks.ResumeLayout(False)
-        CType(Me.PbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PbxError, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PbxInfo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PbxWarn, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlMain.ResumeLayout(False)
+        Me.tlpForm.ResumeLayout(False)
+        Me.tlpForm.PerformLayout()
+        Me.tlpImageResources.ResumeLayout(False)
+        Me.tlpImgLinks.ResumeLayout(False)
+        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxError, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxInfo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxWarn, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents PanHead As Panel
-    Friend WithEvents LabHead As Label
-    Friend WithEvents CmdClose As Button
-    Friend WithEvents TlpHeadImage As TableLayoutPanel
+    Friend WithEvents pnlTitle As Panel
+    Friend WithEvents lblTitle As Label
+    Friend WithEvents cmdClose As Button
+    Friend WithEvents tlpTitleIcon As TableLayoutPanel
     Friend WithEvents icnMain As PictureBox
-    Friend WithEvents PanSplit As Panel
-    Friend WithEvents PanMain As Panel
-    Friend WithEvents TlpBottom As TableLayoutPanel
-    Friend WithEvents TlpTop As TableLayoutPanel
-    Friend WithEvents LabCopyrights As Label
-    Friend WithEvents LabThanks As Label
-    Friend WithEvents LnkMicrosoft As LinkLabel
-    Friend WithEvents LnkCredits As LinkLabel
-    Friend WithEvents LabImages As Label
-    Friend WithEvents TlpImgLinks As TableLayoutPanel
-    Friend WithEvents PbxLogo As PictureBox
-    Friend WithEvents PbxError As PictureBox
-    Friend WithEvents LnkError As LinkLabel
-    Friend WithEvents PbxInfo As PictureBox
-    Friend WithEvents PbxWarn As PictureBox
-    Friend WithEvents LnkGraph As LinkLabel
-    Friend WithEvents LnkWarn As LinkLabel
-    Friend WithEvents LnkIcon As LinkLabel
+    Friend WithEvents pnlSplit As Panel
+    Friend WithEvents pnlMain As Panel
+    Friend WithEvents tlpImageResources As TableLayoutPanel
+    Friend WithEvents tlpForm As TableLayoutPanel
+    Friend WithEvents lblCopyrights As Label
+    Friend WithEvents lblThanks As Label
+    Friend WithEvents lnkMicrosoft As LinkLabel
+    Friend WithEvents lnkCredits As LinkLabel
+    Friend WithEvents lblImages As Label
+    Friend WithEvents tlpImgLinks As TableLayoutPanel
+    Friend WithEvents pbxLogo As PictureBox
+    Friend WithEvents pbxError As PictureBox
+    Friend WithEvents lnkError As LinkLabel
+    Friend WithEvents pbxInfo As PictureBox
+    Friend WithEvents pbxWarn As PictureBox
+    Friend WithEvents lnkGraph As LinkLabel
+    Friend WithEvents lnkWarn As LinkLabel
+    Friend WithEvents lnkIcon As LinkLabel
 End Class

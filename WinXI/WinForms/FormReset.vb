@@ -15,7 +15,7 @@ Public Class FormReset
 
         SetCleanupThemeAccent()
 
-        PanHead.BackgroundImage = Settings.imgHeaderGraphic
+        pnlTitle.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -23,7 +23,7 @@ Public Class FormReset
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, tlpTitleIcon.MouseMove, lblTitle.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -44,7 +44,7 @@ Public Class FormReset
 #End Region
 #Region "Frame Buttons"
 
-    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
         Close()
     End Sub
 
@@ -70,9 +70,9 @@ Public Class FormReset
 
     Private Sub SetCleanupThemeAccent()
 
-        Dim TC As Color = Settings.clrSetThemeColour
+        Dim TC As Color = Settings.clrThemeColour
 
-        PanSplit.BackColor = TC
+        pnlSplit.BackColor = TC
         cbAgreeWinsat.CheckedColor = TC
         cbAgreeApplication.CheckedColor = TC
         cmdDelete.ForeColor = TC

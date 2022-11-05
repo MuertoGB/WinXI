@@ -8,7 +8,7 @@ Imports WinXI.Core
 Imports WinXI.Core.Cryptography
 Imports WinXI.Core.System
 
-Imports WinXI.Main.Support
+Imports WinXI.Startup.Support
 
 Public Class FormException
 
@@ -30,7 +30,7 @@ Public Class FormException
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, tlpTitleIcon.MouseMove, lblTitle.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -53,14 +53,14 @@ Public Class FormException
 #Region "Theme"
     Private Sub SetExceptionThemeAccent()
 
-        Dim TC As Color = Settings.clrSetThemeColour
+        Dim TC As Color = Settings.clrThemeColour
 
-        PanSplit.BackColor = TC
+        pnlSplit.BackColor = TC
 
-        For Each Ctrl As Control In TlpButtons.Controls
+        For Each Ctrl As Control In tlpButtons.Controls
             If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = TC
         Next
-        For Each Ctrl As Control In PanLinks.Controls
+        For Each Ctrl As Control In pnlLinks.Controls
             If TypeOf Ctrl Is LinkLabel Then DirectCast(Ctrl, LinkLabel).LinkColor = TC
         Next
 
@@ -74,8 +74,8 @@ Public Class FormException
 
     Private Sub FormException_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        LabError.Text = ApplicationSupport.strException
-        LabHead.Text = "Generating report, please wait..."
+        lblErrorMessage.Text = ApplicationSupport.strException
+        lblTitle.Text = "Generating report, please wait..."
         Dim T As New Thread(AddressOf LoadData) With {
             .IsBackground = True
         }
@@ -93,14 +93,14 @@ Public Class FormException
 #End Region
 #Region "Button Event Handlers"
 
-    Private Sub CmdContinue_Click(sender As Object, e As EventArgs) Handles CmdContinue.Click
+    Private Sub CmdContinue_Click(sender As Object, e As EventArgs) Handles cmdContinue.Click
         Close()
     End Sub
-    Private Sub CmdForceQuit_Click(sender As Object, e As EventArgs) Handles CmdForceQuit.Click
+    Private Sub CmdForceQuit_Click(sender As Object, e As EventArgs) Handles cmdForceQuit.Click
         Environment.Exit(0)
     End Sub
 
-    Private Sub CmdSaveLog_Click(sender As Object, e As EventArgs) Handles CmdSaveLog.Click
+    Private Sub CmdSaveLog_Click(sender As Object, e As EventArgs) Handles cmdSaveLog.Click
 
         Dim Sfd As New SaveFileDialog With {
             .FileName = "Error-Report.txt",
@@ -118,12 +118,12 @@ Public Class FormException
 #End Region
 #Region "LinkLabel Event Handlers"
 
-    Private Sub LnkEmail_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkEmail.LinkClicked
+    Private Sub LnkEmail_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkEmail.LinkClicked
         Process.Start("mailto:qbug@tuta.io?subject=" & "WinXI Unhandled Exception report" & "&body=" &
                       "Please include a brief description of what happened. Emails are deleted after they have been read and reports are retained until the issue has been fixed.")
     End Sub
 
-    Private Sub LnkForum_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkForum.LinkClicked
+    Private Sub LnkForum_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkOpenIssue.LinkClicked
         Process.Start(Strings.strIssueUrl)
     End Sub
 
@@ -214,18 +214,18 @@ Public Class FormException
             Invoke(New DataDelegate(AddressOf InvokeData), GenerateSystemData)
         Else
             strSystemData = GenerateSystemData()
-            CmdContinue.Enabled = True
-            CmdSaveLog.Enabled = True
-            LabHead.Text = "Exception Handler"
+            cmdContinue.Enabled = True
+            cmdSaveLog.Enabled = True
+            lblTitle.Text = "Exception Handler"
         End If
     End Sub
 
     Private Delegate Sub DataDelegate(Data As String)
     Private Sub InvokeData(Data As String)
         strSystemData = Data
-        CmdContinue.Enabled = True
-        CmdSaveLog.Enabled = True
-        LabHead.Text = "Exception Handler"
+        cmdContinue.Enabled = True
+        cmdSaveLog.Enabled = True
+        lblTitle.Text = "Exception Handler"
     End Sub
 
 #End Region

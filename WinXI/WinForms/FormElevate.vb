@@ -13,7 +13,7 @@ Public Class FormElevate
 
         SetEnvironmentThemeAccent()
 
-        PanHead.BackgroundImage = Settings.imgHeaderGraphic
+        pnlTitle.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -21,7 +21,7 @@ Public Class FormElevate
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, tlpTitleIcon.MouseMove, lblTitle.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -44,9 +44,9 @@ Public Class FormElevate
 #Region "Theme"
     Private Sub SetEnvironmentThemeAccent()
 
-        Dim TC As Color = Settings.clrSetThemeColour
+        Dim TC As Color = Settings.clrThemeColour
 
-        PanSplit.BackColor = TC
+        pnlSplit.BackColor = TC
         cmdDecline.ForeColor = TC
         cmdElevate.ForeColor = TC
 

@@ -210,16 +210,10 @@
     <Compile Include="WinForms\FormAbout.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForms\FormTextDialog.Designer.vb">
-      <DependentUpon>FormTextDialog.vb</DependentUpon>
+    <Compile Include="WinForms\FormScoreData.Designer.vb">
+      <DependentUpon>FormScoreData.vb</DependentUpon>
     </Compile>
-    <Compile Include="WinForms\FormTextDialog.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WinForms\FormMetrics.Designer.vb">
-      <DependentUpon>FormMetrics.vb</DependentUpon>
-    </Compile>
-    <Compile Include="WinForms\FormMetrics.vb">
+    <Compile Include="WinForms\FormScoreData.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WinForms\FormSystem.Designer.vb">
@@ -299,17 +293,14 @@
     <EmbeddedResource Include="WinForms\FormElevate.resx">
       <DependentUpon>FormElevate.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\FormTextDialog.resx">
-      <DependentUpon>FormTextDialog.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WinForms\FormException.resx">
       <DependentUpon>FormException.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\FormHotfix.resx">
       <DependentUpon>FormHotfix.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\FormMetrics.resx">
-      <DependentUpon>FormMetrics.vb</DependentUpon>
+    <EmbeddedResource Include="WinForms\FormScoreData.resx">
+      <DependentUpon>FormScoreData.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\FormSystem.resx">
       <DependentUpon>FormSystem.vb</DependentUpon>
@@ -339,6 +330,7 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
+    <None Include="Resources\Compatibility.ini" />
     <None Include="Signature\08032021.pfx" />
     <None Include="app.config">
       <SubType>Designer</SubType>

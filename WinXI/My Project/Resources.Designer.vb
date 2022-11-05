@@ -61,19 +61,20 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang2057\deflangfe2057{\fonttbl{\f0\fswiss\fprq2\fcharset0 Calibri;}}
-        '''{\colortbl ;\red91\green155\blue213;\red255\green255\blue255;\red247\green150\blue70;\red237\green125\blue49;}
-        '''{\*\generator Riched20 10.0.22621}{\*\mmathPr\mdispDef1\mwrapIndent1440 }\viewkind4\uc1 
-        '''\pard\nowidctlpar\hyphpar0\cf1\kerning1\b\f0\fs24\lang9 Version 2.2.0 (1JB12)\par
-        '''\cf2\b0\i\fs22 Release date not set\par
-        '''\i0\par
-        '''\b New:\par
-        '''\b0  \&apos;b7 New title bar graphic\par
-        ''' \&apos;b7 Added  [rest of string was truncated]&quot;;.
+        '''  Looks up a localized string similar to [de-DE] ;German
+        '''MediaFound=&quot;Wird ausgeführt: Media Foundation-Wiedergabebewertung&quot;
+        '''MediaExtend=&quot;Wird ausgeführt: Erweiterte Medienbewertung&quot;
+        '''MediaEncode=&quot;Wird ausgeführt: Bewertung der Mediendecodierung/-codierung&quot;
+        '''Memory=&quot;Wird ausgeführt: Bewertung der Systemspeiche&quot; ;Systemspeiche aus Kompatibilitätsgründen.
+        '''Storage=&quot;Wird ausgeführt: Speicherbewertung&quot;
+        '''
+        '''[es-ES] ;Spanish
+        '''MediaFound=&quot;En ejecución: Evaluación de reproducción de Media Foundation&quot;
+        '''MediaExtend=&quot;En ejecución: Evaluación multimedia exten [rest of string was truncated]&quot;;.
         '''</summary>
-        Friend ReadOnly Property CHANGELOG() As String
+        Friend ReadOnly Property Compatibility() As String
             Get
-                Return ResourceManager.GetString("CHANGELOG", resourceCulture)
+                Return ResourceManager.GetString("Compatibility", resourceCulture)
             End Get
         End Property
         
@@ -158,28 +159,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to                     GNU GENERAL PUBLIC LICENSE
-        '''                       Version 3, 29 June 2007
-        '''
-        ''' Copyright (C) 2007 Free Software Foundation, Inc. &lt;https://fsf.org/&gt;
-        ''' Everyone is permitted to copy and distribute verbatim copies
-        ''' of this license document, but changing it is not allowed.
-        '''
-        '''                            Preamble
-        '''
-        '''  The GNU General Public License is a free, copyleft license for
-        '''software and other kinds of works.
-        '''
-        '''  The licenses for most software and other practical works are designed
-        '''t [rest of string was truncated]&quot;;.
-        '''</summary>
-        Friend ReadOnly Property LICENSE() As String
-            Get
-                Return ResourceManager.GetString("LICENSE", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized resource of type System.Byte[].
         '''</summary>
         Friend ReadOnly Property segmdl2() As Byte()
@@ -221,32 +200,23 @@ Namespace My.Resources
         
         '''<summary>
         '''  Looks up a localized string similar to [Settings]
-        '''ShowHardwareOnStartup=&quot;false&quot;
-        '''UseApiHardwareMode=&quot;false&quot;
-        '''UseVerboseAssessmentMode=&quot;false&quot;
-        '''ThemeColour=&quot;0&quot;
-        '''ApplyThemeColorToBorder=&quot;false&quot;
-        '''HeaderGraphic=&quot;0&quot;
-        '''UseCustomImgurApiKey=&quot;false&quot;
+        '''ShowHardwareOnStartup=false
+        '''UseApiHardwareMode=false
+        '''UseVerboseAssessmentMode=false
+        '''ThemeColour=0
+        '''ApplyThemeColorToBorder=false
+        '''UseCustomImgurApiKey=false
         '''CustomImgurApiKeyString=&quot;&quot;
         '''
         '''[Overrides]
-        '''AllowWindowsServer=&quot;false&quot;
-        '''ManualUpdateCheck=&quot;false&quot;.
+        '''UpdateAutoCheck=false
+        '''
+        '''[States]
+        '''ResetState=0.
         '''</summary>
         Friend ReadOnly Property Settings() As String
             Get
                 Return ResourceManager.GetString("Settings", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to {\rtf1\adeflang1025\ansi\ansicpg1252\uc1\adeff37\deff0\stshfdbch31505\stshfloch31506\stshfhich31506\stshfbi0\deflang2057\deflangfe2057\themelang2057\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f34\fbidi \froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria Math;}
-        '''{\f37\fbidi \fswiss\fcharset0\fprq2{\*\panose 020f0502020204030204}Calibri;}{\f43\fbidi \froman\fcharset0\fprq2{\*\panose 00000000000000000000}Liberation Serif{\*\ [rest of string was truncated]&quot;;.
-        '''</summary>
-        Friend ReadOnly Property troubleshooting() As String
-            Get
-                Return ResourceManager.GetString("troubleshooting", resourceCulture)
             End Get
         End Property
         

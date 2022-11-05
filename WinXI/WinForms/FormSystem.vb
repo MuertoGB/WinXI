@@ -104,7 +104,7 @@ Public Class FormSystem
 
     Private Sub SetCleanupThemeAccent()
 
-        pnlSplit.BackColor = Settings.clrSetThemeColour
+        pnlSplit.BackColor = Settings.clrThemeColour
         Settings.SetBorderColor(Me)
 
     End Sub

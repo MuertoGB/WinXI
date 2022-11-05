@@ -11,7 +11,7 @@ Imports WinXI.Core.System
 
 Imports WinXI.WinsatAPI
 
-Namespace Winsat
+Namespace WinSAT
 
     Friend Class WinsatReader
 
@@ -127,7 +127,7 @@ Namespace Winsat
                         Strings.strDiskScore = "..."
                     End Try
 
-                    If Settings.UseApiHardwareMode = True Then
+                    If Settings.bUseApiHardwareMode = True Then
                         ReadAPIHardware()
                     Else
                         ReadXMLHardware()
@@ -176,7 +176,7 @@ Namespace Winsat
 
         Private Shared Function XMLGetMemoryType() As String
 
-            Dim Str As String = memorytype.ConvertToMemoryType(GetWinsatXMLInfo("WinSAT/SystemConfig/Memory/DIMM", "MemoryType"))
+            Dim Str As String = MemoryType.ConvertToMemoryType(GetWinsatXMLInfo("WinSAT/SystemConfig/Memory/DIMM", "MemoryType"))
             If Str.Length = 0 Then
                 Return "Unknown Memory"
             Else
@@ -234,7 +234,7 @@ Namespace Winsat
 
         Friend Shared Sub ReadAPIHardware()
 
-            If Not WinsatApi.GetAssessmentValidityInt() = 3 Then 'Block attempts to load hardware on unrated systems
+            If Not WinsatAPI.GetAssessmentValidityInt() = 3 Then 'Block attempts to load hardware on unrated systems
                 Strings.strProcessorHardware = APIGetProcessor()
                 Strings.strMemoryHardware = APIGetMemorySize()
                 Strings.strGraphicsHardware = APIGetGraphicsName()

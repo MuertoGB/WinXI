@@ -24,7 +24,7 @@ Friend Class WinsatState
 
     Friend Shared Function GenerateRunStateText() As String
 
-        Select Case WinsatApi.GetAssessmentValidityInt
+        Select Case WinsatAPI.GetAssessmentValidityInt
             Case 0
                 Return "Run Assessment"
             Case 1
@@ -42,6 +42,8 @@ Friend Class WinsatState
     End Function
 
 End Class
+
+
 
 
 

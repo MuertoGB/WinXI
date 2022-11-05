@@ -25,20 +25,20 @@ Partial Class FormElevate
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormElevate))
         Me.lblMessage = New System.Windows.Forms.Label()
         Me.cmdElevate = New System.Windows.Forms.Button()
-        Me.PanHead = New System.Windows.Forms.Panel()
-        Me.LabHead = New System.Windows.Forms.Label()
-        Me.TlpPlaceholder = New System.Windows.Forms.TableLayoutPanel()
-        Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
+        Me.pnlTitle = New System.Windows.Forms.Panel()
+        Me.lblTitle = New System.Windows.Forms.Label()
+        Me.tlpTitleIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.icnMain = New System.Windows.Forms.PictureBox()
-        Me.PanMain = New System.Windows.Forms.Panel()
-        Me.PanSplit = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.pnlMain = New System.Windows.Forms.Panel()
+        Me.pnlSplit = New System.Windows.Forms.Panel()
+        Me.tlpControls = New System.Windows.Forms.TableLayoutPanel()
         Me.cmdDecline = New System.Windows.Forms.Button()
-        Me.PanHead.SuspendLayout()
-        Me.TlpHeadImage.SuspendLayout()
+        Me.tlpCloseButton = New System.Windows.Forms.TableLayoutPanel()
+        Me.pnlTitle.SuspendLayout()
+        Me.tlpTitleIcon.SuspendLayout()
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanMain.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.pnlMain.SuspendLayout()
+        Me.tlpControls.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblMessage
@@ -76,61 +76,47 @@ Partial Class FormElevate
         Me.cmdElevate.Text = "ELEVATE"
         Me.cmdElevate.UseVisualStyleBackColor = False
         '
-        'PanHead
+        'pnlTitle
         '
-        Me.PanHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.PanHead.Controls.Add(Me.LabHead)
-        Me.PanHead.Controls.Add(Me.TlpPlaceholder)
-        Me.PanHead.Controls.Add(Me.TlpHeadImage)
-        Me.PanHead.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanHead.Location = New System.Drawing.Point(0, 0)
-        Me.PanHead.Margin = New System.Windows.Forms.Padding(4)
-        Me.PanHead.Name = "PanHead"
-        Me.PanHead.Size = New System.Drawing.Size(428, 40)
-        Me.PanHead.TabIndex = 8
+        Me.pnlTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.pnlTitle.Controls.Add(Me.lblTitle)
+        Me.pnlTitle.Controls.Add(Me.tlpCloseButton)
+        Me.pnlTitle.Controls.Add(Me.tlpTitleIcon)
+        Me.pnlTitle.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlTitle.Location = New System.Drawing.Point(0, 0)
+        Me.pnlTitle.Margin = New System.Windows.Forms.Padding(4)
+        Me.pnlTitle.Name = "pnlTitle"
+        Me.pnlTitle.Size = New System.Drawing.Size(428, 40)
+        Me.pnlTitle.TabIndex = 8
         '
-        'LabHead
+        'lblTitle
         '
-        Me.LabHead.BackColor = System.Drawing.Color.Transparent
-        Me.LabHead.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabHead.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabHead.ForeColor = System.Drawing.Color.White
-        Me.LabHead.Location = New System.Drawing.Point(40, 0)
-        Me.LabHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LabHead.Name = "LabHead"
-        Me.LabHead.Size = New System.Drawing.Size(348, 40)
-        Me.LabHead.TabIndex = 1
-        Me.LabHead.Text = "Elevation Required"
-        Me.LabHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
+        Me.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.White
+        Me.lblTitle.Location = New System.Drawing.Point(40, 0)
+        Me.lblTitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(348, 40)
+        Me.lblTitle.TabIndex = 1
+        Me.lblTitle.Text = "Elevation Required"
+        Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TlpPlaceholder
+        'tlpTitleIcon
         '
-        Me.TlpPlaceholder.BackColor = System.Drawing.Color.Transparent
-        Me.TlpPlaceholder.ColumnCount = 1
-        Me.TlpPlaceholder.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TlpPlaceholder.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TlpPlaceholder.Location = New System.Drawing.Point(388, 0)
-        Me.TlpPlaceholder.Margin = New System.Windows.Forms.Padding(2)
-        Me.TlpPlaceholder.Name = "TlpPlaceholder"
-        Me.TlpPlaceholder.RowCount = 1
-        Me.TlpPlaceholder.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TlpPlaceholder.Size = New System.Drawing.Size(40, 40)
-        Me.TlpPlaceholder.TabIndex = 11
-        '
-        'TlpHeadImage
-        '
-        Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
-        Me.TlpHeadImage.ColumnCount = 1
-        Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
-        Me.TlpHeadImage.Controls.Add(Me.icnMain, 0, 0)
-        Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
-        Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
-        Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
-        Me.TlpHeadImage.Name = "TlpHeadImage"
-        Me.TlpHeadImage.RowCount = 1
-        Me.TlpHeadImage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpHeadImage.Size = New System.Drawing.Size(40, 40)
-        Me.TlpHeadImage.TabIndex = 10
+        Me.tlpTitleIcon.BackColor = System.Drawing.Color.Transparent
+        Me.tlpTitleIcon.ColumnCount = 1
+        Me.tlpTitleIcon.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.tlpTitleIcon.Controls.Add(Me.icnMain, 0, 0)
+        Me.tlpTitleIcon.Dock = System.Windows.Forms.DockStyle.Left
+        Me.tlpTitleIcon.Location = New System.Drawing.Point(0, 0)
+        Me.tlpTitleIcon.Margin = New System.Windows.Forms.Padding(0)
+        Me.tlpTitleIcon.Name = "tlpTitleIcon"
+        Me.tlpTitleIcon.RowCount = 1
+        Me.tlpTitleIcon.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpTitleIcon.Size = New System.Drawing.Size(40, 40)
+        Me.tlpTitleIcon.TabIndex = 10
         '
         'icnMain
         '
@@ -146,45 +132,45 @@ Partial Class FormElevate
         Me.icnMain.TabIndex = 1
         Me.icnMain.TabStop = False
         '
-        'PanMain
+        'pnlMain
         '
-        Me.PanMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.PanMain.Controls.Add(Me.lblMessage)
-        Me.PanMain.Controls.Add(Me.PanSplit)
-        Me.PanMain.Controls.Add(Me.PanHead)
-        Me.PanMain.Controls.Add(Me.TableLayoutPanel1)
-        Me.PanMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanMain.Location = New System.Drawing.Point(1, 1)
-        Me.PanMain.Margin = New System.Windows.Forms.Padding(2)
-        Me.PanMain.Name = "PanMain"
-        Me.PanMain.Size = New System.Drawing.Size(428, 208)
-        Me.PanMain.TabIndex = 9
+        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.pnlMain.Controls.Add(Me.lblMessage)
+        Me.pnlMain.Controls.Add(Me.pnlSplit)
+        Me.pnlMain.Controls.Add(Me.pnlTitle)
+        Me.pnlMain.Controls.Add(Me.tlpControls)
+        Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlMain.Location = New System.Drawing.Point(1, 1)
+        Me.pnlMain.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlMain.Name = "pnlMain"
+        Me.pnlMain.Size = New System.Drawing.Size(428, 208)
+        Me.pnlMain.TabIndex = 9
         '
-        'PanSplit
+        'pnlSplit
         '
-        Me.PanSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.PanSplit.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanSplit.Location = New System.Drawing.Point(0, 40)
-        Me.PanSplit.Margin = New System.Windows.Forms.Padding(2)
-        Me.PanSplit.Name = "PanSplit"
-        Me.PanSplit.Size = New System.Drawing.Size(428, 2)
-        Me.PanSplit.TabIndex = 73
+        Me.pnlSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.pnlSplit.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlSplit.Location = New System.Drawing.Point(0, 40)
+        Me.pnlSplit.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlSplit.Name = "pnlSplit"
+        Me.pnlSplit.Size = New System.Drawing.Size(428, 2)
+        Me.pnlSplit.TabIndex = 73
         '
-        'TableLayoutPanel1
+        'tlpControls
         '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.86916!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.13084!))
-        Me.TableLayoutPanel1.Controls.Add(Me.cmdElevate, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.cmdDecline, 0, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 157)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(2)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(428, 51)
-        Me.TableLayoutPanel1.TabIndex = 74
+        Me.tlpControls.ColumnCount = 2
+        Me.tlpControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.86916!))
+        Me.tlpControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.13084!))
+        Me.tlpControls.Controls.Add(Me.cmdElevate, 1, 0)
+        Me.tlpControls.Controls.Add(Me.cmdDecline, 0, 0)
+        Me.tlpControls.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.tlpControls.Location = New System.Drawing.Point(0, 157)
+        Me.tlpControls.Margin = New System.Windows.Forms.Padding(2)
+        Me.tlpControls.Name = "tlpControls"
+        Me.tlpControls.RowCount = 1
+        Me.tlpControls.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpControls.Size = New System.Drawing.Size(428, 51)
+        Me.tlpControls.TabIndex = 74
         '
         'cmdDecline
         '
@@ -207,6 +193,20 @@ Partial Class FormElevate
         Me.cmdDecline.Text = "DECLINE"
         Me.cmdDecline.UseVisualStyleBackColor = False
         '
+        'tlpCloseButton
+        '
+        Me.tlpCloseButton.BackColor = System.Drawing.Color.Transparent
+        Me.tlpCloseButton.ColumnCount = 1
+        Me.tlpCloseButton.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpCloseButton.Dock = System.Windows.Forms.DockStyle.Right
+        Me.tlpCloseButton.Location = New System.Drawing.Point(388, 0)
+        Me.tlpCloseButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.tlpCloseButton.Name = "tlpCloseButton"
+        Me.tlpCloseButton.RowCount = 1
+        Me.tlpCloseButton.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpCloseButton.Size = New System.Drawing.Size(40, 40)
+        Me.tlpCloseButton.TabIndex = 11
+        '
         'FormElevate
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -215,7 +215,7 @@ Partial Class FormElevate
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(430, 210)
-        Me.Controls.Add(Me.PanMain)
+        Me.Controls.Add(Me.pnlMain)
         Me.Font = New System.Drawing.Font("Segoe UI", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -227,24 +227,24 @@ Partial Class FormElevate
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Elevate"
-        Me.PanHead.ResumeLayout(False)
-        Me.TlpHeadImage.ResumeLayout(False)
+        Me.pnlTitle.ResumeLayout(False)
+        Me.tlpTitleIcon.ResumeLayout(False)
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanMain.ResumeLayout(False)
-        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.pnlMain.ResumeLayout(False)
+        Me.tlpControls.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents lblMessage As Label
     Friend WithEvents cmdElevate As Button
-    Friend WithEvents PanHead As Panel
-    Friend WithEvents LabHead As Label
-    Friend WithEvents TlpPlaceholder As TableLayoutPanel
-    Friend WithEvents TlpHeadImage As TableLayoutPanel
+    Friend WithEvents pnlTitle As Panel
+    Friend WithEvents lblTitle As Label
+    Friend WithEvents tlpTitleIcon As TableLayoutPanel
     Friend WithEvents icnMain As PictureBox
-    Friend WithEvents PanMain As Panel
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents PanSplit As Panel
+    Friend WithEvents pnlMain As Panel
+    Friend WithEvents tlpControls As TableLayoutPanel
+    Friend WithEvents pnlSplit As Panel
     Friend WithEvents cmdDecline As Button
+    Friend WithEvents tlpCloseButton As TableLayoutPanel
 End Class

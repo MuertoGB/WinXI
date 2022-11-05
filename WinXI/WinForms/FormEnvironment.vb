@@ -15,7 +15,7 @@ Public Class FormEnvironment
 
         SetEnvironmentThemeAccent()
 
-        PanHead.BackgroundImage = Settings.imgHeaderGraphic
+        pnlTitle.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -23,7 +23,7 @@ Public Class FormEnvironment
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, tlpTitleIcon.MouseMove, lblTitle.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -46,10 +46,10 @@ Public Class FormEnvironment
 #Region "Theme"
     Private Sub SetEnvironmentThemeAccent()
 
-        Dim TC As Color = Settings.clrSetThemeColour
+        Dim TC As Color = Settings.clrThemeColour
 
-        PanSplit.BackColor = TC
-        CmdOkay.ForeColor = TC
+        pnlSplit.BackColor = TC
+        cmdOkay.ForeColor = TC
         lnkIssue.LinkColor = TC
 
         Settings.SetBorderColor(Me)
@@ -69,7 +69,7 @@ Public Class FormEnvironment
 
 #Region "Button Event Handlers"
 
-    Private Sub CmdOkay_Click(sender As Object, e As EventArgs) Handles CmdOkay.Click
+    Private Sub CmdOkay_Click(sender As Object, e As EventArgs) Handles cmdOkay.Click
         Close()
     End Sub
 

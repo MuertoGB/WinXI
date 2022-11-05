@@ -11,7 +11,7 @@ Public Class FormAcknowledgements
 
         SetAcknThemeAccent()
 
-        PanHead.BackgroundImage = Settings.imgHeaderGraphic
+        pnlTitle.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -19,7 +19,7 @@ Public Class FormAcknowledgements
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, tlpTitleIcon.MouseMove, lblTitle.MouseMove
         If e.Button = MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
             WndProc(Message.Create(Handle, Integers.WM_NCLBUTTONDOWN, CType(Integers.HT_CAPTION, IntPtr), IntPtr.Zero))
@@ -38,7 +38,7 @@ Public Class FormAcknowledgements
 #End Region
 #Region "Frame Buttons"
 
-    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
         Close()
     End Sub
 
@@ -48,15 +48,15 @@ Public Class FormAcknowledgements
 
     Private Sub SetAcknThemeAccent()
 
-        Dim TC As Color = Settings.clrSetThemeColour
+        Dim TC As Color = Settings.clrThemeColour
 
-        PanSplit.BackColor = TC
+        pnlSplit.BackColor = TC
 
-        For Each Ctrl As Control In TlpTop.Controls
+        For Each Ctrl As Control In tlpForm.Controls
             If TypeOf Ctrl Is LinkLabel Then DirectCast(Ctrl, LinkLabel).LinkColor = TC
         Next
 
-        For Each Ctrl As Control In TlpImgLinks.Controls
+        For Each Ctrl As Control In tlpImgLinks.Controls
             If TypeOf Ctrl Is LinkLabel Then DirectCast(Ctrl, LinkLabel).LinkColor = TC
         Next
 
@@ -93,26 +93,26 @@ Public Class FormAcknowledgements
 #End Region
 #Region "Links, top"
 
-    Private Sub LnkMicrosoft_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkMicrosoft.LinkClicked
+    Private Sub LnkMicrosoft_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkMicrosoft.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
-    Private Sub LnkCredits_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkCredits.LinkClicked
+    Private Sub LnkCredits_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkCredits.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
 
 #End Region
 #Region "Links, bottom"
 
-    Private Sub LnkGraph_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkGraph.LinkClicked
+    Private Sub LnkGraph_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkGraph.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
-    Private Sub LnkIcon_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkIcon.LinkClicked
+    Private Sub LnkIcon_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkIcon.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
-    Private Sub LnkWarn_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkWarn.LinkClicked
+    Private Sub LnkWarn_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkWarn.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
-    Private Sub LnkError_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkError.LinkClicked
+    Private Sub LnkError_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkError.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
 
@@ -120,34 +120,34 @@ Public Class FormAcknowledgements
 
 #Region "Link Formatting"
     Private Sub FormatMicrosoftLink()
-        LnkMicrosoft.Links.Clear()
-        LnkMicrosoft.Links.Add(106, 21, "https://www.microsoft.com")
+        lnkMicrosoft.Links.Clear()
+        lnkMicrosoft.Links.Add(106, 21, "https://www.microsoft.com")
     End Sub
     Private Sub FormatCreditsLink()
-        LnkCredits.Links.Clear()
-        LnkCredits.Links.Add(88, 13, "https://forums.mydigitallife.net/")
-        LnkCredits.Links.Add(136, 10, "https://www.majorgeeks.com/")
-        LnkCredits.Links.Add(151, 9, "https://www.softpedia.com/")
+        lnkCredits.Links.Clear()
+        lnkCredits.Links.Add(88, 13, "https://forums.mydigitallife.net/")
+        lnkCredits.Links.Add(136, 10, "https://www.majorgeeks.com/")
+        lnkCredits.Links.Add(151, 9, "https://www.softpedia.com/")
     End Sub
     Private Sub FormatGraphLink()
-        LnkGraph.Links.Clear()
-        LnkGraph.Links.Add(14, 14, "https://www.flaticon.com/free-icon/bar-chart_235172").Enabled = True
-        LnkGraph.Links.Add(34, 8, "https://www.flaticon.com").Enabled = True
+        lnkGraph.Links.Clear()
+        lnkGraph.Links.Add(14, 14, "https://www.flaticon.com/free-icon/bar-chart_235172").Enabled = True
+        lnkGraph.Links.Add(34, 8, "https://www.flaticon.com").Enabled = True
     End Sub
     Private Sub FormatIconLink()
-        LnkIcon.Links.Clear()
-        LnkIcon.Links.Add(20, 7, "https://www.flaticon.com/free-icon/info-button_64494")
-        LnkIcon.Links.Add(33, 8, "https://www.flaticon.com")
+        lnkIcon.Links.Clear()
+        lnkIcon.Links.Add(20, 7, "https://www.flaticon.com/free-icon/info-button_64494")
+        lnkIcon.Links.Add(33, 8, "https://www.flaticon.com")
     End Sub
     Private Sub FormatWarnLink()
-        LnkWarn.Links.Clear()
-        LnkWarn.Links.Add(16, 7, "https://www.flaticon.com/free-icon/danger_272289")
-        LnkWarn.Links.Add(29, 8, "https://www.flaticon.com")
+        lnkWarn.Links.Clear()
+        lnkWarn.Links.Add(16, 7, "https://www.flaticon.com/free-icon/danger_272289")
+        lnkWarn.Links.Add(29, 8, "https://www.flaticon.com")
     End Sub
     Private Sub FormatErrorLink()
-        LnkError.Links.Clear()
-        LnkError.Links.Add(14, 10, "https://www.flaticon.com/free-icon/error_149690")
-        LnkError.Links.Add(30, 8, "https://www.flaticon.com")
+        lnkError.Links.Clear()
+        lnkError.Links.Add(14, 10, "https://www.flaticon.com/free-icon/error_149690")
+        lnkError.Links.Add(30, 8, "https://www.flaticon.com")
     End Sub
 
 #End Region

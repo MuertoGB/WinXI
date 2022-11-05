@@ -59,10 +59,13 @@ Public Class FormUpdate
 
     Private Sub FormUpdate_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        If Not Settings.UpdateAutoCheck Then 'we need to check for an update
-            If UpdateCheck.IsNewVersionAvailable() Then
-                Booleans.bMissingUpdate = True
+        If Not UpdateCheck.bHasCheckedThisSession Then
+            If Not Settings.bAutoUpdateCheck Then 'we need to check for an update
+                If UpdateCheck.IsNewVersionAvailable() Then
+                    Booleans.bMissingUpdate = True
+                End If
             End If
+            UpdateCheck.bHasCheckedThisSession = True
         End If
 
         Invoke(DirectCast(Sub() OnFinishedInvokeUI(), MethodInvoker))
@@ -90,7 +93,7 @@ Public Class FormUpdate
 
     Private Sub SetThemeAccent()
 
-        Dim TC As Color = Settings.clrSetThemeColour
+        Dim TC As Color = Settings.clrThemeColour
 
         PanSplit.BackColor = TC
         LnkChangelog.LinkColor = TC

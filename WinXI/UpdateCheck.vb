@@ -14,40 +14,36 @@ Friend Class UpdateCheck
     Friend Shared strLocalBuild As String = ""
     Friend Shared strRemoteBuild As String = ""
     Friend Shared strReleaseDate As String = ""
+    Friend Shared bHasCheckedThisSession As Boolean = False
 
     Friend Shared Function IsNewVersionAvailable() As Boolean
 
         Try
-            If Network.IsWebsiteAvailable(Strings.strHomeUrl) Then
 
-                ServicePointManager.SecurityProtocol = CType(3072, SecurityProtocolType)
+            ServicePointManager.SecurityProtocol = CType(3072, SecurityProtocolType)
 
-                'Pull down xml file
-                xmlDoc.Load(Strings.strServerVersionUrl)
+            'Pull down xml file
+            xmlDoc.Load(Strings.strServerVersionUrl)
 
-                'Remote
-                Dim xmlNode As XmlNode = xmlDoc.SelectSingleNode("data/WinXI")
-                strRemoteBuild = CStr(xmlNode("VersionString").InnerText)
+            'Remote
+            Dim xmlNode As XmlNode = xmlDoc.SelectSingleNode("data/WinXI")
+            strRemoteBuild = CStr(xmlNode("VersionString").InnerText)
 
-                'May as well be lazy and load the release date from XML now.
-                strReleaseDate = xmlNode("ReleaseDate").InnerText
+            'May as well be lazy and load the release date from XML now.
+            strReleaseDate = xmlNode("ReleaseDate").InnerText
 
-                'Local
-                Dim VersionInfo As FileVersionInfo = FileVersionInfo.GetVersionInfo(FileOps.GetApplicationImage)
-                strLocalBuild = VersionInfo.FileVersion.ToString
+            'Local
+            Dim VersionInfo As FileVersionInfo = FileVersionInfo.GetVersionInfo(FileOps.GetApplicationImage)
+            strLocalBuild = VersionInfo.FileVersion.ToString
 
-                'MessageBox.Show(strRemoteBuild & vbCrLf & strLocalBuild)
+            'MessageBox.Show(strRemoteBuild & vbCrLf & strLocalBuild)
 
-                If strRemoteBuild > strLocalBuild Then
-                    Return True 'Version is outdated
-                Else
-                    If strRemoteBuild <= strLocalBuild Then
-                        Return False 'Version is current
-                    End If
-                End If
+            If strRemoteBuild > strLocalBuild Then
+                Return True 'Version is outdated
             Else
-                'Website or network unavailable
-                Return False
+                If strRemoteBuild <= strLocalBuild Then
+                    Return False 'Version is current
+                End If
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)

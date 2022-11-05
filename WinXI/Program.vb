@@ -11,11 +11,13 @@
 '   01.11.2022 - DR - Impliment elevation changes, omit windows server changes, add capability check for WinSAT
 '   01.11.2022 - DR - Move RestartElevated() to Elevation.vb, update variable
 '   02.11.2022 - DR - Edited Main() load order, supress naming violations globally
+'   03.11.2022 - DR - Move to BETA channel, removed single use variable
 
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports System.Runtime.CompilerServices
 
-Imports WinXI.Main.Support
+Imports WinXI.Startup.Support
+
 Imports WinXI.Core
 Imports WinXI.Core.Common
 Imports WinXI.Core.System
@@ -24,9 +26,8 @@ Friend Class Program
     Inherits Signing
 
     'Stuff to fill before release
-    Friend Shared ReadOnly Version As String = Application.ProductVersion
-    Friend Const Build As String = "221011.220.058"
-    Friend Const Channel As String = "Alpha"
+    Friend Const Build As String = "221105.220.000"
+    Friend Const Channel As String = "BETA"
     Friend Const ReleaseDate As String = "Not set"
 
     'Main entry point
@@ -118,7 +119,7 @@ Friend Class Program
 #End Region
 
 End Class
-Namespace Main.Support
+Namespace Startup.Support
 
     Friend Class ApplicationSupport
         Inherits WindowsFormsApplicationBase

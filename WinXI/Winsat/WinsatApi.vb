@@ -24,10 +24,10 @@ Friend Class WinsatAPI
 
     Friend Shared Function GetAssessmentValidityInt() As Integer
 
-        Dim Query As New CQueryWinSAT()
+        Dim cQuery As New CQueryWinSAT()
 
         Try
-            Return Query.Info.AssessmentState
+            Return cQuery.Info.AssessmentState
         Catch ex As Exception
             MessageBox.Show(ex.Message, "WinsatApi.GetAssessmentValidityInt", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return 0
@@ -37,17 +37,17 @@ Friend Class WinsatAPI
 
     Friend Shared Function GetWinsatHardwareAPIInfo(WinType As WINSAT_ASSESSMENT_TYPE, InfType As INFO_TYPE) As String
 
-        Dim Query As New CQueryWinSAT()
-        Dim QueryInf As IProvideWinSATAssessmentInfo = Query.Info.GetAssessmentInfo(WinType)
+        Dim cQuery As New CQueryWinSAT()
+        Dim cQueryInf As IProvideWinSATAssessmentInfo = cQuery.Info.GetAssessmentInfo(WinType)
 
         Try
             Select Case InfType
                 Case INFO_TYPE.Description
-                    Return QueryInf.Description
+                    Return cQueryInf.Description
                 Case INFO_TYPE.Score
-                    Return CStr(QueryInf.Score)
+                    Return CStr(cQueryInf.Score)
                 Case INFO_TYPE.Title
-                    Return QueryInf.Title
+                    Return cQueryInf.Title
                 Case Else
                     Return Nothing
             End Select
@@ -60,10 +60,10 @@ Friend Class WinsatAPI
 
     Friend Shared Function GetWinsatBaseScore() As Single
 
-        Dim Query As New CQueryWinSAT()
+        Dim cQuery As New CQueryWinSAT()
 
         Try
-            Return Query.Info.SystemRating
+            Return cQuery.Info.SystemRating
         Catch ex As Exception
             MessageBox.Show(ex.Message, "WinsatApi.GetWinsatBaseScore", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return 0.0
@@ -73,10 +73,10 @@ Friend Class WinsatAPI
 
     Friend Shared Function GetWinsatLastUpdateDate() As Date
 
-        Dim Query As New CQueryWinSAT()
+        Dim cQuery As New CQueryWinSAT()
 
         Try
-            Return CDate(Query.Info.AssessmentDateTime)
+            Return CDate(cQuery.Info.AssessmentDateTime)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "WinsatApi.GetWinsatLastUpdateDate", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return Nothing
@@ -91,24 +91,24 @@ Friend Class WinsatAPI
         'VisualSize.Small returns the small image seen in Control Panel > All > System (Up to Windows 8)
         'VisualSize.Large returns the large image seen in the graph in Control Panel > All > Performance Information and Tools (Up to Windows 8)
 
-        Dim Query As New CQueryWinSAT()
-        Dim Buffer(3) As Byte
-        Dim GHC As GCHandle = GCHandle.Alloc(Buffer, GCHandleType.Pinned)
-        Dim Pointer As IntPtr = GHC.AddrOfPinnedObject()
+        Dim cQuery As New CQueryWinSAT()
+        Dim bBuffer(3) As Byte
+        Dim hdlGc As GCHandle = GCHandle.Alloc(bBuffer, GCHandleType.Pinned)
+        Dim Pointer As IntPtr = hdlGc.AddrOfPinnedObject()
         Dim queryVisual As New CProvideWinSATVisuals()
 
         Try
             If SizeMode = VISUAL_SIZE.Small Then
-                queryVisual.get_Bitmap(WINSAT_BITMAP_SIZE_SMALL, Query.Info.AssessmentState, Query.Info.SystemRating, Pointer)
+                queryVisual.get_Bitmap(WINSAT_BITMAP_SIZE_SMALL, cQuery.Info.AssessmentState, cQuery.Info.SystemRating, Pointer)
             Else
-                queryVisual.get_Bitmap(WINSAT_BITMAP_SIZE_NORMAL, Query.Info.AssessmentState, Query.Info.SystemRating, Pointer)
+                queryVisual.get_Bitmap(WINSAT_BITMAP_SIZE_NORMAL, cQuery.Info.AssessmentState, cQuery.Info.SystemRating, Pointer)
             End If
 
-            GHC.Free()
+            hdlGc.Free()
 
-            If BitConverter.ToInt32(Buffer, 0) <> 0 Then
-                Dim Bmp As Bitmap = Image.FromHbitmap(New IntPtr(BitConverter.ToInt32(Buffer, 0)))
-                Return Bmp
+            If BitConverter.ToInt32(bBuffer, 0) <> 0 Then
+                Dim imgBitmap As Bitmap = Image.FromHbitmap(New IntPtr(BitConverter.ToInt32(bBuffer, 0)))
+                Return imgBitmap
             Else
                 Return Nothing
             End If

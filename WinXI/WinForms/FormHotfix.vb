@@ -8,16 +8,16 @@ Imports WinXI.Core.System
 
 Public Class FormHotfix
 
-    Private ReadOnly StringTempPath As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp\Windows6.1-KB2687862.msu")
+    Private ReadOnly strTempPath As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp\Windows6.1-KB2687862.msu")
     Private ReadOnly FileHotfix86 As Byte() = My.Resources.Windows6_1_KB2687862_x86
     Private ReadOnly FileHotfix64 As Byte() = My.Resources.Windows6_1_KB2687862_x64
 
-    Private ExitCodeReturn As Integer = -1
+    Private intExitCode As Integer = -1
 
-    Private RestartWin As Boolean = False
-    Private InstallFailed As Boolean = False
+    Private bRestartWin As Boolean = False
+    Private bInstallFailed As Boolean = False
 
-#Region "Ctor"
+#Region "Constructor"
 
     Public Sub New()
 
@@ -26,8 +26,8 @@ Public Class FormHotfix
 
         SetHotfixThemeAccent()
 
-        PanHead.BackgroundImage = Settings.imgHeaderGraphic
-        PbxLoad.Image = My.Resources.ImgBusy24Px
+        pnlTitle.BackgroundImage = Settings.imgHeaderGraphic
+        pbxLoading.Image = My.Resources.ImgBusy24Px
 
     End Sub
 
@@ -35,7 +35,7 @@ Public Class FormHotfix
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, tlpTitleIcon.MouseMove, lblTitle.MouseMove
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
             WndProc(Message.Create(Handle, Integers.WM_NCLBUTTONDOWN, CType(Integers.HT_CAPTION, IntPtr), IntPtr.Zero))
@@ -54,7 +54,7 @@ Public Class FormHotfix
 #End Region
 #Region "Frame Buttons"
 
-    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
         Close()
     End Sub
 
@@ -64,13 +64,13 @@ Public Class FormHotfix
 
     Private Sub FormSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        PbxLoad.Hide()
+        pbxLoading.Hide()
 
         If WinSystem.IsWin7 Then
-            CmdInstall.Enabled = True
+            cmdInstall.Enabled = True
         Else
-            LabHead.Text = "Support (Disabled on this OS)"
-            CmdInstall.Enabled = False
+            lblTitle.Text &= " (Unsupported System)"
+            cmdInstall.Enabled = False
         End If
 
     End Sub
@@ -80,12 +80,12 @@ Public Class FormHotfix
 #Region "Theme"
     Private Sub SetHotfixThemeAccent()
 
-        Dim TC As Color = Settings.clrSetThemeColour
+        Dim TC As Color = Settings.clrThemeColour
 
-        PanSplit.BackColor = TC
-        LnkHotfix.LinkColor = TC
+        pnlSplit.BackColor = TC
+        lnkHotfix.LinkColor = TC
 
-        For Each Ctrl As Control In TlpButtons.Controls
+        For Each Ctrl As Control In tlpButtons.Controls
             If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = TC
         Next
 
@@ -97,49 +97,49 @@ Public Class FormHotfix
 
 #Region "Button Event Handlers"
 
-    Private Sub CmdInstall_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CmdInstall.Click
+    Private Sub CmdInstall_Click(ByVal sender As Object, ByVal e As EventArgs) Handles cmdInstall.Click
 
-        PbxLoad.Show()
+        pbxLoading.Show()
 
-        If RestartWin Then
+        If bRestartWin Then
             Process.Start("shutdown", "-r -t 00")
         Else
-            CmdInstall.Enabled = False
-            CmdClose.Enabled = False
-            CmdCancel.Enabled = False
+            cmdInstall.Enabled = False
+            cmdClose.Enabled = False
+            cmdCancel.Enabled = False
 
-            LabDownload.Text = "Saving hotfix to disk..."
+            lblDownload.Text = "Saving hotfix to disk..."
 
             'Determine bitness for appropriate hotfix and save it to disk
             If WinSystem.IsWindows64Bit() Then
-                File.WriteAllBytes(StringTempPath, FileHotfix64)
+                File.WriteAllBytes(strTempPath, FileHotfix64)
             Else
-                File.WriteAllBytes(StringTempPath, FileHotfix86)
+                File.WriteAllBytes(strTempPath, FileHotfix86)
             End If
 
-            If File.Exists(StringTempPath) Then
+            If File.Exists(strTempPath) Then
                 'Spawn task and install hotfix to the machine
-                LabDownload.Text = "Installing KB2687862..."
+                lblDownload.Text = "Installing KB2687862..."
                 Task.Factory.StartNew(Sub() InstallHotfix())
             Else
                 'File did not copy
                 'Set error, set failure and call finished as we have nothing to install
-                ExitCodeReturn = -1
-                InstallFailed = True
+                intExitCode = -1
+                bInstallFailed = True
                 OnInstallFinished()
             End If
         End If
 
     End Sub
 
-    Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click
+    Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
         Close()
     End Sub
 
 #End Region
 #Region "LinkLabel Event Handlers"
 
-    Private Sub LnkHotfix_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkHotfix.LinkClicked
+    Private Sub LnkHotfix_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkHotfix.LinkClicked
         Process.Start("https://support.microsoft.com/help/2687862")
     End Sub
 
@@ -159,40 +159,40 @@ Public Class FormHotfix
 
     Private Sub InstallHotfix()
 
-        ExitCodeReturn = FileOps.InstallMsu(StringTempPath)
+        intExitCode = FileOps.InstallMsu(strTempPath)
         Invoke(DirectCast(Sub() OnInstallFinished(), MethodInvoker))
 
     End Sub
 
     Private Sub OnInstallFinished()
 
-        PbxLoad.Hide()
+        pbxLoading.Hide()
 
-        If InstallFailed Then
-            RestartWin = False
-            InstallFailed = False
-            CmdCancel.Enabled = True
-            CmdClose.Enabled = True
-            CmdInstall.Enabled = True
-            CmdInstall.Text = "Retry"
-            LabDownload.Text = "Install failed (" & ExitCodeReturn & "), click 'Retry' to try again."
+        If bInstallFailed Then
+            bRestartWin = False
+            bInstallFailed = False
+            cmdCancel.Enabled = True
+            cmdClose.Enabled = True
+            cmdInstall.Enabled = True
+            cmdInstall.Text = "Retry"
+            lblDownload.Text = "Install failed (" & intExitCode & "), click 'Retry' to try again."
         Else
-            Select Case ExitCodeReturn
+            Select Case intExitCode
                 Case 0 To 1
-                    RestartWin = False
-                    LabDownload.Text = "Hotfixed installed successfully (" & ExitCodeReturn & ")"
-                    CmdClose.Enabled = True
-                    CmdCancel.Enabled = True
-                    CmdCancel.Text = "Close"
+                    bRestartWin = False
+                    lblDownload.Text = "Hotfixed installed successfully (" & intExitCode & ")"
+                    cmdClose.Enabled = True
+                    cmdCancel.Enabled = True
+                    cmdCancel.Text = "Close"
                     FormMain.HotfixWasInstalled() 'Notify main form to remove hotfix available from the menu and negate one from notification count
                 Case Else
-                    RestartWin = True
-                    LabDownload.Text = "Hotfixed installed. System restart required (" & ExitCodeReturn & ")"
-                    CmdClose.Enabled = True
-                    CmdCancel.Enabled = True
-                    CmdCancel.Text = "Ignore"
-                    CmdInstall.Enabled = True
-                    CmdInstall.Text = "Restart"
+                    bRestartWin = True
+                    lblDownload.Text = "Hotfixed installed. System restart required (" & intExitCode & ")"
+                    cmdClose.Enabled = True
+                    cmdCancel.Enabled = True
+                    cmdCancel.Text = "Ignore"
+                    cmdInstall.Enabled = True
+                    cmdInstall.Text = "Restart"
                     FormMain.HotfixWasInstalled() 'Notify main form to remove hotfix available from the menu and negate one from notification count
             End Select
         End If

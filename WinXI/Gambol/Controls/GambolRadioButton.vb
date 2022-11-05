@@ -83,7 +83,7 @@ Namespace Gambol.Controls
             End Set
         End Property
 
-        Private Checked_ As Color = Colors.Checked
+        Private Checked_ As Color = Colors.clrChecked
 
         <Description("Control checked color")>
         <Category("Appearance (Gambol)")>
@@ -132,7 +132,7 @@ Namespace Gambol.Controls
 
                 If Enabled Then
                     If MouseHovered AndAlso MousePressed Then
-                        SwitchBorder = Color.FromArgb(Colors.A, CheckedColor.R, CheckedColor.G, CheckedColor.B)
+                        SwitchBorder = Color.FromArgb(Colors.clrAlpha, CheckedColor.R, CheckedColor.G, CheckedColor.B)
                     ElseIf MouseHovered Then
                         SwitchBorder = BorderColorActive
                     Else
