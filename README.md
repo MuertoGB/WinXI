@@ -6,18 +6,18 @@ WinXI, formerly known as *Xiret*, is a simple and powerful tool designed to repl
 
 _Key features:-_
 - Clean, friendly and easy to use UI built for novice and expert users alike
-- View and generate Windows Experience Index scores with minimal effort
-- Built using the WInSAT API for high compatibility
-- Options to save scores as text or an image
-- Imgur API for super simple and immediate upload for sharing
-- Automatic power adapter detection
-- High DPI support
-- In-Depth assessment mode
-- Option to reset Winsat with one click
-- Portable with easily managed settings
-- Uncaught exception handling with log generation
-- Self monitoring for missing resources like fonts and patches
 - The 'Show Hardware' toggle instantly shows you which hardware was rated
+- View and generate Windows Experience Index scores with minimal effort
+- Imgur API for super simple and immediate upload for sharing
+- Built using the WInSAT API for high compatibility
+- In-Depth assessment mode
+- High DPI support
+- Self monitoring for missing resources like fonts and patches
+- Uncaught exception handling with log generation
+- Options to save scores as text or an image
+- Option to reset WinSAT with one click
+- Portable with easily managed settings
+- Automatic power adapter detection
 
 **System Requirements**
 ```
@@ -31,15 +31,11 @@ WinSAT is required.
 Internet connectivity is only necessary for automatic update checking.
 ```
 
-
 ---
+
 **Where did you go? Why WinXI?**
 -
-I took a long hiatus from software development. I will get this out of the way now, I'm no longer actively writing software, and solely focus on my repair business. I won't be releasing any more major versions of this application, only bug fixing. The only reason this is here is for those who keep asking after it, I'm happy you appreciate this software.
-
-This will be the home of WinXI, and all versioning files, etc, that were on my server will be here.
-
-As for a release deadline, there isn't one, just keep checking in, or watch this repo. Currently, I'm reverting partially applied code and systems I was getting ready for the next version, and catching up with Windows 11 fixes, etc. When code is somewhat ready it will be released to the dev branch, however will not be stable, and missing features.
+I took a long hiatus from software development to focus on other things. Let's get this out of the way now, I'm no longer actively focused on developing software, and solely focus on my repair business. There are no current plans for any more major versions of this application, only bug fixing. As for a release deadline, there isn't one, just keep checking in or watch this repo. Currently, I'm reverting code and systems that were partially ready from when it was in active development, and catching up with Windows 11 fixes, etc.
 
 And as for the new name, let's face it, Xiret was a shit name from the start.
 
