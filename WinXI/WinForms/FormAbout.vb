@@ -2,7 +2,7 @@
 
 Friend Class FormAbout
 
-#Region "Ctor"
+#Region "Constructor"
 
     Public Sub New()
 
@@ -95,9 +95,9 @@ Friend Class FormAbout
 
     Private Sub FormatLinks()
 
-        Dim str As String = "WinXI build: " & Program.Build
+        Dim strVersion As String = "WinXI build: " & Program.Build
         lnkLinks.Links.Clear()
-        lnkLinks.Links.Add(0, 8, "mailto:qbug@tuta.io?subject=" & "Software enquiry or bug report&body=" & vbCrLf & str)
+        lnkLinks.Links.Add(0, 8, "mailto:qbug@tuta.io?subject=" & "Software enquiry or bug report&body=" & vbCrLf & strVersion)
         lnkLinks.Links.Add(11, 11, "https://github.com/MuertoGB")
 
     End Sub

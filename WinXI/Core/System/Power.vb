@@ -7,9 +7,9 @@ Namespace Core.System
 
         Friend Shared Function IsAdapterPluggedIn() As Boolean
 
-            Dim Status As PowerStatus = SystemInformation.PowerStatus
+            Dim pwrStatus As PowerStatus = SystemInformation.PowerStatus
 
-            Select Case Status.PowerLineStatus
+            Select Case pwrStatus.PowerLineStatus
                 Case PowerLineStatus.Offline 'Return false
                     Return False
                 Case PowerLineStatus.Online 'Return true

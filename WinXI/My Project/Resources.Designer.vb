@@ -151,6 +151,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property imgMuerto() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("imgMuerto", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property ImgWarn32Px() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("ImgWarn32Px", resourceCulture)
@@ -203,8 +213,8 @@ Namespace My.Resources
         '''ShowHardwareOnStartup=false
         '''UseApiHardwareMode=false
         '''UseVerboseAssessmentMode=false
-        '''ThemeColour=0
-        '''ApplyThemeColorToBorder=false
+        '''ThemeColourInteger=0
+        '''ApplyThemeColourToBorder=false
         '''UseCustomImgurApiKey=false
         '''CustomImgurApiKeyString=&quot;&quot;
         '''

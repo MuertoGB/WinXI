@@ -69,7 +69,14 @@ Public Class FormElevate
 #Region "Button Event Handlers"
 
     Private Sub cmdElevate_Click(sender As Object, e As EventArgs) Handles cmdElevate.Click
-        Elevation.RestartElevated()
+
+        If Not Elevation.bIsElevated Then
+            Elevation.RestartElevated()
+        Else
+            Close()
+            ToastAlert.Show("WinXI is already running with elevated privilages.", ToastType.Information)
+        End If
+
     End Sub
 
     Private Sub cmdDecline_Click(sender As Object, e As EventArgs) Handles cmdDecline.Click

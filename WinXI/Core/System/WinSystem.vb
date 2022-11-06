@@ -1,5 +1,4 @@
-﻿'   04.04.2021 - DR - New versioning methods, update GetWindowsUptime(), bugfixing.
-'   30.10.2022 - DR - Update GetWindowsName() as MS did not update the registry from 10 > 11, omit windows server changes, remove win releaseid
+﻿'   30.10.2022 - DR - Update GetWindowsName() as MS did not update the registry from 10 > 11, omit windows server changes, remove win releaseid
 '   Checked for WinXI on 30.10.2022
 '   01.11.2022 - DR - Add WinSAT capability changes
 
@@ -35,31 +34,35 @@ Namespace Core.System
         End Function
 
 #Region "Booleans"
+
         Friend Shared Function IsWinVista() As Boolean
             If (fviKernelVersion.ProductMajorPart = 6) And (fviKernelVersion.ProductMinorPart = 0) Then
                 Return True
             End If
             Return False
         End Function
+
         Friend Shared Function IsWin7() As Boolean
             If (fviKernelVersion.ProductMajorPart = 6) And (fviKernelVersion.ProductMinorPart = 1) Then
                 Return True
             End If
             Return False
         End Function
+
         Friend Shared Function IsWin8() As Boolean
             If (fviKernelVersion.ProductMajorPart = 6) And (fviKernelVersion.ProductMinorPart = 2) Then
                 Return True
             End If
             Return False
         End Function
-        Friend Shared Function IsWin81() As Boolean
 
+        Friend Shared Function IsWin81() As Boolean
             If (fviKernelVersion.ProductMajorPart = 6) And (fviKernelVersion.ProductMinorPart = 3) Then
                 Return True
             End If
             Return False
         End Function
+
         Friend Shared Function IsWin10() As Boolean
             If (fviKernelVersion.ProductMajorPart = 10) And (fviKernelVersion.ProductMinorPart = 0) Then
                 Return True
@@ -178,11 +181,13 @@ Namespace Core.System
 
             Dim intValue As Integer = CInt(Registry.GetValue(strRegistryHKLM, "CurrentBuild", Nothing))
 
-            If intValue = 0 Or Nothing Then
-                Return 0
-            Else
-                Return intValue
-            End If
+            'If intValue = 0 Or Nothing Then
+            '    Return 0
+            'Else
+            '    Return intValue
+            'End If
+
+            Return CInt(IIf(intValue = 0 Or Nothing, 0, intValue))
 
         End Function
         Friend Shared Function BuildBranch() As String

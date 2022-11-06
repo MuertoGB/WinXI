@@ -9,16 +9,16 @@ Namespace Core.Common
 
         Friend Shared Function EnumerateHotfixes() As HashSet(Of String)
 
-            Dim Searcher As New ManagementObjectSearcher("root\CIMV2", "SELECT HotFixID FROM Win32_QuickFixEngineering")
-            Dim Updates As New HashSet(Of String)()
+            Dim mosSearcher As New ManagementObjectSearcher("root\CIMV2", "SELECT HotFixID FROM Win32_QuickFixEngineering")
+            Dim hsUpdates As New HashSet(Of String)()
 
             Try
-                For Each Obj As ManagementObject In Searcher.Get() 'Shuffle through items in QuickFixEngineering
-                    Dim ObjString As String = Obj.GetPropertyValue("HotFixID").ToString
-                    Updates.Add(ObjString)
+                For Each objSearcher As ManagementObject In mosSearcher.Get() 'Shuffle through items in QuickFixEngineering
+                    Dim strProperty As String = objSearcher.GetPropertyValue("HotFixID").ToString
+                    hsUpdates.Add(strProperty)
                 Next
-                Searcher.Dispose()
-                Return Updates
+                mosSearcher.Dispose()
+                Return hsUpdates
             Catch ex As Exception
                 MessageBox.Show("Error whilst accessing WMI:" & vbCrLf & ex.Message, "Knowldgebase.ListAllHotfixes()", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return Nothing

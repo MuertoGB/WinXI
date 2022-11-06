@@ -3,6 +3,7 @@
 
 '   01.11.2022 - DR - Start to implement elevation changes, UI changes, add debug menu
 '   02.11.2022 - DR - Simplify object creation
+'   05.11.2022 - DR - Update changelog URL
 
 Imports System.Text
 Imports System.Threading.Tasks
@@ -933,7 +934,7 @@ Public Class FormMain
 
     Private Sub ChangelogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangelogToolStripMenuItem.Click
 
-        Process.Start("https://github.com/MuertoGB/WinXI/blob/main/CHANGELOG.md")
+        Process.Start(Strings.strChangelogUrl)
 
     End Sub
 

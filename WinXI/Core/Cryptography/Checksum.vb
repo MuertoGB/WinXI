@@ -12,21 +12,21 @@ Namespace Core.Cryptography
 
         Public Shared Function GetSha256Digest(FilePath As String, Optional UpperCase As Boolean = False) As String
 
-            Dim Builder As New StringBuilder()
-            Dim HashType As SHA256 = SHA256.Create()
+            Dim strBuilder As New StringBuilder()
+            Dim shaHash As SHA256 = SHA256.Create()
 
-            Using Stream As FileStream = File.OpenRead(FilePath)
-                For Each HByte As Byte In HashType.ComputeHash(Stream)
+            Using fsData As FileStream = File.OpenRead(FilePath)
+                For Each bComputeHash As Byte In shaHash.ComputeHash(fsData)
                     If Not UpperCase Then
-                        Builder.Append(HByte.ToString("x2").ToLower())
+                        strBuilder.Append(bComputeHash.ToString("x2").ToLower())
                     Else
-                        Builder.Append(HByte.ToString("x2").ToUpper())
+                        strBuilder.Append(bComputeHash.ToString("x2").ToUpper())
                     End If
                 Next
             End Using
 
-            HashType.Dispose()
-            Return Builder.ToString()
+            shaHash.Dispose()
+            Return strBuilder.ToString()
 
         End Function
 

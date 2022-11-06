@@ -1,6 +1,7 @@
 ﻿'   08.03.2021 - DR - Rewrite
 '   01.11.2022 - DR - Omit windows server changes, supress BC42025
 '   02.11.2022 - DR - Gain SaveSingleKey()
+'   06.11.2022 - DR - Fixed incorrect key names in Load()
 
 Imports System.IO
 Imports WinXI.Core.Common

@@ -24,9 +24,9 @@ Namespace Core.Common
                 File.WriteAllBytes(FileName, FontToInstall)
 
                 If File.Exists(FileName) Then
-                    Dim IntRet As Integer = NativeMethods.AddFontResource(FileName)
-                    Dim IntRes As Integer = NativeMethods.SendMessage(CType(HWND_BROADCAST, IntPtr), WM_FONTCHANGE, 0, CType(0, IntPtr))
-                    IntRet = NativeMethods.WriteProfileString("fonts", ProfileName, FileName)
+                    Dim intRet As Integer = NativeMethods.AddFontResource(FileName)
+                    Dim intRes As Integer = NativeMethods.SendMessage(CType(HWND_BROADCAST, IntPtr), WM_FONTCHANGE, 0, CType(0, IntPtr))
+                    intRet = NativeMethods.WriteProfileString("fonts", ProfileName, FileName)
                     Return 1 'Install success
                 Else
                     Return 2 'File did not copy

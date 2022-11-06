@@ -34,17 +34,17 @@ Partial Class FormAbout
         Me.lnkLinks = New System.Windows.Forms.LinkLabel()
         Me.lblCopyright = New System.Windows.Forms.Label()
         Me.TlpTop = New System.Windows.Forms.TableLayoutPanel()
-        Me.pbxLogo = New System.Windows.Forms.PictureBox()
         Me.tlpLabels = New System.Windows.Forms.TableLayoutPanel()
         Me.lblBuild = New System.Windows.Forms.Label()
         Me.lblName = New System.Windows.Forms.Label()
+        Me.pbxLogo = New System.Windows.Forms.PictureBox()
         Me.pnlTitle.SuspendLayout()
         Me.tlptitleIcon.SuspendLayout()
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMain.SuspendLayout()
         Me.TlpTop.SuspendLayout()
-        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tlpLabels.SuspendLayout()
+        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlTitle
@@ -157,10 +157,10 @@ Partial Class FormAbout
         Me.lblText.Location = New System.Drawing.Point(0, 142)
         Me.lblText.Name = "lblText"
         Me.lblText.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.lblText.Size = New System.Drawing.Size(518, 66)
+        Me.lblText.Size = New System.Drawing.Size(518, 74)
         Me.lblText.TabIndex = 7
         Me.lblText.Text = "This software was created by, and is the intellectual property of David R, aka Mu" &
-    "erto. So don't eat it."
+    "erto, so don't eat it. The 'Muerto' avatar was hand crafted by Hammi."
         '
         'lnkLinks
         '
@@ -172,11 +172,11 @@ Partial Class FormAbout
         Me.lnkLinks.LinkArea = New System.Windows.Forms.LinkArea(0, 0)
         Me.lnkLinks.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
         Me.lnkLinks.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lnkLinks.Location = New System.Drawing.Point(0, 208)
+        Me.lnkLinks.Location = New System.Drawing.Point(0, 216)
         Me.lnkLinks.Margin = New System.Windows.Forms.Padding(0)
         Me.lnkLinks.Name = "lnkLinks"
         Me.lnkLinks.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        Me.lnkLinks.Size = New System.Drawing.Size(518, 58)
+        Me.lnkLinks.Size = New System.Drawing.Size(518, 50)
         Me.lnkLinks.TabIndex = 6
         Me.lnkLinks.Text = "Email Me · Source Code"
         Me.lnkLinks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -199,12 +199,12 @@ Partial Class FormAbout
         'TlpTop
         '
         Me.TlpTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.TlpTop.ColumnCount = 3
+        Me.TlpTop.ColumnCount = 2
         Me.TlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
-        Me.TlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
-        Me.TlpTop.Controls.Add(Me.pbxLogo, 0, 0)
+        Me.TlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TlpTop.Controls.Add(Me.tlpLabels, 1, 0)
+        Me.TlpTop.Controls.Add(Me.pbxLogo, 0, 0)
         Me.TlpTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.TlpTop.Location = New System.Drawing.Point(0, 0)
         Me.TlpTop.Margin = New System.Windows.Forms.Padding(2)
@@ -213,21 +213,6 @@ Partial Class FormAbout
         Me.TlpTop.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TlpTop.Size = New System.Drawing.Size(518, 90)
         Me.TlpTop.TabIndex = 0
-        '
-        'pbxLogo
-        '
-        Me.pbxLogo.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.pbxLogo.BackColor = System.Drawing.Color.Transparent
-        Me.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.pbxLogo.Cursor = System.Windows.Forms.Cursors.Default
-        Me.pbxLogo.Image = Global.WinXI.My.Resources.Resources.ImgMainIcon64Px
-        Me.pbxLogo.Location = New System.Drawing.Point(13, 13)
-        Me.pbxLogo.Margin = New System.Windows.Forms.Padding(0)
-        Me.pbxLogo.Name = "pbxLogo"
-        Me.pbxLogo.Size = New System.Drawing.Size(64, 64)
-        Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxLogo.TabIndex = 85
-        Me.pbxLogo.TabStop = False
         '
         'tlpLabels
         '
@@ -276,6 +261,21 @@ Partial Class FormAbout
         Me.lblName.Text = "WinXI"
         Me.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'pbxLogo
+        '
+        Me.pbxLogo.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pbxLogo.BackColor = System.Drawing.Color.Transparent
+        Me.pbxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbxLogo.Cursor = System.Windows.Forms.Cursors.Default
+        Me.pbxLogo.Image = Global.WinXI.My.Resources.Resources.imgMuerto
+        Me.pbxLogo.Location = New System.Drawing.Point(13, 13)
+        Me.pbxLogo.Margin = New System.Windows.Forms.Padding(0)
+        Me.pbxLogo.Name = "pbxLogo"
+        Me.pbxLogo.Size = New System.Drawing.Size(64, 64)
+        Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxLogo.TabIndex = 85
+        Me.pbxLogo.TabStop = False
+        '
         'FormAbout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -307,9 +307,9 @@ Partial Class FormAbout
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMain.ResumeLayout(False)
         Me.TlpTop.ResumeLayout(False)
-        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tlpLabels.ResumeLayout(False)
         Me.tlpLabels.PerformLayout()
+        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

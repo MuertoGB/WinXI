@@ -13,8 +13,8 @@ Namespace Core
                     LogUpload As Boolean, DeleteTempFile As Boolean) As Integer
 
             Try
-                Dim Client As New WebClient()
-                Client.Headers.Add("Authorization", Convert.ToString("Client-ID ") & ClientID)
+                Dim wClient As New WebClient()
+                wClient.Headers.Add("Authorization", Convert.ToString("Client-ID ") & ClientID)
 
                 'Waits for creation of temporary file.
                 If Not WaitForImageCreation(ImageLocation) Then
@@ -22,11 +22,11 @@ Namespace Core
                 End If
 
                 Dim nvcKeys As New Specialized.NameValueCollection From {{"image", Convert.ToBase64String(File.ReadAllBytes(ImageLocation))}}
-                Dim bByte As Byte() = Client.UploadValues("https://api.imgur.com/3/image", nvcKeys)
+                Dim bByte As Byte() = wClient.UploadValues("https://api.imgur.com/3/image", nvcKeys)
                 Dim strBytes As String = Encoding.ASCII.GetString(bByte)
                 Dim reRegex As New RegularExpressions.Regex("link"":""(.*?)""")
-                Dim Match As RegularExpressions.Match = reRegex.Match(strBytes)
-                Dim strAddress As String = Match.ToString().Replace("link"":""", "").Replace("""", "").Replace("\/", "/")
+                Dim reMatch As RegularExpressions.Match = reRegex.Match(strBytes)
+                Dim strAddress As String = reMatch.ToString().Replace("link"":""", "").Replace("""", "").Replace("\/", "/")
 
                 'Open uploaded image in main browser.
                 If ShowInBrowser Then

@@ -1,10 +1,11 @@
 ﻿'   30.10.2022 - DR - Update URLs.
 '   02.11.2022 - DR - Update variable names, moved strRegistryHKLM to /Core/System/WinSystem
+'   05.11.2022 - DR - Update changelog link
 
 Friend Class Strings
 
     Friend Const strHomeUrl As String = "https://github.com/MuertoGB/WinXI"
-    Friend Const strChangelogUrl As String = "https://github.com/MuertoGB/WinXI/blob/main/Resources/winxi/changelog.txt"
+    Friend Const strChangelogUrl As String = "https://github.com/MuertoGB/WinXI/blob/main/CHANGELOG.md"
     Friend Const strIssueUrl As String = "https://github.com/MuertoGB/WinXI/issues"
     Friend Const strImgurUrl As String = "http://www.imgur.com"
     Friend Const strServerVersionUrl As String = "https://raw.githubusercontent.com/MuertoGB/WinXI/main/Resources/winxi/version.xml"

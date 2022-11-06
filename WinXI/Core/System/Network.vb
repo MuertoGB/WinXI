@@ -12,11 +12,11 @@ Namespace Core.System
             ServicePointManager.SecurityProtocol = CType(3072, SecurityProtocolType)
 
             Try
-                Dim Request As WebRequest
-                Dim Response As WebResponse
-                Request = WebRequest.Create(WebAddress)
-                Request.Timeout = 10000 'Ten second timeout
-                Response = Request.GetResponse()
+                Dim wRequest As WebRequest
+                Dim wResponse As WebResponse
+                wRequest = WebRequest.Create(WebAddress)
+                wRequest.Timeout = 10000
+                wResponse = wRequest.GetResponse()
                 Return True
             Catch
                 Return False

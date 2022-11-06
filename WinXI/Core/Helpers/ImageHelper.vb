@@ -7,9 +7,9 @@ Namespace Core.Helpers
 
         Public Shared Sub CaptureControl(SaveAs As String, Control As Control)
 
-            Using Bmap As New Bitmap(Control.Width, Control.Height)
-                Control.DrawToBitmap(Bmap, New Rectangle(0, 0, Control.Width, Control.Height))
-                Bmap.Save(SaveAs, Imaging.ImageFormat.Png)
+            Using imgBitmap As New Bitmap(Control.Width, Control.Height)
+                Control.DrawToBitmap(imgBitmap, New Rectangle(0, 0, Control.Width, Control.Height))
+                imgBitmap.Save(SaveAs, Imaging.ImageFormat.Png)
             End Using
 
         End Sub
