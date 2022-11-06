@@ -1,4 +1,6 @@
-﻿NotInheritable Class Logger
+﻿'   06.11.2022 - DR - Update LogTypetext string
+
+NotInheritable Class Logger
 
     Friend Shared Sub Log(ByVal StringReceived As String, TypeReceived As LogType, Control As RichTextBox)
 
@@ -7,7 +9,7 @@
 
         Select Case TypeReceived
             Case LogType.WinXILog
-                LogTypeText = "[XIR]: "
+                LogTypeText = "[WXI]: "
                 LogTypeColor = LogColor.WinXI
             Case LogType.WinsatLog
                 LogTypeText = "[WEI]: "

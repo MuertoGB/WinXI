@@ -1,5 +1,6 @@
 ﻿'   01.02.2020 - CA - Revert settings var CreateFilepath, enhanced deletion of config files
 '   01.11.2022 - DR - Impliment elevation changes
+'   06.11.2022 - DR - Add compatibility.ini to deletion list
 
 Imports System.IO
 Imports WinXI.Core
@@ -101,7 +102,8 @@ Public Class FormReset
                 Dim HS As New List(Of String) From {
                 Settings.strSettingsFile,          'Settings (Local)
                 Settings.strAssessmentLogPath,     'Log file
-                Settings.strImgurUrlsPath          'Imgur URL storage
+                Settings.strImgurUrlsPath,         'Imgur URL storage
+                Settings.strCompatibilityFile      'Compatibility file
                 }
 
                 'Delete files in list ^
@@ -111,7 +113,7 @@ Public Class FormReset
                     End If
                 Next
 
-                'Delete application data directory
+                'Delete old application data directory
                 If Directory.Exists(Settings.strOldAppdataPath) Then
                     Directory.Delete(Settings.strOldAppdataPath)
                 End If
