@@ -26,9 +26,11 @@ Friend Class Program
     Inherits Signing
 
     'Stuff to fill before release
-    Friend Const Build As String = "221107.220.016"
+    Friend Const Build As String = "221107.220.020"
     Friend Const Channel As String = "BETA"
     Friend Const ReleaseDate As String = "Not set"
+
+    Friend Shared bUseVerboseAssessment As Boolean = False
 
     'Main entry point
     <STAThread()>

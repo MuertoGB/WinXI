@@ -35,26 +35,46 @@ Partial Class FormSettings
         Me.pnlShowHardware = New System.Windows.Forms.Panel()
         Me.tlpShowHardwareControls = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlSep1 = New System.Windows.Forms.PictureBox()
-        Me.cbxHardwareOnStartup = New WinXI.Gambol.Controls.GambolCheckbox()
         Me.lblShowHardwareText = New System.Windows.Forms.Label()
         Me.lblShowHardware = New System.Windows.Forms.Label()
         Me.pnlHardwareMode = New System.Windows.Forms.Panel()
         Me.tlpHardwareModeControls = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlSep2 = New System.Windows.Forms.PictureBox()
-        Me.rbnHardwareModeXml = New WinXI.Gambol.Controls.GambolRadioButton()
-        Me.rbnHardwareModeApi = New WinXI.Gambol.Controls.GambolRadioButton()
         Me.lblHardwareModeText = New System.Windows.Forms.Label()
         Me.lblHardwareMode = New System.Windows.Forms.Label()
         Me.pnlAssessmentMode = New System.Windows.Forms.Panel()
         Me.tlpAssessmentModeControls = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlSep3 = New System.Windows.Forms.PictureBox()
-        Me.cbxInDepthAssessment = New WinXI.Gambol.Controls.GambolCheckbox()
         Me.lblAssessmentModeText = New System.Windows.Forms.Label()
         Me.lblAssessmentMode = New System.Windows.Forms.Label()
         Me.pnlThemeColor = New System.Windows.Forms.Panel()
         Me.tlpThemeColorControls = New System.Windows.Forms.TableLayoutPanel()
-        Me.rbnTomato9 = New WinXI.Gambol.Controls.GambolRadioButton()
         Me.pnlSep4 = New System.Windows.Forms.PictureBox()
+        Me.pnlSep5 = New System.Windows.Forms.Panel()
+        Me.lblThemeColorText = New System.Windows.Forms.Label()
+        Me.lblThemeColor = New System.Windows.Forms.Label()
+        Me.pnlImgur = New System.Windows.Forms.Panel()
+        Me.tlpImgurControls = New System.Windows.Forms.TableLayoutPanel()
+        Me.tlpCustomIDControls = New System.Windows.Forms.TableLayoutPanel()
+        Me.tbxClientId = New System.Windows.Forms.TextBox()
+        Me.pnlSep6 = New System.Windows.Forms.PictureBox()
+        Me.lblClientIDText = New System.Windows.Forms.Label()
+        Me.lblClientID = New System.Windows.Forms.Label()
+        Me.pnlOverrides = New System.Windows.Forms.Panel()
+        Me.tlpOverrides = New System.Windows.Forms.TableLayoutPanel()
+        Me.pnlSep8 = New System.Windows.Forms.PictureBox()
+        Me.pnlSep7 = New System.Windows.Forms.PictureBox()
+        Me.lblOverridesText = New System.Windows.Forms.Label()
+        Me.lblOverrides = New System.Windows.Forms.Label()
+        Me.cmdApply = New System.Windows.Forms.Button()
+        Me.CmdCancel = New System.Windows.Forms.Button()
+        Me.cmdOkay = New System.Windows.Forms.Button()
+        Me.pnlSplit = New System.Windows.Forms.Panel()
+        Me.cmdLoadDefaultSettings = New System.Windows.Forms.Button()
+        Me.cbxShowHardwareOnStartup = New WinXI.Gambol.Controls.GambolCheckbox()
+        Me.cbxApiHardwareMode = New WinXI.Gambol.Controls.GambolCheckbox()
+        Me.cbxInDepthAssessment = New WinXI.Gambol.Controls.GambolCheckbox()
+        Me.rbnTomato9 = New WinXI.Gambol.Controls.GambolRadioButton()
         Me.rbnDefault0 = New WinXI.Gambol.Controls.GambolRadioButton()
         Me.rbnSky1 = New WinXI.Gambol.Controls.GambolRadioButton()
         Me.rbnPink5 = New WinXI.Gambol.Controls.GambolRadioButton()
@@ -65,29 +85,9 @@ Partial Class FormSettings
         Me.rbnTurquoise2 = New WinXI.Gambol.Controls.GambolRadioButton()
         Me.rbnEmerald3 = New WinXI.Gambol.Controls.GambolRadioButton()
         Me.rbnMegenta4 = New WinXI.Gambol.Controls.GambolRadioButton()
-        Me.pnlSep5 = New System.Windows.Forms.Panel()
-        Me.lblThemeColorText = New System.Windows.Forms.Label()
-        Me.lblThemeColor = New System.Windows.Forms.Label()
-        Me.pnlImgur = New System.Windows.Forms.Panel()
-        Me.tlpImgurControls = New System.Windows.Forms.TableLayoutPanel()
-        Me.tlpCustomIDControls = New System.Windows.Forms.TableLayoutPanel()
-        Me.tbxClientId = New System.Windows.Forms.TextBox()
-        Me.pnlSep6 = New System.Windows.Forms.PictureBox()
         Me.cbxImgurID = New WinXI.Gambol.Controls.GambolCheckbox()
-        Me.lblClientIDText = New System.Windows.Forms.Label()
-        Me.lblClientID = New System.Windows.Forms.Label()
-        Me.pnlOverrides = New System.Windows.Forms.Panel()
-        Me.tlpOverrides = New System.Windows.Forms.TableLayoutPanel()
-        Me.pnlSep8 = New System.Windows.Forms.PictureBox()
         Me.cbxAutoUpdateCheck = New WinXI.Gambol.Controls.GambolCheckbox()
-        Me.pnlSep7 = New System.Windows.Forms.PictureBox()
         Me.cbxHideNotifications = New WinXI.Gambol.Controls.GambolCheckbox()
-        Me.lblOverridesText = New System.Windows.Forms.Label()
-        Me.lblOverrides = New System.Windows.Forms.Label()
-        Me.cmdApply = New System.Windows.Forms.Button()
-        Me.CmdCancel = New System.Windows.Forms.Button()
-        Me.cmdOkay = New System.Windows.Forms.Button()
-        Me.pnlSplit = New System.Windows.Forms.Panel()
         Me.pnlTitle.SuspendLayout()
         Me.tlpTitleIcon.SuspendLayout()
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -194,6 +194,7 @@ Partial Class FormSettings
         'pnlMain
         '
         Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+        Me.pnlMain.Controls.Add(Me.cmdLoadDefaultSettings)
         Me.pnlMain.Controls.Add(Me.tlpMain)
         Me.pnlMain.Controls.Add(Me.cmdApply)
         Me.pnlMain.Controls.Add(Me.CmdCancel)
@@ -259,7 +260,7 @@ Partial Class FormSettings
         Me.tlpShowHardwareControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.tlpShowHardwareControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 559.0!))
         Me.tlpShowHardwareControls.Controls.Add(Me.pnlSep1, 0, 0)
-        Me.tlpShowHardwareControls.Controls.Add(Me.cbxHardwareOnStartup, 1, 0)
+        Me.tlpShowHardwareControls.Controls.Add(Me.cbxShowHardwareOnStartup, 1, 0)
         Me.tlpShowHardwareControls.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tlpShowHardwareControls.Location = New System.Drawing.Point(0, 45)
         Me.tlpShowHardwareControls.Margin = New System.Windows.Forms.Padding(0)
@@ -280,23 +281,6 @@ Partial Class FormSettings
         Me.pnlSep1.TabIndex = 0
         Me.pnlSep1.TabStop = False
         '
-        'cbxHardwareOnStartup
-        '
-        Me.cbxHardwareOnStartup.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.cbxHardwareOnStartup.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.cbxHardwareOnStartup.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.cbxHardwareOnStartup.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.cbxHardwareOnStartup.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cbxHardwareOnStartup.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.cbxHardwareOnStartup.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cbxHardwareOnStartup.ForeColor = System.Drawing.Color.White
-        Me.cbxHardwareOnStartup.Location = New System.Drawing.Point(22, 16)
-        Me.cbxHardwareOnStartup.Margin = New System.Windows.Forms.Padding(2)
-        Me.cbxHardwareOnStartup.Name = "cbxHardwareOnStartup"
-        Me.cbxHardwareOnStartup.Size = New System.Drawing.Size(126, 22)
-        Me.cbxHardwareOnStartup.TabIndex = 120
-        Me.cbxHardwareOnStartup.Text = "Enable"
-        '
         'lblShowHardwareText
         '
         Me.lblShowHardwareText.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
@@ -309,7 +293,7 @@ Partial Class FormSettings
         Me.lblShowHardwareText.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.lblShowHardwareText.Size = New System.Drawing.Size(494, 21)
         Me.lblShowHardwareText.TabIndex = 121
-        Me.lblShowHardwareText.Text = "· Automatically show system hardware when the application is started"
+        Me.lblShowHardwareText.Text = "· Automatically show system hardware when the application is started."
         Me.lblShowHardwareText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblShowHardware
@@ -342,13 +326,12 @@ Partial Class FormSettings
         'tlpHardwareModeControls
         '
         Me.tlpHardwareModeControls.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.tlpHardwareModeControls.ColumnCount = 3
+        Me.tlpHardwareModeControls.ColumnCount = 2
         Me.tlpHardwareModeControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tlpHardwareModeControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78.0!))
-        Me.tlpHardwareModeControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 482.0!))
+        Me.tlpHardwareModeControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.tlpHardwareModeControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpHardwareModeControls.Controls.Add(Me.cbxApiHardwareMode, 0, 0)
         Me.tlpHardwareModeControls.Controls.Add(Me.pnlSep2, 0, 0)
-        Me.tlpHardwareModeControls.Controls.Add(Me.rbnHardwareModeXml, 1, 0)
-        Me.tlpHardwareModeControls.Controls.Add(Me.rbnHardwareModeApi, 2, 0)
         Me.tlpHardwareModeControls.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tlpHardwareModeControls.Location = New System.Drawing.Point(0, 45)
         Me.tlpHardwareModeControls.Margin = New System.Windows.Forms.Padding(2)
@@ -369,40 +352,6 @@ Partial Class FormSettings
         Me.pnlSep2.TabIndex = 4
         Me.pnlSep2.TabStop = False
         '
-        'rbnHardwareModeXml
-        '
-        Me.rbnHardwareModeXml.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.rbnHardwareModeXml.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.rbnHardwareModeXml.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.rbnHardwareModeXml.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.rbnHardwareModeXml.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rbnHardwareModeXml.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.rbnHardwareModeXml.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.rbnHardwareModeXml.ForeColor = System.Drawing.Color.White
-        Me.rbnHardwareModeXml.Location = New System.Drawing.Point(22, 16)
-        Me.rbnHardwareModeXml.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnHardwareModeXml.Name = "rbnHardwareModeXml"
-        Me.rbnHardwareModeXml.Size = New System.Drawing.Size(68, 22)
-        Me.rbnHardwareModeXml.TabIndex = 2
-        Me.rbnHardwareModeXml.Text = "XML"
-        '
-        'rbnHardwareModeApi
-        '
-        Me.rbnHardwareModeApi.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.rbnHardwareModeApi.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.rbnHardwareModeApi.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.rbnHardwareModeApi.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.rbnHardwareModeApi.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rbnHardwareModeApi.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.rbnHardwareModeApi.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.rbnHardwareModeApi.ForeColor = System.Drawing.Color.White
-        Me.rbnHardwareModeApi.Location = New System.Drawing.Point(100, 16)
-        Me.rbnHardwareModeApi.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnHardwareModeApi.Name = "rbnHardwareModeApi"
-        Me.rbnHardwareModeApi.Size = New System.Drawing.Size(64, 22)
-        Me.rbnHardwareModeApi.TabIndex = 3
-        Me.rbnHardwareModeApi.Text = "API"
-        '
         'lblHardwareModeText
         '
         Me.lblHardwareModeText.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
@@ -415,7 +364,7 @@ Partial Class FormSettings
         Me.lblHardwareModeText.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.lblHardwareModeText.Size = New System.Drawing.Size(495, 21)
         Me.lblHardwareModeText.TabIndex = 122
-        Me.lblHardwareModeText.Text = "· Change where system hardware is read from" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.lblHardwareModeText.Text = "· Read hardware information from the WinSAT API, else uses XML." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.lblHardwareModeText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblHardwareMode
@@ -429,7 +378,7 @@ Partial Class FormSettings
         Me.lblHardwareMode.Name = "lblHardwareMode"
         Me.lblHardwareMode.Size = New System.Drawing.Size(495, 24)
         Me.lblHardwareMode.TabIndex = 114
-        Me.lblHardwareMode.Text = "Hardware Mode"
+        Me.lblHardwareMode.Text = "Use API Hardware Mode"
         Me.lblHardwareMode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'pnlAssessmentMode
@@ -473,23 +422,6 @@ Partial Class FormSettings
         Me.pnlSep3.TabIndex = 0
         Me.pnlSep3.TabStop = False
         '
-        'cbxInDepthAssessment
-        '
-        Me.cbxInDepthAssessment.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.cbxInDepthAssessment.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.cbxInDepthAssessment.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.cbxInDepthAssessment.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.cbxInDepthAssessment.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cbxInDepthAssessment.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.cbxInDepthAssessment.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cbxInDepthAssessment.ForeColor = System.Drawing.Color.White
-        Me.cbxInDepthAssessment.Location = New System.Drawing.Point(22, 16)
-        Me.cbxInDepthAssessment.Margin = New System.Windows.Forms.Padding(2)
-        Me.cbxInDepthAssessment.Name = "cbxInDepthAssessment"
-        Me.cbxInDepthAssessment.Size = New System.Drawing.Size(95, 22)
-        Me.cbxInDepthAssessment.TabIndex = 120
-        Me.cbxInDepthAssessment.Text = "Enable"
-        '
         'lblAssessmentModeText
         '
         Me.lblAssessmentModeText.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
@@ -502,7 +434,7 @@ Partial Class FormSettings
         Me.lblAssessmentModeText.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.lblAssessmentModeText.Size = New System.Drawing.Size(495, 21)
         Me.lblAssessmentModeText.TabIndex = 0
-        Me.lblAssessmentModeText.Text = "· Sets the main assessment button to use in-depth mode"
+        Me.lblAssessmentModeText.Text = "· Sets the main assessment button to use in-depth mode."
         Me.lblAssessmentModeText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblAssessmentMode
@@ -550,7 +482,6 @@ Partial Class FormSettings
         Me.tlpThemeColorControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
         Me.tlpThemeColorControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.tlpThemeColorControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 251.0!))
-        Me.tlpThemeColorControls.Controls.Add(Me.rbnTomato9, 10, 0)
         Me.tlpThemeColorControls.Controls.Add(Me.pnlSep4, 0, 0)
         Me.tlpThemeColorControls.Controls.Add(Me.rbnDefault0, 1, 0)
         Me.tlpThemeColorControls.Controls.Add(Me.rbnSky1, 2, 0)
@@ -563,6 +494,7 @@ Partial Class FormSettings
         Me.tlpThemeColorControls.Controls.Add(Me.rbnEmerald3, 4, 0)
         Me.tlpThemeColorControls.Controls.Add(Me.rbnMegenta4, 5, 0)
         Me.tlpThemeColorControls.Controls.Add(Me.pnlSep5, 11, 0)
+        Me.tlpThemeColorControls.Controls.Add(Me.rbnTomato9, 10, 0)
         Me.tlpThemeColorControls.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tlpThemeColorControls.Location = New System.Drawing.Point(0, 45)
         Me.tlpThemeColorControls.Margin = New System.Windows.Forms.Padding(2)
@@ -571,6 +503,380 @@ Partial Class FormSettings
         Me.tlpThemeColorControls.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.tlpThemeColorControls.Size = New System.Drawing.Size(495, 55)
         Me.tlpThemeColorControls.TabIndex = 126
+        '
+        'pnlSep4
+        '
+        Me.pnlSep4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pnlSep4.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.pnlSep4.Location = New System.Drawing.Point(9, 12)
+        Me.pnlSep4.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlSep4.Name = "pnlSep4"
+        Me.pnlSep4.Size = New System.Drawing.Size(1, 30)
+        Me.pnlSep4.TabIndex = 0
+        Me.pnlSep4.TabStop = False
+        '
+        'pnlSep5
+        '
+        Me.pnlSep5.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pnlSep5.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.pnlSep5.Location = New System.Drawing.Point(319, 12)
+        Me.pnlSep5.Name = "pnlSep5"
+        Me.pnlSep5.Size = New System.Drawing.Size(1, 30)
+        Me.pnlSep5.TabIndex = 125
+        '
+        'lblThemeColorText
+        '
+        Me.lblThemeColorText.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.lblThemeColorText.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblThemeColorText.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblThemeColorText.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.lblThemeColorText.Location = New System.Drawing.Point(0, 24)
+        Me.lblThemeColorText.Margin = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.lblThemeColorText.Name = "lblThemeColorText"
+        Me.lblThemeColorText.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.lblThemeColorText.Size = New System.Drawing.Size(495, 21)
+        Me.lblThemeColorText.TabIndex = 0
+        Me.lblThemeColorText.Text = "· Customise the applications accent color"
+        '
+        'lblThemeColor
+        '
+        Me.lblThemeColor.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.lblThemeColor.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblThemeColor.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblThemeColor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.lblThemeColor.Location = New System.Drawing.Point(0, 0)
+        Me.lblThemeColor.Margin = New System.Windows.Forms.Padding(0)
+        Me.lblThemeColor.Name = "lblThemeColor"
+        Me.lblThemeColor.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
+        Me.lblThemeColor.Size = New System.Drawing.Size(495, 24)
+        Me.lblThemeColor.TabIndex = 125
+        Me.lblThemeColor.Text = "Theme Color"
+        Me.lblThemeColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'pnlImgur
+        '
+        Me.pnlImgur.BackColor = System.Drawing.Color.Transparent
+        Me.pnlImgur.Controls.Add(Me.tlpImgurControls)
+        Me.pnlImgur.Controls.Add(Me.lblClientIDText)
+        Me.pnlImgur.Controls.Add(Me.lblClientID)
+        Me.pnlImgur.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlImgur.Location = New System.Drawing.Point(0, 408)
+        Me.pnlImgur.Margin = New System.Windows.Forms.Padding(0)
+        Me.pnlImgur.Name = "pnlImgur"
+        Me.pnlImgur.Size = New System.Drawing.Size(495, 100)
+        Me.pnlImgur.TabIndex = 0
+        '
+        'tlpImgurControls
+        '
+        Me.tlpImgurControls.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.tlpImgurControls.ColumnCount = 3
+        Me.tlpImgurControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpImgurControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.tlpImgurControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 460.0!))
+        Me.tlpImgurControls.Controls.Add(Me.tlpCustomIDControls, 2, 0)
+        Me.tlpImgurControls.Controls.Add(Me.pnlSep6, 0, 0)
+        Me.tlpImgurControls.Controls.Add(Me.cbxImgurID, 1, 0)
+        Me.tlpImgurControls.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tlpImgurControls.Location = New System.Drawing.Point(0, 45)
+        Me.tlpImgurControls.Margin = New System.Windows.Forms.Padding(2)
+        Me.tlpImgurControls.Name = "tlpImgurControls"
+        Me.tlpImgurControls.RowCount = 1
+        Me.tlpImgurControls.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpImgurControls.Size = New System.Drawing.Size(495, 55)
+        Me.tlpImgurControls.TabIndex = 133
+        '
+        'tlpCustomIDControls
+        '
+        Me.tlpCustomIDControls.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.tlpCustomIDControls.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.tlpCustomIDControls.ColumnCount = 1
+        Me.tlpCustomIDControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpCustomIDControls.Controls.Add(Me.tbxClientId, 0, 0)
+        Me.tlpCustomIDControls.Location = New System.Drawing.Point(122, 14)
+        Me.tlpCustomIDControls.Margin = New System.Windows.Forms.Padding(2)
+        Me.tlpCustomIDControls.Name = "tlpCustomIDControls"
+        Me.tlpCustomIDControls.RowCount = 1
+        Me.tlpCustomIDControls.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpCustomIDControls.Size = New System.Drawing.Size(260, 26)
+        Me.tlpCustomIDControls.TabIndex = 129
+        '
+        'tbxClientId
+        '
+        Me.tbxClientId.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.tbxClientId.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.tbxClientId.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.tbxClientId.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbxClientId.ForeColor = System.Drawing.Color.White
+        Me.tbxClientId.Location = New System.Drawing.Point(3, 3)
+        Me.tbxClientId.Margin = New System.Windows.Forms.Padding(2)
+        Me.tbxClientId.MaxLength = 32
+        Me.tbxClientId.Name = "tbxClientId"
+        Me.tbxClientId.Size = New System.Drawing.Size(254, 20)
+        Me.tbxClientId.TabIndex = 128
+        Me.tbxClientId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'pnlSep6
+        '
+        Me.pnlSep6.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pnlSep6.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.pnlSep6.Location = New System.Drawing.Point(9, 12)
+        Me.pnlSep6.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlSep6.Name = "pnlSep6"
+        Me.pnlSep6.Size = New System.Drawing.Size(1, 30)
+        Me.pnlSep6.TabIndex = 0
+        Me.pnlSep6.TabStop = False
+        '
+        'lblClientIDText
+        '
+        Me.lblClientIDText.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.lblClientIDText.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblClientIDText.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblClientIDText.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.lblClientIDText.Location = New System.Drawing.Point(0, 24)
+        Me.lblClientIDText.Margin = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.lblClientIDText.Name = "lblClientIDText"
+        Me.lblClientIDText.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.lblClientIDText.Size = New System.Drawing.Size(495, 21)
+        Me.lblClientIDText.TabIndex = 0
+        Me.lblClientIDText.Text = "· Enables the use of your own Imgur API client ID."
+        '
+        'lblClientID
+        '
+        Me.lblClientID.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.lblClientID.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblClientID.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblClientID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.lblClientID.Location = New System.Drawing.Point(0, 0)
+        Me.lblClientID.Margin = New System.Windows.Forms.Padding(0)
+        Me.lblClientID.Name = "lblClientID"
+        Me.lblClientID.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
+        Me.lblClientID.Size = New System.Drawing.Size(495, 24)
+        Me.lblClientID.TabIndex = 131
+        Me.lblClientID.Text = "Custom Imgur Client ID"
+        Me.lblClientID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'pnlOverrides
+        '
+        Me.pnlOverrides.BackColor = System.Drawing.Color.Transparent
+        Me.pnlOverrides.Controls.Add(Me.tlpOverrides)
+        Me.pnlOverrides.Controls.Add(Me.lblOverridesText)
+        Me.pnlOverrides.Controls.Add(Me.lblOverrides)
+        Me.pnlOverrides.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlOverrides.Location = New System.Drawing.Point(0, 510)
+        Me.pnlOverrides.Margin = New System.Windows.Forms.Padding(0)
+        Me.pnlOverrides.Name = "pnlOverrides"
+        Me.pnlOverrides.Size = New System.Drawing.Size(495, 100)
+        Me.pnlOverrides.TabIndex = 5
+        '
+        'tlpOverrides
+        '
+        Me.tlpOverrides.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.tlpOverrides.ColumnCount = 4
+        Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230.0!))
+        Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 225.0!))
+        Me.tlpOverrides.Controls.Add(Me.pnlSep8, 0, 0)
+        Me.tlpOverrides.Controls.Add(Me.cbxAutoUpdateCheck, 0, 0)
+        Me.tlpOverrides.Controls.Add(Me.pnlSep7, 0, 0)
+        Me.tlpOverrides.Controls.Add(Me.cbxHideNotifications, 3, 0)
+        Me.tlpOverrides.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tlpOverrides.Location = New System.Drawing.Point(0, 45)
+        Me.tlpOverrides.Margin = New System.Windows.Forms.Padding(2)
+        Me.tlpOverrides.Name = "tlpOverrides"
+        Me.tlpOverrides.RowCount = 1
+        Me.tlpOverrides.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpOverrides.Size = New System.Drawing.Size(495, 55)
+        Me.tlpOverrides.TabIndex = 133
+        '
+        'pnlSep8
+        '
+        Me.pnlSep8.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pnlSep8.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.pnlSep8.Location = New System.Drawing.Point(259, 12)
+        Me.pnlSep8.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlSep8.Name = "pnlSep8"
+        Me.pnlSep8.Size = New System.Drawing.Size(1, 30)
+        Me.pnlSep8.TabIndex = 123
+        Me.pnlSep8.TabStop = False
+        '
+        'pnlSep7
+        '
+        Me.pnlSep7.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pnlSep7.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.pnlSep7.Location = New System.Drawing.Point(9, 12)
+        Me.pnlSep7.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlSep7.Name = "pnlSep7"
+        Me.pnlSep7.Size = New System.Drawing.Size(1, 30)
+        Me.pnlSep7.TabIndex = 0
+        Me.pnlSep7.TabStop = False
+        '
+        'lblOverridesText
+        '
+        Me.lblOverridesText.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.lblOverridesText.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblOverridesText.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOverridesText.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.lblOverridesText.Location = New System.Drawing.Point(0, 24)
+        Me.lblOverridesText.Margin = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.lblOverridesText.Name = "lblOverridesText"
+        Me.lblOverridesText.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.lblOverridesText.Size = New System.Drawing.Size(495, 21)
+        Me.lblOverridesText.TabIndex = 0
+        Me.lblOverridesText.Text = "· Application specific overrides."
+        '
+        'lblOverrides
+        '
+        Me.lblOverrides.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.lblOverrides.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblOverrides.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOverrides.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.lblOverrides.Location = New System.Drawing.Point(0, 0)
+        Me.lblOverrides.Margin = New System.Windows.Forms.Padding(0)
+        Me.lblOverrides.Name = "lblOverrides"
+        Me.lblOverrides.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
+        Me.lblOverrides.Size = New System.Drawing.Size(495, 24)
+        Me.lblOverrides.TabIndex = 131
+        Me.lblOverrides.Text = "Overrides"
+        Me.lblOverrides.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'cmdApply
+        '
+        Me.cmdApply.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.cmdApply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.cmdApply.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdApply.FlatAppearance.BorderSize = 0
+        Me.cmdApply.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cmdApply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cmdApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdApply.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdApply.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cmdApply.Location = New System.Drawing.Point(425, 636)
+        Me.cmdApply.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdApply.Name = "cmdApply"
+        Me.cmdApply.Size = New System.Drawing.Size(80, 35)
+        Me.cmdApply.TabIndex = 3
+        Me.cmdApply.Text = "Apply"
+        Me.cmdApply.UseVisualStyleBackColor = False
+        '
+        'CmdCancel
+        '
+        Me.CmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.CmdCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdCancel.FlatAppearance.BorderSize = 0
+        Me.CmdCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.CmdCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.CmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdCancel.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdCancel.Location = New System.Drawing.Point(335, 636)
+        Me.CmdCancel.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmdCancel.Name = "CmdCancel"
+        Me.CmdCancel.Size = New System.Drawing.Size(80, 35)
+        Me.CmdCancel.TabIndex = 2
+        Me.CmdCancel.Text = "Cancel"
+        Me.CmdCancel.UseVisualStyleBackColor = False
+        '
+        'cmdOkay
+        '
+        Me.cmdOkay.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.cmdOkay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.cmdOkay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdOkay.FlatAppearance.BorderSize = 0
+        Me.cmdOkay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cmdOkay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cmdOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdOkay.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdOkay.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cmdOkay.Location = New System.Drawing.Point(247, 636)
+        Me.cmdOkay.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdOkay.Name = "cmdOkay"
+        Me.cmdOkay.Size = New System.Drawing.Size(80, 35)
+        Me.cmdOkay.TabIndex = 1
+        Me.cmdOkay.Text = "Okay"
+        Me.cmdOkay.UseVisualStyleBackColor = False
+        '
+        'pnlSplit
+        '
+        Me.pnlSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.pnlSplit.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlSplit.ForeColor = System.Drawing.Color.Black
+        Me.pnlSplit.Location = New System.Drawing.Point(1, 39)
+        Me.pnlSplit.Margin = New System.Windows.Forms.Padding(4)
+        Me.pnlSplit.Name = "pnlSplit"
+        Me.pnlSplit.Size = New System.Drawing.Size(513, 2)
+        Me.pnlSplit.TabIndex = 126
+        '
+        'cmdLoadDefaultSettings
+        '
+        Me.cmdLoadDefaultSettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.cmdLoadDefaultSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.cmdLoadDefaultSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdLoadDefaultSettings.FlatAppearance.BorderSize = 0
+        Me.cmdLoadDefaultSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cmdLoadDefaultSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cmdLoadDefaultSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdLoadDefaultSettings.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdLoadDefaultSettings.ForeColor = System.Drawing.Color.Tomato
+        Me.cmdLoadDefaultSettings.Location = New System.Drawing.Point(9, 636)
+        Me.cmdLoadDefaultSettings.Margin = New System.Windows.Forms.Padding(4)
+        Me.cmdLoadDefaultSettings.Name = "cmdLoadDefaultSettings"
+        Me.cmdLoadDefaultSettings.Size = New System.Drawing.Size(128, 35)
+        Me.cmdLoadDefaultSettings.TabIndex = 4
+        Me.cmdLoadDefaultSettings.Text = "Load Defaults"
+        Me.cmdLoadDefaultSettings.UseVisualStyleBackColor = False
+        '
+        'cbxShowHardwareOnStartup
+        '
+        Me.cbxShowHardwareOnStartup.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.cbxShowHardwareOnStartup.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.cbxShowHardwareOnStartup.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.cbxShowHardwareOnStartup.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.cbxShowHardwareOnStartup.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cbxShowHardwareOnStartup.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cbxShowHardwareOnStartup.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cbxShowHardwareOnStartup.ForeColor = System.Drawing.Color.White
+        Me.cbxShowHardwareOnStartup.Location = New System.Drawing.Point(22, 16)
+        Me.cbxShowHardwareOnStartup.Margin = New System.Windows.Forms.Padding(2)
+        Me.cbxShowHardwareOnStartup.Name = "cbxShowHardwareOnStartup"
+        Me.cbxShowHardwareOnStartup.Size = New System.Drawing.Size(95, 22)
+        Me.cbxShowHardwareOnStartup.TabIndex = 120
+        Me.cbxShowHardwareOnStartup.Text = "Enable"
+        '
+        'cbxApiHardwareMode
+        '
+        Me.cbxApiHardwareMode.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.cbxApiHardwareMode.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.cbxApiHardwareMode.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.cbxApiHardwareMode.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.cbxApiHardwareMode.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cbxApiHardwareMode.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cbxApiHardwareMode.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cbxApiHardwareMode.ForeColor = System.Drawing.Color.White
+        Me.cbxApiHardwareMode.Location = New System.Drawing.Point(22, 16)
+        Me.cbxApiHardwareMode.Margin = New System.Windows.Forms.Padding(2)
+        Me.cbxApiHardwareMode.Name = "cbxApiHardwareMode"
+        Me.cbxApiHardwareMode.Size = New System.Drawing.Size(95, 22)
+        Me.cbxApiHardwareMode.TabIndex = 121
+        Me.cbxApiHardwareMode.Text = "Enable"
+        '
+        'cbxInDepthAssessment
+        '
+        Me.cbxInDepthAssessment.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.cbxInDepthAssessment.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.cbxInDepthAssessment.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.cbxInDepthAssessment.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.cbxInDepthAssessment.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cbxInDepthAssessment.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cbxInDepthAssessment.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cbxInDepthAssessment.ForeColor = System.Drawing.Color.White
+        Me.cbxInDepthAssessment.Location = New System.Drawing.Point(22, 16)
+        Me.cbxInDepthAssessment.Margin = New System.Windows.Forms.Padding(2)
+        Me.cbxInDepthAssessment.Name = "cbxInDepthAssessment"
+        Me.cbxInDepthAssessment.Size = New System.Drawing.Size(95, 22)
+        Me.cbxInDepthAssessment.TabIndex = 120
+        Me.cbxInDepthAssessment.Text = "Enable"
         '
         'rbnTomato9
         '
@@ -587,17 +893,6 @@ Partial Class FormSettings
         Me.rbnTomato9.Name = "rbnTomato9"
         Me.rbnTomato9.Size = New System.Drawing.Size(22, 22)
         Me.rbnTomato9.TabIndex = 124
-        '
-        'pnlSep4
-        '
-        Me.pnlSep4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.pnlSep4.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.pnlSep4.Location = New System.Drawing.Point(9, 12)
-        Me.pnlSep4.Margin = New System.Windows.Forms.Padding(2)
-        Me.pnlSep4.Name = "pnlSep4"
-        Me.pnlSep4.Size = New System.Drawing.Size(1, 30)
-        Me.pnlSep4.TabIndex = 0
-        Me.pnlSep4.TabStop = False
         '
         'rbnDefault0
         '
@@ -760,117 +1055,6 @@ Partial Class FormSettings
         Me.rbnMegenta4.Size = New System.Drawing.Size(22, 22)
         Me.rbnMegenta4.TabIndex = 102
         '
-        'pnlSep5
-        '
-        Me.pnlSep5.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.pnlSep5.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.pnlSep5.Location = New System.Drawing.Point(319, 12)
-        Me.pnlSep5.Name = "pnlSep5"
-        Me.pnlSep5.Size = New System.Drawing.Size(1, 30)
-        Me.pnlSep5.TabIndex = 125
-        '
-        'lblThemeColorText
-        '
-        Me.lblThemeColorText.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.lblThemeColorText.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblThemeColorText.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblThemeColorText.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.lblThemeColorText.Location = New System.Drawing.Point(0, 24)
-        Me.lblThemeColorText.Margin = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.lblThemeColorText.Name = "lblThemeColorText"
-        Me.lblThemeColorText.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.lblThemeColorText.Size = New System.Drawing.Size(495, 21)
-        Me.lblThemeColorText.TabIndex = 0
-        Me.lblThemeColorText.Text = "· Customise the applications accent color"
-        '
-        'lblThemeColor
-        '
-        Me.lblThemeColor.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.lblThemeColor.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblThemeColor.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblThemeColor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.lblThemeColor.Location = New System.Drawing.Point(0, 0)
-        Me.lblThemeColor.Margin = New System.Windows.Forms.Padding(0)
-        Me.lblThemeColor.Name = "lblThemeColor"
-        Me.lblThemeColor.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
-        Me.lblThemeColor.Size = New System.Drawing.Size(495, 24)
-        Me.lblThemeColor.TabIndex = 125
-        Me.lblThemeColor.Text = "Theme Color"
-        Me.lblThemeColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'pnlImgur
-        '
-        Me.pnlImgur.BackColor = System.Drawing.Color.Transparent
-        Me.pnlImgur.Controls.Add(Me.tlpImgurControls)
-        Me.pnlImgur.Controls.Add(Me.lblClientIDText)
-        Me.pnlImgur.Controls.Add(Me.lblClientID)
-        Me.pnlImgur.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlImgur.Location = New System.Drawing.Point(0, 408)
-        Me.pnlImgur.Margin = New System.Windows.Forms.Padding(0)
-        Me.pnlImgur.Name = "pnlImgur"
-        Me.pnlImgur.Size = New System.Drawing.Size(495, 100)
-        Me.pnlImgur.TabIndex = 0
-        '
-        'tlpImgurControls
-        '
-        Me.tlpImgurControls.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.tlpImgurControls.ColumnCount = 3
-        Me.tlpImgurControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tlpImgurControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
-        Me.tlpImgurControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 460.0!))
-        Me.tlpImgurControls.Controls.Add(Me.tlpCustomIDControls, 2, 0)
-        Me.tlpImgurControls.Controls.Add(Me.pnlSep6, 0, 0)
-        Me.tlpImgurControls.Controls.Add(Me.cbxImgurID, 1, 0)
-        Me.tlpImgurControls.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpImgurControls.Location = New System.Drawing.Point(0, 45)
-        Me.tlpImgurControls.Margin = New System.Windows.Forms.Padding(2)
-        Me.tlpImgurControls.Name = "tlpImgurControls"
-        Me.tlpImgurControls.RowCount = 1
-        Me.tlpImgurControls.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpImgurControls.Size = New System.Drawing.Size(495, 55)
-        Me.tlpImgurControls.TabIndex = 133
-        '
-        'tlpCustomIDControls
-        '
-        Me.tlpCustomIDControls.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.tlpCustomIDControls.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.tlpCustomIDControls.ColumnCount = 1
-        Me.tlpCustomIDControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tlpCustomIDControls.Controls.Add(Me.tbxClientId, 0, 0)
-        Me.tlpCustomIDControls.Location = New System.Drawing.Point(122, 14)
-        Me.tlpCustomIDControls.Margin = New System.Windows.Forms.Padding(2)
-        Me.tlpCustomIDControls.Name = "tlpCustomIDControls"
-        Me.tlpCustomIDControls.RowCount = 1
-        Me.tlpCustomIDControls.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tlpCustomIDControls.Size = New System.Drawing.Size(260, 26)
-        Me.tlpCustomIDControls.TabIndex = 129
-        '
-        'tbxClientId
-        '
-        Me.tbxClientId.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.tbxClientId.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.tbxClientId.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.tbxClientId.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbxClientId.ForeColor = System.Drawing.Color.White
-        Me.tbxClientId.Location = New System.Drawing.Point(3, 3)
-        Me.tbxClientId.Margin = New System.Windows.Forms.Padding(2)
-        Me.tbxClientId.MaxLength = 32
-        Me.tbxClientId.Name = "tbxClientId"
-        Me.tbxClientId.Size = New System.Drawing.Size(254, 20)
-        Me.tbxClientId.TabIndex = 128
-        Me.tbxClientId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'pnlSep6
-        '
-        Me.pnlSep6.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.pnlSep6.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.pnlSep6.Location = New System.Drawing.Point(9, 12)
-        Me.pnlSep6.Margin = New System.Windows.Forms.Padding(2)
-        Me.pnlSep6.Name = "pnlSep6"
-        Me.pnlSep6.Size = New System.Drawing.Size(1, 30)
-        Me.pnlSep6.TabIndex = 0
-        Me.pnlSep6.TabStop = False
-        '
         'cbxImgurID
         '
         Me.cbxImgurID.Anchor = System.Windows.Forms.AnchorStyles.Left
@@ -887,80 +1071,6 @@ Partial Class FormSettings
         Me.cbxImgurID.Size = New System.Drawing.Size(95, 22)
         Me.cbxImgurID.TabIndex = 120
         Me.cbxImgurID.Text = "Enable"
-        '
-        'lblClientIDText
-        '
-        Me.lblClientIDText.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.lblClientIDText.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblClientIDText.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblClientIDText.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.lblClientIDText.Location = New System.Drawing.Point(0, 24)
-        Me.lblClientIDText.Margin = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.lblClientIDText.Name = "lblClientIDText"
-        Me.lblClientIDText.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.lblClientIDText.Size = New System.Drawing.Size(495, 21)
-        Me.lblClientIDText.TabIndex = 0
-        Me.lblClientIDText.Text = "· Enables the use of your own Imgur API client ID"
-        '
-        'lblClientID
-        '
-        Me.lblClientID.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.lblClientID.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblClientID.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblClientID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.lblClientID.Location = New System.Drawing.Point(0, 0)
-        Me.lblClientID.Margin = New System.Windows.Forms.Padding(0)
-        Me.lblClientID.Name = "lblClientID"
-        Me.lblClientID.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
-        Me.lblClientID.Size = New System.Drawing.Size(495, 24)
-        Me.lblClientID.TabIndex = 131
-        Me.lblClientID.Text = "Custom Imgur Client ID"
-        Me.lblClientID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'pnlOverrides
-        '
-        Me.pnlOverrides.BackColor = System.Drawing.Color.Transparent
-        Me.pnlOverrides.Controls.Add(Me.tlpOverrides)
-        Me.pnlOverrides.Controls.Add(Me.lblOverridesText)
-        Me.pnlOverrides.Controls.Add(Me.lblOverrides)
-        Me.pnlOverrides.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlOverrides.Location = New System.Drawing.Point(0, 510)
-        Me.pnlOverrides.Margin = New System.Windows.Forms.Padding(0)
-        Me.pnlOverrides.Name = "pnlOverrides"
-        Me.pnlOverrides.Size = New System.Drawing.Size(495, 100)
-        Me.pnlOverrides.TabIndex = 5
-        '
-        'tlpOverrides
-        '
-        Me.tlpOverrides.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.tlpOverrides.ColumnCount = 4
-        Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230.0!))
-        Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 225.0!))
-        Me.tlpOverrides.Controls.Add(Me.pnlSep8, 0, 0)
-        Me.tlpOverrides.Controls.Add(Me.cbxAutoUpdateCheck, 0, 0)
-        Me.tlpOverrides.Controls.Add(Me.pnlSep7, 0, 0)
-        Me.tlpOverrides.Controls.Add(Me.cbxHideNotifications, 3, 0)
-        Me.tlpOverrides.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpOverrides.Location = New System.Drawing.Point(0, 45)
-        Me.tlpOverrides.Margin = New System.Windows.Forms.Padding(2)
-        Me.tlpOverrides.Name = "tlpOverrides"
-        Me.tlpOverrides.RowCount = 1
-        Me.tlpOverrides.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpOverrides.Size = New System.Drawing.Size(495, 55)
-        Me.tlpOverrides.TabIndex = 133
-        '
-        'pnlSep8
-        '
-        Me.pnlSep8.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.pnlSep8.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.pnlSep8.Location = New System.Drawing.Point(259, 12)
-        Me.pnlSep8.Margin = New System.Windows.Forms.Padding(2)
-        Me.pnlSep8.Name = "pnlSep8"
-        Me.pnlSep8.Size = New System.Drawing.Size(1, 30)
-        Me.pnlSep8.TabIndex = 123
-        Me.pnlSep8.TabStop = False
         '
         'cbxAutoUpdateCheck
         '
@@ -979,17 +1089,6 @@ Partial Class FormSettings
         Me.cbxAutoUpdateCheck.TabIndex = 121
         Me.cbxAutoUpdateCheck.Text = "Automatic Update Check"
         '
-        'pnlSep7
-        '
-        Me.pnlSep7.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.pnlSep7.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.pnlSep7.Location = New System.Drawing.Point(9, 12)
-        Me.pnlSep7.Margin = New System.Windows.Forms.Padding(2)
-        Me.pnlSep7.Name = "pnlSep7"
-        Me.pnlSep7.Size = New System.Drawing.Size(1, 30)
-        Me.pnlSep7.TabIndex = 0
-        Me.pnlSep7.TabStop = False
-        '
         'cbxHideNotifications
         '
         Me.cbxHideNotifications.Anchor = System.Windows.Forms.AnchorStyles.Left
@@ -999,7 +1098,6 @@ Partial Class FormSettings
         Me.cbxHideNotifications.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.cbxHideNotifications.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
         Me.cbxHideNotifications.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cbxHideNotifications.Enabled = False
         Me.cbxHideNotifications.ForeColor = System.Drawing.Color.White
         Me.cbxHideNotifications.Location = New System.Drawing.Point(272, 16)
         Me.cbxHideNotifications.Margin = New System.Windows.Forms.Padding(2)
@@ -1007,103 +1105,6 @@ Partial Class FormSettings
         Me.cbxHideNotifications.Size = New System.Drawing.Size(171, 22)
         Me.cbxHideNotifications.TabIndex = 122
         Me.cbxHideNotifications.Text = "Hide Notifications"
-        '
-        'lblOverridesText
-        '
-        Me.lblOverridesText.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.lblOverridesText.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblOverridesText.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOverridesText.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(210, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.lblOverridesText.Location = New System.Drawing.Point(0, 24)
-        Me.lblOverridesText.Margin = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.lblOverridesText.Name = "lblOverridesText"
-        Me.lblOverridesText.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.lblOverridesText.Size = New System.Drawing.Size(495, 21)
-        Me.lblOverridesText.TabIndex = 0
-        Me.lblOverridesText.Text = "· Application specific overrides"
-        '
-        'lblOverrides
-        '
-        Me.lblOverrides.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.lblOverrides.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblOverrides.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblOverrides.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.lblOverrides.Location = New System.Drawing.Point(0, 0)
-        Me.lblOverrides.Margin = New System.Windows.Forms.Padding(0)
-        Me.lblOverrides.Name = "lblOverrides"
-        Me.lblOverrides.Padding = New System.Windows.Forms.Padding(1, 0, 0, 0)
-        Me.lblOverrides.Size = New System.Drawing.Size(495, 24)
-        Me.lblOverrides.TabIndex = 131
-        Me.lblOverrides.Text = "Overrides"
-        Me.lblOverrides.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'cmdApply
-        '
-        Me.cmdApply.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.cmdApply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.cmdApply.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdApply.FlatAppearance.BorderSize = 0
-        Me.cmdApply.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.cmdApply.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.cmdApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdApply.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdApply.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdApply.Location = New System.Drawing.Point(425, 636)
-        Me.cmdApply.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmdApply.Name = "cmdApply"
-        Me.cmdApply.Size = New System.Drawing.Size(80, 35)
-        Me.cmdApply.TabIndex = 3
-        Me.cmdApply.Text = "Apply"
-        Me.cmdApply.UseVisualStyleBackColor = False
-        '
-        'CmdCancel
-        '
-        Me.CmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.CmdCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.CmdCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.CmdCancel.FlatAppearance.BorderSize = 0
-        Me.CmdCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.CmdCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.CmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdCancel.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdCancel.Location = New System.Drawing.Point(335, 636)
-        Me.CmdCancel.Margin = New System.Windows.Forms.Padding(4)
-        Me.CmdCancel.Name = "CmdCancel"
-        Me.CmdCancel.Size = New System.Drawing.Size(80, 35)
-        Me.CmdCancel.TabIndex = 2
-        Me.CmdCancel.Text = "Cancel"
-        Me.CmdCancel.UseVisualStyleBackColor = False
-        '
-        'cmdOkay
-        '
-        Me.cmdOkay.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.cmdOkay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.cmdOkay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdOkay.FlatAppearance.BorderSize = 0
-        Me.cmdOkay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.cmdOkay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.cmdOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdOkay.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdOkay.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdOkay.Location = New System.Drawing.Point(247, 636)
-        Me.cmdOkay.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmdOkay.Name = "cmdOkay"
-        Me.cmdOkay.Size = New System.Drawing.Size(80, 35)
-        Me.cmdOkay.TabIndex = 1
-        Me.cmdOkay.Text = "Okay"
-        Me.cmdOkay.UseVisualStyleBackColor = False
-        '
-        'pnlSplit
-        '
-        Me.pnlSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.pnlSplit.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlSplit.ForeColor = System.Drawing.Color.Black
-        Me.pnlSplit.Location = New System.Drawing.Point(1, 39)
-        Me.pnlSplit.Margin = New System.Windows.Forms.Padding(4)
-        Me.pnlSplit.Name = "pnlSplit"
-        Me.pnlSplit.Size = New System.Drawing.Size(513, 2)
-        Me.pnlSplit.TabIndex = 126
         '
         'FormSettings
         '
@@ -1185,14 +1186,12 @@ Partial Class FormSettings
     Friend WithEvents pnlShowHardware As Panel
     Friend WithEvents tlpShowHardwareControls As TableLayoutPanel
     Friend WithEvents pnlSep1 As PictureBox
-    Friend WithEvents cbxHardwareOnStartup As GambolCheckbox
+    Friend WithEvents cbxShowHardwareOnStartup As GambolCheckbox
     Friend WithEvents lblShowHardwareText As Label
     Friend WithEvents lblShowHardware As Label
     Friend WithEvents cmdOkay As Button
     Friend WithEvents pnlHardwareMode As Panel
     Friend WithEvents lblHardwareModeText As Label
-    Friend WithEvents rbnHardwareModeXml As GambolRadioButton
-    Friend WithEvents rbnHardwareModeApi As GambolRadioButton
     Friend WithEvents lblHardwareMode As Label
     Friend WithEvents tlpMain As TableLayoutPanel
     Friend WithEvents tlpThemeColorControls As TableLayoutPanel
@@ -1219,4 +1218,6 @@ Partial Class FormSettings
     Friend WithEvents pnlSep5 As Panel
     Friend WithEvents pnlSep8 As PictureBox
     Friend WithEvents cbxHideNotifications As GambolCheckbox
+    Friend WithEvents cbxApiHardwareMode As GambolCheckbox
+    Friend WithEvents cmdLoadDefaultSettings As Button
 End Class

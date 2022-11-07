@@ -29,7 +29,7 @@ Friend Class FormAssess
     'Labels
     Private ReadOnly LabMinMode As Label
 
-#Region "Ctor"
+#Region "Constructor"
 
     Public Sub New()
 
@@ -38,7 +38,7 @@ Friend Class FormAssess
 
         SetAssessThemeAccent()
 
-        If Not Booleans.bAssessmentVerbose Then
+        If Not Program.bUseVerboseAssessment Then
 
             'Switch to standard assessment layout
             Size = New Size(520, 275)
@@ -314,7 +314,7 @@ Friend Class FormAssess
             Logger.Log("Process finished", LogType.InfoLog, RtbLog)
             Logger.Log("(ヘ･_･)ヘ┳━┳", LogType.InfoLog, RtbLog)
 
-            If Not Booleans.bAssessmentVerbose Then
+            If Not Program.bUseVerboseAssessment Then
                 LabMinMode.Text = WinsatReader.GetExitCodeString(WinsatReader.GetExitCode)
             End If
 
@@ -360,7 +360,7 @@ Friend Class FormAssess
             Logger.Log("Tests: DWM (DX9), Processor, Memory, Disk", LogType.InfoLog, RtbLog)
         End If
 
-        If Booleans.bAssessmentVerbose Then
+        If Program.bUseVerboseAssessment Then
             Logger.Log("Mode: Verbose", LogType.WinXILog, RtbLog)
         Else
             Logger.Log("Mode: Normal", LogType.WinXILog, RtbLog)
@@ -644,7 +644,7 @@ Friend Class FormAssess
 
         Dim StrWarn As String = "High processor usage expected. Try not to use your Computer as it may affect your CPU score."
 
-        If Not Booleans.bAssessmentVerbose Then
+        If Not Program.bUseVerboseAssessment Then
             LabMinMode.Text = StrWarn
         Else
             Logger.Log(StrWarn, LogType.WinXILog, RtbLog)
@@ -654,7 +654,7 @@ Friend Class FormAssess
 
     Private Sub StringNormal()
 
-        If Not Booleans.bAssessmentVerbose Then
+        If Not Program.bUseVerboseAssessment Then
             LabMinMode.Text = "Your screen may flash or go black during the assessment."
         Else
             Logger.Log("High processor usage end.", LogType.WinXILog, RtbLog)

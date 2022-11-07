@@ -15,6 +15,7 @@ Friend Class UpdateCheck
     Friend Shared strRemoteBuild As String = ""
     Friend Shared strReleaseDate As String = ""
     Friend Shared bHasCheckedThisSession As Boolean = False
+    Friend Shared bMissingUpdate As Boolean = False
 
     Friend Shared Function IsNewVersionAvailable() As Boolean
 

@@ -271,7 +271,7 @@ Public Class FormMain
 
         If Settings.bAutoUpdateCheck Then
             If UpdateCheck.IsNewVersionAvailable() Then
-                Booleans.bMissingUpdate = True
+                UpdateCheck.bMissingUpdate = True
             End If
         End If
 
@@ -281,20 +281,24 @@ Public Class FormMain
 
     Private Sub OnFinishedCheckNotifications()
 
-        If Hotfix.bIsWinSATAffected Then
-            Integers.intNotificationCount += 1
-            UpdateToolstripHotfixItem()
-        End If
+        If Not Settings.bHideNotifications Then
 
-        If Booleans.bMissingUpdate Then
-            lblAppVersion.BackColor = Color.FromArgb(100, 255, 185, 0)
-            Integers.intNotificationCount += 1
-            UpdateToolstripUpdateItem()
-        End If
+            If Hotfix.bIsWinSATAffected Then
+                Integers.intNotificationCount += 1
+                UpdateToolstripHotfixItem()
+            End If
 
-        If Not Integers.intNotificationCount = 0 Then
-            cmdOpenHelpMenu.ForeColor = Color.White
-            cmdOpenHelpMenu.Text += " · " & Integers.intNotificationCount
+            If UpdateCheck.bMissingUpdate Then
+                lblAppVersion.BackColor = Color.FromArgb(100, 255, 185, 0)
+                Integers.intNotificationCount += 1
+                UpdateToolstripUpdateItem()
+            End If
+
+            If Not Integers.intNotificationCount = 0 Then
+                cmdOpenHelpMenu.ForeColor = Color.White
+                cmdOpenHelpMenu.Text += " · " & Integers.intNotificationCount
+            End If
+
         End If
 
     End Sub
@@ -349,11 +353,13 @@ Public Class FormMain
         Next
 
         'Reverse changes to cmsHelp.items if notifications are available
-        If Booleans.bMissingHotfix Then
-            UpdateToolstripHotfixItem()
-        End If
-        If Booleans.bMissingUpdate Then
-            UpdateToolstripUpdateItem()
+        If Not Settings.bHideNotifications Then
+            If Hotfix.bIsWinSATAffected Then
+                UpdateToolstripHotfixItem()
+            End If
+            If UpdateCheck.bMissingUpdate Then
+                UpdateToolstripUpdateItem()
+            End If
         End If
 
         Settings.SetBorderColor(Me)
@@ -370,9 +376,9 @@ Public Class FormMain
                 RequestElevation()
             Else
                 If Settings.bUseVerboseAssessmentMode = True Then
-                    Booleans.bAssessmentVerbose = True
+                    Program.bUseVerboseAssessment = True
                 Else
-                    Booleans.bAssessmentVerbose = False
+                    Program.bUseVerboseAssessment = False
                 End If
 
                 Fade.FadeBehindChild(Me)
@@ -404,7 +410,7 @@ Public Class FormMain
                 RequestElevation()
             Else
                 'Override settings
-                Booleans.bAssessmentVerbose = True
+                Program.bUseVerboseAssessment = True
 
                 Fade.FadeBehindChild(Me)
                 Dim Frm As New FormAssess
@@ -844,7 +850,7 @@ Public Class FormMain
                 RequestElevation()
             Else
                 'Override settings
-                Booleans.bAssessmentVerbose = False
+                Program.bUseVerboseAssessment = False
 
                 Fade.FadeBehindChild(Me)
                 Dim Frm As New FormAssess
@@ -864,7 +870,7 @@ Public Class FormMain
                 RequestElevation()
             Else
                 'Override settings
-                Booleans.bAssessmentVerbose = True
+                Program.bUseVerboseAssessment = True
 
                 Fade.FadeBehindChild(Me)
                 Dim Frm As New FormAssess

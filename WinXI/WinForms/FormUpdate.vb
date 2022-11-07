@@ -62,7 +62,7 @@ Public Class FormUpdate
         If Not UpdateCheck.bHasCheckedThisSession Then
             If Not Settings.bAutoUpdateCheck Then 'we need to check for an update
                 If UpdateCheck.IsNewVersionAvailable() Then
-                    Booleans.bMissingUpdate = True
+                    UpdateCheck.bMissingUpdate = True
                 End If
             End If
             UpdateCheck.bHasCheckedThisSession = True
@@ -74,7 +74,7 @@ Public Class FormUpdate
 
     Private Sub OnFinishedInvokeUI()
 
-        If Booleans.bMissingUpdate Then
+        If UpdateCheck.bMissingUpdate Then
             LabInfo.Text = "An update is ready to download."
             CmdDownload.Enabled = True
         Else

@@ -1,6 +1,7 @@
 ﻿'   02.01.2020 - DR - UI improvements, switch controls to Gambol components
 '   09.03.2021 - DR - Remove portability mode, cleanup
 '   03.11.2022 - DR - Finalized auto update check, UI changes
+'   07.11.2022 - DR - Implement hide notifications, implement load defaults, improve code
 
 Imports WinXI.Core.Common
 Imports WinXI.Gambol.Controls
@@ -77,7 +78,7 @@ Public Class FormSettings
         Next
 
         For Each Ctrl As Control In tlpHardwareModeControls.Controls
-            If TypeOf Ctrl Is GambolRadioButton Then DirectCast(Ctrl, GambolRadioButton).CheckedColor = Settings.clrThemeColour
+            If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.clrThemeColour
         Next
 
         For Each Ctrl As Control In tlpAssessmentModeControls.Controls
@@ -92,12 +93,12 @@ Public Class FormSettings
             If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.clrThemeColour
         Next
 
-        For Each Ctrl As Control In pnlMain.Controls
-            If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = Settings.clrThemeColour
-        Next
-
         For Each Ctrl As Control In tlpOverrides.Controls
             If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.clrThemeColour
+        Next
+
+        For Each Ctrl As Control In pnlMain.Controls
+            If TypeOf Ctrl Is Button And Not Ctrl.Text = "Load Defaults" Then DirectCast(Ctrl, Button).ForeColor = Settings.clrThemeColour
         Next
 
         Settings.SetBorderColor(Me)
@@ -133,8 +134,6 @@ Public Class FormSettings
         'Done
         Close()
 
-        ToastAlert.Show("Application settings updated.", ToastType.Information)
-
     End Sub
 
     Private Sub cmdApply_Click(sender As Object, e As EventArgs) Handles cmdApply.Click
@@ -163,6 +162,17 @@ Public Class FormSettings
         Close()
     End Sub
 
+    Private Sub cmdLoadDefaultSettings_Click(sender As Object, e As EventArgs) Handles cmdLoadDefaultSettings.Click
+        cbxShowHardwareOnStartup.Checked = False
+        cbxApiHardwareMode.Checked = False
+        cbxInDepthAssessment.Checked = False
+        rbnDefault0.Checked = True
+        cbxApplyToBorder.Checked = False
+        cbxImgurID.Checked = False
+        cbxAutoUpdateCheck.Checked = False
+        cbxHideNotifications.Checked = False
+    End Sub
+
 #End Region
 #Region "Picturebox Event Handler"
 
@@ -179,23 +189,11 @@ Public Class FormSettings
 
     Private Sub SetControlStates()
 
-        If Settings.bShowHardwareOnStartup Then
-            cbxHardwareOnStartup.Checked = True
-        Else
-            cbxHardwareOnStartup.Checked = False
-        End If
+        cbxShowHardwareOnStartup.Checked = CBool(IIf(Settings.bShowHardwareOnStartup, True, False))
 
-        If Settings.bUseApiHardwareMode Then
-            rbnHardwareModeApi.Checked = True
-        Else
-            rbnHardwareModeXml.Checked = True
-        End If
+        cbxApiHardwareMode.Checked = CBool(IIf(Settings.bUseApiHardwareMode, True, False))
 
-        If Settings.bUseVerboseAssessmentMode Then
-            cbxInDepthAssessment.Checked = True
-        Else
-            cbxInDepthAssessment.Checked = False
-        End If
+        cbxInDepthAssessment.Checked = CBool(IIf(Settings.bUseVerboseAssessmentMode, True, False))
 
         Select Case Settings.intThemeColourInteger
             Case 0
@@ -222,18 +220,9 @@ Public Class FormSettings
                 rbnDefault0.Checked = True
         End Select
 
-        If Settings.bApplyThemeColourToBorder Then
-            cbxApplyToBorder.Checked = True
-        Else
-            cbxApplyToBorder.Checked = False
-        End If
+        cbxApplyToBorder.Checked = CBool(IIf(Settings.bApplyThemeColourToBorder, True, False))
 
-        If Settings.bUseCustomImgurApiKey Then
-            cbxImgurID.Checked = True
-        Else
-            cbxImgurID.Checked = False
-        End If
-
+        cbxImgurID.Checked = CBool(IIf(Settings.bUseCustomImgurApiKey, True, False))
         If cbxImgurID.Checked Then
             tlpCustomIDControls.Show()
             tbxClientId.Text = Settings.strCustomImgurApiKeyString
@@ -241,38 +230,24 @@ Public Class FormSettings
             tlpCustomIDControls.Hide()
         End If
 
-        If Settings.bAutoUpdateCheck Then
-            cbxAutoUpdateCheck.Checked = True
-        Else
-            cbxAutoUpdateCheck.Checked = False
-        End If
+        cbxAutoUpdateCheck.Checked = CBool(IIf(Settings.bAutoUpdateCheck, True, False))
+
+        cbxHideNotifications.Checked = CBool(IIf(Settings.bHideNotifications, True, False))
 
     End Sub
 
     Private Sub LoadSettingsValues()
 
-        '// Show hardware on startup
-        If cbxHardwareOnStartup.Checked Then
-            Settings.bShowHardwareOnStartup = True
-        Else
-            Settings.bShowHardwareOnStartup = False
-        End If
+        'Show hardware on startup
+        Settings.bShowHardwareOnStartup = CBool(IIf(cbxShowHardwareOnStartup.Checked, True, False))
 
-        '// Hardware mode
-        If rbnHardwareModeXml.Checked Then
-            Settings.bUseApiHardwareMode = False
-        Else
-            Settings.bUseApiHardwareMode = True
-        End If
+        'Hardware mode
+        Settings.bUseApiHardwareMode = CBool(IIf(cbxApiHardwareMode.Checked, True, False))
 
-        '// Assessment Mode
-        If cbxInDepthAssessment.Checked Then
-            Settings.bUseVerboseAssessmentMode = True
-        Else
-            Settings.bUseVerboseAssessmentMode = False
-        End If
+        'Assessment Mode
+        Settings.bUseVerboseAssessmentMode = CBool(IIf(cbxInDepthAssessment.Checked, True, False))
 
-        '// Theme
+        'Theme color
         If rbnDefault0.Checked Then
             Settings.intThemeColourInteger = 0
         End If
@@ -303,30 +278,22 @@ Public Class FormSettings
         If rbnTomato9.Checked Then
             Settings.intThemeColourInteger = 9
         End If
+
         'Apply theme to border
-        If Not cbxApplyToBorder.Checked Then
-            Settings.bApplyThemeColourToBorder = False
-        Else
-            Settings.bApplyThemeColourToBorder = True
-        End If
+        Settings.bApplyThemeColourToBorder = CBool(IIf(cbxApplyToBorder.Checked, True, False))
 
         'Custom Imgur Client ID
-        If Not cbxImgurID.Checked Then
+        If cbxImgurID.Checked And tbxClientId.Text = "" Then
             Settings.bUseCustomImgurApiKey = False
         Else
-            If cbxImgurID.Checked And tbxClientId.Text.Length = 0 Then
-                Settings.bUseCustomImgurApiKey = False
-            Else
-                Settings.bUseCustomImgurApiKey = True
-            End If
+            Settings.bUseCustomImgurApiKey = CBool(IIf(cbxImgurID.Checked, True, False))
         End If
 
         'Automatic Update Check
-        If Not cbxAutoUpdateCheck.Checked Then
-            Settings.bAutoUpdateCheck = False
-        Else
-            Settings.bAutoUpdateCheck = True
-        End If
+        Settings.bAutoUpdateCheck = CBool(IIf(cbxAutoUpdateCheck.Checked, True, False))
+
+        'Hide notifications
+        Settings.bHideNotifications = CBool(IIf(cbxHideNotifications.Checked, True, False))
 
     End Sub
 
@@ -342,13 +309,11 @@ Public Class FormSettings
 
     Private Sub cbxImgurID_CheckedChanged(sender As Object, e As EventArgs) Handles cbxImgurID.CheckedChanged
 
-        If Not CType(sender, GambolCheckbox).Checked Then
-            'Custom ID disabled
-            tlpCustomIDControls.Hide()
-        Else
+        If CType(sender, GambolCheckbox).Checked Then
             tlpCustomIDControls.Show()
-            'Custom ID enabled
-            CueText.SetCueText(tbxClientId, "Enter Client ID")
+            CueText.SetCueText(tbxClientId, "Enter your Client ID...")
+        Else
+            tlpCustomIDControls.Hide()
         End If
 
     End Sub

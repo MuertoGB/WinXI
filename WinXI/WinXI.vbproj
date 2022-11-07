@@ -186,7 +186,6 @@
     <Compile Include="WinForms\FormHotfix.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Variables\Booleans.vb" />
     <Compile Include="Variables\Integers.vb" />
     <Compile Include="WinSAT\WinsatState.vb" />
     <Compile Include="UpdateCheck.vb" />

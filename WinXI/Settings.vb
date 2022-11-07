@@ -2,6 +2,7 @@
 '   01.11.2022 - DR - Omit windows server changes, supress BC42025
 '   02.11.2022 - DR - Gain SaveSingleKey()
 '   06.11.2022 - DR - Fixed incorrect key names in Load()
+'   07.11.2022 - DR - Implement hide notifications
 
 Imports System.IO
 Imports WinXI.Core.Common
@@ -19,6 +20,7 @@ Friend Class Settings
 
     '[Overrides]
     Friend Shared bAutoUpdateCheck As Boolean = False
+    Friend Shared bHideNotifications As Boolean = False
 
     '[State] Reserved for future use
     'NORMAL = 0
@@ -117,20 +119,30 @@ Friend Class Settings
                 bApplyThemeColourToBorder = False
             End Try
 
-            bUseCustomImgurApiKey = CBool(IniFile.Read("Settings", "UseCustomImgurApiKey", strSettingsFile))
-            strCustomImgurApiKeyString = IniFile.Read("Settings", "CustomImgurApiKeyString", strSettingsFile)
+            Try
+                bUseCustomImgurApiKey = CBool(IniFile.Read("Settings", "UseCustomImgurApiKey", strSettingsFile))
+                strCustomImgurApiKeyString = IniFile.Read("Settings", "CustomImgurApiKeyString", strSettingsFile)
+            Catch
+                bUseCustomImgurApiKey = False
+            End Try
 
             '[Overrides]
             Try
                 bAutoUpdateCheck = CBool(IniFile.Read("Overrides", "UpdateAutoCheck", strSettingsFile))
-            Catch ex As Exception
+            Catch
                 bAutoUpdateCheck = False
+            End Try
+
+            Try
+                bHideNotifications = CBool(IniFile.Read("Overrides", "HideNotifications", strSettingsFile))
+            Catch
+                bHideNotifications = False
             End Try
 
             '[State]
             Try
                 intStartState = CInt(IniFile.Read("States", "StartState", strSettingsFile))
-            Catch ex As Exception
+            Catch
                 intStartState = 0
             End Try
 
@@ -156,6 +168,7 @@ Friend Class Settings
             Ini.Write("UseCustomImgurApiKey", CStr(bUseCustomImgurApiKey), "Settings")
             Ini.Write("CustomImgurApiKeyString", strCustomImgurApiKeyString, "Settings")
             Ini.Write("UpdateAutoCheck", CStr(bAutoUpdateCheck), "Overrides")
+            Ini.Write("HideNotifications", CStr(bHideNotifications), "Overrides")
             Ini.Write("StartState", CStr(intStartState), "States")
 #Enable Warning BC42025
         End If
