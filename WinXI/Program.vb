@@ -26,7 +26,7 @@ Friend Class Program
     Inherits Signing
 
     'Stuff to fill before release
-    Friend Const Build As String = "221106.220.015"
+    Friend Const Build As String = "221107.220.016"
     Friend Const Channel As String = "BETA"
     Friend Const ReleaseDate As String = "Not set"
 

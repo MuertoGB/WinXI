@@ -999,6 +999,7 @@ Partial Class FormSettings
         Me.cbxHideNotifications.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.cbxHideNotifications.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
         Me.cbxHideNotifications.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cbxHideNotifications.Enabled = False
         Me.cbxHideNotifications.ForeColor = System.Drawing.Color.White
         Me.cbxHideNotifications.Location = New System.Drawing.Point(272, 16)
         Me.cbxHideNotifications.Margin = New System.Windows.Forms.Padding(2)

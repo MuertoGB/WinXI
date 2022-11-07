@@ -233,7 +233,7 @@ Public Class FormMain
 #If DEBUG Then
         lblHead.Text &= " (Debug)"
 #Else
-        cmdDebug.Hide()
+        cmdOpenDebugMenu.Hide()
 #End If
 
         If Elevation.bIsElevated Then
