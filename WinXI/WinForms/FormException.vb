@@ -1,10 +1,12 @@
 ﻿'   23.09.2019 - DR - Remove ability to send reports, add ability to save report, ui changes, general changes, add links.
 '   11.03.2021 - DR - Bugfix string for crypto digest.
 '   01.11.2022 - DR - Update links and urls.
+'   06.11.2022 - DR - Add program build to log generation, remove single use variable
 
 Imports System.Text
 Imports System.Threading
 Imports WinXI.Core
+Imports WinXI.Core.Common
 Imports WinXI.Core.Cryptography
 Imports WinXI.Core.System
 
@@ -12,10 +14,9 @@ Imports WinXI.Startup.Support
 
 Public Class FormException
 
-    Private strSystemData As String
-    Private ReadOnly prCurrentProcess As Process = Process.GetCurrentProcess
+    Private strSystemData As String = String.Empty
 
-#Region "Ctor"
+#Region "Constructor"
 
     Public Sub New()
 
@@ -53,15 +54,15 @@ Public Class FormException
 #Region "Theme"
     Private Sub SetExceptionThemeAccent()
 
-        Dim TC As Color = Settings.clrThemeColour
+        Dim clrThemeColor As Color = Settings.clrThemeColour
 
-        pnlSplit.BackColor = TC
+        pnlSplit.BackColor = clrThemeColor
 
         For Each Ctrl As Control In tlpButtons.Controls
-            If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = TC
+            If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = clrThemeColor
         Next
         For Each Ctrl As Control In pnlLinks.Controls
-            If TypeOf Ctrl Is LinkLabel Then DirectCast(Ctrl, LinkLabel).LinkColor = TC
+            If TypeOf Ctrl Is LinkLabel Then DirectCast(Ctrl, LinkLabel).LinkColor = clrThemeColor
         Next
 
         Settings.SetBorderColor(Me)
@@ -76,10 +77,10 @@ Public Class FormException
 
         lblErrorMessage.Text = ApplicationSupport.strException
         lblTitle.Text = "Generating report, please wait..."
-        Dim T As New Thread(AddressOf LoadData) With {
+        Dim tLoadData As New Thread(AddressOf LoadData) With {
             .IsBackground = True
         }
-        T.Start()
+        tLoadData.Start()
 
     End Sub
 
@@ -93,24 +94,25 @@ Public Class FormException
 #End Region
 #Region "Button Event Handlers"
 
-    Private Sub CmdContinue_Click(sender As Object, e As EventArgs) Handles cmdContinue.Click
+    Private Sub cmdContinue_Click(sender As Object, e As EventArgs) Handles cmdContinue.Click
         Close()
     End Sub
-    Private Sub CmdForceQuit_Click(sender As Object, e As EventArgs) Handles cmdForceQuit.Click
+
+    Private Sub cmdForceQuit_Click(sender As Object, e As EventArgs) Handles cmdForceQuit.Click
         Environment.Exit(0)
     End Sub
 
-    Private Sub CmdSaveLog_Click(sender As Object, e As EventArgs) Handles cmdSaveLog.Click
+    Private Sub cmdSaveLog_Click(sender As Object, e As EventArgs) Handles cmdSaveLog.Click
 
-        Dim Sfd As New SaveFileDialog With {
+        Dim sfdLog As New SaveFileDialog With {
             .FileName = "Error-Report.txt",
             .Filter = "Text File (*.txt)|*.txt",
             .InitialDirectory = Directories.DesktopPath,
             .OverwritePrompt = True
             }
 
-        If Sfd.ShowDialog = DialogResult.OK Then
-            My.Computer.FileSystem.WriteAllText(Sfd.FileName, strSystemData, False)
+        If sfdLog.ShowDialog = DialogResult.OK Then
+            My.Computer.FileSystem.WriteAllText(sfdLog.FileName, strSystemData, False)
         End If
 
     End Sub
@@ -118,12 +120,12 @@ Public Class FormException
 #End Region
 #Region "LinkLabel Event Handlers"
 
-    Private Sub LnkEmail_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkEmail.LinkClicked
-        Process.Start("mailto:qbug@tuta.io?subject=" & "WinXI Unhandled Exception report" & "&body=" &
-                      "Please include a brief description of what happened. Emails are deleted after they have been read and reports are retained until the issue has been fixed.")
+    Private Sub lnkEmail_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkEmail.LinkClicked
+        Process.Start("mailto:qbug@tuta.io?subject=" & "WinXI Unhandled Exception Report" & "&body=" &
+                      "Please include a brief description of what happened, and attach the error log.")
     End Sub
 
-    Private Sub LnkForum_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkOpenIssue.LinkClicked
+    Private Sub lnkForum_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkOpenIssue.LinkClicked
         Process.Start(Strings.strIssueUrl)
     End Sub
 
@@ -143,20 +145,18 @@ Public Class FormException
 
     Private Function GenerateSystemData() As String
 
-        Dim SBuilder As New StringBuilder
-        Dim StringDate As String = Now.ToShortDateString & " at " & Now.ToShortTimeString
-        Dim StringName As String = Application.ProductName
-        Dim StringPath As String = AppDomain.CurrentDomain.FriendlyName
-        Dim StringVersion As String = Application.ProductVersion
+        Dim strBuilder As New StringBuilder
+        Dim strDate As String = Now.ToShortDateString & " at " & Now.ToShortTimeString
 
-        With SBuilder
-            .AppendLine("# // Unhandled exception caught - " & StringDate & vbCrLf)
+        With strBuilder
+            .AppendLine("# // Unhandled exception caught - " & strDate & vbCrLf)
             .AppendLine("<-- Application -->" & vbCrLf)
-            .AppendLine("Name: " & StringName)
-            .AppendLine("Version: " & StringVersion)
+            .AppendLine("Name: " & Application.ProductName)
+            .AppendLine("Version: " & Application.ProductVersion)
+            .AppendLine("Build: " & Program.Build)
             .AppendLine("Channel: " & Program.Channel)
             .AppendLine("Elevated: " & CStr(Elevation.bIsElevated))
-            .AppendLine("SHA256: " & Checksum.GetSha256Digest(StringPath) & vbCrLf)
+            .AppendLine("SHA256: " & Checksum.GetSha256Digest(FileOps.GetApplicationImage) & vbCrLf)
             .AppendLine("<-- Operating System -->" & vbCrLf)
             .AppendLine("Name: " & WinSystem.GetProductName())
             .AppendLine("Bitness: " & WinSystem.GetWindowsBitness)
@@ -174,35 +174,35 @@ Public Class FormException
             .AppendLine("# // End of file")
         End With
 
-        Return SBuilder.ToString
+        Return strBuilder.ToString
 
     End Function
 
     Private Function GenerateModuleData() As String
 
-        Dim SBuilder As New StringBuilder
-        Dim IntModuleNumber As Integer = 0
+        Dim strBuilder As New StringBuilder
+        Dim intModuleNumber As Integer = 0
 
-        For Each LoadedModule As ProcessModule In prCurrentProcess.Modules
+        For Each pmModules As ProcessModule In Process.GetCurrentProcess.Modules
 
             On Error Resume Next
 
-            IntModuleNumber += 1
+            intModuleNumber += 1
 
-            With SBuilder
+            With strBuilder
                 .AppendLine("------------------------------------------------------------------------" & vbCrLf)
-                .AppendLine("  Module #" & IntModuleNumber & " -> " & "'" & LoadedModule.ModuleName & "'" & vbCrLf)
-                .AppendLine("Path: " & LoadedModule.FileName)
-                .AppendLine("Version: " & LoadedModule.FileVersionInfo.FileVersion)
-                .AppendLine("Description: " & LoadedModule.FileVersionInfo.FileDescription)
-                .AppendLine("SHA256: " & Checksum.GetSha256Digest(LoadedModule.FileName))
-                .AppendLine("Size (Bytes): " & Convert.ToString(LoadedModule.ModuleMemorySize))
-                .AppendLine("Base Address: " & Convert.ToString(LoadedModule.BaseAddress))
-                .AppendLine("Entry Point: " & Convert.ToString(LoadedModule.EntryPointAddress) & vbCrLf)
+                .AppendLine("  Module #" & intModuleNumber & " -> " & "'" & pmModules.ModuleName & "'" & vbCrLf)
+                .AppendLine("Path: " & pmModules.FileName)
+                .AppendLine("Version: " & pmModules.FileVersionInfo.FileVersion)
+                .AppendLine("Description: " & pmModules.FileVersionInfo.FileDescription)
+                .AppendLine("SHA256: " & Checksum.GetSha256Digest(pmModules.FileName))
+                .AppendLine("Size (Bytes): " & Convert.ToString(pmModules.ModuleMemorySize))
+                .AppendLine("Base Address: " & Convert.ToString(pmModules.BaseAddress))
+                .AppendLine("Entry Point: " & Convert.ToString(pmModules.EntryPointAddress) & vbCrLf)
             End With
         Next
 
-        Return SBuilder.ToString
+        Return strBuilder.ToString
 
     End Function
 
@@ -221,6 +221,7 @@ Public Class FormException
     End Sub
 
     Private Delegate Sub DataDelegate(Data As String)
+
     Private Sub InvokeData(Data As String)
         strSystemData = Data
         cmdContinue.Enabled = True

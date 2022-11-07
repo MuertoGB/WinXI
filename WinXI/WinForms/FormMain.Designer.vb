@@ -151,6 +151,7 @@ Partial Class FormMain
         Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
         Me.OpenElevationWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenHotfixWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenStartupMessageWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsExplorerMenu.SuspendLayout()
         Me.pnlTitle.SuspendLayout()
@@ -598,8 +599,8 @@ Partial Class FormMain
         Me.cmdOpenSettingsTitle.Dock = System.Windows.Forms.DockStyle.Right
         Me.cmdOpenSettingsTitle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.cmdOpenSettingsTitle.FlatAppearance.BorderSize = 0
-        Me.cmdOpenSettingsTitle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.cmdOpenSettingsTitle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.cmdOpenSettingsTitle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer))
+        Me.cmdOpenSettingsTitle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer))
         Me.cmdOpenSettingsTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdOpenSettingsTitle.Font = New System.Drawing.Font("Segoe MDL2 Assets", 13.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdOpenSettingsTitle.ForeColor = System.Drawing.Color.White
@@ -1722,30 +1723,30 @@ Partial Class FormMain
         '
         Me.cmsDebugMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
         Me.cmsDebugMenu.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cmsDebugMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ThrowUnhandledExceptionToolStripMenuItem, Me.ToolStripSeparator11, Me.ShowToastInfoToolStripMenuItem, Me.ShowToastWarningToolStripMenuItem, Me.ShowToastErrorToolStripMenuItem, Me.ToolStripSeparator12, Me.OpenElevationWindowToolStripMenuItem, Me.OpenHotfixWindowToolStripMenuItem})
+        Me.cmsDebugMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ThrowUnhandledExceptionToolStripMenuItem, Me.ToolStripSeparator11, Me.ShowToastInfoToolStripMenuItem, Me.ShowToastWarningToolStripMenuItem, Me.ShowToastErrorToolStripMenuItem, Me.ToolStripSeparator12, Me.OpenElevationWindowToolStripMenuItem, Me.OpenHotfixWindowToolStripMenuItem, Me.OpenStartupMessageWindowToolStripMenuItem})
         Me.cmsDebugMenu.Name = "cmsDebug"
         Me.cmsDebugMenu.ShowImageMargin = False
-        Me.cmsDebugMenu.Size = New System.Drawing.Size(270, 184)
+        Me.cmsDebugMenu.Size = New System.Drawing.Size(295, 212)
         '
         'ThrowUnhandledExceptionToolStripMenuItem
         '
         Me.ThrowUnhandledExceptionToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ThrowUnhandledExceptionToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ThrowUnhandledExceptionToolStripMenuItem.Name = "ThrowUnhandledExceptionToolStripMenuItem"
-        Me.ThrowUnhandledExceptionToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
+        Me.ThrowUnhandledExceptionToolStripMenuItem.Size = New System.Drawing.Size(294, 28)
         Me.ThrowUnhandledExceptionToolStripMenuItem.Text = "Throw Unhandled Exception"
         '
         'ToolStripSeparator11
         '
         Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
-        Me.ToolStripSeparator11.Size = New System.Drawing.Size(266, 6)
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(291, 6)
         '
         'ShowToastInfoToolStripMenuItem
         '
         Me.ShowToastInfoToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowToastInfoToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ShowToastInfoToolStripMenuItem.Name = "ShowToastInfoToolStripMenuItem"
-        Me.ShowToastInfoToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
+        Me.ShowToastInfoToolStripMenuItem.Size = New System.Drawing.Size(294, 28)
         Me.ShowToastInfoToolStripMenuItem.Text = "Show Toast (Info)"
         '
         'ShowToastWarningToolStripMenuItem
@@ -1753,7 +1754,7 @@ Partial Class FormMain
         Me.ShowToastWarningToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowToastWarningToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ShowToastWarningToolStripMenuItem.Name = "ShowToastWarningToolStripMenuItem"
-        Me.ShowToastWarningToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
+        Me.ShowToastWarningToolStripMenuItem.Size = New System.Drawing.Size(294, 28)
         Me.ShowToastWarningToolStripMenuItem.Text = "Show Toast (Warning)"
         '
         'ShowToastErrorToolStripMenuItem
@@ -1761,20 +1762,20 @@ Partial Class FormMain
         Me.ShowToastErrorToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowToastErrorToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ShowToastErrorToolStripMenuItem.Name = "ShowToastErrorToolStripMenuItem"
-        Me.ShowToastErrorToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
+        Me.ShowToastErrorToolStripMenuItem.Size = New System.Drawing.Size(294, 28)
         Me.ShowToastErrorToolStripMenuItem.Text = "Show Toast (Error)"
         '
         'ToolStripSeparator12
         '
         Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
-        Me.ToolStripSeparator12.Size = New System.Drawing.Size(266, 6)
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(291, 6)
         '
         'OpenElevationWindowToolStripMenuItem
         '
         Me.OpenElevationWindowToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenElevationWindowToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.OpenElevationWindowToolStripMenuItem.Name = "OpenElevationWindowToolStripMenuItem"
-        Me.OpenElevationWindowToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
+        Me.OpenElevationWindowToolStripMenuItem.Size = New System.Drawing.Size(294, 28)
         Me.OpenElevationWindowToolStripMenuItem.Text = "Open Elevation Window"
         '
         'OpenHotfixWindowToolStripMenuItem
@@ -1782,8 +1783,16 @@ Partial Class FormMain
         Me.OpenHotfixWindowToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenHotfixWindowToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.OpenHotfixWindowToolStripMenuItem.Name = "OpenHotfixWindowToolStripMenuItem"
-        Me.OpenHotfixWindowToolStripMenuItem.Size = New System.Drawing.Size(269, 28)
+        Me.OpenHotfixWindowToolStripMenuItem.Size = New System.Drawing.Size(294, 28)
         Me.OpenHotfixWindowToolStripMenuItem.Text = "Open Hotfix Window"
+        '
+        'OpenStartupMessageWindowToolStripMenuItem
+        '
+        Me.OpenStartupMessageWindowToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OpenStartupMessageWindowToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.OpenStartupMessageWindowToolStripMenuItem.Name = "OpenStartupMessageWindowToolStripMenuItem"
+        Me.OpenStartupMessageWindowToolStripMenuItem.Size = New System.Drawing.Size(294, 28)
+        Me.OpenStartupMessageWindowToolStripMenuItem.Text = "Open Startup Message Window"
         '
         'FormMain
         '
@@ -1966,4 +1975,5 @@ Partial Class FormMain
     Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
     Friend WithEvents OpenElevationWindowToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OpenHotfixWindowToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OpenStartupMessageWindowToolStripMenuItem As ToolStripMenuItem
 End Class

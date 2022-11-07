@@ -46,12 +46,12 @@ Friend Class FormAbout
 
     Private Sub SetAboutThemeAccent()
 
-        Dim TC As Color = Settings.clrThemeColour
+        Dim clrFormTheme As Color = Settings.clrThemeColour
 
-        pnlSplit.BackColor = TC
+        pnlSplit.BackColor = clrFormTheme
 
         For Each Ctrl As Control In pnlMain.Controls
-            If TypeOf Ctrl Is LinkLabel Then DirectCast(Ctrl, LinkLabel).LinkColor = TC
+            If TypeOf Ctrl Is LinkLabel Then DirectCast(Ctrl, LinkLabel).LinkColor = clrFormTheme
         Next
 
         Settings.SetBorderColor(Me)
@@ -67,7 +67,7 @@ Friend Class FormAbout
         lblName.Text &= " " & Application.ProductVersion & " · " & Program.Channel
         lblBuild.Text = "Build " & Program.Build
 
-        FormatLinks()
+        formatLinks()
 
     End Sub
 
@@ -85,7 +85,7 @@ Friend Class FormAbout
 #End Region
 #Region "Linklabel Event Handlers"
 
-    Private Sub LnkLinks_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkLinks.LinkClicked
+    Private Sub lnkLinks_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkLinks.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
 
@@ -93,7 +93,7 @@ Friend Class FormAbout
 
 #Region "Format Links"
 
-    Private Sub FormatLinks()
+    Private Sub formatLinks()
 
         Dim strVersion As String = "WinXI build: " & Program.Build
         lnkLinks.Links.Clear()

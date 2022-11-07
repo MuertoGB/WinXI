@@ -4,7 +4,7 @@ Imports WinXI.Core
 
 Public Class FormElevate
 
-#Region "Ctor"
+#Region "Constructor"
 
     Public Sub New()
 
@@ -44,11 +44,11 @@ Public Class FormElevate
 #Region "Theme"
     Private Sub SetEnvironmentThemeAccent()
 
-        Dim TC As Color = Settings.clrThemeColour
+        Dim clrFormTheme As Color = Settings.clrThemeColour
 
-        pnlSplit.BackColor = TC
-        cmdDecline.ForeColor = TC
-        cmdElevate.ForeColor = TC
+        pnlSplit.BackColor = clrFormTheme
+        cmdDecline.ForeColor = clrFormTheme
+        cmdElevate.ForeColor = clrFormTheme
 
         Settings.SetBorderColor(Me)
 

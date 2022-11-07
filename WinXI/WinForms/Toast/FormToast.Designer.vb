@@ -25,6 +25,7 @@ Partial Class FormToast
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormToast))
         Me.TimerTick = New System.Windows.Forms.Timer(Me.components)
         Me.LabTitle = New System.Windows.Forms.Label()
         Me.LabMessage = New System.Windows.Forms.Label()
@@ -140,6 +141,7 @@ Partial Class FormToast
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(500, 145)
         Me.MinimumSize = New System.Drawing.Size(500, 145)
         Me.Name = "FormToast"

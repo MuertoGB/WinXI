@@ -2,6 +2,7 @@
 '   07.12.2019 - DR - Add SystemFontSegoeAssets
 '   Checked for WinXI on 30.10.2022
 '   02.11.2022 - DR - Show exception message when InstallFont throws
+'   06.11.2022 - DR - Gain DoesFontExist()
 
 Imports System.IO
 
@@ -34,6 +35,18 @@ Namespace Core.Common
             Catch ex As Exception
                 MessageBox.Show("Could not install font:" & vbCrLf & ex.ToString, "FontInstaller.InstallFont()", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return 0 'Error
+            End Try
+
+        End Function
+
+        Friend Shared Function DoesFontExist(fntFamily As String, fntStyle As FontStyle) As Boolean
+
+            Try
+                Using ffFamily As New FontFamily(fntFamily)
+                    Return ffFamily.IsStyleAvailable(fntStyle)
+                End Using
+            Catch ex As Exception
+                Return False
             End Try
 
         End Function

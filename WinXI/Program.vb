@@ -8,10 +8,9 @@
 '                                                                                                 '
 ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
 
-'   01.11.2022 - DR - Impliment elevation changes, omit windows server changes, add capability check for WinSAT
-'   01.11.2022 - DR - Move RestartElevated() to Elevation.vb, update variable
 '   02.11.2022 - DR - Edited Main() load order, supress naming violations globally
 '   03.11.2022 - DR - Move to BETA channel, removed single use variable
+'   06.11.2022 - DR - Move DoesFontExist()
 
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports System.Runtime.CompilerServices
@@ -26,7 +25,7 @@ Friend Class Program
     Inherits Signing
 
     'Stuff to fill before release
-    Friend Const Build As String = "221106.220.011"
+    Friend Const Build As String = "221106.220.012"
     Friend Const Channel As String = "BETA"
     Friend Const ReleaseDate As String = "Not set"
 
@@ -50,7 +49,7 @@ Friend Class Program
         Settings.Create() 'Performs a check, creates file if missing.
         Settings.Load()
 
-        'Does this need elevated privilages?
+        'Check needed fonts
         If Not WinSystem.IsWin10 Then 'Windows 10 already ships with all required fonts
             CheckFonts() 'Moved here on 23.10.2019 (Before text rendering is set)
         End If
@@ -64,48 +63,41 @@ Friend Class Program
 
     End Sub
 
-#Region "Functions"
-
-    Private Shared Function DoesFontExist(Font_Family As String, Font_Style As FontStyle) As Boolean
-
-        Try
-            Using FF As New FontFamily(Font_Family)
-                Return FF.IsStyleAvailable(Font_Style)
-            End Using
-        Catch ex As Exception
-            Return False
-        End Try
-
-    End Function
+#Region "Font Related"
 
     Private Shared Sub CheckFonts()
 
+        '-----------------------------------------------------------------------------------'
+        'This code needs to be changed, need a form to ask if user wants to install instead.'
+        'Also, does this need elevated privilages?                                          '
+        '-----------------------------------------------------------------------------------'
+
         Dim DidInstall As Boolean = False
 
-        If Not DoesFontExist("Segoe UI", FontStyle.Regular) Then
-            Dim i As Integer = FontInstaller.InstallFont(FontInstaller.SystemFontSegoeUI, My.Resources.segoeui, "Segoe UI")
-            If i = 1 Then
+        If Not FontInstaller.DoesFontExist("Segoe UI", FontStyle.Regular) Then
+            Dim intCode As Integer = FontInstaller.InstallFont(FontInstaller.SystemFontSegoeUI, My.Resources.segoeui, "Segoe UI")
+            If intCode = 1 Then
                 DidInstall = True
             End If
         End If
 
-        If Not DoesFontExist("Segoe UI", FontStyle.Bold) Then
-            Dim i As Integer = FontInstaller.InstallFont(FontInstaller.SystemFontSegoeUIBold, My.Resources.segoeuib, "Segoe UI Bold")
-            If i = 1 Then
+        If Not FontInstaller.DoesFontExist("Segoe UI", FontStyle.Bold) Then
+            Dim intCode As Integer = FontInstaller.InstallFont(FontInstaller.SystemFontSegoeUIBold, My.Resources.segoeuib, "Segoe UI Bold")
+            If intCode = 1 Then
                 DidInstall = True
             End If
         End If
 
-        If Not DoesFontExist("Segoe UI Semibold", FontStyle.Regular) Then
-            Dim i As Integer = FontInstaller.InstallFont(FontInstaller.SystemFontSegoeUISemibold, My.Resources.seguisb, "Segoe UI Semibold")
-            If i = 1 Then
+        If Not FontInstaller.DoesFontExist("Segoe UI Semibold", FontStyle.Regular) Then
+            Dim intCode As Integer = FontInstaller.InstallFont(FontInstaller.SystemFontSegoeUISemibold, My.Resources.seguisb, "Segoe UI Semibold")
+            If intCode = 1 Then
                 DidInstall = True
             End If
         End If
 
-        If Not DoesFontExist("Segoe MDL2 Assets", FontStyle.Regular) Then
-            Dim i As Integer = FontInstaller.InstallFont(FontInstaller.SystemFontSegoeAssets, My.Resources.segmdl2, "Segoe MDL2 Assets")
-            If i = 1 Then
+        If Not FontInstaller.DoesFontExist("Segoe MDL2 Assets", FontStyle.Regular) Then
+            Dim intCode As Integer = FontInstaller.InstallFont(FontInstaller.SystemFontSegoeAssets, My.Resources.segmdl2, "Segoe MDL2 Assets")
+            If intCode = 1 Then
                 DidInstall = True
             End If
         End If
@@ -116,6 +108,7 @@ Friend Class Program
         End If
 
     End Sub
+
 #End Region
 
 End Class
@@ -136,7 +129,7 @@ Namespace Startup.Support
 
 #Region "Application Startup"
 
-        Private ReadOnly frmEnvironment As New FormEnvironment
+        Private ReadOnly frmEnvironment As New FormStartupMessage
         Private Sub ApplicationSupport_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
 
             AddHandler frmEnvironment.FormClosed, AddressOf Wait

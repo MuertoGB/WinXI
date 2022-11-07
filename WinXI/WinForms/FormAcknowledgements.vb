@@ -1,8 +1,9 @@
 ﻿'   24.05.2020 - DR - Fixed image scaling
+'   06.11.2022 - DR - Update resource links
 
 Public Class FormAcknowledgements
 
-#Region "Ctor"
+#Region "Constructor"
 
     Public Sub New()
 
@@ -38,7 +39,7 @@ Public Class FormAcknowledgements
 #End Region
 #Region "Frame Buttons"
 
-    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
+    Private Sub cmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
         Close()
     End Sub
 
@@ -48,16 +49,16 @@ Public Class FormAcknowledgements
 
     Private Sub SetAcknThemeAccent()
 
-        Dim TC As Color = Settings.clrThemeColour
+        Dim clrFormTheme As Color = Settings.clrThemeColour
 
-        pnlSplit.BackColor = TC
+        pnlSplit.BackColor = clrFormTheme
 
         For Each Ctrl As Control In tlpForm.Controls
-            If TypeOf Ctrl Is LinkLabel Then DirectCast(Ctrl, LinkLabel).LinkColor = TC
+            If TypeOf Ctrl Is LinkLabel Then DirectCast(Ctrl, LinkLabel).LinkColor = clrFormTheme
         Next
 
         For Each Ctrl As Control In tlpImgLinks.Controls
-            If TypeOf Ctrl Is LinkLabel Then DirectCast(Ctrl, LinkLabel).LinkColor = TC
+            If TypeOf Ctrl Is LinkLabel Then DirectCast(Ctrl, LinkLabel).LinkColor = clrFormTheme
         Next
 
         Settings.SetBorderColor(Me)
@@ -68,10 +69,10 @@ Public Class FormAcknowledgements
 
 #Region "Load Event Handler"
 
-    Private Sub FormAckn_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FormAcknowledgements_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        FormatMicrosoftLink()
-        FormatCreditsLink()
+        formatMicrosoftLink()
+        formatCreditsLink()
         FormatGraphLink()
         FormatIconLink()
         FormatWarnLink()
@@ -93,53 +94,53 @@ Public Class FormAcknowledgements
 #End Region
 #Region "Links, top"
 
-    Private Sub LnkMicrosoft_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkMicrosoft.LinkClicked
+    Private Sub lnkMicrosoft_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkMicrosoft.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
-    Private Sub LnkCredits_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkCredits.LinkClicked
+    Private Sub lnkCredits_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkCredits.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
 
 #End Region
 #Region "Links, bottom"
 
-    Private Sub LnkGraph_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkGraph.LinkClicked
+    Private Sub lnkGraph_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkGraph.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
-    Private Sub LnkIcon_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkIcon.LinkClicked
+    Private Sub lnkIcon_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkIcon.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
-    Private Sub LnkWarn_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkWarn.LinkClicked
+    Private Sub lnkWarn_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkWarn.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
-    Private Sub LnkError_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkError.LinkClicked
+    Private Sub lnkError_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkError.LinkClicked
         Process.Start(e.Link.LinkData.ToString)
     End Sub
 
 #End Region
 
 #Region "Link Formatting"
-    Private Sub FormatMicrosoftLink()
+    Private Sub formatMicrosoftLink()
         lnkMicrosoft.Links.Clear()
         lnkMicrosoft.Links.Add(106, 21, "https://www.microsoft.com")
     End Sub
-    Private Sub FormatCreditsLink()
+    Private Sub formatCreditsLink()
         lnkCredits.Links.Clear()
         lnkCredits.Links.Add(88, 13, "https://forums.mydigitallife.net/")
         lnkCredits.Links.Add(136, 10, "https://www.majorgeeks.com/")
         lnkCredits.Links.Add(151, 9, "https://www.softpedia.com/")
     End Sub
-    Private Sub FormatGraphLink()
+    Private Sub formatGraphLink()
         lnkGraph.Links.Clear()
-        lnkGraph.Links.Add(14, 14, "https://www.flaticon.com/free-icon/bar-chart_235172").Enabled = True
-        lnkGraph.Links.Add(34, 8, "https://www.flaticon.com").Enabled = True
+        lnkGraph.Links.Add(14, 15, "https://www.flaticon.com/free-icon/pie-chart_3589888")
+        lnkGraph.Links.Add(35, 8, "https://www.flaticon.com")
     End Sub
-    Private Sub FormatIconLink()
+    Private Sub formatIconLink()
         lnkIcon.Links.Clear()
         lnkIcon.Links.Add(20, 7, "https://www.flaticon.com/free-icon/info-button_64494")
         lnkIcon.Links.Add(33, 8, "https://www.flaticon.com")
     End Sub
-    Private Sub FormatWarnLink()
+    Private Sub formatWarnLink()
         lnkWarn.Links.Clear()
         lnkWarn.Links.Add(16, 7, "https://www.flaticon.com/free-icon/danger_272289")
         lnkWarn.Links.Add(29, 8, "https://www.flaticon.com")

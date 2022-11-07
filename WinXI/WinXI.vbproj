@@ -75,7 +75,7 @@
     <OptionInfer>Off</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>main.ico</ApplicationIcon>
+    <ApplicationIcon>winxi.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -252,10 +252,10 @@
     <Compile Include="WinForms\Toast\FormToast.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WinForms\FormEnvironment.Designer.vb">
-      <DependentUpon>FormEnvironment.vb</DependentUpon>
+    <Compile Include="WinForms\FormStartupMessage.Designer.vb">
+      <DependentUpon>FormStartupMessage.vb</DependentUpon>
     </Compile>
-    <Compile Include="WinForms\FormEnvironment.vb">
+    <Compile Include="WinForms\FormStartupMessage.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WinForms\FormSettings.Designer.vb">
@@ -316,8 +316,8 @@
       <DependentUpon>FormToast.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinForms\FormEnvironment.resx">
-      <DependentUpon>FormEnvironment.vb</DependentUpon>
+    <EmbeddedResource Include="WinForms\FormStartupMessage.resx">
+      <DependentUpon>FormStartupMessage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForms\FormSettings.resx">
       <DependentUpon>FormSettings.vb</DependentUpon>
@@ -376,8 +376,11 @@
     <Folder Include="bin\Debug\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="main.ico" />
+    <None Include="Resources\ImgMainIcon24Px.png" />
     <None Include="Resources\imgMuerto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="winxi.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -21,7 +21,10 @@ Friend Class Settings
     Friend Shared bAutoUpdateCheck As Boolean = False
 
     '[State] Reserved for future use
-    Friend Shared intResetState As Integer = 0
+    'NORMAL = 0
+    'ASSESSMENT = 1
+    'FONTINSTALLER = 2
+    Friend Shared intStartState As Integer = 0
 
     'Paths
     Friend Shared ReadOnly strSettingsFile As String = Path.Combine(FileOps.GetApplicationPath(), "Settings.ini")
@@ -126,9 +129,9 @@ Friend Class Settings
 
             '[State]
             Try
-                intResetState = CInt(IniFile.Read("States", "ResetState", strSettingsFile))
+                intStartState = CInt(IniFile.Read("States", "StartState", strSettingsFile))
             Catch ex As Exception
-                intResetState = 0
+                intStartState = 0
             End Try
 
         End If
@@ -153,7 +156,7 @@ Friend Class Settings
             Ini.Write("UseCustomImgurApiKey", CStr(bUseCustomImgurApiKey), "Settings")
             Ini.Write("CustomImgurApiKeyString", strCustomImgurApiKeyString, "Settings")
             Ini.Write("UpdateAutoCheck", CStr(bAutoUpdateCheck), "Overrides")
-            Ini.Write("ResetState", CStr(intResetState), "States")
+            Ini.Write("StartState", CStr(intStartState), "States")
 #Enable Warning BC42025
         End If
 

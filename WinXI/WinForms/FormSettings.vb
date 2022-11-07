@@ -16,7 +16,7 @@ Public Class FormSettings
 
         SetOptionsThemeAccent()
 
-        PanHead.BackgroundImage = Settings.imgHeaderGraphic
+        pnlTitle.BackgroundImage = Settings.imgHeaderGraphic
 
     End Sub
 
@@ -24,7 +24,7 @@ Public Class FormSettings
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove
+    Private Sub Frame_Move(sender As Object, e As MouseEventArgs) Handles Me.MouseMove, icnMain.MouseMove, tlpTitleIcon.MouseMove, lblTitle.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -45,7 +45,7 @@ Public Class FormSettings
 #End Region
 #Region "Frame Buttons"
 
-    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
         Close()
     End Sub
 
@@ -59,7 +59,7 @@ Public Class FormSettings
         SetControlStates()
 
         'Focus for scroll
-        TlpMain.Select()
+        tlpMain.Select()
 
     End Sub
 
@@ -69,30 +69,30 @@ Public Class FormSettings
 
     Private Sub SetOptionsThemeAccent()
 
-        PanSplit.BackColor = Settings.clrThemeColour
-        tbClientId.ForeColor = Settings.clrThemeColour
+        pnlSplit.BackColor = Settings.clrThemeColour
+        tbxClientId.ForeColor = Settings.clrThemeColour
 
-        For Each Ctrl As Control In TlpShowHardwareCtrls.Controls
+        For Each Ctrl As Control In tlpShowHardwareControls.Controls
             If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.clrThemeColour
         Next
 
-        For Each Ctrl As Control In TlpHardwareModeCtrls.Controls
+        For Each Ctrl As Control In tlpHardwareModeControls.Controls
             If TypeOf Ctrl Is GambolRadioButton Then DirectCast(Ctrl, GambolRadioButton).CheckedColor = Settings.clrThemeColour
         Next
 
-        For Each Ctrl As Control In TlpAssessmentModeCtrls.Controls
+        For Each Ctrl As Control In tlpAssessmentModeControls.Controls
             If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.clrThemeColour
         Next
 
-        For Each Ctrl As Control In TlpThemeColorsCtrls.Controls
+        For Each Ctrl As Control In tlpThemeColorControls.Controls
             If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.clrThemeColour
         Next
 
-        For Each Ctrl As Control In TlpLabImgurClientIDCtrls.Controls
+        For Each Ctrl As Control In tlpImgurControls.Controls
             If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.clrThemeColour
         Next
 
-        For Each Ctrl As Control In PanMain.Controls
+        For Each Ctrl As Control In pnlMain.Controls
             If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = Settings.clrThemeColour
         Next
 
@@ -108,9 +108,9 @@ Public Class FormSettings
 
 #Region "Button Event Handlers"
 
-    Private Sub CmdOkay_Click(sender As Object, e As EventArgs) Handles CmdOkay.Click
+    Private Sub cmdOkay_Click(sender As Object, e As EventArgs) Handles cmdOkay.Click
 
-        WriteClientID()
+        SetCustomClientId()
 
         'Update background integers
         LoadSettingsValues()
@@ -133,11 +133,13 @@ Public Class FormSettings
         'Done
         Close()
 
+        ToastAlert.Show("Application settings updated.", ToastType.Information)
+
     End Sub
 
-    Private Sub CmdApply_Click(sender As Object, e As EventArgs) Handles CmdApply.Click
+    Private Sub cmdApply_Click(sender As Object, e As EventArgs) Handles cmdApply.Click
 
-        WriteClientID()
+        SetCustomClientId()
 
         'Update stored settings variables
         LoadSettingsValues()
@@ -145,19 +147,19 @@ Public Class FormSettings
         'Save new user settings
         Settings.Save()
 
-        'Load new settings to memory
+        'Load new settings
         Settings.Load()
 
-        'Set theme
+        'Uppdate some stuff so an app restart is not needed
         SetOptionsThemeAccent()
         FormMain.SetMainThemeAccent()
         FormMain.UpdateControls()
 
-        ToastAlert.Show("Settings updated.", ToastType.Information)
+        ToastAlert.Show("Application settings updated.", ToastType.Information)
 
     End Sub
 
-    Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click
+    Private Sub cmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click
         Close()
     End Sub
 
@@ -233,10 +235,10 @@ Public Class FormSettings
         End If
 
         If cbxImgurID.Checked Then
-            TlpCustomID.Show()
-            tbClientId.Text = Settings.strCustomImgurApiKeyString
+            tlpCustomIDControls.Show()
+            tbxClientId.Text = Settings.strCustomImgurApiKeyString
         Else
-            TlpCustomID.Hide()
+            tlpCustomIDControls.Hide()
         End If
 
         If Settings.bAutoUpdateCheck Then
@@ -312,7 +314,7 @@ Public Class FormSettings
         If Not cbxImgurID.Checked Then
             Settings.bUseCustomImgurApiKey = False
         Else
-            If cbxImgurID.Checked And tbClientId.Text.Length = 0 Then
+            If cbxImgurID.Checked And tbxClientId.Text.Length = 0 Then
                 Settings.bUseCustomImgurApiKey = False
             Else
                 Settings.bUseCustomImgurApiKey = True
@@ -328,25 +330,25 @@ Public Class FormSettings
 
     End Sub
 
-    Private Sub WriteClientID()
+    Private Sub SetCustomClientId()
 
         If Not cbxImgurID.Checked Then
             Settings.strCustomImgurApiKeyString = ""
         Else
-            Settings.strCustomImgurApiKeyString = tbClientId.Text
+            Settings.strCustomImgurApiKeyString = tbxClientId.Text
         End If
 
     End Sub
 
-    Private Sub GcbImgurID_CheckedChanged(sender As Object, e As EventArgs) Handles cbxImgurID.CheckedChanged
+    Private Sub cbxImgurID_CheckedChanged(sender As Object, e As EventArgs) Handles cbxImgurID.CheckedChanged
 
         If Not CType(sender, GambolCheckbox).Checked Then
             'Custom ID disabled
-            TlpCustomID.Hide()
+            tlpCustomIDControls.Hide()
         Else
-            TlpCustomID.Show()
+            tlpCustomIDControls.Show()
             'Custom ID enabled
-            CueText.SetCueText(tbClientId, "Enter Client ID")
+            CueText.SetCueText(tbxClientId, "Enter Client ID")
         End If
 
     End Sub

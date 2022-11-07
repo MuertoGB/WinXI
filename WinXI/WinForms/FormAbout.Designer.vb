@@ -298,8 +298,6 @@ Partial Class FormAbout
         Me.MinimumSize = New System.Drawing.Size(520, 310)
         Me.Name = "FormAbout"
         Me.Padding = New System.Windows.Forms.Padding(1)
-        Me.ShowIcon = False
-        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "About"
         Me.pnlTitle.ResumeLayout(False)

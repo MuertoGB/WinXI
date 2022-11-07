@@ -312,7 +312,7 @@ Partial Class FormAcknowledgements
         Me.lnkGraph.Name = "lnkGraph"
         Me.lnkGraph.Size = New System.Drawing.Size(439, 40)
         Me.lnkGraph.TabIndex = 1
-        Me.lnkGraph.Text = "Graph icon by Vectors Market from Flaticon."
+        Me.lnkGraph.Text = "Graph icon by Andrean Prabowo from Flaticon."
         Me.lnkGraph.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lnkWarn
@@ -363,7 +363,7 @@ Partial Class FormAcknowledgements
         Me.lblImages.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.lblImages.Size = New System.Drawing.Size(500, 30)
         Me.lblImages.TabIndex = 127
-        Me.lblImages.Text = "Image Resources"
+        Me.lblImages.Text = "Images"
         Me.lblImages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblCopyrights
@@ -415,7 +415,7 @@ Partial Class FormAcknowledgements
         Me.lblThanks.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.lblThanks.Size = New System.Drawing.Size(500, 30)
         Me.lblThanks.TabIndex = 126
-        Me.lblThanks.Text = "Thank you"
+        Me.lblThanks.Text = "Thanks"
         Me.lblThanks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lnkCredits
@@ -463,7 +463,6 @@ Partial Class FormAcknowledgements
         Me.MinimumSize = New System.Drawing.Size(520, 520)
         Me.Name = "FormAcknowledgements"
         Me.Padding = New System.Windows.Forms.Padding(1)
-        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Acknowledgements"
         Me.pnlTitle.ResumeLayout(False)

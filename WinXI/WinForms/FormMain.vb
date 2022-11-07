@@ -974,9 +974,7 @@ Public Class FormMain
 #Region "Context Menu (Debug)"
 
     Private Sub ThrowUnhandledExceptionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ThrowUnhandledExceptionToolStripMenuItem.Click
-
         Process.Start("sohowdoyouplanonsavingtheworld?")
-
     End Sub
 
     Private Sub ShowToastInfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToastInfoToolStripMenuItem.Click
@@ -1006,6 +1004,16 @@ Public Class FormMain
         Fade.FadeBehindChild(Me)
 
         Dim F As New FormHotfix
+        AddHandler F.FormClosing, AddressOf ChildFormClosedNoRefresh
+        F.ShowDialog()
+
+    End Sub
+
+    Private Sub OpenStartupMessageWindowToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenStartupMessageWindowToolStripMenuItem.Click
+
+        Fade.FadeBehindChild(Me)
+
+        Dim F As New FormStartupMessage
         AddHandler F.FormClosing, AddressOf ChildFormClosedNoRefresh
         F.ShowDialog()
 

@@ -330,7 +330,6 @@ Partial Class FormException
         Me.MinimumSize = New System.Drawing.Size(590, 345)
         Me.Name = "FormException"
         Me.Padding = New System.Windows.Forms.Padding(1)
-        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Exception Handler"
         Me.pnlTitle.ResumeLayout(False)

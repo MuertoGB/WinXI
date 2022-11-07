@@ -141,16 +141,6 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property ImgMainIcon64Px() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("ImgMainIcon64Px", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
         Friend ReadOnly Property imgMuerto() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("imgMuerto", resourceCulture)
@@ -222,7 +212,7 @@ Namespace My.Resources
         '''UpdateAutoCheck=false
         '''
         '''[States]
-        '''ResetState=0.
+        '''StartState=0.
         '''</summary>
         Friend ReadOnly Property Settings() As String
             Get

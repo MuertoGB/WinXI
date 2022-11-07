@@ -27,13 +27,13 @@ Partial Class FormElevate
         Me.cmdElevate = New System.Windows.Forms.Button()
         Me.pnlTitle = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
+        Me.tlpCloseButton = New System.Windows.Forms.TableLayoutPanel()
         Me.tlpTitleIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.icnMain = New System.Windows.Forms.PictureBox()
         Me.pnlMain = New System.Windows.Forms.Panel()
         Me.pnlSplit = New System.Windows.Forms.Panel()
         Me.tlpControls = New System.Windows.Forms.TableLayoutPanel()
         Me.cmdDecline = New System.Windows.Forms.Button()
-        Me.tlpCloseButton = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlTitle.SuspendLayout()
         Me.tlpTitleIcon.SuspendLayout()
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,6 +102,20 @@ Partial Class FormElevate
         Me.lblTitle.TabIndex = 1
         Me.lblTitle.Text = "Elevation Required"
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'tlpCloseButton
+        '
+        Me.tlpCloseButton.BackColor = System.Drawing.Color.Transparent
+        Me.tlpCloseButton.ColumnCount = 1
+        Me.tlpCloseButton.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpCloseButton.Dock = System.Windows.Forms.DockStyle.Right
+        Me.tlpCloseButton.Location = New System.Drawing.Point(388, 0)
+        Me.tlpCloseButton.Margin = New System.Windows.Forms.Padding(2)
+        Me.tlpCloseButton.Name = "tlpCloseButton"
+        Me.tlpCloseButton.RowCount = 1
+        Me.tlpCloseButton.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpCloseButton.Size = New System.Drawing.Size(40, 40)
+        Me.tlpCloseButton.TabIndex = 11
         '
         'tlpTitleIcon
         '
@@ -193,20 +207,6 @@ Partial Class FormElevate
         Me.cmdDecline.Text = "DECLINE"
         Me.cmdDecline.UseVisualStyleBackColor = False
         '
-        'tlpCloseButton
-        '
-        Me.tlpCloseButton.BackColor = System.Drawing.Color.Transparent
-        Me.tlpCloseButton.ColumnCount = 1
-        Me.tlpCloseButton.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tlpCloseButton.Dock = System.Windows.Forms.DockStyle.Right
-        Me.tlpCloseButton.Location = New System.Drawing.Point(388, 0)
-        Me.tlpCloseButton.Margin = New System.Windows.Forms.Padding(2)
-        Me.tlpCloseButton.Name = "tlpCloseButton"
-        Me.tlpCloseButton.RowCount = 1
-        Me.tlpCloseButton.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tlpCloseButton.Size = New System.Drawing.Size(40, 40)
-        Me.tlpCloseButton.TabIndex = 11
-        '
         'FormElevate
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -224,7 +224,6 @@ Partial Class FormElevate
         Me.MinimumSize = New System.Drawing.Size(430, 210)
         Me.Name = "FormElevate"
         Me.Padding = New System.Windows.Forms.Padding(1)
-        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Elevate"
         Me.pnlTitle.ResumeLayout(False)
