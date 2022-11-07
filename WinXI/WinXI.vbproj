@@ -124,6 +124,7 @@
     <Compile Include="Core\MemoryType.vb" />
     <Compile Include="Gambol\Colors.vb" />
     <Compile Include="Core\Common\IniFile.vb" />
+    <Compile Include="Hotfix.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,7 +145,6 @@
     <Compile Include="Core\System\Network.vb" />
     <Compile Include="Core\System\WinSystem.vb" />
     <Compile Include="Core\System\Power.vb" />
-    <Compile Include="Core\Common\Knowledgebase.vb" />
     <Compile Include="Gambol\Controls\Design\GambolCheckboxDesigner.vb" />
     <Compile Include="Gambol\Controls\Design\GambolRadioButtonDesigner.vb" />
     <Compile Include="Gambol\Controls\Design\GambolSwitchDesigner.vb" />
@@ -188,13 +188,13 @@
     </Compile>
     <Compile Include="Variables\Booleans.vb" />
     <Compile Include="Variables\Integers.vb" />
-    <Compile Include="Winsat\WinsatState.vb" />
+    <Compile Include="WinSAT\WinsatState.vb" />
     <Compile Include="UpdateCheck.vb" />
     <Compile Include="Variables\Colors.vb" />
     <Compile Include="Variables\Files.vb" />
     <Compile Include="Variables\Directories.vb" />
     <Compile Include="Variables\Strings.vb" />
-    <Compile Include="Winsat\WinsatReader.vb" />
+    <Compile Include="WinSAT\WinsatReader.vb" />
     <Compile Include="WinForms\Toast\ToastAlert.vb" />
     <Compile Include="WinForms\Toast\Taskbar.vb" />
     <Compile Include="WinForms\Assessment\FormAssess.Designer.vb">
@@ -270,7 +270,7 @@
     <Compile Include="WinForms\FormUpdate.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Winsat\WinsatApi.vb" />
+    <Compile Include="WinSAT\WinsatApi.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="WinForms\FormAcknowledgements.resx">

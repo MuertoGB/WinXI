@@ -1,4 +1,4 @@
-﻿'   01.11.2022 - DR - Fixed bad loop implimentation, could have become stuck indefinitely
+﻿'   01.11.2022 - DR - Fixed bad loop implementation, could have become stuck indefinitely
 '   02.11.2022 - DR - Image creation wait handled better
 
 Imports System.IO

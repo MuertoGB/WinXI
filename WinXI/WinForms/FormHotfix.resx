@@ -117,11 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblInfoTwo.Text" xml:space="preserve">
-    <value>Click 'Install' to patch this system with KB2687862, or click 'Cancel' to ignore this warning. For more details click the link below. Please save any work before you continue as a restart may be required.</value>
-  </data>
   <data name="lblInfo.Text" xml:space="preserve">
-    <value>This system is missing an update that fixes a bug in the Windows Experience Index. If you're receiving the error "Failed to properly assess the disk. The parameter is incorrect." when running an assessment, you can install the update from here.
+    <value>This system could be affected by bug in the Windows Experience Index. If you're receiving the error: "Failed to properly assess the disk. The parameter is incorrect." during an assessment, you can install the update from here.
 </value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />

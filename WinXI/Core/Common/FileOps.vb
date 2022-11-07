@@ -2,17 +2,7 @@
 '   09.03.2021 - DR - Remove MoveSafely()
 '   Checked for WinXI on 30.10.2022
 '   01.11.2022 - DR - Remove unused var, cleanup
-
-'  -------------------------------------------------------------------------
-
-'  ExecTask and InstallMsu are original content by DavidXanatos and are
-'  licensed under the GNU General Public License v3.0. See the license
-'  terms here:
-'  https://github.com/DavidXanatos/wumgr/blob/master/LICENSE
-
-'  Code converted to VB.NET by Muerto which is being disclosed per the
-'  license terms. Apart from the conversion no code was changed in these
-'  routines apart from some simplifications.
+'   07.11.2022 - DR - Move ExecTask and InstallMsu in preperation for Hotfix.vb
 
 Imports System.IO
 Imports System.Text
@@ -49,42 +39,6 @@ Namespace Core.Common
             Next
 
             Return CType(IIf(UpperCase, strBuilder.ToString.ToUpper(), strBuilder.ToString()), String)
-
-        End Function
-
-#End Region
-
-#Region "Install MSU file"
-        Public Shared Function InstallMsu(ByVal FileName As String) As Integer
-            Dim psiInfo As ProcessStartInfo = New ProcessStartInfo With {
-                .FileName = "%SystemRoot%\System32\wusa.exe",
-                .Arguments = """" & FileName & """ /quiet /norestart"
-            }
-            Return ExecTask(psiInfo)
-        End Function
-
-        Public Shared Function ExecTask(ByVal StartInfo As ProcessStartInfo, ByVal Optional SilentInstall As Boolean = True) As Integer
-
-            StartInfo.FileName = Environment.ExpandEnvironmentVariables(StartInfo.FileName)
-
-            If SilentInstall Then
-                With StartInfo
-                    .RedirectStandardOutput = True
-                    .RedirectStandardError = True
-                    .UseShellExecute = False
-                    .CreateNoWindow = True
-                End With
-            End If
-
-            Dim pNew As Process = New Process With {
-                .StartInfo = StartInfo,
-                .EnableRaisingEvents = True
-            }
-
-            pNew.Start()
-            pNew.WaitForExit()
-
-            Return pNew.ExitCode
 
         End Function
 

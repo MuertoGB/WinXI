@@ -78,8 +78,10 @@ Partial Class FormSettings
         Me.lblClientID = New System.Windows.Forms.Label()
         Me.pnlOverrides = New System.Windows.Forms.Panel()
         Me.tlpOverrides = New System.Windows.Forms.TableLayoutPanel()
+        Me.pnlSep8 = New System.Windows.Forms.PictureBox()
         Me.cbxAutoUpdateCheck = New WinXI.Gambol.Controls.GambolCheckbox()
         Me.pnlSep7 = New System.Windows.Forms.PictureBox()
+        Me.cbxHideNotifications = New WinXI.Gambol.Controls.GambolCheckbox()
         Me.lblOverridesText = New System.Windows.Forms.Label()
         Me.lblOverrides = New System.Windows.Forms.Label()
         Me.cmdApply = New System.Windows.Forms.Button()
@@ -109,6 +111,7 @@ Partial Class FormSettings
         CType(Me.pnlSep6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlOverrides.SuspendLayout()
         Me.tlpOverrides.SuspendLayout()
+        CType(Me.pnlSep8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pnlSep7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -499,7 +502,7 @@ Partial Class FormSettings
         Me.lblAssessmentModeText.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.lblAssessmentModeText.Size = New System.Drawing.Size(495, 21)
         Me.lblAssessmentModeText.TabIndex = 0
-        Me.lblAssessmentModeText.Text = "· Enables a larger window and real time logging in the assessment"
+        Me.lblAssessmentModeText.Text = "· Sets the main assessment button to use in-depth mode"
         Me.lblAssessmentModeText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblAssessmentMode
@@ -673,9 +676,9 @@ Partial Class FormSettings
         Me.cbxApplyToBorder.Location = New System.Drawing.Point(332, 16)
         Me.cbxApplyToBorder.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxApplyToBorder.Name = "cbxApplyToBorder"
-        Me.cbxApplyToBorder.Size = New System.Drawing.Size(171, 22)
+        Me.cbxApplyToBorder.Size = New System.Drawing.Size(161, 22)
         Me.cbxApplyToBorder.TabIndex = 119
-        Me.cbxApplyToBorder.Text = "Apply to border"
+        Me.cbxApplyToBorder.Text = "Apply to Borders"
         '
         'rbnYellow7
         '
@@ -930,12 +933,15 @@ Partial Class FormSettings
         'tlpOverrides
         '
         Me.tlpOverrides.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.tlpOverrides.ColumnCount = 2
+        Me.tlpOverrides.ColumnCount = 4
         Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 475.0!))
+        Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230.0!))
         Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpOverrides.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 225.0!))
+        Me.tlpOverrides.Controls.Add(Me.pnlSep8, 0, 0)
         Me.tlpOverrides.Controls.Add(Me.cbxAutoUpdateCheck, 0, 0)
         Me.tlpOverrides.Controls.Add(Me.pnlSep7, 0, 0)
+        Me.tlpOverrides.Controls.Add(Me.cbxHideNotifications, 3, 0)
         Me.tlpOverrides.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tlpOverrides.Location = New System.Drawing.Point(0, 45)
         Me.tlpOverrides.Margin = New System.Windows.Forms.Padding(2)
@@ -944,6 +950,17 @@ Partial Class FormSettings
         Me.tlpOverrides.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.tlpOverrides.Size = New System.Drawing.Size(495, 55)
         Me.tlpOverrides.TabIndex = 133
+        '
+        'pnlSep8
+        '
+        Me.pnlSep8.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pnlSep8.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(110, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.pnlSep8.Location = New System.Drawing.Point(259, 12)
+        Me.pnlSep8.Margin = New System.Windows.Forms.Padding(2)
+        Me.pnlSep8.Name = "pnlSep8"
+        Me.pnlSep8.Size = New System.Drawing.Size(1, 30)
+        Me.pnlSep8.TabIndex = 123
+        Me.pnlSep8.TabStop = False
         '
         'cbxAutoUpdateCheck
         '
@@ -958,7 +975,7 @@ Partial Class FormSettings
         Me.cbxAutoUpdateCheck.Location = New System.Drawing.Point(22, 16)
         Me.cbxAutoUpdateCheck.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxAutoUpdateCheck.Name = "cbxAutoUpdateCheck"
-        Me.cbxAutoUpdateCheck.Size = New System.Drawing.Size(235, 22)
+        Me.cbxAutoUpdateCheck.Size = New System.Drawing.Size(225, 22)
         Me.cbxAutoUpdateCheck.TabIndex = 121
         Me.cbxAutoUpdateCheck.Text = "Automatic Update Check"
         '
@@ -972,6 +989,23 @@ Partial Class FormSettings
         Me.pnlSep7.Size = New System.Drawing.Size(1, 30)
         Me.pnlSep7.TabIndex = 0
         Me.pnlSep7.TabStop = False
+        '
+        'cbxHideNotifications
+        '
+        Me.cbxHideNotifications.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.cbxHideNotifications.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.cbxHideNotifications.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.cbxHideNotifications.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.cbxHideNotifications.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cbxHideNotifications.ClientColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cbxHideNotifications.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cbxHideNotifications.ForeColor = System.Drawing.Color.White
+        Me.cbxHideNotifications.Location = New System.Drawing.Point(272, 16)
+        Me.cbxHideNotifications.Margin = New System.Windows.Forms.Padding(2)
+        Me.cbxHideNotifications.Name = "cbxHideNotifications"
+        Me.cbxHideNotifications.Size = New System.Drawing.Size(171, 22)
+        Me.cbxHideNotifications.TabIndex = 122
+        Me.cbxHideNotifications.Text = "Hide Notifications"
         '
         'lblOverridesText
         '
@@ -1116,6 +1150,7 @@ Partial Class FormSettings
         CType(Me.pnlSep6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlOverrides.ResumeLayout(False)
         Me.tlpOverrides.ResumeLayout(False)
+        CType(Me.pnlSep8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pnlSep7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -1181,4 +1216,6 @@ Partial Class FormSettings
     Friend WithEvents lblOverridesText As Label
     Friend WithEvents lblOverrides As Label
     Friend WithEvents pnlSep5 As Panel
+    Friend WithEvents pnlSep8 As PictureBox
+    Friend WithEvents cbxHideNotifications As GambolCheckbox
 End Class

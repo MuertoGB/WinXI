@@ -269,26 +269,6 @@ Public Class FormMain
 
     Private Sub CheckNotifications()
 
-        'Updated 07.10.2019
-        'All hotfixes are loaded from WMI into a data array which can be referenced faster with less overhead.
-        'This means we're not iterating through every hotfix in WMI multiple times. Good news for slower processors.
-        Dim ListOfUpdates As HashSet(Of String) = Knowledgebase.EnumerateHotfixes
-
-        'Moved from Program.vb. Holds back spawn time on Win7.
-        If WinSystem.IsWin7() Then
-            'Check convenience rollup KB3125574
-            If Not ListOfUpdates.Contains("KB3125574") Then 'Rollup missing, so...
-                'Check for older patch KB2687862
-                If Not ListOfUpdates.Contains("KB2687862") Then
-                    Booleans.bMissingHotfix = True 'Still missing
-                Else
-                    Booleans.bMissingHotfix = False 'Installed
-                End If
-            Else
-                Booleans.bMissingHotfix = False 'Installed
-            End If
-        End If
-
         If Settings.bAutoUpdateCheck Then
             If UpdateCheck.IsNewVersionAvailable() Then
                 Booleans.bMissingUpdate = True
@@ -301,7 +281,7 @@ Public Class FormMain
 
     Private Sub OnFinishedCheckNotifications()
 
-        If Booleans.bMissingHotfix Then
+        If Hotfix.bIsWinSATAffected Then
             Integers.intNotificationCount += 1
             UpdateToolstripHotfixItem()
         End If

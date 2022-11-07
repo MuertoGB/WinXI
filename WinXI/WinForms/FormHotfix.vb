@@ -159,7 +159,7 @@ Public Class FormHotfix
 
     Private Sub InstallHotfix()
 
-        intExitCode = FileOps.InstallMsu(strTempPath)
+        intExitCode = Hotfix.InstallMsu(strTempPath)
         Invoke(DirectCast(Sub() OnInstallFinished(), MethodInvoker))
 
     End Sub

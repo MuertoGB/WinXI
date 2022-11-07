@@ -1,5 +1,5 @@
 ﻿'   01.02.2020 - CA - Revert settings var CreateFilepath, enhanced deletion of config files
-'   01.11.2022 - DR - Impliment elevation changes
+'   01.11.2022 - DR - Implement elevation changes
 '   06.11.2022 - DR - Add compatibility.ini to deletion list
 
 Imports System.IO

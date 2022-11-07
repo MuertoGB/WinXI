@@ -163,7 +163,9 @@ Partial Class FormHotfix
         Me.lblInfoTwo.Padding = New System.Windows.Forms.Padding(8, 0, 0, 0)
         Me.lblInfoTwo.Size = New System.Drawing.Size(563, 88)
         Me.lblInfoTwo.TabIndex = 132
-        Me.lblInfoTwo.Text = resources.GetString("lblInfoTwo.Text")
+        Me.lblInfoTwo.Text = "Click 'Install' to patch this system with KB2687862, or 'Cancel' to ignore. For m" &
+    "ore details click the link below. Please save any work before you continue as a " &
+    "restart may be required."
         Me.lblInfoTwo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'tlpLink

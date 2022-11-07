@@ -11,6 +11,7 @@
 '   02.11.2022 - DR - Edited Main() load order, supress naming violations globally
 '   03.11.2022 - DR - Move to BETA channel, removed single use variable
 '   06.11.2022 - DR - Move DoesFontExist()
+'   07.11.2022 - DR - Implement hotfix detection changes on Windows 7
 
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports System.Runtime.CompilerServices
@@ -25,7 +26,7 @@ Friend Class Program
     Inherits Signing
 
     'Stuff to fill before release
-    Friend Const Build As String = "221106.220.012"
+    Friend Const Build As String = "221106.220.015"
     Friend Const Channel As String = "BETA"
     Friend Const ReleaseDate As String = "Not set"
 
@@ -44,6 +45,9 @@ Friend Class Program
 
         'Perform WinSAT capability check
         WinSystem.bIsWinsatCapable = CBool(IIf(WinSystem.IsWinSATCapable, True, False))
+
+        'Check if WinSAT is affected by known bug (Windows 7)
+        Hotfix.bIsWinSATAffected = CBool(IIf(Hotfix.IsWinSATAffected, True, False))
 
         'Settings
         Settings.Create() 'Performs a check, creates file if missing.
