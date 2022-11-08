@@ -37,7 +37,7 @@ Partial Class FormMain
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItemExplorer = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblHead = New System.Windows.Forms.Label()
-        Me.lblScale = New System.Windows.Forms.Label()
+        Me.lblSystemVersionWEIString = New System.Windows.Forms.Label()
         Me.lblDiskScore = New System.Windows.Forms.Label()
         Me.lblGamingScore = New System.Windows.Forms.Label()
         Me.lblGraphicsScore = New System.Windows.Forms.Label()
@@ -93,7 +93,6 @@ Partial Class FormMain
         Me.tlpBottom = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlShowHardware = New System.Windows.Forms.Panel()
         Me.tlpHardwareSwitch = New System.Windows.Forms.TableLayoutPanel()
-        Me.swHardware = New WinXI.Gambol.Controls.GambolSwitch()
         Me.lblShowHToggle = New System.Windows.Forms.Label()
         Me.cmdRunInDepth = New System.Windows.Forms.Button()
         Me.pnlValidity = New System.Windows.Forms.Panel()
@@ -152,6 +151,7 @@ Partial Class FormMain
         Me.OpenElevationWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenHotfixWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenStartupMessageWindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.swHardware = New WinXI.Gambol.Controls.GambolSwitch()
         CType(Me.icnMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsExplorerMenu.SuspendLayout()
         Me.pnlTitle.SuspendLayout()
@@ -279,20 +279,20 @@ Partial Class FormMain
         Me.lblHead.Text = "WinXI - Experience Index Tool"
         Me.lblHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lblScale
+        'lblSystemVersionWEIString
         '
-        Me.lblScale.AutoEllipsis = True
-        Me.lblScale.BackColor = System.Drawing.Color.Transparent
-        Me.lblScale.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblScale.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblScale.ForeColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer))
-        Me.lblScale.Location = New System.Drawing.Point(4, 0)
-        Me.lblScale.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblScale.Name = "lblScale"
-        Me.lblScale.Size = New System.Drawing.Size(690, 38)
-        Me.lblScale.TabIndex = 27
-        Me.lblScale.Text = "..."
-        Me.lblScale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblSystemVersionWEIString.AutoEllipsis = True
+        Me.lblSystemVersionWEIString.BackColor = System.Drawing.Color.Transparent
+        Me.lblSystemVersionWEIString.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblSystemVersionWEIString.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSystemVersionWEIString.ForeColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.lblSystemVersionWEIString.Location = New System.Drawing.Point(4, 0)
+        Me.lblSystemVersionWEIString.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblSystemVersionWEIString.Name = "lblSystemVersionWEIString"
+        Me.lblSystemVersionWEIString.Size = New System.Drawing.Size(690, 38)
+        Me.lblSystemVersionWEIString.TabIndex = 27
+        Me.lblSystemVersionWEIString.Text = "..."
+        Me.lblSystemVersionWEIString.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblDiskScore
         '
@@ -891,7 +891,7 @@ Partial Class FormMain
         Me.tlpTop.ColumnCount = 2
         Me.tlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.36323!))
         Me.tlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.63677!))
-        Me.tlpTop.Controls.Add(Me.lblScale, 0, 0)
+        Me.tlpTop.Controls.Add(Me.lblSystemVersionWEIString, 0, 0)
         Me.tlpTop.Controls.Add(Me.cmdRunAssessmentMain, 1, 0)
         Me.tlpTop.Location = New System.Drawing.Point(16, 19)
         Me.tlpTop.Margin = New System.Windows.Forms.Padding(2)
@@ -1173,21 +1173,6 @@ Partial Class FormMain
         Me.tlpHardwareSwitch.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.tlpHardwareSwitch.Size = New System.Drawing.Size(56, 37)
         Me.tlpHardwareSwitch.TabIndex = 1
-        '
-        'swHardware
-        '
-        Me.swHardware.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.swHardware.BackColor = System.Drawing.Color.Black
-        Me.swHardware.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
-        Me.swHardware.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.swHardware.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.swHardware.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.swHardware.Location = New System.Drawing.Point(9, 8)
-        Me.swHardware.Margin = New System.Windows.Forms.Padding(4)
-        Me.swHardware.Name = "swHardware"
-        Me.swHardware.Size = New System.Drawing.Size(38, 21)
-        Me.swHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(CType(CType(170, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(170, Byte), Integer))
-        Me.swHardware.TabIndex = 1
         '
         'lblShowHToggle
         '
@@ -1794,6 +1779,21 @@ Partial Class FormMain
         Me.OpenStartupMessageWindowToolStripMenuItem.Size = New System.Drawing.Size(294, 28)
         Me.OpenStartupMessageWindowToolStripMenuItem.Text = "Open Startup Message Window"
         '
+        'swHardware
+        '
+        Me.swHardware.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.swHardware.BackColor = System.Drawing.Color.Black
+        Me.swHardware.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.swHardware.BorderColorActive = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.swHardware.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.swHardware.ClientColorActive = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.swHardware.Location = New System.Drawing.Point(9, 8)
+        Me.swHardware.Margin = New System.Windows.Forms.Padding(4)
+        Me.swHardware.Name = "swHardware"
+        Me.swHardware.Size = New System.Drawing.Size(38, 21)
+        Me.swHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(CType(CType(170, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(170, Byte), Integer))
+        Me.swHardware.TabIndex = 1
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -1876,7 +1876,7 @@ Partial Class FormMain
     Friend WithEvents lblGaming As System.Windows.Forms.Label
     Friend WithEvents lblGraphics As System.Windows.Forms.Label
     Friend WithEvents lblMemory As System.Windows.Forms.Label
-    Friend WithEvents lblScale As System.Windows.Forms.Label
+    Friend WithEvents lblSystemVersionWEIString As System.Windows.Forms.Label
     Friend WithEvents cmdOpenOptionsMenu As System.Windows.Forms.Button
     Friend WithEvents cmdOpenHelpMenu As System.Windows.Forms.Button
     Friend WithEvents cmdOpenExportMenu As System.Windows.Forms.Button

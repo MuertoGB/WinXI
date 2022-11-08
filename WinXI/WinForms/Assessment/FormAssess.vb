@@ -38,7 +38,7 @@ Friend Class FormAssess
 
         SetAssessThemeAccent()
 
-        If Not Program.bUseVerboseAssessment Then
+        If Not Program.bUseVerboseAssessmentOverride Then
 
             'Switch to standard assessment layout
             Size = New Size(520, 275)
@@ -314,7 +314,7 @@ Friend Class FormAssess
             Logger.Log("Process finished", LogType.InfoLog, RtbLog)
             Logger.Log("(ヘ･_･)ヘ┳━┳", LogType.InfoLog, RtbLog)
 
-            If Not Program.bUseVerboseAssessment Then
+            If Not Program.bUseVerboseAssessmentOverride Then
                 LabMinMode.Text = WinsatReader.GetExitCodeString(WinsatReader.GetExitCode)
             End If
 
@@ -360,7 +360,7 @@ Friend Class FormAssess
             Logger.Log("Tests: DWM (DX9), Processor, Memory, Disk", LogType.InfoLog, RtbLog)
         End If
 
-        If Program.bUseVerboseAssessment Then
+        If Program.bUseVerboseAssessmentOverride Then
             Logger.Log("Mode: Verbose", LogType.WinXILog, RtbLog)
         Else
             Logger.Log("Mode: Normal", LogType.WinXILog, RtbLog)
@@ -459,6 +459,7 @@ Friend Class FormAssess
 
         'CPU
         If StringAsync.Contains("CPU Assessment v1.0.0.0 '-encryption'") Then
+            ShowHighProcessorUsage()
             LabStatus.Text = "Assessing CPU Performance [1/4]..."
             IntProgress = 64
         End If
@@ -477,6 +478,7 @@ Friend Class FormAssess
 
         'MEMORY
         If StringAsync.Contains("System memory performance") Then
+            ShowHighProcessorUsageEnd()
             LabStatus.Text = "Assessing Memory Performance..."
             IntProgress = 92
         End If
@@ -579,7 +581,7 @@ Friend Class FormAssess
 
         'CPU
         If StringAsync.Contains("'-encryption -up'") Then
-            StringLag()
+            ShowHighProcessorUsage()
             LabStatus.Text = "Assessing CPU Performance [1/8]..."
             IntProgress = 50
         End If
@@ -613,7 +615,7 @@ Friend Class FormAssess
         End If
         'MEMORY
         If StringAsync.Contains(Culture.MemoryStr) Then
-            StringNormal()
+            ShowHighProcessorUsageEnd()
             LabStatus.Text = "Assessing Memory Performance [1/1]..."
             IntProgress = 90
         End If
@@ -640,11 +642,11 @@ Friend Class FormAssess
 
     End Sub
 
-    Private Sub StringLag()
+    Private Sub ShowHighProcessorUsage()
 
-        Dim StrWarn As String = "High processor usage expected. Try not to use your Computer as it may affect your CPU score."
+        Dim StrWarn As String = "High processor usage expected. Try not to use your system as it may affect your CPU score."
 
-        If Not Program.bUseVerboseAssessment Then
+        If Not Program.bUseVerboseAssessmentOverride Then
             LabMinMode.Text = StrWarn
         Else
             Logger.Log(StrWarn, LogType.WinXILog, RtbLog)
@@ -652,9 +654,9 @@ Friend Class FormAssess
 
     End Sub
 
-    Private Sub StringNormal()
+    Private Sub ShowHighProcessorUsageEnd()
 
-        If Not Program.bUseVerboseAssessment Then
+        If Not Program.bUseVerboseAssessmentOverride Then
             LabMinMode.Text = "Your screen may flash or go black during the assessment."
         Else
             Logger.Log("High processor usage end.", LogType.WinXILog, RtbLog)

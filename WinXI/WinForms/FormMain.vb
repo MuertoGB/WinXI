@@ -249,7 +249,7 @@ Public Class FormMain
         Dim strVersion As String = CStr(IIf(WinSystem.IsWin10, WinSystem.BuildBranch, WinSystem.CurrentBuild))
         lblWinVerString.Text = WinSystem.GetProductName & " " & strVersion & " " & WinSystem.GetWindowsBitness
 
-        lblScale.Text = DetermineScaleOf()
+        lblSystemVersionWEIString.Text = GetSystemVersionWEIString()
 
         'Load scores
         WinsatReader.GetWinsatSPR()
@@ -368,25 +368,12 @@ Public Class FormMain
 #End Region
 
 #Region "Button Event Handlers"
-    Private Sub BtnRun_Click(sender As Object, e As EventArgs) Handles cmdRunAssessmentMain.Click
-        If Not Power.IsAdapterPluggedIn() Then
-            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
-        Else
-            If Not Elevation.bIsElevated Then
-                RequestElevation()
-            Else
-                If Settings.bUseVerboseAssessmentMode = True Then
-                    Program.bUseVerboseAssessment = True
-                Else
-                    Program.bUseVerboseAssessment = False
-                End If
+    Private Sub cmdRunAssessmentMain_Click(sender As Object, e As EventArgs) Handles cmdRunAssessmentMain.Click
 
-                Fade.FadeBehindChild(Me)
-                Dim Frm As New FormAssess
-                AddHandler Frm.FormClosed, AddressOf ChildFormClosedRefreshUI
-                Frm.ShowDialog()
-            End If
-        End If
+        Dim ctrlThis As Button = CType(sender, Button)
+        Dim strCtrl As String = ctrlThis.Name
+
+        RunAssessment(strCtrl)
 
     End Sub
     Private Sub CmdMetrics_Click(sender As Object, e As EventArgs) Handles cmdMetrics.Click
@@ -403,21 +390,10 @@ Public Class FormMain
     End Sub
     Private Sub CmdRunInDepth_Click(sender As Object, e As EventArgs) Handles cmdRunInDepth.Click
 
-        If Not Power.IsAdapterPluggedIn() Then
-            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
-        Else
-            If Not Elevation.bIsElevated Then
-                RequestElevation()
-            Else
-                'Override settings
-                Program.bUseVerboseAssessment = True
+        Dim ctrlThis As Button = CType(sender, Button)
+        Dim strCtrl As String = ctrlThis.Name
 
-                Fade.FadeBehindChild(Me)
-                Dim Frm As New FormAssess
-                AddHandler Frm.FormClosed, AddressOf ChildFormClosedRefreshUI
-                Frm.ShowDialog()
-            End If
-        End If
+        RunAssessment(strCtrl)
 
     End Sub
 #End Region
@@ -843,41 +819,19 @@ Public Class FormMain
 
     Private Sub RunToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RunToolStripMenuItem.Click
 
-        If Not Power.IsAdapterPluggedIn() Then
-            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
-        Else
-            If Not Elevation.bIsElevated Then
-                RequestElevation()
-            Else
-                'Override settings
-                Program.bUseVerboseAssessment = False
+        Dim ctrlThis As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
+        Dim strCtrl As String = ctrlThis.Name
 
-                Fade.FadeBehindChild(Me)
-                Dim Frm As New FormAssess
-                AddHandler Frm.FormClosed, AddressOf ChildFormClosedRefreshUI
-                Frm.ShowDialog()
-            End If
-        End If
+        RunAssessment(strCtrl)
 
     End Sub
 
     Private Sub RunVerboseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RunVerboseToolStripMenuItem.Click
 
-        If Not Power.IsAdapterPluggedIn() Then
-            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
-        Else
-            If Not Elevation.bIsElevated Then
-                RequestElevation()
-            Else
-                'Override settings
-                Program.bUseVerboseAssessment = True
+        Dim ctrlThis As ToolStripMenuItem = CType(sender, ToolStripMenuItem)
+        Dim strCtrl As String = ctrlThis.Name
 
-                Fade.FadeBehindChild(Me)
-                Dim Frm As New FormAssess
-                AddHandler Frm.FormClosed, AddressOf ChildFormClosedRefreshUI
-                Frm.ShowDialog()
-            End If
-        End If
+        RunAssessment(strCtrl)
 
     End Sub
 
@@ -1042,7 +996,7 @@ Public Class FormMain
 
 #Region "Routines"
 
-    Friend Shared Function DetermineScaleOf() As String
+    Friend Shared Function GetSystemVersionWEIString() As String
 
         Dim strDefault As String = "The Experience Index assesses key system components."
 
@@ -1066,10 +1020,10 @@ Public Class FormMain
         cmdRunAssessmentMain.Hide()
 
         If WinSystem.IsWin10 Then
-            lblScale.Text = "WinXI v" & Application.ProductVersion & " on " & WinSystem.GetProductName() & " · " & WinSystem.CurrentBuild() & " · " _
+            lblSystemVersionWEIString.Text = "WinXI v" & Application.ProductVersion & " on " & WinSystem.GetProductName() & " · " & WinSystem.CurrentBuild() & " · " _
                 & WinSystem.BuildBranch() & " · " & WinSystem.GetWindowsBitness
         Else
-            lblScale.Text = "WinXI v" & Application.ProductVersion & " on " & WinSystem.GetProductName() & " · " _
+            lblSystemVersionWEIString.Text = "WinXI v" & Application.ProductVersion & " on " & WinSystem.GetProductName() & " · " _
                 & WinSystem.GetWindowsBuildLab() & " · " & WinSystem.GetWindowsBitness()
         End If
 
@@ -1077,7 +1031,7 @@ Public Class FormMain
 
     Private Sub ExitPrintMode()
         cmdRunAssessmentMain.Show()
-        lblScale.Text = DetermineScaleOf()
+        lblSystemVersionWEIString.Text = GetSystemVersionWEIString()
     End Sub
 
     Private Sub ChildFormClosedRefreshUI(ByVal sender As Object, ByVal e As EventArgs)
@@ -1229,6 +1183,42 @@ Public Class FormMain
             Dim Frm As New FormElevate
             AddHandler Frm.FormClosed, AddressOf ChildFormClosedNoRefresh
             Frm.ShowDialog()
+        End If
+
+    End Sub
+
+    Private Sub RunAssessment(Control As String)
+
+        'Detect which control called the assessment
+        If Control = RunToolStripMenuItem.Name Then
+            Program.bUseVerboseAssessmentOverride = False
+        End If
+        If Control = RunVerboseToolStripMenuItem.Name Then
+            Program.bUseVerboseAssessmentOverride = True
+        End If
+        If Control = cmdRunAssessmentMain.Name Then
+            If Settings.bUseVerboseAssessmentMode = True Then
+                Program.bUseVerboseAssessmentOverride = True
+            Else
+                Program.bUseVerboseAssessmentOverride = False
+            End If
+        End If
+        If Control = cmdRunInDepth.Name Then
+            Program.bUseVerboseAssessmentOverride = True
+        End If
+
+        'Run the assessment
+        If Not Power.IsAdapterPluggedIn() Then
+            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
+        Else
+            If Not Elevation.bIsElevated Then
+                RequestElevation()
+            Else
+                Fade.FadeBehindChild(Me)
+                Dim Frm As New FormAssess
+                AddHandler Frm.FormClosed, AddressOf ChildFormClosedRefreshUI
+                Frm.ShowDialog()
+            End If
         End If
 
     End Sub

@@ -68,10 +68,10 @@ Partial Class FormElevate
         Me.cmdElevate.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdElevate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.cmdElevate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdElevate.Location = New System.Drawing.Point(332, 8)
+        Me.cmdElevate.Location = New System.Drawing.Point(326, 8)
         Me.cmdElevate.Margin = New System.Windows.Forms.Padding(0, 0, 8, 0)
         Me.cmdElevate.Name = "cmdElevate"
-        Me.cmdElevate.Size = New System.Drawing.Size(88, 35)
+        Me.cmdElevate.Size = New System.Drawing.Size(94, 35)
         Me.cmdElevate.TabIndex = 1
         Me.cmdElevate.Text = "ELEVATE"
         Me.cmdElevate.UseVisualStyleBackColor = False
@@ -173,8 +173,8 @@ Partial Class FormElevate
         'tlpControls
         '
         Me.tlpControls.ColumnCount = 2
-        Me.tlpControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.86916!))
-        Me.tlpControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.13084!))
+        Me.tlpControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.23364!))
+        Me.tlpControls.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.76636!))
         Me.tlpControls.Controls.Add(Me.cmdElevate, 1, 0)
         Me.tlpControls.Controls.Add(Me.cmdDecline, 0, 0)
         Me.tlpControls.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -199,10 +199,10 @@ Partial Class FormElevate
         Me.cmdDecline.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdDecline.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.cmdDecline.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdDecline.Location = New System.Drawing.Point(233, 8)
+        Me.cmdDecline.Location = New System.Drawing.Point(219, 8)
         Me.cmdDecline.Margin = New System.Windows.Forms.Padding(0, 0, 8, 0)
         Me.cmdDecline.Name = "cmdDecline"
-        Me.cmdDecline.Size = New System.Drawing.Size(88, 35)
+        Me.cmdDecline.Size = New System.Drawing.Size(94, 35)
         Me.cmdDecline.TabIndex = 2
         Me.cmdDecline.Text = "DECLINE"
         Me.cmdDecline.UseVisualStyleBackColor = False
